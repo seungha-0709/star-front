@@ -17,7 +17,11 @@ module.exports = {
 	rules: {
 		"generator-star-spacing": "off",
 		indent: ["error", 2],
-		semi: ["error", "never", { beforeStatementContinuationChars: "always" }],
+		semi: [
+			"error",
+			"never",
+			{ beforeStatementContinuationChars: "always" },
+		],
 		quotes: ["off", "single"],
 		"no-console": "off",
 		"comma-dangle": [
