@@ -8,11 +8,10 @@ module.exports = {
 	env: {
 		browser: true,
 		node: true,
-		mocha: true,
 	},
 	extends: "standard",
 	// required to lint *.vue files
-	plugins: ["html", "standard", "vue"],
+	plugins: ["html", "standard"],
 	// add your custom rules here
 	rules: {
 		"generator-star-spacing": "off",
