@@ -55,8 +55,5 @@ module.exports = {
         ];
       }
     },
-    babel: {
-      presets: ["es6"],
-    },
   },
 };
