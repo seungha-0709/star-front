@@ -1,7 +1,11 @@
 {
-	"tabWidth": 4,
-	"useTabs": true,
-	"singleQuote": false,
-	"printWidth": 80,
-	"disableLanguages": ["yaml"]
+  "tabWidth": 2,
+  "useTabs": false,
+  "singleQuote": false,
+  "printWidth": 80,
+  "disableLanguages": ["yaml"],
+  "semi": false,
+  "trailingComma": "none",
+  "bracketSpacing": true,
+  "vueIndentScriptAndStyle": true
 }
