@@ -54,7 +54,15 @@ module.exports = {
           {
             test: /\.js$/,
             loader: "babel-loader",
-            exclude: /(node_modules)/
+            exclude: /(node_modules)/,
+            options: {
+              presets: ["@babel/preset-env"],
+              plugins: [
+                ["@babel/plugin-proposal-class-properties", { loose: true }],
+                "@babel/plugin-transform-runtime",
+                "@babel/plugin-proposal-optional-chaining"
+              ]
+            }
           }
         )
       }
@@ -66,12 +74,5 @@ module.exports = {
         ]
       }
     }
-    // babel: {
-    //   presets: ["@babel/preset-env"],
-    //   plugins: [
-    //     "@babel/plugin-proposal-class-properties",
-    //     "@babel/plugin-proposal-optional-chaining"
-    //   ]
-    // }
   }
 }
