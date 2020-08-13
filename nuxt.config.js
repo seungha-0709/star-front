@@ -2,9 +2,7 @@ const nodeExternals = require("webpack-node-externals")
 const VuetifyLoaderPlugin = require("vuetify-loader/lib/plugin")
 
 module.exports = {
-  /*
-   ** Headers of the page
-   */
+  /* Headers of the page */
   head: {
     title: "star-front",
     meta: [
@@ -30,13 +28,9 @@ module.exports = {
   },
   plugins: ["~/plugins/vuetify.js"],
   css: ["~/assets/style/app.styl"],
-  /*
-   ** Customize the progress bar color
-   */
+  /* Customize the progress bar color */
   loading: { color: "#3B8070" },
-  /*
-   ** Build configuration
-   */
+  /* Build configuration */
   build: {
     transpile: [/^vuetify/],
     plugins: [new VuetifyLoaderPlugin()],
@@ -67,11 +61,7 @@ module.exports = {
         )
       }
       if (process.server) {
-        config.externals = [
-          nodeExternals({
-            whitelist: [/^vuetify/]
-          })
-        ]
+        config.externals = [nodeExternals({ whitelist: [/^vuetify/] })]
       }
     }
   }
