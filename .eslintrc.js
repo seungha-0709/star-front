@@ -14,6 +14,7 @@ module.exports = {
   plugins: ["html", "standard"],
   // add your custom rules here
   rules: {
+    eqeqeq: ["error", "always"],
     indent: ["error", 2],
     "no-tabs": 0,
     semi: [2, "never"],
@@ -24,9 +25,9 @@ module.exports = {
     "space-in-parens": ["error", "never"],
     "no-debugger": process.env.NODE_ENV === "production" ? 2 : 0,
     "space-before-blocks": ["error", "always"],
+    "space-before-function-paren": ["error", "never"],
     "no-empty": "error",
-    "no-duplicate-imports": "error",
-    "space-before-function-paren": ["error", "never"]
+    "no-duplicate-imports": "error"
   },
   globals: {}
 }
