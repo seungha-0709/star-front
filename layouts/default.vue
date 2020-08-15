@@ -10,18 +10,18 @@
 </template>
 
 <script>
-  import HeaderVue from "../components/Header.vue"
-  import FooterVue from "../components/Footer.vue"
-  import GoTopVue from "../components/common/GoTop.vue"
+import HeaderVue from "../components/common/Header.vue"
+import FooterVue from "../components/common/Footer.vue"
+import GoTopVue from "../components/common/GoTop.vue"
 
-  export default {
-    data() {
-      return {}
-    },
-    components: {
-      "header-component": HeaderVue,
-      "footer-component": FooterVue,
-      "go-top-component": GoTopVue
-    }
+export default {
+  data() {
+    return {}
+  },
+  components: {
+    "header-component": HeaderVue,
+    "footer-component": FooterVue,
+    "go-top-component": GoTopVue
   }
+}
 </script>
