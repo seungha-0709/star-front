@@ -1,15 +1,15 @@
 <template>
-	<div class="list">
-		I'm a list
-	</div>
+  <div class="list">
+    I'm a list
+  </div>
 </template>
 <script>
-export default {
-	name: "List",
-};
+  export default {
+    name: "List"
+  }
 </script>
 <style scoped>
-.list {
-	background: #ccc;
-}
+  .list {
+    background: #ccc;
+  }
 </style>
