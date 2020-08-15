@@ -1,6 +1,6 @@
-import { configure } from "@storybook/vue";
+import { configure } from "@storybook/vue"
 function loadStories() {
-	const req = require.context("../stories", true, /\.stories\.js$/);
-	req.keys().forEach((filename) => req(filename));
+  const req = require.context("../stories", true, /\.stories\.js$/)
+  req.keys().forEach((filename) => req(filename))
 }
-configure(loadStories, module);
+configure(loadStories, module)
