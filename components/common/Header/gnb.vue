@@ -42,7 +42,6 @@ nav {
   display: flex;
   align-items: center;
   line-height: 68px;
-  margin: 0 24px;
 }
 nav ul {
   list-style: none;

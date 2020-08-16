@@ -18,5 +18,6 @@ export default {}
   background-image: linear-gradient(255deg, #5e3fcc, #3f60cc);
   font-size: 18px;
   color: #fff;
+  margin: 0 26px;
 }
 </style>
