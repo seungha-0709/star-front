@@ -7,9 +7,13 @@
       <global-nav-bar></global-nav-bar>
       <btn-link-store></btn-link-store>
       <div class="service-box">
-        <btn-service v-bind:margin-right="20" icon="search"></btn-service>
-        <btn-service v-bind:margin-right="20" icon="shopping_basket"></btn-service>
-        <btn-service icon="alarm"></btn-service>
+        <btn-service v-bind:margin-right="20" icon="search" v-bind:on-click="onClickEvent1"></btn-service>
+        <btn-service
+          v-bind:margin-right="20"
+          icon="shopping_basket"
+          v-bind:on-click="onClickEvent2"
+        ></btn-service>
+        <btn-service icon="alarm" v-bind:on-click="onClickEvent3"></btn-service>
       </div>
       <v-avatar size="32">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
@@ -31,6 +35,17 @@ export default {
     "global-nav-bar": gnbVue,
     "btn-link-store": StoreButtonVue,
     "btn-service": ServiceButtonVue
+  },
+  methods: {
+    onClickEvent1() {
+      console.log("button event1")
+    },
+    onClickEvent2() {
+      console.log("button event2")
+    },
+    onClickEvent3() {
+      console.log("button event3")
+    }
   }
 }
 </script>

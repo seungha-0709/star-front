@@ -1,16 +1,18 @@
 <template>
-  <button type="button" class="btn-service" v-bind:style="{ marginRight: marginRight + 'px' }">
+  <button
+    type="button"
+    class="btn-service"
+    v-bind:style="{ marginRight: marginRight + 'px' }"
+    v-on:click="onClick"
+  >
     <v-icon size="medium">{{icon}}</v-icon>
   </button>
 </template>
 <script>
 export default {
-  props: ["icon", "margin-right"],
+  props: ["icon", "margin-right", "onClick"],
   data() {
-    return {
-      icon: this.icon,
-      marginRight: this.marginRight
-    }
+    return {}
   }
 }
 </script>
