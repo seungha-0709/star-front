@@ -27,7 +27,8 @@ module.exports = {
     "space-before-blocks": ["error", "always"],
     "space-before-function-paren": ["error", "never"],
     "no-empty": "error",
-    "no-duplicate-imports": "error"
+    "no-duplicate-imports": "error",
+    "no-unused-vars": 1
   },
   globals: {}
 }
