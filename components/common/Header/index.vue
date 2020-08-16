@@ -6,6 +6,14 @@
       </div>
       <global-nav-bar></global-nav-bar>
       <btn-link-store></btn-link-store>
+      <div class="service-box">
+        <btn-service v-bind:margin-right="20" icon="search"></btn-service>
+        <btn-service v-bind:margin-right="20" icon="shopping_basket"></btn-service>
+        <btn-service icon="alarm"></btn-service>
+      </div>
+      <v-avatar size="32">
+        <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
+      </v-avatar>
     </div>
   </header>
 </template>
@@ -13,6 +21,7 @@
 <script>
 import gnbVue from "./gnb.vue"
 import StoreButtonVue from "./StoreButton.vue"
+import ServiceButtonVue from "./ServiceButton.vue"
 
 export default {
   data() {
@@ -20,7 +29,8 @@ export default {
   },
   components: {
     "global-nav-bar": gnbVue,
-    "btn-link-store": StoreButtonVue
+    "btn-link-store": StoreButtonVue,
+    "btn-service": ServiceButtonVue
   }
 }
 </script>
@@ -37,5 +47,12 @@ header {
   margin: 0 auto;
   display: flex;
   align-items: center;
+}
+.logo {
+  margin-right: 24px;
+}
+.service-box {
+  display: flex;
+  margin-right: auto;
 }
 </style>
