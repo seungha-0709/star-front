@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue"
 import Footer from "../components/common/Footer.vue"
-import Header from "../components/common/Header.vue"
+import Header from "../components/common/Header"
 
 storiesOf("Common", module)
   .add("푸터", () => ({
