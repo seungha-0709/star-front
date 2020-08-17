@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import HeaderVue from "../components/common/Header.vue"
+import HeaderVue from "../components/common/Header"
 import FooterVue from "../components/common/Footer.vue"
 import GoTopVue from "../components/common/GoTop.vue"
 
