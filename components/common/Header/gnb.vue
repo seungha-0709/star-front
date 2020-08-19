@@ -1,12 +1,24 @@
 <template>
   <nav>
     <ul class="menu-list">
-      <li v-for="(list,i) in menuData" v-bind:key="i" v-on:mouseenter="onShowMenu(i)">{{list.title}}</li>
+      <li
+        v-for="(list, i) in menuData"
+        v-bind:key="i"
+        v-on:mouseenter="onShowMenu(i)"
+        v-bind:class="{ active: setMenuCode === i }"
+        ref="reference"
+      >
+        {{ list.title }}
+        <span
+          v-if="setMenuCode === i"
+          v-bind:style="{ width: setMenuWidth + 16 + 'px' }"
+        />
+      </li>
     </ul>
     <div class="sub-menu-wrap" v-show="showSubMenu" v-on:mouseleave="onHideMenu">
-      <ul class="sub-menu-list">
-        <li v-for="(subMenu,k) in menuData[setMenuCode].sub" v-bind:key="k">
-          <nuxt-link :to="subMenu.route">{{subMenu.title}}</nuxt-link>
+      <ul v-if="setMenuCode !== null" class="sub-menu-list">
+        <li v-for="(subMenu, k) in menuData[setMenuCode].sub" v-bind:key="k">
+          <nuxt-link :to="subMenu.route">{{ subMenu.title }}</nuxt-link>
         </li>
       </ul>
     </div>
@@ -21,17 +33,19 @@ export default {
     return {
       menuData: gnbManu,
       showSubMenu: false,
-      setMenuCode: 0
+      setMenuCode: null,
+      setMenuWidth: 0
     }
   },
   methods: {
     onShowMenu(code) {
       this.showSubMenu = true
       this.setMenuCode = code
+      this.setMenuWidth = this.$refs.reference[code].clientWidth
     },
     onHideMenu() {
       this.showSubMenu = false
-      this.setMenuCode = 0
+      this.setMenuCode = null
     }
   }
 }
@@ -57,6 +71,21 @@ nav .menu-list > li {
   color: #666;
   margin-right: 22px;
 }
+nav .menu-list > li.active {
+  position: relative;
+  font-weight: bold;
+  color: #3f60cc;
+}
+nav .menu-list > li.active > span {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translateX(-50%);
+  height: 14px;
+  opacity: 0.1;
+  border-radius: 7px;
+  background-color: #5d7ee9;
+}
 nav .menu-list > li:last-child,
 nav .sub-menu-list > li:last-child {
   margin-right: 0;
@@ -73,6 +102,7 @@ nav .sub-menu-wrap {
 }
 nav .sub-menu-list {
   display: flex;
+  justify-content: center;
   width: 1240px;
   margin: 0 auto;
 }
@@ -84,3 +114,4 @@ nav .sub-menu-list > li a {
   color: #666;
 }
 </style>
+
