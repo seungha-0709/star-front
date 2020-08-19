@@ -1,9 +1,11 @@
 <template>
   <v-app>
     <header-component />
-    <v-container>
-      <nuxt />
-    </v-container>
+    <v-content>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-content>
     <footer-component />
     <go-top-component />
   </v-app>
