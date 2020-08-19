@@ -1,19 +1,21 @@
 <template>
   <header>
     <div class="header-wrap">
-      <div class="logo">
-        <img src alt="로고" />
-      </div>
+      <a href="/" class="logo">
+        <img src="/img/logo/lv0_logo_h_blue.png" alt="로고" />
+      </a>
       <global-nav-bar></global-nav-bar>
       <btn-link-store></btn-link-store>
       <div class="service-box">
-        <btn-service v-bind:margin-right="20" icon="search" v-bind:on-click="onClickEvent1"></btn-service>
-        <btn-service
-          v-bind:margin-right="20"
-          icon="shopping_basket"
-          v-bind:on-click="onClickEvent2"
-        ></btn-service>
-        <btn-service icon="alarm" v-bind:on-click="onClickEvent3"></btn-service>
+        <btn-service v-bind:margin-right="20" v-bind:on-click="onClickEvent1">
+          <search-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
+        </btn-service>
+        <btn-service v-bind:margin-right="20" v-bind:on-click="onClickEvent2">
+          <shopping-bag-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
+        </btn-service>
+        <btn-service v-bind:on-click="onClickEvent3">
+          <bell-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
+        </btn-service>
       </div>
       <v-avatar size="32">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
@@ -26,6 +28,7 @@
 import gnbVue from "./gnb.vue"
 import StoreButtonVue from "./StoreButton.vue"
 import ServiceButtonVue from "./ServiceButton.vue"
+import { SearchIcon, BellIcon, ShoppingBagIcon } from "vue-feather-icons"
 
 export default {
   data() {
@@ -34,7 +37,10 @@ export default {
   components: {
     "global-nav-bar": gnbVue,
     "btn-link-store": StoreButtonVue,
-    "btn-service": ServiceButtonVue
+    "btn-service": ServiceButtonVue,
+    SearchIcon,
+    BellIcon,
+    ShoppingBagIcon
   },
   methods: {
     onClickEvent1() {
@@ -64,10 +70,20 @@ header {
   align-items: center;
 }
 .logo {
+  width: 116px;
   margin-right: 24px;
+}
+.logo img {
+  width: 100%;
+  vertical-align: top;
 }
 .service-box {
   display: flex;
   margin-right: auto;
 }
+.service-box .icon-style {
+  vertical-align: middle;
+  color: #666;
+}
 </style>
+
