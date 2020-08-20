@@ -70,7 +70,11 @@ header {
   align-items: center;
 }
 .logo {
+  display: inline-block;
   margin-right: 24px;
+}
+.logo img {
+  width: 116px;
 }
 .service-box {
   display: flex;
