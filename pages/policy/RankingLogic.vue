@@ -34,12 +34,12 @@
                 예를 들어, 리뷰 수 및 환승리뷰 수가 180의 가중치를 가지고 있다면, 리뷰 평점은 100의 가중치를 지니는 식입니다.
                 각 요소들은 각각의 가중치가 반영되어 새로운 수치로 변환되며, 궁극적으로는 이 변환값을 통해 랭킹 산정을 위한 세부적인 분석이 이뤄집니다.
                 이 가중치는 171명의 상세 인터뷰로 수집된 정보에서 도출된 정성지표로서, 각 요소들에 대한 가중치는 다음과 같습니다.</p>
-                <table>
+                <table class="ranking-logic">
                     <tr>
-                        <td>리뷰 수 및 환승리뷰 수</td>
-                        <td>리뷰 평점</td>
-                        <td>조회수</td>
-                        <td>기타 영역 합산 변환값</td>
+                        <th>리뷰 수 및 환승리뷰 수</th>
+                        <th>리뷰 평점</th>
+                        <th>조회수</th>
+                        <th>기타 영역 합산 변환값</th>
                     </tr>
                     <tr>
                         <td>100</td>
@@ -101,6 +101,7 @@ h2 {
     font-size: 16px;
     color: #212121;
 }
+ /* 본문 테이블 -------------------------------------- */
 
 .policy {
     width: 1200px;
@@ -121,7 +122,6 @@ h2 {
     background-color: #ffffff;
     color: #3f60cc;
 }
-
 .policy td {
     padding-left: 32px;
     padding-right: 32px;
@@ -133,6 +133,34 @@ h2 {
     font-size: 14px;
     color: #666666;
 }
+
+/* 랭킹 산정 기준 테이블 ---------------------------- */
+.ranking-logic {
+    border: 1px solid #dfdfdf;
+    border-collapse: collapse;
+    margin-bottom: 16px;
+}
+.ranking-logic th {
+    border: 1px solid #dfdfdf;
+    width: 284px;
+    height: 36px;
+    background-color: #f6f8fc;
+    font-size: 14px;
+    color: #666666;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.ranking-logic td {
+    border: 1px solid #dfdfdf;
+    text-align: center;
+    font-weight: bold;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+
+/* 기타 ------------------------------------------- */
+
 .index {
     display: inline-block;
     width: 18px;

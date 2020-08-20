@@ -100,7 +100,7 @@ h3 {
 }
 .content-sub-title {
     font-size: 16px;
-    font-style: bold;
+    font-weight: bold;
     margin-bottom: 0;
 }
 </style>
