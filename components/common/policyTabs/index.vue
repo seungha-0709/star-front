@@ -1,0 +1,80 @@
+<template>
+  <div>
+    <ul class="tab-menu">
+      <li
+        v-for="(data, index) in tabData"
+        :key="index"
+        v-on:click="onTypeChange(data.type)"
+        :class="{ active: data.type === activeType }"
+      >
+        {{ data.name }}
+      </li>
+    </ul>
+    <tab v-bind:tab-type="activeType"></tab>
+  </div>
+</template>
+
+<script>
+  import TabVue from "./Tab.vue"
+
+  export default {
+    data() {
+      return {
+        tabData: [
+          {
+            type: "service",
+            name: "이용약관"
+          },
+          {
+            type: "privacy",
+            name: "개인정보처리방침"
+          },
+          {
+            type: "marketing",
+            name: "정보제공활용동의"
+          },
+          {
+            type: "email",
+            name: "이메일 집단수집거부"
+          },
+          {
+            type: "ranking_logic",
+            name: "랭킹산정 Logic"
+          }
+        ],
+        activeType: "service"
+      }
+    },
+    components: {
+      tab: TabVue
+    },
+    methods: {
+      onTypeChange(type) {
+        this.activeType = type
+      }
+    }
+  }
+</script>
+
+<style scoped>
+  .tab-menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    width: 1240px;
+  }
+  .tab-menu > li {
+    width: 100%;
+    height: 62px;
+    line-height: 62px;
+    background-color: #eeeff4;
+    color: #666;
+    font-size: 16px;
+    text-align: center;
+  }
+  .tab-menu > li.active {
+    background-color: #fff;
+    color: #3f60cc;
+    font-weight: 700;
+  }
+</style>
