@@ -19,11 +19,11 @@
 </template>
 
 <script>
-  import service from "./service"
-  import privacy from "./privacy"
-  import marketing from "./marketing"
-  import email from "./email"
-  import rankingLogic from "./rankingLogic"
+  import service from "../components/policyContents/service"
+  import privacy from "../components/policyContents/privacy"
+  import marketing from "../components/policyContents/marketing"
+  import email from "../components/policyContents/email"
+  import rankingLogic from "../components/policyContents/rankingLogic"
 
   export default {
     props: ["tab-type"],
