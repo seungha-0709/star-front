@@ -19,11 +19,11 @@
 </template>
 
 <script>
-import service from './service'
-import privacy from './privacy'
-import marketing from './marketing'
-import email from './email'
-import rankingLogic from './rankingLogic'
+import service from "./service"
+import privacy from "./privacy"
+import marketing from "./marketing"
+import email from "./email"
+import rankingLogic from "./rankingLogic"
 
 export default {
   props: ["tab-type"],
@@ -38,7 +38,4 @@ export default {
 </script>
 
 <style scoped>
-  .tab-content {
-    text-align: center;
-  }
 </style>
