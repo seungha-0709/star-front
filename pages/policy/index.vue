@@ -64,7 +64,7 @@
   }
 </script>
 
-<style>
+<style scoped>
   .tab-menu {
     display: flex;
     width: 1200px;

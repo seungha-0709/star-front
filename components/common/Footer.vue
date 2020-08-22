@@ -90,6 +90,7 @@
 <style scoped>
   .footer {
     border-top: 1px solid #dfdfdf !important;
+    margin-top: 120px;
   }
 
   .footer .content {
