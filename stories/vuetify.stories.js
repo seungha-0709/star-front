@@ -1,7 +1,7 @@
 import { storiesOf } from "@storybook/vue"
-import Sample1 from "../components/vuetifySample/Sample1.vue"
+import sample1 from "../components/vuetifySample/sample1.vue"
 
 storiesOf("Tets1", module).add("sample1", () => ({
-  components: { Sample1 },
+  components: { sample1 },
   template: "<div>test</div>"
 }))

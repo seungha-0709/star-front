@@ -30,8 +30,8 @@
 
 <script>
   import gnbVue from "./gnb.vue"
-  import StoreButtonVue from "./StoreButton.vue"
-  import ServiceButtonVue from "./ServiceButton.vue"
+  import storeButtonVue from "./storeButton.vue"
+  import serviceButtonVue from "./serviceButton.vue"
   import { SearchIcon, BellIcon, ShoppingBagIcon } from "vue-feather-icons"
 
   export default {
@@ -40,8 +40,8 @@
     },
     components: {
       "global-nav-bar": gnbVue,
-      "btn-link-store": StoreButtonVue,
-      "btn-service": ServiceButtonVue,
+      "btn-link-store": storeButtonVue,
+      "btn-service": serviceButtonVue,
       SearchIcon,
       BellIcon,
       ShoppingBagIcon

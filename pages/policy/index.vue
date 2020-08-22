@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import TabVue from "../../components/PolicyTab.vue"
+  import TabVue from "../../components/policyTab.vue"
 
   export default {
     data() {

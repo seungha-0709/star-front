@@ -12,18 +12,18 @@
 </template>
 
 <script>
-  import HeaderVue from "../components/common/Header"
-  import FooterVue from "../components/common/Footer.vue"
-  import GoTopVue from "../components/common/GoTop.vue"
+  import headerVue from "../components/common/header/index.vue"
+  import footerVue from "../components/common/footer.vue"
+  import goTopVue from "../components/common/goTop.vue"
 
   export default {
     data() {
       return {}
     },
     components: {
-      "header-component": HeaderVue,
-      "footer-component": FooterVue,
-      "go-top-component": GoTopVue
+      "header-component": headerVue,
+      "footer-component": footerVue,
+      "go-top-component": goTopVue
     }
   }
 </script>
