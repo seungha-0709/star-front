@@ -1,16 +1,22 @@
- <template>
+<template>
   <v-footer class="white footer" height="196">
     <div class="content">
       <div class="logo-sns-box">
         <div class="logo">
           <img
             src="img/logo/invalid-name.jpg"
-            srcset="img/logo/invalid-name@2x.jpg 2x, img/logo/invalid-name@3x.jpg 3x"
+            srcset="
+              img/logo/invalid-name@2x.jpg 2x,
+              img/logo/invalid-name@3x.jpg 3x
+            "
           />
         </div>
         <div class="sns">
           <a>
-            <img src="img/sns/blog.jpg" srcset="img/sns/blog@2x.jpg 2x, img/sns/blog@3x.jpg 3x" />
+            <img
+              src="img/sns/blog.jpg"
+              srcset="img/sns/blog@2x.jpg 2x, img/sns/blog@3x.jpg 3x"
+            />
           </a>
           <a>
             <img
@@ -19,12 +25,18 @@
             />
           </a>
           <a>
-            <img src="img/sns/insta.jpg" srcset="img/sns/insta@2x.jpg 2x, img/sns/insta@3x.jpg 3x" />
+            <img
+              src="img/sns/insta.jpg"
+              srcset="img/sns/insta@2x.jpg 2x, img/sns/insta@3x.jpg 3x"
+            />
           </a>
           <a>
             <img
               src="img/sns/plus-friend.jpg"
-              srcset="img/sns/plus-friend@2x.jpg 2x, img/sns/plus-friend@3x.jpg 3x"
+              srcset="
+                img/sns/plus-friend@2x.jpg 2x,
+                img/sns/plus-friend@3x.jpg 3x
+              "
             />
           </a>
         </div>
@@ -68,81 +80,80 @@
     </div>
   </v-footer>
 </template>
- 
- <script>
-export default {
-  data: () => ({})
-}
+
+<script>
+  export default {
+    data: () => ({})
+  }
 </script>
- 
+
 <style scoped>
-.footer {
-  border-top: 1px solid #dfdfdf !important;
-}
+  .footer {
+    border-top: 1px solid #dfdfdf !important;
+  }
 
-.footer .content {
-  width: 1240px;
-  margin: 0 auto;
-  padding: 0px 20px;
-}
+  .footer .content {
+    width: 1240px;
+    margin: 0 auto;
+    padding: 0px 20px;
+  }
 
-.footer .content .logo-sns-box {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+  .footer .content .logo-sns-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 
-.footer .content .sns {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .footer .content .sns {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
 
-.footer .content .sns a {
-  margin: 0px 12px;
-}
+  .footer .content .sns a {
+    margin: 0px 12px;
+  }
 
-.footer .content .sns a:last-child {
-  margin-right: 0;
-}
+  .footer .content .sns a:last-child {
+    margin-right: 0;
+  }
 
-.footer .infos {
-  display: flex;
-  flex-direction: column;
-  font-size: 14px;
-  color: #666;
-}
+  .footer .infos {
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    color: #666;
+  }
 
-.footer .infos > div {
-  margin-top: 4px;
-}
+  .footer .infos > div {
+    margin-top: 4px;
+  }
 
-.footer .division-line {
-  display: inline-block;
-  width: 1px;
-  height: 10px;
-  background-color: #dfdfdf;
-  margin: 0 8px;
-}
+  .footer .division-line {
+    display: inline-block;
+    width: 1px;
+    height: 10px;
+    background-color: #dfdfdf;
+    margin: 0 8px;
+  }
 
-.footer .policy {
-  display: flex;
-  justify-content: space-between;
-}
+  .footer .policy {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.footer .policy ul {
-  display: flex;
-  list-style: none;
-}
+  .footer .policy ul {
+    display: flex;
+  }
 
-.footer .policy ul li {
-  display: flex;
-  align-items: center;
-}
+  .footer .policy ul li {
+    display: flex;
+    align-items: center;
+  }
 
-.footer .policy ul li a {
-  font-size: 14px;
-  color: #666;
-  text-decoration: none;
-}
+  .footer .policy ul li a {
+    font-size: 14px;
+    color: #666;
+    text-decoration: none;
+  }
 </style>

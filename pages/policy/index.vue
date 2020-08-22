@@ -67,8 +67,6 @@
 <style>
   .tab-menu {
     display: flex;
-    list-style: none;
-    padding: 0;
     width: 1200px;
   }
   .tab-menu > li {

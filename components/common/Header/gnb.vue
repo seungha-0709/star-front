@@ -61,9 +61,6 @@
     align-items: center;
     line-height: 68px;
   }
-  nav ul {
-    list-style: none;
-  }
   nav a {
     text-decoration: none;
   }
