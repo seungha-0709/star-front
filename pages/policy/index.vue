@@ -1,21 +1,29 @@
 <template>
   <div>
-    <ul class="tab-menu">
-      <li
-        v-for="(data, index) in tabData"
-        :key="index"
-        v-on:click="onTypeChange(data.type)"
-        :class="{ active: data.type === activeType }"
-      >
-        {{ data.name }}
-      </li>
-    </ul>
-    <tab v-bind:tab-type="activeType"></tab>
+    <table class="policy">
+      <tr>
+        <ul class="tab-menu">
+          <li
+            v-for="(data, index) in tabData"
+            :key="index"
+            v-on:click="onTypeChange(data.type)"
+            :class="{ active: data.type === activeType }"
+          >
+            {{ data.name }}
+          </li>
+        </ul>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <tab v-bind:tab-type="activeType"></tab>
+        </td>
+      </tr>
+    </table>
   </div>
 </template>
 
 <script>
-  import TabVue from "./Tab.vue"
+  import TabVue from "../../components/PolicyTab.vue"
 
   export default {
     data() {
@@ -56,12 +64,12 @@
   }
 </script>
 
-<style scoped>
+<style>
   .tab-menu {
     display: flex;
     list-style: none;
     padding: 0;
-    width: 1240px;
+    width: 1200px;
   }
   .tab-menu > li {
     width: 100%;
@@ -71,10 +79,27 @@
     color: #666;
     font-size: 16px;
     text-align: center;
+    cursor: pointer;
   }
   .tab-menu > li.active {
     background-color: #fff;
     color: #3f60cc;
     font-weight: 700;
+    cursor: pointer;
+  }
+
+  .policy {
+    margin-top: 80px;
+    width: 1200px;
+    border: 1px solid #dfdfdf;
+    border-collapse: collapse;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: #ffffff;
+  }
+  .policy td {
+    padding-left: 32px;
+    padding-right: 32px;
+    text-align: left;
   }
 </style>
