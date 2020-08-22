@@ -1,7 +1,7 @@
 <template>
   <div class="qna-body">
     <div class="cs-center-wrap">
-      <div class="cs-center">
+      <div class="cs-service">
         <h2>고객센터</h2>
         <table>
           <tr>
@@ -19,7 +19,7 @@
         </table>
       </div>
       <div class="cs-online">
-        <img src="" alt="" />
+        <img src alt />
         <v-btn outlined color="#1673e6">1:1 온라인 문의하기</v-btn>
       </div>
     </div>
@@ -27,107 +27,98 @@
     <div class="qna-wrap">
       <h2>자주 묻는 질문과 답변</h2>
       <ul class="qna-category">
-        <li v-for="(data, index) in categoryData" :key="index">
+        <li v-for="(item, index) in categoryData" :key="index">
           <div class="icon"></div>
-          {{ data.name }}
+          {{ item.name }}
         </li>
       </ul>
-
-      <v-expansion-panels>
-        <v-expansion-panel v-for="(item, i) in 5" :key="i">
-          <v-expansion-panel-header>Item</v-expansion-panel-header>
-          <v-expansion-panel-content>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </v-expansion-panel-content>
-        </v-expansion-panel>
-      </v-expansion-panels>
+      <v-expansion-panel>
+        <v-expansion-panel-content v-for="(item, i) in qnaList" :key="i">
+          <template v-slot:header>
+            <div>{{ item.title }}</div>
+          </template>
+          <v-card>
+            <v-card-text>{{ item.content }}</v-card-text>
+          </v-card>
+        </v-expansion-panel-content>
+      </v-expansion-panel>
     </div>
   </div>
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        categoryData: [
-          {
-            name: "전체"
-          },
-          {
-            name: "주문/결제"
-          },
-          {
-            name: "배송관련"
-          },
-          {
-            name: "환불/취소"
-          },
-          {
-            name: "반품/교환"
-          },
-          {
-            name: "영수증/증빙"
-          },
-          {
-            name: "서비스/기타"
-          }
-        ]
-      }
+import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
+import { qnaList } from "../../components/qnaContents/qnaList.js"
+
+export default {
+  data() {
+    return {
+      categoryData: qnaCategory,
+      qnaList
     }
   }
+}
 </script>
 
 <style scoped>
-  .qna-body {
-    background-color: #f1f1f1;
-  }
-  .cs-center-wrap {
-    background-color: #fff;
-    width: 1200px;
-    height: 208px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #dfdfdf;
-    display: flex;
-    padding: 32px 40px 32px 40px;
-    box-sizing: border-box;
-  }
-  .cs-center {
-    width: 851px;
-  }
-  .cs-online {
-    width: 348px;
-    border-left: 1px solid #dfdfdf;
-  }
-  .qna-wrap {
-    background-color: #fff;
-    width: 1200px;
-    margin-top: 8px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #dfdfdf;
-    padding: 32px 40px 32px 40px;
-  }
-  .qna-category {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    width: 1180px;
-  }
-  .icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 28px;
-    background-color: #dfdfdf;
-    margin: 24px 52px 8px 52px;
-  }
-  .qna-category > li {
-    border: 1px solid #dfdfdf;
-    width: 160px;
-    height: 136px;
-    text-align: center;
-  }
+.qna-body {
+  background-color: #f1f1f1;
+}
+.cs-center-wrap {
+  background-color: #fff;
+  width: 1200px;
+  height: 208px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dfdfdf;
+  display: flex;
+  padding: 32px 40px 32px 40px;
+  box-sizing: border-box;
+}
+h2 {
+  font-size: 24px;
+  color: #212121;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+.cs-service {
+  width: 851px;
+}
+th {
+  text-align: left;
+  width: 100px;
+}
+.cs-online {
+  width: 348px;
+  border-left: 1px solid #dfdfdf;
+}
+.qna-wrap {
+  background-color: #fff;
+  width: 1200px;
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dfdfdf;
+  padding: 32px 40px 32px 40px;
+}
+.qna-category {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  width: 1180px;
+  margin-bottom: 40px;
+}
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #dfdfdf;
+  margin: 24px 52px 8px 52px;
+}
+.qna-category > li {
+  border: 1px solid #dfdfdf;
+  width: 160px;
+  height: 136px;
+  text-align: center;
+}
 </style>
