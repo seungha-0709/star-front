@@ -23,7 +23,7 @@
 </template>
 
 <script>
-  import TabVue from "../../components/PolicyTab.vue"
+  import TabVue from "../../components/policyTab.vue"
 
   export default {
     data() {
@@ -64,11 +64,9 @@
   }
 </script>
 
-<style>
+<style scoped>
   .tab-menu {
     display: flex;
-    list-style: none;
-    padding: 0;
     width: 1200px;
   }
   .tab-menu > li {
