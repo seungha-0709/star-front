@@ -27,36 +27,40 @@
     <div class="qna-wrap">
       <h2>자주 묻는 질문과 답변</h2>
       <ul class="qna-category">
-        <li v-for="(item, index) in categoryData" :key="index">
+        <li
+          v-for="(item, index) in categoryData"
+          :key="index"
+          :class="{ active: item.type === activeType }"
+          @click="onTypeChange(item.type)"
+        >
           <div class="icon">
             <v-icon>{{ item.icon }}</v-icon>
           </div>
           {{ item.name }}
         </li>
       </ul>
-      <v-expansion-panel>
-        <v-expansion-panel-content v-for="(item, i) in qnaList" :key="i">
-          <template v-slot:header>
-            <div>{{ item.title }}</div>
-          </template>
-          <v-card>
-            <v-card-text>{{ item.content }}</v-card-text>
-          </v-card>
-        </v-expansion-panel-content>
-      </v-expansion-panel>
+      <qnaTab v-bind:tabType="activeType" />
     </div>
   </div>
 </template>
 
 <script>
   import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
-  import { qnaList } from "../../components/qnaContents/qnaList.js"
+  import qnaTab from "../../components/qnaContents/qnaTap.vue"
 
   export default {
     data() {
       return {
         categoryData: qnaCategory,
-        qnaList
+        activeType: "all"
+      }
+    },
+    components: {
+      qnaTab
+    },
+    methods: {
+      onTypeChange(type) {
+        this.activeType = type
       }
     }
   }
@@ -122,5 +126,13 @@
     width: 160px;
     height: 136px;
     text-align: center;
+    cursor: pointer;
+  }
+  .qna-category > li.active {
+    border: 1px solid #dfdfdf;
+    width: 160px;
+    height: 136px;
+    text-align: center;
+    background-color: #1673e6;
   }
 </style>
