@@ -1,6 +1,7 @@
 import { configure, addDecorator } from "@storybook/vue"
 
 import "vuetify/dist/vuetify.css"
+import "../assets/style/reset.css"
 
 import Vue from "vue"
 import Vuetify from "vuetify"

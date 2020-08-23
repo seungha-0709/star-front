@@ -9,7 +9,7 @@
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
-    "storybook": "start-storybook --port 9001"
+    "storybook": "start-storybook -s ./static --port 9001"
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.4",
