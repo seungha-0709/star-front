@@ -4,18 +4,20 @@
       <div class="cs-service">
         <h2>고객센터</h2>
         <table>
-          <tr>
-            <th>운영시간</th>
-            <td>평일 10:00~18:00 (점심시간 13:00~14:00 / 주말&공휴일 제외)</td>
-          </tr>
-          <tr>
-            <th>이메일</th>
-            <td>star_store@starteacher.co.kr</td>
-          </tr>
-          <tr>
-            <th>전화</th>
-            <td>070-1588-0000</td>
-          </tr>
+          <tbody>
+            <tr>
+              <th>운영시간</th>
+              <td>평일 10:00~18:00 (점심시간 13:00~14:00 / 주말&공휴일 제외)</td>
+            </tr>
+            <tr>
+              <th>이메일</th>
+              <td>star_store@starteacher.co.kr</td>
+            </tr>
+            <tr>
+              <th>전화</th>
+              <td>070-1588-0000</td>
+            </tr>
+          </tbody>
         </table>
       </div>
       <div class="cs-online">
