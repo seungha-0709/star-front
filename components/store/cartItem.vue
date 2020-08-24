@@ -20,9 +20,7 @@
               <td>{{ cartlist.image }}, {{ cartlist.title }}</td>
               <td><button v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button v-on:click="cartlist.amount += 1">+</button></td>
               <td>{{ cartlist.sale }}</td>
-              <td>{{ cartlist.originPrice }}</td>
-              <!-- 수량에 따라 할인적용금액 변경 (amount * originPrice) -->
-              <!-- originPrice는 (originPrice-sale)값이 되어야 함  -->
+              <td>{{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
               <td>{{ cartlist.shippingFee }}</td>
             </tr>
           </table>
@@ -39,7 +37,6 @@ export default {
     return {
       cartlists: [
         {
-          "checkbox": false,
           "image": "http://placeimg.com/146/108/animals",
           "title":
           "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
@@ -49,7 +46,6 @@ export default {
           "shippingFee": 0
         },
         {
-          "checkbox": true,
           "image": "http://placeimg.com/146/108/animals",
           "title":
           "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
@@ -62,7 +58,7 @@ export default {
     }
   },
   methods: {
-    removeItem: function(cartlist, index) {
+    removeItem: (cartlist, index) => {
       this.cartlists.splice(index, 1)
     }
     // check 된 것 삭제
