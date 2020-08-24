@@ -3,12 +3,12 @@
     <div class="Rectangle">
       <div>
         <h3>장바구니</h3>
-        <p class="cart-count">총 2개</p>
-        <!-- 'n'개 표현  -->
+        <p class="cart-count">총 {{ cartlists.length }}개</p>
         <div>
           <table class="cart-table">
             <tr>
             <th><input type="checkbox" v-model="checkAll">전체선택</th>
+            <!-- 전체선택 시 체크박스 전체선택 -->
             <th>상품명</th>
             <th>수량</th>
             <th>할인금액</th>
@@ -21,11 +21,12 @@
               <td><button v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button v-on:click="cartlist.amount += 1">+</button></td>
               <td>{{ cartlist.sale }}</td>
               <td>{{ cartlist.originPrice }}</td>
-              <!-- originPrice-sale  -->
+              <!-- 수량에 따라 할인적용금액 변경 (amount * originPrice) -->
+              <!-- originPrice는 (originPrice-sale)값이 되어야 함  -->
               <td>{{ cartlist.shippingFee }}</td>
             </tr>
           </table>
-          <button class="select-delete">선택삭제</button>
+          <button v-on:click="removeItem" class="select-delete">선택삭제</button>
         </div>
       </div>
     </div>
@@ -59,7 +60,14 @@ export default {
         }
       ]
     }
+  },
+  methods: {
+    removeItem: function(cartlist, index) {
+      this.cartlists.splice(index, 1)
+    }
+    // check 된 것 삭제
   }
+  
 }
 </script>
 
