@@ -45,95 +45,97 @@
 </template>
 
 <script>
-  import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
-  import qnaTab from "../../components/qnaContents/qnaTap2.vue"
+import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
+import qnaTab from "../../components/qnaContents/qnaTap2.vue"
 
-  export default {
-    data() {
-      return {
-        categoryData: qnaCategory,
-        activeType: "all"
-      }
-    },
-    components: {
-      qnaTab
-    },
-    methods: {
-      onTypeChange(type) {
-        this.activeType = type
-      }
+export default {
+  data() {
+    return {
+      categoryData: qnaCategory,
+      activeType: "all"
+    }
+  },
+  components: {
+    qnaTab
+  },
+  methods: {
+    onTypeChange(type) {
+      this.activeType = type
     }
   }
+}
 </script>
 
 <style scoped>
-  .qna-body {
-    background-color: #f1f1f1;
-  }
-  .cs-center-wrap {
-    background-color: #fff;
-    width: 1200px;
-    height: 208px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #dfdfdf;
-    display: flex;
-    padding: 32px 40px 32px 40px;
-    box-sizing: border-box;
-  }
-  h2 {
-    font-size: 24px;
-    color: #212121;
-    margin-bottom: 24px;
-    font-weight: bold;
-  }
-  .cs-service {
-    width: 851px;
-  }
-  th {
-    text-align: left;
-    width: 100px;
-  }
-  .cs-online {
-    width: 348px;
-    border-left: 1px solid #dfdfdf;
-  }
-  .qna-wrap {
-    background-color: #fff;
-    width: 1200px;
-    margin-top: 8px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 1px solid #dfdfdf;
-    padding: 32px 40px 32px 40px;
-  }
-  .qna-category {
-    list-style: none;
-    display: flex;
-    padding: 0;
-    width: 1180px;
-    margin-bottom: 40px;
-  }
-  .icon {
-    width: 56px;
-    height: 56px;
-    border-radius: 28px;
-    background-color: #dfdfdf;
-    margin: 24px 52px 8px 52px;
-    padding: 16px;
-  }
-  .qna-category > li {
-    border: 1px solid #dfdfdf;
-    width: 160px;
-    height: 136px;
-    text-align: center;
-    cursor: pointer;
-  }
-  .qna-category > li.active {
-    border: 1px solid #dfdfdf;
-    width: 160px;
-    height: 136px;
-    text-align: center;
-    background-color: #1673e6;
-  }
+.qna-body {
+  background-color: #f1f1f1;
+}
+.cs-center-wrap {
+  background-color: #fff;
+  width: 1200px;
+  height: 208px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dfdfdf;
+  display: flex;
+  padding: 32px 40px 32px 40px;
+  box-sizing: border-box;
+}
+h2 {
+  font-size: 24px;
+  color: #212121;
+  margin-bottom: 24px;
+  font-weight: bold;
+}
+.cs-service {
+  width: 851px;
+}
+th {
+  text-align: left;
+  width: 100px;
+}
+.cs-online {
+  width: 348px;
+  border-left: 1px solid #dfdfdf;
+}
+.qna-wrap {
+  background-color: #fff;
+  width: 1200px;
+  margin-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #dfdfdf;
+  padding: 32px 40px 32px 40px;
+}
+.qna-category {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  width: 1180px;
+  margin-bottom: 40px;
+}
+.icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 28px;
+  background-color: #dfdfdf;
+  margin: 24px 52px 8px 52px;
+  padding: 16px;
+}
+.qna-category > li {
+  border: 1px solid #dfdfdf;
+  width: 160px;
+  height: 136px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+}
+.qna-category > li.active {
+  border: 1px solid #dfdfdf;
+  width: 160px;
+  height: 136px;
+  text-align: center;
+  background-color: #1673e6;
+  box-sizing: border-box;
+}
 </style>
