@@ -6,23 +6,27 @@
         <p class="cart-count">총 {{ cartlists.length }}개</p>
         <div>
           <table class="cart-table">
-            <tr>
-            <th><input type="checkbox" v-model="checkAll">전체선택</th>
+            <tbody>
+            <tr class="table-header">
+            <th class="tb-checkbox"><input class="checkbox" type="checkbox" v-model="checkAll"></th>
+            <th class="selectAll">전체선택</th>
             <!-- 전체선택 시 체크박스 전체선택 -->
-            <th>상품명</th>
+            <th class="th-title">상품명</th>
             <th>수량</th>
             <th>할인금액</th>
             <th>할인적용금액</th>
             <th>배송비</th>
             </tr>
             <tr v-for="(cartlist, index) in cartlists" :key="index">
-              <td><input type="checkbox" id="checkbox" v-model="checked"></td>
+              <td class="tb-checkbox"><input class="checkbox" type="checkbox" v-model="checked"></td>
+              <td>전체선택</td>
               <td>{{ cartlist.image }}, {{ cartlist.title }}</td>
               <td><button v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button v-on:click="cartlist.amount += 1">+</button></td>
               <td>{{ cartlist.sale }}</td>
               <td>{{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
               <td>{{ cartlist.shippingFee }}</td>
             </tr>
+            </tbody>
           </table>
           <button v-on:click="removeItem" class="select-delete">선택삭제</button>
         </div>
@@ -110,6 +114,53 @@ h3 {
   height: 321px;
   border-top: solid 1px #666666;
   margin: 0 40px 16px;
+}
+th {
+  width: 140px;
+}
+tr {
+  border-bottom: solid 1px #ececec;
+}
+.table-header {
+  height: 42px;
+  font-family: SpoqaHanSans;
+  font-size: 15px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #212121;
+}
+.tb-checkbox {
+  width: 52px;
+  padding: 11px 8px 11px 24px;
+}
+.checkbox {
+  width: 20px;
+  height: 20px;
+  border-radius: 20px;
+  background-color: #dfdfdf;
+}
+.checkbox:checked {
+  background-color: #1673e6;
+}
+.table-header .selectAll {
+  width: 52px;
+  height: 20px;
+  font-family: SpoqaHanSans;
+  font-size: 14px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  text-align: center;
+  color: #666666;
+}
+.th-title {
+  width: 446px;
 }
 .select-delete {
   width: 84px;
