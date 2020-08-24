@@ -46,7 +46,7 @@
 
 <script>
   import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
-  import qnaTab from "../../components/qnaContents/qnaTap.vue"
+  import qnaTab from "../../components/qnaContents/qnaTap2.vue"
 
   export default {
     data() {
@@ -120,6 +120,7 @@
     border-radius: 28px;
     background-color: #dfdfdf;
     margin: 24px 52px 8px 52px;
+    padding: 16px;
   }
   .qna-category > li {
     border: 1px solid #dfdfdf;

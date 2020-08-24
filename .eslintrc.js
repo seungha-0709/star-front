@@ -15,7 +15,7 @@ module.exports = {
   // add your custom rules here
   rules: {
     eqeqeq: ["error", "always"],
-    indent: ["error", 2],
+    indent: "off",
     "no-tabs": 0,
     semi: [2, "never"],
     quotes: ["off", "single"],

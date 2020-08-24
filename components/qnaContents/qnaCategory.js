@@ -10,7 +10,7 @@ export const qnaCategory = [
     icon: "search"
   },
   {
-    type: "logistic",
+    type: "logistics",
     name: "배송관련",
     icon: "search"
   },
@@ -20,7 +20,7 @@ export const qnaCategory = [
     icon: "search"
   },
   {
-    type: "refund",
+    type: "exchange",
     name: "반품/교환",
     icon: "search"
   },
