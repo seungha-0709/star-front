@@ -1,16 +1,18 @@
 <template>
   <div>
-    <div v-if="tabType === 'all'">
-      <div v-for="(item, i) in qnaListMain" :key="i" @click="onClassChange(i)">
-        <div class="title">
+    <div>
+      <div v-for="(item, i) in quaListType" :key="i" @click="onClassChange(i)">
+        <div class="title" v-bind:class="{ active: qnaListActiveIndex === i }">
           <span class="q-circle">Q</span>
           {{ item.title }}
         </div>
-        <div class="content">{{ item.content }}</div>
+        <div v-if="qnaListActiveIndex === i" class="content">
+          {{ item.content }}
+        </div>
       </div>
     </div>
 
-    <div v-if="tabType === 'buy'">
+    <!-- <div v-if="tabType === 'buy'">
       <div v-for="(item, i) in qnaListBuy" :key="i" @click="onClassChange(i)">
         <div class="title">
           <span class="q-circle">Q</span>
@@ -84,7 +86,7 @@
         </div>
         <div class="content">{{ item.content }}</div>
       </div>
-    </div>
+    </div> -->
   </div>
 </template>
 
@@ -109,21 +111,43 @@
         qnaListCancel,
         qnaListExchange,
         qnaListReceipt,
-        qnaListEtc
+        qnaListEtc,
+        qnaListActiveIndex: null
+      }
+    },
+    computed: {
+      quaListType() {
+        return this.tabType === "all"
+          ? qnaListMain
+          : this.tabType === "buy"
+          ? qnaListBuy
+          : this.tabType === "logistics"
+          ? qnaListLogistics
+          : this.tabType === "cancel"
+          ? qnaListCancel
+          : this.tabType === "exchange"
+          ? qnaListExchange
+          : this.tabType === "receipt"
+          ? qnaListReceipt
+          : qnaListEtc
       }
     },
     methods: {
       onClassChange(i) {
-        console.log(i)
-        const title = document.getElementsByClassName("title")
-        const content = document.getElementsByClassName("content")
-        if (title[i].classList.contains("active")) {
-          title[i].classList.remove("active")
-          content[i].style.display = "none"
+        if (this.qnaListActiveIndex === i) {
+          this.qnaListActiveIndex = null
         } else {
-          title[i].classList.add("active")
-          content[i].style.display = "block"
+          this.qnaListActiveIndex = i
         }
+        // const title = document.getElementsByClassName("title")
+        // const content = document.getElementsByClassName("content")
+        // if (title[i].classList.contains("active")) {
+        //   title[i].classList.remove("active")
+        //   content[i].style.display = "none"
+        // } else {
+        //   title[i].classList.add("active")
+        //   content[i].style.display = "block"
+        // }
       }
     }
   }
@@ -157,10 +181,10 @@
   }
   .content {
     background-color: #f6f8fc;
-    display: none;
+    /* display: none; */
   }
-  .content.active {
+  /* .content.active {
     background-color: #f6f8fc;
     display: block;
-  }
+  } */
 </style>
