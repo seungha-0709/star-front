@@ -8,9 +8,13 @@
           <table class="cart-table">
            <thead>
             <tr class="table-header">
-            <th class="tb-checkbox"><input v-bind:click="selectAllItems()" class="checkbox" type="checkbox" v-model="selectAll"></th>
-            <th class="selectAll">전체선택</th>
-            <!-- 전체선택 시 체크박스 전체선택 -->
+            <th class="tb-checkbox">
+              <input class="checkbox"
+              type="checkbox"
+              v-model="selectAll"
+              v-on:click="selectAllItems">
+              </th>
+            <th class="select-all">전체선택</th>
             <th class="th-title">상품명</th>
             <th>수량</th>
             <th>할인금액</th>
@@ -20,17 +24,35 @@
            </thead>
              <tbody>
             <tr v-for="(cartlist, index) in cartlists" :key="index">
-              <td class="tb-checkbox"><input v-bind:click="selectItem()" class="checkbox" type="checkbox" v-model="select"></td>
+              <td class="tb-checkbox">
+                <input
+                class="checkbox"
+                type="checkbox"
+                v-model="select"
+                :value="cartlist"></td>
               <td></td>
-              <td class="table-line item-title"><div class="item-img"></div> <div class="item-name">{{ cartlist.title }} <div class="origin-price">정상가 {{ cartlist.originPrice }}</div></div></td>
-              <td class="table-line"><button class="amt-btn" v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button class="amt-btn" v-on:click="cartlist.amount += 1">+</button></td>
+              <td class="table-line item-title">
+                <img class="item-img" :src="cartlist.img" alt="상품이미지" />
+                <div class="item-name">{{ cartlist.title }}
+                  <div class="origin-price">정상가 {{ cartlist.originPrice }}</div>
+                  </div>
+                  </td>
+              <td class="table-line">
+                <button class="amt-btn"
+              v-if="cartlist.amount>=0"
+              v-on:click="cartlist.amount -= 1">-</button>
+              <p class="amt-price">{{ cartlist.amount }}</p><button class="amt-btn"
+              v-on:click="cartlist.amount += 1">+</button>
+              </td>
               <td class="sale price table-line">-{{ cartlist.sale }}</td>
-              <td class="cart price table-line">{{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
+              <td class="cart price table-line">
+                {{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
               <td class="shipping price">{{ cartlist.shippingFee }}</td>
             </tr>
             </tbody>
           </table>
-          <button v-on:click="removeItem(cartlist, index)" class="select-delete">선택삭제</button>
+          <button v-on:click="removeItem(cartlist, index)"
+          class="select-delete">선택삭제</button>
         </div>
       </div>
     </div>
@@ -43,22 +65,22 @@ export default {
     return {
       cartlists: [
         {
-          "image": "http://placeimg.com/146/108/animals",
-          "title":
-          "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
-          "amount": 1,
-          "originPrice": 40000,
-          "sale": 4000,
-          "shippingFee": 0
+          image: "http://placeimg.com/146/108/animals",
+          title:
+              "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
+          amount: 1,
+          originPrice: 40000,
+          sale: 4000,
+          shippingFee: 0
         },
         {
-          "image": "http://placeimg.com/146/108/animals",
-          "title":
-          "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
-          "amount": 1,
-          "originPrice": 30000,
-          "sale": 3000,
-          "shippingFee": 2500
+          image: "http://placeimg.com/146/108/animals",
+          title:
+              "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
+          amount: 1,
+          originPrice: 30000,
+          sale: 3000,
+          shippingFee: 2500
         }
       ],
       selectAll: false,
@@ -70,15 +92,24 @@ export default {
       this.cartlists.splice(index, 1)
     },
     selectAllItems() {
-      if (this.selectAll === true) {
-        this.select = true
-      }else(this.select) = false
-    },
-    selectItem() {
+      if (this.selectAll) {
+        this.selectAll = false
+        this.select = []
+      } else {
+        this.selectAll = true
+        this.select = this.cartlists
+      }  
+    }
+  },
+  updated() {
+    if (this.select.length === this.cartlists.length) {
+      this.selectAll = true
+    }
+    if (this.select.length !== this.cartlists.length) {
       this.selectAll = false
-    }    
+    }
   }
-}   
+}
 </script>
 
 <style scoped>
@@ -135,9 +166,11 @@ tr {
   vertical-align: middle;
 }
 td {
+  height: 140px;
   padding: 16px;
   font-family: SpoqaHanSans;
   font-size: 16px;
+  vertical-align: middle;
   font-weight: normal;
   font-stretch: normal;
   font-style: normal;
@@ -168,7 +201,7 @@ td {
 .checkbox {
   width: 20px;
   height: 20px;
-  border-radius: 20px;
+  border-radius: 40px;
   background-color: #dfdfdf;
 }
 .checkbox:checked {
@@ -203,7 +236,7 @@ td {
   font-weight: bold;
   color: #e13a3a;
 }
-.table-header .selectAll {
+.table-header .select-all {
   width: 52px;
   height: 20px;
   font-family: SpoqaHanSans;
@@ -222,11 +255,15 @@ td {
 .amt-btn {
   width: 30px;
   height: 30px;
-  margin: 55px 10px 55px;
+  margin: 39px 0 39px;
   border-radius: 8px;
   border: solid 1px #dfdfdf;
   background-color: #ffffff;
   color: #c1c1c1;
+}
+.amt-price {
+  display: inline-block;
+  margin: 0 16px 0;
 }
 .select-delete {
   width: 84px;
