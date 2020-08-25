@@ -8,7 +8,7 @@
           <table class="cart-table">
            <thead>
             <tr class="table-header">
-            <th class="tb-checkbox"><input v-bind:click="selectAllItems()" id="selectAll" class="checkbox" type="checkbox"></th>
+            <th class="tb-checkbox"><input v-bind:click="selectAllItems()" class="checkbox" type="checkbox" v-model="selectAll"></th>
             <th class="selectAll">전체선택</th>
             <!-- 전체선택 시 체크박스 전체선택 -->
             <th class="th-title">상품명</th>
@@ -20,7 +20,7 @@
            </thead>
              <tbody>
             <tr v-for="(cartlist, index) in cartlists" :key="index">
-              <td class="tb-checkbox"><input v-bind:click="selectItem()" id="select" class="checkbox" type="checkbox"></td>
+              <td class="tb-checkbox"><input v-bind:click="selectItem()" class="checkbox" type="checkbox" v-model="select"></td>
               <td></td>
               <td class="table-line"><span class="item-img">{{ cartlist.image }}</span> {{ cartlist.title }} <div class="originPrice">정상가 {{ cartlist.originPrice }}</div></td>
               <td class="table-line"><button class="amt-btn" v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button class="amt-btn" v-on:click="cartlist.amount += 1">+</button></td>
@@ -60,7 +60,9 @@ export default {
           "sale": 3000,
           "shippingFee": 2500
         }
-      ]
+      ],
+      selectAll: false,
+      select: []
     }
   },
   methods: {
@@ -68,12 +70,15 @@ export default {
     //   this.cartlists.splice(index, 1)
     // },
     selectAllItems() {
+      if (this.selectAll === true) {
+        this.select = true
+      }else(this.select) = false
     },
     selectItem() {
-
-    }
-  }   
-}
+      this.selectAll = false
+    }    
+  }
+}   
 </script>
 
 <style scoped>
