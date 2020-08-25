@@ -2,36 +2,36 @@ export const qnaCategory = [
   {
     type: "all",
     name: "전체",
-    icon: "search"
+    icon: "mood"
   },
   {
     type: "buy",
     name: "주문/결제",
-    icon: "search"
+    icon: "money"
   },
   {
     type: "logistics",
     name: "배송관련",
-    icon: "search"
+    icon: "place"
   },
   {
     type: "cancel",
     name: "환불/취소",
-    icon: "search"
+    icon: "clear"
   },
   {
     type: "exchange",
     name: "반품/교환",
-    icon: "search"
+    icon: "repeat"
   },
   {
     type: "receipt",
     name: "영수증/증빙",
-    icon: ""
+    icon: "sticky_note_2"
   },
   {
     type: "etc",
     name: "서비스/기타",
-    icon: ""
+    icon: "person_add_alt_1"
   }
 ]

@@ -6,7 +6,9 @@
           <span class="q-circle">Q</span>
           {{ item.title }}
         </div>
-        <div v-if="qnaListActiveIndex === i" class="content">{{ item.content }}</div>
+        <v-expand-transition>
+          <div v-if="qnaListActiveIndex === i" class="content">{{ item.content }}</div>
+        </v-expand-transition>
       </div>
     </div>
   </div>

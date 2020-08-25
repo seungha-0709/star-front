@@ -21,8 +21,8 @@
         </table>
       </div>
       <div class="cs-online">
-        <img src alt />
-        <v-btn outlined color="#1673e6">1:1 온라인 문의하기</v-btn>
+        <v-icon size="80" color="#ececec">headset</v-icon>
+        <div class="btn">1:1 온라인 문의하기</div>
       </div>
     </div>
 
@@ -89,17 +89,33 @@ h2 {
   margin-bottom: 24px;
   font-weight: bold;
 }
+/* 고객센터 */
 .cs-service {
   width: 851px;
 }
 th {
   text-align: left;
   width: 100px;
+  font-weight: bold;
 }
 .cs-online {
   width: 348px;
   border-left: 1px solid #dfdfdf;
+  text-align: center;
 }
+.btn {
+  width: 200px;
+  height: 42px;
+  border-radius: 4px;
+  border: solid 1px #1673e6;
+  background-color: #ffffff;
+  margin: 10px auto 41px auto;
+  font-size: 16px;
+  font-weight: bold;
+  line-height: 2.6;
+  color: #1673e6;
+}
+/* 자주 묻는 질문과 답변 */
 .qna-wrap {
   background-color: #fff;
   width: 1200px;
@@ -120,7 +136,7 @@ th {
   width: 56px;
   height: 56px;
   border-radius: 28px;
-  background-color: #dfdfdf;
+  background-color: #f1f1f1;
   margin: 24px 52px 8px 52px;
   padding: 16px;
 }
