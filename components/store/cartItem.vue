@@ -8,7 +8,7 @@
           <table class="cart-table">
            <thead>
             <tr class="table-header">
-            <th class="tb-checkbox"><input v-on:click="selectAllItems()" class="checkbox" type="checkbox" v-model="selectAll"></th>
+            <th class="tb-checkbox"><input v-bind:click="selectAllItems()" id="selectAll" class="checkbox" type="checkbox"></th>
             <th class="selectAll">전체선택</th>
             <!-- 전체선택 시 체크박스 전체선택 -->
             <th class="th-title">상품명</th>
@@ -20,13 +20,13 @@
            </thead>
              <tbody>
             <tr v-for="(cartlist, index) in cartlists" :key="index">
-              <td class="tb-checkbox"><input v-on:click="select()" class="checkbox" type="checkbox" v-model="selected"></td>
-              <td>전체선택</td>
-              <td>{{ cartlist.image }}, {{ cartlist.title }}</td>
-              <td><button v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button v-on:click="cartlist.amount += 1">+</button></td>
-              <td>{{ cartlist.sale }}</td>
-              <td>{{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
-              <td>{{ cartlist.shippingFee }}</td>
+              <td class="tb-checkbox"><input v-bind:click="selectItem()" id="select" class="checkbox" type="checkbox"></td>
+              <td></td>
+              <td class="table-line"><span class="item-img">{{ cartlist.image }}</span> {{ cartlist.title }} <div class="originPrice">정상가 {{ cartlist.originPrice }}</div></td>
+              <td class="table-line"><button class="amt-btn" v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button class="amt-btn" v-on:click="cartlist.amount += 1">+</button></td>
+              <td class="sale price table-line">-{{ cartlist.sale }}</td>
+              <td class="cart price table-line">{{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
+              <td class="shipping price">{{ cartlist.shippingFee }}</td>
             </tr>
             </tbody>
           </table>
@@ -64,18 +64,15 @@ export default {
     }
   },
   methods: {
-    removeItem: (cartlist, index) => {
-      this.cartlists.splice(index, 1)
+    // removeItem: (cartlist, index) => {
+    //   this.cartlists.splice(index, 1)
+    // },
+    selectAllItems() {
     },
-    selectAllItems: () => {
-      if (this.selectAll === true) {
-        this.selected = true
-      }else(this.selected) = false
-    },
-    selct: () => {
-      this.selectAll = false
-    }    
-  }
+    selectItem() {
+
+    }
+  }   
 }
 </script>
 
@@ -125,9 +122,21 @@ h3 {
 }
 th {
   width: 140px;
+  text-align: center;
 }
 tr {
   border-bottom: solid 1px #ececec;
+}
+td {
+  padding: 0 16px;
+  font-family: SpoqaHanSans;
+  font-size: 16px;
+  font-weight: normal;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: normal;
+  letter-spacing: normal;
+  color: #212121;
 }
 .table-header {
   height: 42px;
@@ -141,6 +150,9 @@ tr {
   text-align: center;
   color: #212121;
 }
+.table-line {
+  border-right: solid 1px #ecece0;
+}
 .tb-checkbox {
   width: 52px;
   padding: 11px 8px 11px 24px;
@@ -153,6 +165,27 @@ tr {
 }
 .checkbox:checked {
   background-color: #1673e6;
+}
+.item-img {
+  width: 146px;
+  height: 108px;
+  margin: 16px 16px 16px 0;
+  border-radius: 4px;
+}
+.originPrice {
+  font-size: 14px;
+  color: #666666;
+  margin: 8px 8px 0 0;
+}
+.price {
+  min-width: 22px;
+  height: 20px;
+  text-align: right;
+  font-size: 14px;
+}
+.sale {
+  font-weight: bold;
+  color: #e13a3a;
 }
 .table-header .selectAll {
   width: 52px;
@@ -169,6 +202,15 @@ tr {
 }
 .th-title {
   width: 446px;
+}
+.amt-btn {
+  width: 30px;
+  height: 30px;
+  margin: 55px 10px 55px;
+  border-radius: 8px;
+  border: solid 1px #dfdfdf;
+  background-color: #ffffff;
+  color: #c1c1c1;
 }
 .select-delete {
   width: 84px;
