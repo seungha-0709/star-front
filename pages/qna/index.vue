@@ -73,11 +73,13 @@ export default {
 <style scoped>
 .qna-body {
   background-color: #f1f1f1;
+  overflow: hidden;
 }
 .cs-center-wrap {
   background-color: #fff;
   width: 1200px;
   height: 208px;
+  margin-top: 40px;
   margin-left: auto;
   margin-right: auto;
   border: 1px solid #dfdfdf;
@@ -126,9 +128,7 @@ th {
   background-color: #fff;
   color: #212121;
   width: 1200px;
-  margin-top: 8px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 8px auto 0px auto;
   border: 1px solid #dfdfdf;
   padding: 32px 40px 32px 40px;
 }

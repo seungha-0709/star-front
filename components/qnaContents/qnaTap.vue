@@ -1,10 +1,13 @@
 <template>
   <div>
     <div>
-      <div v-for="(item, i) in qnaListType" :key="i" @click="onClassChange(i)">
+      <div class="qna-wrap" v-for="(item, i) in qnaListType" :key="i" @click="onClassChange(i)">
         <div class="qna-title" v-bind:class="{ active: qnaListActiveIndex === i }">
           <span class="qna-q-circle">Q</span>
           {{ item.title }}
+          <span class="qna-nav-icon">
+            <v-icon>arrow_drop_down</v-icon>
+          </span>
         </div>
         <v-expand-transition>
           <div v-if="qnaListActiveIndex === i" class="qna-content">{{ item.content }}</div>
@@ -48,13 +51,17 @@ export default {
 
 <style scoped>
 .qna-title {
+  border-top: 1px solid #dfdfdf;
   width: 1120px;
   height: 52px;
-  border-top: 1px solid #dfdfdf;
   font-size: 15px;
   color: #212121;
   padding: 15px;
 }
+.qna-wrap:first-child .qna-title {
+  border: 0;
+}
+
 .qna-title.active {
   background-color: #f6f8fc;
 }
@@ -68,6 +75,13 @@ export default {
   text-align: center;
   line-height: 2;
   font-size: 12px;
+}
+.qna-nav-icon {
+  float: right;
+  transition: 0.5s;
+}
+.qna-title.active .qna-nav-icon {
+  transform: rotate(180deg);
 }
 .qna-content {
   background-color: #f6f8fc;
