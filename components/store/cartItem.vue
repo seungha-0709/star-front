@@ -25,13 +25,14 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(cartlist, index) in cartlists" :key="index">
+              <tr v-for="(cartlist, index) in cartLists" :key="index">
                 <td class="tb-checkbox">
                   <input
                     class="checkbox"
                     type="checkbox"
                     v-model="select"
-                    :value="cartlist"
+                    :value="index"
+                    v-on:click="clickCartIndex(index)"
                   />
                 </td>
                 <td></td>
@@ -87,8 +88,11 @@ export default {
   methods: {
     // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
     removeItem() {
+      console.log('remove Items')
+      console.log(this.select)
+
       if (this.select === true) {
-        this.cartlists.splice()
+        this.cartLists.splice()
       }
     },
     selectAllItems() {
@@ -97,15 +101,24 @@ export default {
         this.select = []
       } else {
         this.selectAll = true
-        this.select = this.cartlists
+        this.select = this.cartLists
       }
+    },
+    clickCartIndex(index) {
+      if(this.select.includes(index)) {
+        const tmpIdx = this.select.indexOf(index)
+        if(tmpIdx > -1) this.select.slice(tmpIdx, 1)
+      } else {
+        this.select.push(index)
+      }
+      console.log(this.select)
     }
   },
   updated() {
-    if (this.select.length === this.cartlists.length) {
+    if (this.select.length === this.cartLists.length) {
       this.selectAll = true
     }
-    if (this.select.length !== this.cartlists.length) {
+    if (this.select.length !== this.cartLists.length) {
       this.selectAll = false
     }
     this.$emit("sendResultData", this.select)
