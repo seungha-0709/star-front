@@ -89,6 +89,7 @@ export default {
     }
   },
   methods: {
+    // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
     removeItem() {
       if (this.select === true) {
         this.cartlists.splice()
@@ -123,7 +124,7 @@ export default {
 .rectangle {
   width: 1200px;
   height: 957px;
-  margin: 32px 360px 120px;
+  margin: 32px auto 0;;
   border: solid 1px #dfdfdf;
   background-color: #ffffff;
 }
