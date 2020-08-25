@@ -20,6 +20,9 @@
     methods: {
       getResultData(data) {
         this.resultData = data
+      },
+      updateResultData() {
+        
       }
     }
   }

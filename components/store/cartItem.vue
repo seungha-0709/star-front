@@ -3,7 +3,7 @@
     <div class="rectangle">
       <div>
         <h3 class="cart-name">장바구니</h3>
-        <p class="cart-count">{{ `총 ${cartlists.length}개`}}</p>
+        <p class="cart-count">{{ `총 ${cartLists.length}개` }}</p>
         <div>
           <table class="cart-table">
             <thead>
@@ -86,14 +86,20 @@ export default {
     }
   },
   methods: {
-    // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
     removeItem() {
       console.log('remove Items')
       console.log(this.select)
-
-      if (this.select === true) {
-        this.cartLists.splice()
+      if(this.select.length) {
+        console.log(this.select.length)
+        console.log(this.cartLists.length)
+        console.log('----------------------------------')
+        for (let index = 0; index < this.select.length; index++) {
+          const tmpIdx = this.select[this.select.length-index-1]
+          console.log(tmpIdx)
+          this.cartLists.splice(tmpIdx, 1)
+        }
       }
+      console.log(cartLists)
     },
     selectAllItems() {
       if (this.selectAll) {
@@ -101,13 +107,17 @@ export default {
         this.select = []
       } else {
         this.selectAll = true
-        this.select = this.cartLists
+        // this.select = this.cartLists
+        this.select = []
+        for (let index = 0; index < cartLists.length; index++) {
+          this.select.push(index)
+        }
       }
     },
     clickCartIndex(index) {
       if(this.select.includes(index)) {
         const tmpIdx = this.select.indexOf(index)
-        if(tmpIdx > -1) this.select.slice(tmpIdx, 1)
+        if(tmpIdx > -1) this.select.splice(tmpIdx, 1)
       } else {
         this.select.push(index)
       }
@@ -130,6 +140,14 @@ export default {
 .content {
     width: 100%;
     margin: 0 auto;
+    font-family: SpoqaHanSans;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: normal;
+    font-size: 14px;
+    color: #212121;
   }
 .rectangle {
     width: 1200px;
@@ -143,28 +161,14 @@ export default {
     width: 89px;
     height: 36px;
     margin: 32px 0 16px 40px;
-    font-family: SpoqaHanSans;
     font-size: 24px;
     font-weight: bold;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #212121;
   }
 .cart-count {
     width: 38px;
     height: 20px;
     margin: 0 0 17px 40px;
-    font-family: SpoqaHanSans;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #212121;
-  }
+    }
 .cart-table {
     width: 1120px;
     border-top: solid 1px #666666;
@@ -186,24 +190,11 @@ export default {
     font-family: SpoqaHanSans;
     font-size: 16px;
     vertical-align: middle;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
-    color: #212121;
   }
 .table-header {
     height: 42px;
-    font-family: SpoqaHanSans;
     font-size: 15px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
-    color: #212121;
   }
 .table-line {
     height: 140px;
@@ -238,14 +229,12 @@ export default {
   }
 .origin-price {
     margin-top: 8px;
-    font-size: 14px;
     color: #666666;
   }
 .price {
     min-width: 22px;
     height: 20px;
     text-align: right;
-    font-size: 14px;
   }
 .sale {
     font-weight: bold;
@@ -254,13 +243,6 @@ export default {
 .table-header .select-all {
     width: 52px;
     height: 20px;
-    font-family: SpoqaHanSans;
-    font-size: 14px;
-    font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     text-align: center;
     color: #666666;
   }
