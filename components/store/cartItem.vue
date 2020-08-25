@@ -6,9 +6,9 @@
         <p class="cart-count">총 {{ cartlists.length }}개</p>
         <div>
           <table class="cart-table">
-            <tbody>
+           <thead>
             <tr class="table-header">
-            <th class="tb-checkbox"><input class="checkbox" type="checkbox" v-model="checkAll"></th>
+            <th class="tb-checkbox"><input v-on:click="selectAllItems()" class="checkbox" type="checkbox" v-model="selectAll"></th>
             <th class="selectAll">전체선택</th>
             <!-- 전체선택 시 체크박스 전체선택 -->
             <th class="th-title">상품명</th>
@@ -17,8 +17,10 @@
             <th>할인적용금액</th>
             <th>배송비</th>
             </tr>
+           </thead>
+             <tbody>
             <tr v-for="(cartlist, index) in cartlists" :key="index">
-              <td class="tb-checkbox"><input class="checkbox" type="checkbox" v-model="checked"></td>
+              <td class="tb-checkbox"><input v-on:click="select()" class="checkbox" type="checkbox" v-model="selected"></td>
               <td>전체선택</td>
               <td>{{ cartlist.image }}, {{ cartlist.title }}</td>
               <td><button v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button v-on:click="cartlist.amount += 1">+</button></td>
@@ -28,7 +30,7 @@
             </tr>
             </tbody>
           </table>
-          <button v-on:click="removeItem" class="select-delete">선택삭제</button>
+          <button v-on:click="removeItem(cartlist, index)" class="select-delete">선택삭제</button>
         </div>
       </div>
     </div>
@@ -64,10 +66,16 @@ export default {
   methods: {
     removeItem: (cartlist, index) => {
       this.cartlists.splice(index, 1)
-    }
-    // check 된 것 삭제
+    },
+    selectAllItems: () => {
+      if (this.selectAll === true) {
+        this.selected = true
+      }else(this.selected) = false
+    },
+    selct: () => {
+      this.selectAll = false
+    }    
   }
-  
 }
 </script>
 
