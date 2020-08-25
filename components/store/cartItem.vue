@@ -1,6 +1,6 @@
 <template>
   <div class="content">
-    <div class="Rectangle">
+    <div class="rectangle">
       <div>
         <h3>장바구니</h3>
         <p class="cart-count">총 {{ cartlists.length }}개</p>
@@ -51,7 +51,8 @@
             </tr>
             </tbody>
           </table>
-          <button v-on:click="removeItem(cartlist, index)"
+          <button
+          v-on:click="removeItem"
           class="select-delete">선택삭제</button>
         </div>
       </div>
@@ -88,8 +89,10 @@ export default {
     }
   },
   methods: {
-    removeItem: (cartlist, index) => {
-      this.cartlists.splice(index, 1)
+    removeItem() {
+      if (this.select === true) {
+        this.cartlists.splice()
+      }
     },
     selectAllItems() {
       if (this.selectAll) {
@@ -117,7 +120,7 @@ export default {
   width: 100%;
   margin: 0 auto;
 }
-.Rectangle {
+.rectangle {
   width: 1200px;
   height: 957px;
   margin: 32px 360px 120px;
