@@ -152,8 +152,11 @@ th {
 .icon {
   opacity: 1 !important;
 }
+
 .qna-category > li {
-  border: 1px solid #dfdfdf;
+  border-top: 1px solid #dfdfdf;
+  border-bottom: 1px solid #dfdfdf;
+  border-left: 1px solid #dfdfdf;
   width: 160px;
   height: 136px;
   text-align: center;
@@ -161,6 +164,9 @@ th {
   box-sizing: border-box;
   color: #212121;
   font-size: 16px;
+}
+.qna-category > li:last-child {
+  border-right: 1px solid #dfdfdf;
 }
 .qna-category > li.active {
   border: 1px solid #dfdfdf;

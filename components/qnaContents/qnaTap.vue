@@ -64,6 +64,8 @@ export default {
 
 .qna-title.active {
   background-color: #f6f8fc;
+  color: #1673e6;
+  font-weight: bold;
 }
 .qna-q-circle {
   width: 24px;
@@ -75,6 +77,11 @@ export default {
   text-align: center;
   line-height: 2;
   font-size: 12px;
+  font-weight: bold;
+}
+.qna-title.active .qna-q-circle {
+  background-color: #1673e6;
+  color: #fff;
 }
 .qna-nav-icon {
   float: right;
