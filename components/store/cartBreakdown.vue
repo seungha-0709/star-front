@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div>
-<table class="cart-breakdown">
+<table class="breakdown-table">
   <tbody>
     <tr>
       <td>수량</td>
@@ -14,7 +14,7 @@
     </tr>
   </tbody>
 </table>
-<button class="order">주문하기</button>
+<button class="order-btn">주문하기</button>
     </div>
 
   </div>
@@ -25,16 +25,17 @@ export default {
 }
 </script>
 <style scoped>
-.cart-breakdown {
+.breakdown-table {
   width: 1120px;
   height: 250px;
+  margin-top: 48px;
 }
-.order {
+.order-btn {
   width: 240px;
   height: 52px;
   border-radius: 26px;
   background-color: #1673e6;
-    font-size: 16px;
+  font-size: 16px;
   font-weight: bold;
   font-stretch: normal;
   font-style: normal;
