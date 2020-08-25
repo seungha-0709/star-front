@@ -9,19 +9,21 @@
             <thead>
               <tr class="table-header">
                 <th class="tb-checkbox">
-                  <input
-                    class="checkbox"
-                    type="checkbox"
-                    v-model="selectAll"
-                    v-on:click="selectAllItems"
-                  />
+                  <div class="checkbox-item">
+                    <input
+                      class="checkbox"
+                      type="checkbox"
+                      v-model="selectAll"
+                      v-on:click="selectAllItems"
+                    />
+                    <p class="select-all">전체선택</p>
+                  </div>
                 </th>
-                <th class="select-all">전체선택</th>
                 <th class="th-title">상품명</th>
-                <th>수량</th>
-                <th>할인금액</th>
-                <th>할인적용금액</th>
-                <th>배송비</th>
+                <th class="th-size">수량</th>
+                <th class="th-size">할인금액</th>
+                <th class="th-size">할인적용금액</th>
+                <th class="th-size">배송비</th>
               </tr>
             </thead>
             <tbody>
@@ -35,7 +37,6 @@
                     v-on:click="clickCartIndex(index)"
                   />
                 </td>
-                <td></td>
                 <td class="table-line item-title">
                   <img class="item-img" :src="cartlist.img" alt="상품이미지" />
                   <div class="item-name">
@@ -43,7 +44,7 @@
                     <div class="origin-price">{{`정상가 ${cartlist.originPrice}`}}</div>
                   </div>
                 </td>
-                <td class="table-line">
+                <td class="table-line amount">
                   <!-- +, - 하나의 함수로 -->
                   <button
                     class="amt-btn"
@@ -175,46 +176,58 @@ export default {
     margin: 0 40px 16px;
   }
 .cart-table th {
-    width: 140px;
     text-align: center;
   }
-.cart-table tr {
-    width: 100%;
-    height: 140px;
-    border-bottom: solid 1px #ececec;
-    vertical-align: middle;
-  }
-.cart-table td {
-    height: 140px;
-    padding: 16px;
-    font-family: SpoqaHanSans;
-    font-size: 16px;
-    vertical-align: middle;
-  }
-.table-header {
+  .table-header {
     height: 42px;
     font-size: 15px;
     text-align: center;
   }
+.cart-table thead tr {
+    width: 100%;
+    padding: 10px 0 10px;
+    border-bottom: solid 1px #ececec;
+    vertical-align: middle;
+  }
+  .cart-table tbody {
+    width: 100%;
+  }
+.cart-table td {
+    height: 140px;
+
+    border-bottom: solid 1px #ececec;
+    font-size: 16px;
+    vertical-align: middle;
+  }
+
 .table-line {
     height: 140px;
     border-right: solid 1px #ecece0;
+    padding: 16px 16px 16px 0;
+  }
+  .checkbox-item {
+    display: flex;
   }
 .tb-checkbox {
-    width: 52px;
-    padding: 11px 8px 11px 24px;
+    width: 114px;
+    padding: 11px 8px 11px 0;
   }
 .checkbox {
     width: 20px;
     height: 20px;
+    margin-left: 8px;
     border-radius: 40px;
     background-color: #dfdfdf;
   }
 .checkbox:checked {
     background-color: #1673e6;
   }
+  .th-size {
+    width: 140px;
+  }
 .item-title {
     display: flex;
+    width: 446px;
   }
 .item-img {
     width: 146px;
@@ -228,11 +241,13 @@ export default {
     margin: 23px 0 0 16px;
   }
 .origin-price {
+  font-size: 14px;
     margin-top: 8px;
     color: #666666;
   }
 .price {
-    min-width: 22px;
+  width: 140px;
+  height: 140px;
     height: 20px;
     text-align: right;
   }
@@ -241,15 +256,21 @@ export default {
     color: #e13a3a;
   }
 .table-header .select-all {
+    font-size: 14px;
     width: 52px;
     height: 20px;
+    margin-left: 8px;
     text-align: center;
     color: #666666;
   }
 .th-title {
     width: 446px;
   }
+  .amount {
+    padding-left: 16px;
+  }
 .amt-btn {
+  display: inline-block;
     width: 30px;
     height: 30px;
     margin: 39px 0 39px;
@@ -261,6 +282,9 @@ export default {
 .amt-price {
     display: inline-block;
     margin: 0 10px 0;
+  }
+  .shipping {
+       padding-right: 16px;
   }
 .select-delete {
     width: 84px;
