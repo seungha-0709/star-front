@@ -144,13 +144,9 @@ th {
   width: 56px;
   height: 56px;
   border-radius: 28px;
-  background-color: #dfdfdf;
+  background-color: rgba(223, 223, 223, 0.2);
   margin: 24px 52px 8px 52px;
   padding: 16px;
-  opacity: 0.2;
-}
-.icon {
-  opacity: 1 !important;
 }
 
 .qna-category > li {
