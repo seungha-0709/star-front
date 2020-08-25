@@ -22,7 +22,7 @@
             <tr v-for="(cartlist, index) in cartlists" :key="index">
               <td class="tb-checkbox"><input v-bind:click="selectItem()" class="checkbox" type="checkbox" v-model="select"></td>
               <td></td>
-              <td class="table-line"><span class="item-img">{{ cartlist.image }}</span> {{ cartlist.title }} <div class="originPrice">정상가 {{ cartlist.originPrice }}</div></td>
+              <td class="table-line item-title"><div class="item-img"></div> <div class="item-name">{{ cartlist.title }} <div class="origin-price">정상가 {{ cartlist.originPrice }}</div></div></td>
               <td class="table-line"><button class="amt-btn" v-if="cartlist.amount>=0" v-on:click="cartlist.amount -= 1">-</button>{{ cartlist.amount }}<button class="amt-btn" v-on:click="cartlist.amount += 1">+</button></td>
               <td class="sale price table-line">-{{ cartlist.sale }}</td>
               <td class="cart price table-line">{{ (cartlist.originPrice-cartlist.sale)*cartlist.amount }}</td>
@@ -66,9 +66,9 @@ export default {
     }
   },
   methods: {
-    // removeItem: (cartlist, index) => {
-    //   this.cartlists.splice(index, 1)
-    // },
+    removeItem: (cartlist, index) => {
+      this.cartlists.splice(index, 1)
+    },
     selectAllItems() {
       if (this.selectAll === true) {
         this.select = true
@@ -121,7 +121,6 @@ h3 {
 }
 .cart-table {
   width: 1120px;
-  height: 321px;
   border-top: solid 1px #666666;
   margin: 0 40px 16px;
 }
@@ -130,10 +129,13 @@ th {
   text-align: center;
 }
 tr {
+    width: 100%;
+  height: 140px;
   border-bottom: solid 1px #ececec;
+  vertical-align: middle;
 }
 td {
-  padding: 0 16px;
+  padding: 16px;
   font-family: SpoqaHanSans;
   font-size: 16px;
   font-weight: normal;
@@ -156,6 +158,7 @@ td {
   color: #212121;
 }
 .table-line {
+  height: 140px;
   border-right: solid 1px #ecece0;
 }
 .tb-checkbox {
@@ -171,16 +174,24 @@ td {
 .checkbox:checked {
   background-color: #1673e6;
 }
+.item-title {
+  display: flex;
+}
 .item-img {
   width: 146px;
   height: 108px;
-  margin: 16px 16px 16px 0;
   border-radius: 4px;
+  background:darkturquoise;
 }
-.originPrice {
+.item-name {
+   width: 268px;
+  height: 48px;
+  margin: 23px 0 0 16px;
+}
+.origin-price {
+  margin-top: 8px;
   font-size: 14px;
   color: #666666;
-  margin: 8px 8px 0 0;
 }
 .price {
   min-width: 22px;
