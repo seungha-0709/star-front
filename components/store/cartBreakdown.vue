@@ -26,6 +26,11 @@
         paymentData: []
       }
     },
+    computed: {
+      productCount() {
+        return {}
+      }
+    },
     watch: {
       resultData() {
         this.paymentData = this.resultData

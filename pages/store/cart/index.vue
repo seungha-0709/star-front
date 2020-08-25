@@ -21,11 +21,6 @@
       getResultData(data) {
         this.resultData = data
       }
-    },
-    computed: {
-      updateResultData() {
-        return this.resultData
-      }
     }
   }
 </script>

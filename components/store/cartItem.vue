@@ -2,8 +2,8 @@
   <div class="content">
     <div class="rectangle">
       <div>
-        <h3>장바구니</h3>
-        <p class="cart-count">총 {{ cartlists.length }}개</p>
+        <h3 class="cart-name">장바구니</h3>
+        <p class="cart-count">{{ `총 ${cartlists.length}개`}}</p>
         <div>
           <table class="cart-table">
             <thead>
@@ -34,21 +34,19 @@
                     :value="cartlist"
                   />
                 </td>
-
                 <td></td>
                 <td class="table-line item-title">
                   <img class="item-img" :src="cartlist.img" alt="상품이미지" />
                   <div class="item-name">
                     {{ cartlist.title }}
-                    <div class="origin-price">
-                      정상가 {{ cartlist.originPrice }}
-                    </div>
+                    <div class="origin-price">{{`정상가 ${cartlist.originPrice}`}}</div>
                   </div>
                 </td>
                 <td class="table-line">
+                  <!-- +, - 하나의 함수로 -->
                   <button
                     class="amt-btn"
-                    v-if="cartlist.amount >= 0"
+                    v-if="cartlist.amount > 0"
                     v-on:click="cartlist.amount -= 1"
                   >
                     -
@@ -58,7 +56,7 @@
                     +
                   </button>
                 </td>
-                <td class="sale price table-line">-{{ cartlist.sale }}</td>
+                <td class="sale price table-line">{{ `-${cartlist.sale}` }}</td>
                 <td class="cart price table-line">
                   {{ (cartlist.originPrice - cartlist.sale) * cartlist.amount }}
                 </td>
@@ -76,75 +74,59 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        cartlists: [
-          {
-            image: "http://placeimg.com/146/108/animals",
-            title:
-              "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
-            amount: 1,
-            originPrice: 40000,
-            sale: 4000,
-            shippingFee: 0
-          },
-          {
-            image: "http://placeimg.com/146/108/animals",
-            title:
-              "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
-            amount: 1,
-            originPrice: 30000,
-            sale: 3000,
-            shippingFee: 2500
-          }
-        ],
-        selectAll: false,
-        select: []
-      }
-    },
-    methods: {
-      // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
-      removeItem() {
-        if (this.select === true) {
-          this.cartlists.splice()
-        }
-      },
-      selectAllItems() {
-        if (this.selectAll) {
-          this.selectAll = false
-          this.select = []
-        } else {
-          this.selectAll = true
-          this.select = this.cartlists
-        }
-      }
-    },
-    updated() {
-      if (this.select.length === this.cartlists.length) {
-        this.selectAll = true
-      }
-      if (this.select.length !== this.cartlists.length) {
-        this.selectAll = false
-      }
-      this.$emit("sendResultData", this.select)
+import { cartLists } from './cartLists.js'
+
+export default {
+  data() {
+    return {
+      cartLists,
+      selectAll: false,
+      select: []
     }
+  },
+  methods: {
+    // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
+    removeItem() {
+      if (this.select === true) {
+        this.cartlists.splice()
+      }
+    },
+    selectAllItems() {
+      if (this.selectAll) {
+        this.selectAll = false
+        this.select = []
+      } else {
+        this.selectAll = true
+        this.select = this.cartlists
+      }
+    }
+  },
+  updated() {
+    if (this.select.length === this.cartlists.length) {
+      this.selectAll = true
+    }
+    if (this.select.length !== this.cartlists.length) {
+      this.selectAll = false
+    }
+    this.$emit("sendResultData", this.select)
   }
+}
 </script>
 
 <style scoped>
-  .content {
+.content {
     width: 100%;
     margin: 0 auto;
   }
-  .rectangle {
+.rectangle {
     width: 1200px;
-    height: 957px;
     margin: 32px auto 0;
-    border: solid 1px #dfdfdf;
+    border-top: solid 1px #dfdfdf;
+    border-right: solid 1px #dfdfdf;
+    border-left: solid 1px #dfdfdf;
     background-color: #ffffff;
   }
-  h3 {
+.cart-name {
     width: 89px;
     height: 36px;
     margin: 32px 0 16px 40px;
@@ -157,7 +139,7 @@
     letter-spacing: normal;
     color: #212121;
   }
-  .cart-count {
+.cart-count {
     width: 38px;
     height: 20px;
     margin: 0 0 17px 40px;
@@ -170,22 +152,22 @@
     letter-spacing: normal;
     color: #212121;
   }
-  .cart-table {
+.cart-table {
     width: 1120px;
     border-top: solid 1px #666666;
     margin: 0 40px 16px;
   }
-  th {
+.cart-table th {
     width: 140px;
     text-align: center;
   }
-  tr {
+.cart-table tr {
     width: 100%;
     height: 140px;
     border-bottom: solid 1px #ececec;
     vertical-align: middle;
   }
-  td {
+.cart-table td {
     height: 140px;
     padding: 16px;
     font-family: SpoqaHanSans;
@@ -198,7 +180,7 @@
     letter-spacing: normal;
     color: #212121;
   }
-  .table-header {
+.table-header {
     height: 42px;
     font-family: SpoqaHanSans;
     font-size: 15px;
@@ -210,53 +192,53 @@
     text-align: center;
     color: #212121;
   }
-  .table-line {
+.table-line {
     height: 140px;
     border-right: solid 1px #ecece0;
   }
-  .tb-checkbox {
+.tb-checkbox {
     width: 52px;
     padding: 11px 8px 11px 24px;
   }
-  .checkbox {
+.checkbox {
     width: 20px;
     height: 20px;
     border-radius: 40px;
     background-color: #dfdfdf;
   }
-  .checkbox:checked {
+.checkbox:checked {
     background-color: #1673e6;
   }
-  .item-title {
+.item-title {
     display: flex;
   }
-  .item-img {
+.item-img {
     width: 146px;
     height: 108px;
     border-radius: 4px;
     background: darkturquoise;
   }
-  .item-name {
+.item-name {
     width: 268px;
     height: 48px;
     margin: 23px 0 0 16px;
   }
-  .origin-price {
+.origin-price {
     margin-top: 8px;
     font-size: 14px;
     color: #666666;
   }
-  .price {
+.price {
     min-width: 22px;
     height: 20px;
     text-align: right;
     font-size: 14px;
   }
-  .sale {
+.sale {
     font-weight: bold;
     color: #e13a3a;
   }
-  .table-header .select-all {
+.table-header .select-all {
     width: 52px;
     height: 20px;
     font-family: SpoqaHanSans;
@@ -269,10 +251,10 @@
     text-align: center;
     color: #666666;
   }
-  .th-title {
+.th-title {
     width: 446px;
   }
-  .amt-btn {
+.amt-btn {
     width: 30px;
     height: 30px;
     margin: 39px 0 39px;
@@ -281,11 +263,11 @@
     background-color: #ffffff;
     color: #c1c1c1;
   }
-  .amt-price {
+.amt-price {
     display: inline-block;
-    margin: 0 16px 0;
+    margin: 0 10px 0;
   }
-  .select-delete {
+.select-delete {
     width: 84px;
     height: 42px;
     margin-left: 40px;
