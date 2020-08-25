@@ -31,7 +31,8 @@
                     class="checkbox"
                     type="checkbox"
                     v-model="select"
-                    :value="cartlist"
+                    :value="index"
+                    v-on:click="clickCartIndex(index)"
                   />
                 </td>
 
@@ -89,6 +90,9 @@ export default {
   methods: {
     // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
     removeItem() {
+      console.log('remove Items')
+      console.log(this.select)
+
       if (this.select === true) {
         this.cartLists.splice()
       }
@@ -101,6 +105,15 @@ export default {
         this.selectAll = true
         this.select = this.cartLists
       }
+    },
+    clickCartIndex(index) {
+      if(this.select.includes(index)) {
+        const tmpIdx = this.select.indexOf(index)
+        if(tmpIdx > -1) this.select.slice(tmpIdx, 1)
+      } else {
+        this.select.push(index)
+      }
+      console.log(this.select)
     }
   },
   updated() {
