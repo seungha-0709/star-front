@@ -13,45 +13,22 @@
 </template>
 
 <script>
-import {
-  qnaListMain,
-  qnaListBuy,
-  qnaListLogistics,
-  qnaListCancel,
-  qnaListExchange,
-  qnaListReceipt,
-  qnaListEtc
-} from "../../components/qnaContents/qnaList.js"
+import { qnaList } from "../../components/qnaContents/qnaList.js"
 
 export default {
   props: ["tabType"],
   data() {
-    return {
-      qnaListMain,
-      qnaListBuy,
-      qnaListLogistics,
-      qnaListCancel,
-      qnaListExchange,
-      qnaListReceipt,
-      qnaListEtc,
-      qnaListActiveIndex: null
-    }
+    return { qnaList, qnaListActiveIndex: null }
   },
   computed: {
     qnaListType() {
-      return this.tabType === "all"
-        ? qnaListMain
-        : this.tabType === "buy"
-        ? qnaListBuy
-        : this.tabType === "logistics"
-        ? qnaListLogistics
-        : this.tabType === "cancel"
-        ? qnaListCancel
-        : this.tabType === "exchange"
-        ? qnaListExchange
-        : this.tabType === "receipt"
-        ? qnaListReceipt
-        : qnaListEtc
+      if (this.tabType === "all") return qnaList.qnaListMain
+      if (this.tabType === "buy") return qnaList.qnaListBuy
+      if (this.tabType === "logistics") return qnaList.qnaListLogistics
+      if (this.tabType === "cancel") return qnaList.qnaListCancel
+      if (this.tabType === "exchange") return qnaList.qnaListExchange
+      if (this.tabType === "receipt") return qnaList.qnaListReceipt
+      return qnaList.qnaListEtc
     }
   },
   watch: {
@@ -61,11 +38,7 @@ export default {
   },
   methods: {
     onClassChange(i) {
-      if (this.qnaListActiveIndex === i) {
-        this.qnaListActiveIndex = null
-      } else {
-        this.qnaListActiveIndex = i
-      }
+      this.qnaListActiveIndex = this.qnaListActiveIndex === i ? null : i
     }
   }
 }
@@ -96,10 +69,5 @@ export default {
 }
 .content {
   background-color: #f6f8fc;
-  /* display: none; */
 }
-/* .content.active {
-    background-color: #f6f8fc;
-    display: block;
-  } */
 </style>
