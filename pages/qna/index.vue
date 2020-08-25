@@ -35,8 +35,10 @@
           :class="{ active: item.type === activeType }"
           @click="onTypeChange(item.type)"
         >
-          <div class="icon">
-            <v-icon>{{ item.icon }}</v-icon>
+          <div class="icon-bg">
+            <div class="icon">
+              <v-icon color="#8f8f8f">{{ item.icon }}</v-icon>
+            </div>
           </div>
           {{ item.name }}
         </li>
@@ -48,7 +50,7 @@
 
 <script>
 import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
-import qnaTab from "../../components/qnaContents/qnaTap2.vue"
+import qnaTab from "../../components/qnaContents/qnaTap.vue"
 
 export default {
   data() {
@@ -93,10 +95,14 @@ h2 {
 .cs-service {
   width: 851px;
 }
+tbody {
+  font-size: 14px;
+}
 th {
   text-align: left;
   width: 100px;
   font-weight: bold;
+  color: #212121;
 }
 .cs-online {
   width: 348px;
@@ -118,6 +124,7 @@ th {
 /* 자주 묻는 질문과 답변 */
 .qna-wrap {
   background-color: #fff;
+  color: #212121;
   width: 1200px;
   margin-top: 8px;
   margin-left: auto;
@@ -131,14 +138,19 @@ th {
   padding: 0;
   width: 1180px;
   margin-bottom: 40px;
+  color: #212121;
 }
-.icon {
+.icon-bg {
   width: 56px;
   height: 56px;
   border-radius: 28px;
-  background-color: #f1f1f1;
+  background-color: #dfdfdf;
   margin: 24px 52px 8px 52px;
   padding: 16px;
+  opacity: 0.2;
+}
+.icon {
+  opacity: 1 !important;
 }
 .qna-category > li {
   border: 1px solid #dfdfdf;
@@ -147,6 +159,8 @@ th {
   text-align: center;
   cursor: pointer;
   box-sizing: border-box;
+  color: #212121;
+  font-size: 16px;
 }
 .qna-category > li.active {
   border: 1px solid #dfdfdf;
@@ -155,5 +169,6 @@ th {
   text-align: center;
   background-color: #1673e6;
   box-sizing: border-box;
+  color: white;
 }
 </style>
