@@ -3,7 +3,7 @@
     <div class="rectangle">
       <div>
         <h3>장바구니</h3>
-        <p class="cart-count">총 {{ cartlists.length }}개</p>
+        <p class="cart-count">총 {{ cartLists.length }}개</p>
         <div>
           <table class="cart-table">
             <thead>
@@ -25,7 +25,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(cartlist, index) in cartlists" :key="index">
+              <tr v-for="(cartlist, index) in cartLists" :key="index">
                 <td class="tb-checkbox">
                   <input
                     class="checkbox"
@@ -76,60 +76,43 @@
 </template>
 
 <script>
-  export default {
-    data() {
-      return {
-        cartlists: [
-          {
-            image: "http://placeimg.com/146/108/animals",
-            title:
-              "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
-            amount: 1,
-            originPrice: 40000,
-            sale: 4000,
-            shippingFee: 0
-          },
-          {
-            image: "http://placeimg.com/146/108/animals",
-            title:
-              "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는...",
-            amount: 1,
-            originPrice: 30000,
-            sale: 3000,
-            shippingFee: 2500
-          }
-        ],
-        selectAll: false,
-        select: []
-      }
-    },
-    methods: {
-      // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
-      removeItem() {
-        if (this.select === true) {
-          this.cartlists.splice()
-        }
-      },
-      selectAllItems() {
-        if (this.selectAll) {
-          this.selectAll = false
-          this.select = []
-        } else {
-          this.selectAll = true
-          this.select = this.cartlists
-        }
-      }
-    },
-    updated() {
-      if (this.select.length === this.cartlists.length) {
-        this.selectAll = true
-      }
-      if (this.select.length !== this.cartlists.length) {
-        this.selectAll = false
-      }
-      this.$emit("sendResultData", this.select)
+import { cartLists } from './cartLists.js'
+
+export default {
+  data() {
+    return {
+      cartLists,
+      selectAll: false,
+      select: []
     }
+  },
+  methods: {
+    // 이 기능은 동작하지 않는다고 한다.......흑 사실 기능도 아니었다고 한다..
+    removeItem() {
+      if (this.select === true) {
+        this.cartLists.splice()
+      }
+    },
+    selectAllItems() {
+      if (this.selectAll) {
+        this.selectAll = false
+        this.select = []
+      } else {
+        this.selectAll = true
+        this.select = this.cartLists
+      }
+    }
+  },
+  updated() {
+    if (this.select.length === this.cartLists.length) {
+      this.selectAll = true
+    }
+    if (this.select.length !== this.cartLists.length) {
+      this.selectAll = false
+    }
+    this.$emit("sendResultData", this.select)
   }
+}
 </script>
 
 <style scoped>
