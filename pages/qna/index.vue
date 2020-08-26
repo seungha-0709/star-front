@@ -254,4 +254,9 @@
   .qna-category > li.active .icon-bg > .icon-style {
     color: white;
   }
+  .qna-category > li.active .icon-bg > .icon-buy,
+  .qna-category > li.active .icon-bg > .icon-buy > span {
+    color: white;
+    border-color: white;
+  }
 </style>
