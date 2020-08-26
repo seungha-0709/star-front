@@ -38,14 +38,12 @@
           @click="onTypeChange(item.type)"
         >
           <div class="icon-bg">
-            <span v-if="item.type === 'all'">
+            <span v-if="item.type === 'all'" class="icon-all">
               ALL
             </span>
-            <map-pin-icon
-              v-if="item.type === 'buy'"
-              size="24"
-              class="icon-style"
-            />
+            <span v-if="item.type === 'buy'" class="icon-buy">
+              <span>W</span>
+            </span>
             <map-pin-icon
               v-if="item.type === 'logistics'"
               size="24"
@@ -192,6 +190,9 @@
     color: #212121;
   }
   .icon-bg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 56px;
     height: 56px;
     border-radius: 28px;
@@ -200,10 +201,25 @@
     padding: 16px;
   }
 
-  .icon-bg > span {
+  .icon-bg > .icon-all {
     font-size: 16px;
     color: #8f8f8f;
     font-weight: 700;
+  }
+  .icon-bg > .icon-buy {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 22px;
+    height: 22px;
+    border: 2px solid #8f8f8f;
+    border-radius: 50%;
+  }
+  .icon-bg > .icon-buy > span {
+    width: 10px;
+    font-size: 13px;
+    font-weight: 700;
+    color: #8f8f8f;
   }
   .icon-bg > .icon-style {
     color: #8f8f8f;
@@ -234,7 +250,7 @@
     color: white;
   }
 
-  .qna-category > li.active .icon-bg > span,
+  .qna-category > li.active .icon-bg > .icon-all,
   .qna-category > li.active .icon-bg > .icon-style {
     color: white;
   }
