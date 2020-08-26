@@ -42,7 +42,7 @@
                   <div class="item-name">
                     {{ cartList.title }}
                     <div class="origin-price">
-                      {{ `정상가 ${cartList.originPrice}` }}
+                      {{ `정상가 ${cartList.originPrice}원` }}
                     </div>
                   </div>
                 </td>
@@ -58,11 +58,11 @@
                     +
                   </button>
                 </td>
-                <td class="sale price table-line">{{ `-${cartList.sale * cartList.amount}` }}</td>
+                <td class="sale price table-line">{{ `-${cartList.sale * cartList.amount}원` }}</td>
                 <td class="cart price table-line">
-                  {{ (cartList.originPrice - cartList.sale) * cartList.amount }}
+                  {{ `${(cartList.originPrice - cartList.sale) * cartList.amount}원` }}
                 </td>
-                <td class="shipping price">{{ cartList.shippingFee }}</td>
+                <td class="shipping price">{{ `${cartList.shippingFee}원` }}</td>
               </tr>
             </tbody>
           </table>
@@ -194,7 +194,6 @@
   }
   .cart-table thead tr {
     width: 100%;
-    padding: 10px 0 10px;
     border-bottom: solid 1px #ececec;
     vertical-align: middle;
   }
@@ -233,6 +232,7 @@
   }
   .th-size {
     width: 140px;
+    padding: 10px 0 10px;
   }
   .item-title {
     display: flex;

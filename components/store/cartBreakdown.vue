@@ -37,6 +37,8 @@
   export default {
     props: ["result-data"],
     data() {
+      console.log('here')
+      console.log(this["result-data"])
       return {
         paymentData: []
       }

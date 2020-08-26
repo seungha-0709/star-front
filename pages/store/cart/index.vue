@@ -1,7 +1,7 @@
 <template>
   <div>
-    <cart-item @sendResultData="getResultData" />
-    <cart-breakdown :result-data="resultData" />
+    <cart-item v-on:sendResultData="getResultData" />
+    <cart-breakdown v-bind:result-data="resultData" />
   </div>
 </template>
 <script>
