@@ -47,12 +47,12 @@
                   </div>
                 </td>
                 <td class="table-line amount">
-                  <!-- +, - 하나의 함수로 -->
-                  <button class="amt-btn" v-on:click="decreaseAmount">
+                  <!-- +, - 하나의 함수로... 하지만 두개로도 못했다고 한다.. -->
+                  <button class="amt-btn" v-on:click="decreaseAmount(cartList,index)">
                     -
                   </button>
                   <p class="amt-price">{{ cartList.amount }}</p>
-                  <button class="amt-btn" v-on:click="increaseAmount">
+                  <button class="amt-btn" v-on:click="increaseAmount(index)">
                     +
                   </button>
                 </td>
@@ -86,8 +86,8 @@
     },
     methods: {
       removeItem() {
-        console.log("remove Items")
-        console.log(this.select)
+        // console.log("remove Items")
+        // console.log(this.select)
         if (this.select.length) {
           // console.log(this.select.length)
           // console.log(this.cartLists.length)
@@ -114,6 +114,7 @@
       },
       clickCartIndex(index) {
         if (this.select.includes(index)) {
+          // indexOf > 위치
           const tmpIdx = this.select.indexOf(index)
           if (tmpIdx > -1) this.select.splice(tmpIdx, 1)
         } else {
@@ -121,12 +122,12 @@
         }
         console.log(this.select)
       },
-      decreaseAmount() {
+      decreaseAmount(index) {
         if (this.cartList.amount > 0) {
           this.cartList.amount -= 1
         }
       },
-      increaseAmount() {
+      increaseAmount(index) {
         if (this.cartList.amount > 0) {
           this.cartList.amount += 1
         }
@@ -150,10 +151,6 @@
     margin: 0 auto;
     font-family: SpoqaHanSans;
     font-weight: normal;
-    font-stretch: normal;
-    font-style: normal;
-    line-height: normal;
-    letter-spacing: normal;
     font-size: 14px;
     color: #212121;
   }
@@ -297,7 +294,7 @@
   .select-delete {
     width: 84px;
     height: 42px;
-    margin-left: 40px;
+    margin: 0 0 48px 40px;
     border-radius: 4px;
     border: solid 1px #dfdfdf;
     background-color: #ffffff;
