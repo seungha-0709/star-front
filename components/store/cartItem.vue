@@ -48,15 +48,17 @@
                 </td>
                 <td class="table-line amount">
                   <!-- +, - 하나의 함수로... 하지만 두개로도 못했다고 한다.. -->
-                  <button class="amt-btn" v-on:click="decreaseAmount(cartList,index)">
+                  <!-- <button class="amt-btn" v-on:click="decreaseAmount(index)"> -->
+                    <button class="amt-btn" v-on:click="amount(index, 'min')">
                     -
                   </button>
                   <p class="amt-price">{{ cartList.amount }}</p>
-                  <button class="amt-btn" v-on:click="increaseAmount(index)">
+                  <!-- <button class="amt-btn" v-on:click="increaseAmount(index)"> -->
+                    <button class="amt-btn" v-on:click="amount(index, 'plus')">
                     +
                   </button>
                 </td>
-                <td class="sale price table-line">{{ `-${cartList.sale}` }}</td>
+                <td class="sale price table-line">{{ `-${cartList.sale * cartList.amount}` }}</td>
                 <td class="cart price table-line">
                   {{ (cartList.originPrice - cartList.sale) * cartList.amount }}
                 </td>
@@ -122,15 +124,18 @@
         }
         console.log(this.select)
       },
-      decreaseAmount(index) {
-        if (this.cartList.amount > 0) {
-          this.cartList.amount -= 1
+      amount(index, abcdef) {
+        if(abcdef === 'plus') {
+          this.cartLists[index].amount += 1  
+        } else if(abcdef === 'min') {
+          if(this.cartLists[index].amount > 1) this.cartLists[index].amount -= 1  
         }
       },
+      decreaseAmount(index) {
+        if(this.cartLists[index].amount > 1) this.cartLists[index].amount -= 1
+      },
       increaseAmount(index) {
-        if (this.cartList.amount > 0) {
-          this.cartList.amount += 1
-        }
+        this.cartLists[index].amount += 1
       }
     },
     updated() {
