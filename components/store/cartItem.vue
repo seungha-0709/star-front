@@ -27,7 +27,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="(cartlist, index) in cartLists" :key="index">
+              <tr v-for="(cartList, index) in cartLists" :key="index">
                 <td class="tb-checkbox">
                   <input
                     class="checkbox"
@@ -38,31 +38,29 @@
                   />
                 </td>
                 <td class="table-line item-title">
-                  <img class="item-img" :src="cartlist.img" alt="상품이미지" />
+                  <img class="item-img" :src="cartList.img" alt="상품이미지" />
                   <div class="item-name">
-                    {{ cartlist.title }}
-                    <div class="origin-price">{{`정상가 ${cartlist.originPrice}`}}</div>
+                    {{ cartList.title }}
+                    <div class="origin-price">
+                      {{ `정상가 ${cartList.originPrice}` }}
+                    </div>
                   </div>
                 </td>
                 <td class="table-line amount">
                   <!-- +, - 하나의 함수로 -->
-                  <button
-                    class="amt-btn"
-                    v-if="cartlist.amount > 0"
-                    v-on:click="cartlist.amount -= 1"
-                  >
+                  <button class="amt-btn" v-on:click="decreaseAmount">
                     -
                   </button>
-                  <p class="amt-price">{{ cartlist.amount }}</p>
-                  <button class="amt-btn" v-on:click="cartlist.amount += 1">
+                  <p class="amt-price">{{ cartList.amount }}</p>
+                  <button class="amt-btn" v-on:click="increaseAmount">
                     +
                   </button>
                 </td>
-                <td class="sale price table-line">{{ `-${cartlist.sale}` }}</td>
+                <td class="sale price table-line">{{ `-${cartList.sale}` }}</td>
                 <td class="cart price table-line">
-                  {{ (cartlist.originPrice - cartlist.sale) * cartlist.amount }}
+                  {{ (cartList.originPrice - cartList.sale) * cartList.amount }}
                 </td>
-                <td class="shipping price">{{ cartlist.shippingFee }}</td>
+                <td class="shipping price">{{ cartList.shippingFee }}</td>
               </tr>
             </tbody>
           </table>
@@ -76,69 +74,78 @@
 </template>
 
 <script>
-import { cartLists } from './cartLists.js'
+  import { cartLists } from "./cartLists.js"
 
-export default {
-  data() {
-    return {
-      cartLists,
-      selectAll: false,
-      select: []
-    }
-  },
-  methods: {
-    removeItem() {
-      console.log('remove Items')
-      console.log(this.select)
-      if(this.select.length) {
-        console.log(this.select.length)
-        console.log(this.cartLists.length)
-        console.log('----------------------------------')
-        for (let index = 0; index < this.select.length; index++) {
-          const tmpIdx = this.select[this.select.length-index-1]
-          console.log(tmpIdx)
-          this.cartLists.splice(tmpIdx, 1)
-        }
+  export default {
+    data() {
+      return {
+        cartLists,
+        selectAll: false,
+        select: []
       }
-      console.log(cartLists)
     },
-    selectAllItems() {
-      if (this.selectAll) {
-        this.selectAll = false
-        this.select = []
-      } else {
-        this.selectAll = true
-        // this.select = this.cartLists
-        this.select = []
-        for (let index = 0; index < cartLists.length; index++) {
+    methods: {
+      removeItem() {
+        console.log("remove Items")
+        console.log(this.select)
+        if (this.select.length) {
+          // console.log(this.select.length)
+          // console.log(this.cartLists.length)
+          for (let index = 0; index < this.select.length; index++) {
+            const tmpIdx = this.select[this.select.length - index - 1]
+            // tmpIdx 변수명 바꿀 예정
+            // console.log(tmpIdx)
+            this.cartLists.splice(tmpIdx, 1)
+          }
+        }
+      },
+      selectAllItems() {
+        if (this.selectAll) {
+          this.selectAll = false
+          this.select = []
+        } else {
+          this.selectAll = true
+          // this.select = this.cartLists
+          this.select = []
+          for (let index = 0; index < cartLists.length; index++) {
+            this.select.push(index)
+          }
+        }
+      },
+      clickCartIndex(index) {
+        if (this.select.includes(index)) {
+          const tmpIdx = this.select.indexOf(index)
+          if (tmpIdx > -1) this.select.splice(tmpIdx, 1)
+        } else {
           this.select.push(index)
         }
+        console.log(this.select)
+      },
+      decreaseAmount() {
+        if (this.cartList.amount > 0) {
+          this.cartList.amount -= 1
+        }
+      },
+      increaseAmount() {
+        if (this.cartList.amount > 0) {
+          this.cartList.amount += 1
+        }
       }
     },
-    clickCartIndex(index) {
-      if(this.select.includes(index)) {
-        const tmpIdx = this.select.indexOf(index)
-        if(tmpIdx > -1) this.select.splice(tmpIdx, 1)
-      } else {
-        this.select.push(index)
+    updated() {
+      if (this.select.length === this.cartLists.length) {
+        this.selectAll = true
       }
-      console.log(this.select)
+      if (this.select.length !== this.cartLists.length) {
+        this.selectAll = false
+      }
+      this.$emit("sendResultData", this.select)
     }
-  },
-  updated() {
-    if (this.select.length === this.cartLists.length) {
-      this.selectAll = true
-    }
-    if (this.select.length !== this.cartLists.length) {
-      this.selectAll = false
-    }
-    this.$emit("sendResultData", this.select)
   }
-}
 </script>
 
 <style scoped>
-.content {
+  .content {
     width: 100%;
     margin: 0 auto;
     font-family: SpoqaHanSans;
@@ -150,7 +157,7 @@ export default {
     font-size: 14px;
     color: #212121;
   }
-.rectangle {
+  .rectangle {
     width: 1200px;
     margin: 32px auto 0;
     border-top: solid 1px #dfdfdf;
@@ -158,24 +165,24 @@ export default {
     border-left: solid 1px #dfdfdf;
     background-color: #ffffff;
   }
-.cart-name {
+  .cart-name {
     width: 89px;
     height: 36px;
     margin: 32px 0 16px 40px;
     font-size: 24px;
     font-weight: bold;
   }
-.cart-count {
+  .cart-count {
     width: 38px;
     height: 20px;
     margin: 0 0 17px 40px;
-    }
-.cart-table {
+  }
+  .cart-table {
     width: 1120px;
     border-top: solid 1px #666666;
     margin: 0 40px 16px;
   }
-.cart-table th {
+  .cart-table th {
     text-align: center;
   }
   .table-header {
@@ -183,7 +190,7 @@ export default {
     font-size: 15px;
     text-align: center;
   }
-.cart-table thead tr {
+  .cart-table thead tr {
     width: 100%;
     padding: 10px 0 10px;
     border-bottom: solid 1px #ececec;
@@ -192,7 +199,7 @@ export default {
   .cart-table tbody {
     width: 100%;
   }
-.cart-table td {
+  .cart-table td {
     height: 140px;
 
     border-bottom: solid 1px #ececec;
@@ -200,7 +207,7 @@ export default {
     vertical-align: middle;
   }
 
-.table-line {
+  .table-line {
     height: 140px;
     border-right: solid 1px #ecece0;
     padding: 16px 16px 16px 0;
@@ -208,54 +215,54 @@ export default {
   .checkbox-item {
     display: flex;
   }
-.tb-checkbox {
+  .tb-checkbox {
     width: 114px;
     padding: 11px 8px 11px 0;
   }
-.checkbox {
+  .checkbox {
     width: 20px;
     height: 20px;
     margin-left: 8px;
     border-radius: 40px;
     background-color: #dfdfdf;
   }
-.checkbox:checked {
+  .checkbox:checked {
     background-color: #1673e6;
   }
   .th-size {
     width: 140px;
   }
-.item-title {
+  .item-title {
     display: flex;
     width: 446px;
   }
-.item-img {
+  .item-img {
     width: 146px;
     height: 108px;
     border-radius: 4px;
     background: darkturquoise;
   }
-.item-name {
+  .item-name {
     width: 268px;
     height: 48px;
     margin: 23px 0 0 16px;
   }
-.origin-price {
-  font-size: 14px;
+  .origin-price {
+    font-size: 14px;
     margin-top: 8px;
     color: #666666;
   }
-.price {
-  width: 140px;
-  height: 140px;
+  .price {
+    width: 140px;
+    height: 140px;
     height: 20px;
     text-align: right;
   }
-.sale {
+  .sale {
     font-weight: bold;
     color: #e13a3a;
   }
-.table-header .select-all {
+  .table-header .select-all {
     font-size: 14px;
     width: 52px;
     height: 20px;
@@ -263,14 +270,14 @@ export default {
     text-align: center;
     color: #666666;
   }
-.th-title {
+  .th-title {
     width: 446px;
   }
   .amount {
     padding-left: 16px;
   }
-.amt-btn {
-  display: inline-block;
+  .amt-btn {
+    display: inline-block;
     width: 30px;
     height: 30px;
     margin: 39px 0 39px;
@@ -279,14 +286,15 @@ export default {
     background-color: #ffffff;
     color: #c1c1c1;
   }
-.amt-price {
+  .amt-price {
+    text-align: center;
+    width: 39px;
     display: inline-block;
-    margin: 0 10px 0;
   }
   .shipping {
-       padding-right: 16px;
+    padding-right: 16px;
   }
-.select-delete {
+  .select-delete {
     width: 84px;
     height: 42px;
     margin-left: 40px;

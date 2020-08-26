@@ -1,7 +1,7 @@
 <template>
   <div>
     <cart-item @sendResultData="getResultData" />
-    <cart-breakdown :result-data="updateResultData" />
+    <cart-breakdown :result-data="resultData" />
   </div>
 </template>
 <script>
@@ -20,9 +20,6 @@
     methods: {
       getResultData(data) {
         this.resultData = data
-      },
-      updateResultData() {
-        
       }
     }
   }
