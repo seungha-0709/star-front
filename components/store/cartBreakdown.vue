@@ -16,27 +16,33 @@
               <div class="inner-border">
                 <div>
                   상품금액
-                  <div class="content-title">40000원</div>
+                  <div class="content-title">{{ `${(40000).toLocaleString()}원` }}</div>
                 </div>
               </div>
             </td>
             <td class="content-amount discount">
               <div class="inner-border">
                 <div>
-                  <minus-circle-icon size="1.5x" class="icon-add minus-icon"></minus-circle-icon>할인금액
-                  <div class="content-title discount-price">4000원</div>
+                  <div class="icon-position">
+                    <minus-circle-icon size="1.5x" class="icon-add minus-icon"></minus-circle-icon>
+                  </div>할인금액
+                  <div class="content-title discount-price">{{ `${(4000).toLocaleString()}원` }}</div>
                 </div>
               </div>
             </td>
             <td class="content-amount shipping">
-              <plus-circle-icon size="1.5x" class="icon-add plus-icon"></plus-circle-icon>배송비
-              <div class="content-title">0원</div>
+              <div>
+                <div class="icon-position">
+                  <plus-circle-icon size="1.5x" class="icon-add plus-icon"></plus-circle-icon>
+                </div>배송비
+                <div class="content-title">{{ `${(0).toLocaleString()}원` }}</div>
+              </div>
             </td>
           </tr>
           <tr class="outer-border">
             <td colspan="4" class="total">
               <span>전체 주문금액</span>
-              <span class="total-price">36000원</span>
+              <span class="total-price">{{ `${(36000).toLocaleString()}원` }}</span>
             </td>
           </tr>
         </tbody>
@@ -112,8 +118,13 @@ export default {
   margin-top: 25px;
   padding-top: 8px;
 }
+.icon-position {
+  position: relative;
+}
 .icon-add {
   position: absolute;
+  top: 18px;
+  left: -15.5px;
   width: 30px;
   height: 30px;
   color: #dfdfdf;

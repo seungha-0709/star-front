@@ -3,7 +3,7 @@
     <div class="rectangle">
       <div>
         <h3 class="cart-name">장바구니</h3>
-        <p class="cart-count">{{ `총 ${cartLists.length}개` }}</p>
+        <p class="cart-count">{{ `총 ${cartLists.length.toLocaleString()}개` }}</p>
         <div>
           <table class="cart-table">
             <thead>
@@ -49,26 +49,25 @@
                   <img class="item-img" :src="cartList.img" alt="상품이미지" />
                   <div class="item-name">
                     {{ cartList.title }}
-                    <div class="origin-price">{{ `정상가 ${cartList.originPrice}원` | currencyStyle }}</div>
+                    <div class="origin-price">{{ `정상가 ${cartList.originPrice.toLocaleString()}원`}}</div>
                   </div>
                 </td>
                 <td class="table-line amount">
-                  <!-- +, - 하나의 함수로... 하지만 두개로도 못했다고 한다.. -->
-                  <!-- <button class="amt-btn" v-on:click="decreaseAmount(index)"> -->
-                  <button class="amt-btn" v-on:click="amount(index, 'min')">-</button>
+                  <button class="amt-btn" v-on:click="amountControl(index, 'min')">-</button>
                   <p class="amt-price">{{ cartList.amount }}</p>
-                  <!-- <button class="amt-btn" v-on:click="increaseAmount(index)"> -->
-                  <button class="amt-btn" v-on:click="amount(index, 'plus')">+</button>
+                  <button class="amt-btn" v-on:click="amountControl(index, 'plus')">+</button>
                 </td>
-                <td class="sale price table-line">{{ `-${cartList.sale * cartList.amount}원` }}</td>
+                <td
+                  class="sale price table-line"
+                >{{ `-${(cartList.sale * cartList.amount).toLocaleString()}원` }}</td>
                 <td class="cart price table-line">
                   {{
                   `${
-                  (cartList.originPrice - cartList.sale) * cartList.amount
+                  ((cartList.originPrice - cartList.sale) * cartList.amount).toLocaleString()
                   }원`
                   }}
                 </td>
-                <td class="shipping price">{{ `${cartList.shippingFee}원` }}</td>
+                <td class="shipping price">{{ `${cartList.shippingFee.toLocaleString()}원` }}</td>
               </tr>
             </tbody>
           </table>
@@ -94,12 +93,12 @@ export default {
   components: {
     "check-button": checkButton
   },
-  filters: {
-    currencyStyle(value) {
-      var price = Number(value)
-      return price.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
-    }
-  },
+  // filters: {
+  //   currencyStyle(value) {
+  //     var price = Number(value)
+  //     return price.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
+  //   }
+  // }, 여기는 숫자 1,000단위 , 함수 만들려다 실패한 현장
   methods: {
     removeItem() {
       // console.log("remove Items")
@@ -138,10 +137,10 @@ export default {
       }
       console.log(this.select)
     },
-    amount(index, abcdef) {
-      if (abcdef === "plus") {
+    amountControl(index, type) {
+      if (type === "plus") {
         this.cartLists[index].amount += 1
-      } else if (abcdef === "min") {
+      } else if (type === "min") {
         if (this.cartLists[index].amount > 1) this.cartLists[index].amount -= 1
       }
     }
