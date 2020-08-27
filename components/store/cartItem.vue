@@ -46,7 +46,7 @@
                   <img class="item-img" :src="cartList.img" alt="상품이미지" />
                   <div class="item-name">
                     {{ cartList.title }}
-                    <div class="origin-price">{{ `정상가 ${cartList.originPrice}원` }}</div>
+                    <div class="origin-price">{{ `정상가 ${cartList.originPrice}원`| currencyStyle }}</div>
                   </div>
                 </td>
                 <td class="table-line amount">
@@ -81,6 +81,12 @@ export default {
       cartLists,
       selectAll: false,
       select: []
+    }
+  },
+  filters: {
+    currencyStyle(value) {
+      var price = Number(value)
+      return price.toFixed(0).replace(/(\d)(?=(\d{3})+(?:\.\d+)?$)/g, "$1,")
     }
   },
   methods: {
@@ -299,6 +305,6 @@ export default {
   background-color: #ffffff;
 }
 .clicked {
-  background-color: cornflowerblue;
+  background-color: cornsilk;
 }
 </style>
