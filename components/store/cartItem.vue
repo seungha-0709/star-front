@@ -10,12 +10,10 @@
               <tr class="table-header">
                 <th class="tb-checkbox">
                   <div class="checkbox-item">
-                    <input
-                      class="checkbox"
-                      type="checkbox"
-                      v-model="selectAll"
-                      v-on:click="selectAllItems"
-                    />
+                    <label>
+                      <input type="checkbox" v-model="selectAll" v-on:click="selectAllItems" />
+                      <check-button :value="selectAll" />
+                    </label>
                     <p class="select-all">전체선택</p>
                   </div>
                 </th>
@@ -31,22 +29,27 @@
                 v-for="(cartList, index) in cartLists"
                 :key="index"
                 id="selected-color"
-                v-bind:class="{normal: !(select.includes(index)), clicked: select.includes(index)}"
+                v-bind:class="{
+                  normal: !select.includes(index),
+                  clicked: select.includes(index)
+                }"
               >
                 <td class="tb-checkbox">
-                  <input
-                    class="checkbox"
-                    type="checkbox"
-                    v-model="select"
-                    :value="index"
-                    v-on:click="clickCartIndex(index)"
-                  />
+                  <label>
+                    <input
+                      type="checkbox"
+                      v-model="select"
+                      :value="index"
+                      v-on:click="clickCartIndex(index)"
+                    />
+                    <check-button :value="select.includes(index)" />
+                  </label>
                 </td>
                 <td class="table-line item-title">
                   <img class="item-img" :src="cartList.img" alt="상품이미지" />
                   <div class="item-name">
                     {{ cartList.title }}
-                    <div class="origin-price">{{ `정상가 ${cartList.originPrice}원`| currencyStyle }}</div>
+                    <div class="origin-price">{{ `정상가 ${cartList.originPrice}원` | currencyStyle }}</div>
                   </div>
                 </td>
                 <td class="table-line amount">
@@ -58,9 +61,13 @@
                   <button class="amt-btn" v-on:click="amount(index, 'plus')">+</button>
                 </td>
                 <td class="sale price table-line">{{ `-${cartList.sale * cartList.amount}원` }}</td>
-                <td
-                  class="cart price table-line"
-                >{{ `${(cartList.originPrice - cartList.sale) * cartList.amount}원` }}</td>
+                <td class="cart price table-line">
+                  {{
+                  `${
+                  (cartList.originPrice - cartList.sale) * cartList.amount
+                  }원`
+                  }}
+                </td>
                 <td class="shipping price">{{ `${cartList.shippingFee}원` }}</td>
               </tr>
             </tbody>
@@ -74,6 +81,7 @@
 
 <script>
 import { cartLists } from "./cartLists.js"
+import checkButton from "../common/checkButton"
 
 export default {
   data() {
@@ -82,6 +90,9 @@ export default {
       selectAll: false,
       select: []
     }
+  },
+  components: {
+    "check-button": checkButton
   },
   filters: {
     currencyStyle(value) {

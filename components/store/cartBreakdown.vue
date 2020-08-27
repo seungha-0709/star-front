@@ -121,7 +121,8 @@ export default {
 }
 .minus-icon {
 }
-
+.plus-icon {
+}
 .content-title {
   font-size: 24px;
   color: #121210;
