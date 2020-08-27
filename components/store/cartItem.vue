@@ -240,7 +240,7 @@ export default {
   width: 146px;
   height: 108px;
   border-radius: 4px;
-  background: darkturquoise;
+  background-color: cornsilk;
 }
 .item-name {
   width: 268px;
