@@ -210,12 +210,10 @@ export default {
 }
 .cart-table td {
   height: 140px;
-
   border-bottom: solid 1px #ececec;
   font-size: 16px;
   vertical-align: middle;
 }
-
 .table-line {
   height: 140px;
   border-right: solid 1px #ecece0;
@@ -228,15 +226,8 @@ export default {
   width: 114px;
   padding: 11px 8px 11px 0;
 }
-.checkbox {
-  width: 20px;
-  height: 20px;
-  margin-left: 8px;
-  border-radius: 40px;
-  background-color: #dfdfdf;
-}
-.checkbox:checked {
-  background-color: #1673e6;
+.tb-checkbox label input[type="checkbox"] {
+  display: none;
 }
 .th-size {
   width: 140px;
