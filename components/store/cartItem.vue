@@ -305,6 +305,6 @@ export default {
   background-color: #ffffff;
 }
 .clicked {
-  background-color: cornsilk;
+  background-color: rgb(22, 115, 230, 0.03);
 }
 </style>

@@ -3,25 +3,37 @@
     <div class="rectangle">
       <table class="breakdown-table">
         <tbody>
-          <tr class="title-amount">
+          <tr class="title-amount outer-border">
             <td class="content-amount quantity">
-              수량
-              <div class="content-title">1개</div>
+              <div class="inner-border">
+                <div>
+                  수량
+                  <div class="content-title">1개</div>
+                </div>
+              </div>
             </td>
             <td class="content-amount origin-price">
-              상품금액
-              <div class="content-title">40000원</div>
+              <div class="inner-border">
+                <div>
+                  상품금액
+                  <div class="content-title">40000원</div>
+                </div>
+              </div>
             </td>
             <td class="content-amount discount">
-              할인금액
-              <div class="content-title discount-price">4000원</div>
+              <div class="inner-border">
+                <div>
+                  <minus-circle-icon size="1.5x" class="icon-add minus-icon"></minus-circle-icon>할인금액
+                  <div class="content-title discount-price">4000원</div>
+                </div>
+              </div>
             </td>
             <td class="content-amount shipping">
-              배송비
+              <plus-circle-icon size="1.5x" class="icon-add plus-icon"></plus-circle-icon>배송비
               <div class="content-title">0원</div>
             </td>
           </tr>
-          <tr>
+          <tr class="outer-border">
             <td colspan="4" class="total">
               <span>전체 주문금액</span>
               <span class="total-price">36000원</span>
@@ -34,7 +46,13 @@
   </div>
 </template>
 <script>
+import { PlusCircleIcon, MinusCircleIcon } from "vue-feather-icons"
+
 export default {
+  components: {
+    PlusCircleIcon,
+    MinusCircleIcon
+  },
   props: ["result-data"],
   data() {
     console.log("here")
@@ -70,9 +88,6 @@ export default {
   width: 1200px;
   height: 406px;
   margin: 0 auto;
-  border-right: solid 1px #dfdfdf;
-  border-left: solid 1px #dfdfdf;
-  border-bottom: solid 1px #dfdfdf;
   background-color: #ffffff;
 }
 .breakdown-table {
@@ -80,19 +95,33 @@ export default {
   width: 1120px;
   height: 250px;
 }
+.outer-border {
+  border: solid 1px #dfdfdf;
+}
 .title-amount {
+  height: 130px;
   border-top: solid 2px #1673e6;
 }
 .content-amount {
   width: 280px;
-  height: 130px;
-  vertical-align: middle;
-  border: solid 1px #dfdfdf;
+  /* vertical-align: middle; */
 }
-.content-amount:not(:last-child) {
+.inner-border {
   height: 80px;
   border-right: solid 1px #dfdfdf;
+  margin-top: 25px;
+  padding-top: 8px;
 }
+.icon-add {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  color: #dfdfdf;
+  stroke-width: 1px;
+}
+.minus-icon {
+}
+
 .content-title {
   font-size: 24px;
   color: #121210;
@@ -100,9 +129,7 @@ export default {
 .discount-price {
   color: #e13a3a;
 }
-
 .total {
-  border: solid 1px #dfdfdf;
   font-size: 24px;
   color: #121210;
   text-align: center;
