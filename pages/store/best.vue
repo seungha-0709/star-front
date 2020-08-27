@@ -8,26 +8,15 @@
           <!-- 셀렉트 박스 시작 -->
           <div class="select-box">
             <div class="options-container">
-              <div class="option" @click="test(selectItem.sort)" v-for="(selectItem, i) in selectItemList" v-bind:key="i"  >
+              <div
+                class="option"
+                @click="itemAlign(selectItem.sort)"
+                v-for="(selectItem, i) in selectItemList"
+                :key="i"
+              >
                 <input type="radio" class="radio" name="category" />
                 <label>{{ selectItem.title }}</label>
               </div>
-
-              <!-- <div class="option" @click="latestList()">
-                <input type="radio" class="radio" name="category" />
-                <label>최신순</label>
-              </div>
-
-              <div class="option" @click="lowestPriceList()">
-                <input type="radio" class="radio" name="category" />
-                <label>정가 낮은 순</label>
-              </div>
-
-              <div class="option" @click="highestPriceList()">
-                <input type="radio" class="radio" name="category" />
-                <label>정가 높은 순</label>
-              </div> -->
-
             </div>
             <div class="selected">
               <span class="selected-option"></span>
@@ -61,15 +50,11 @@
       return {
         shopBestList,
         selectItemList: [
-          { title:"최신순", sort:"last_at" },
-          { title:"가격 낮은 순", sort:"low_price" },
-          { title:"가격 높은 순", sort:"high_price" },
-          { title:"좋아요 많은 순", sort:"high_like" }
-
-          // "최신순",
-          // "가격 낮은 순",
-          // "가격 높은 순",
-          // "좋아요 많은 순"
+          /* 셀렉트 박스에 들어가는 옵션항목 */
+          { title: "최신순", sort: "last_at" },
+          { title: "가격 낮은 순", sort: "low_price" },
+          { title: "가격 높은 순", sort: "high_price" },
+          { title: "좋아요 많은 순", sort: "high_like" }
         ],
         limit: 9
       }
@@ -85,58 +70,25 @@
     },
     methods: {
       /* 데이터 정렬 방식 */
-      latestList() {
-        this.shopBestList.sort((a, b) => {
-          return a.index < b.index ? -1 : 1
-        })
-        console.log(this.shopBestList)
-      },
-      lowestPriceList() {
-        this.shopBestList.sort((a, b) => {
-          return a.price < b.price ? -1 : 1
-        })
-        console.log(this.shopBestList)
-      },
-      highestPriceList() {
-        this.shopBestList.sort((a, b) => {
-          return a.price < b.price ? 1 : -1
-        })
-        console.log(this.shopBestList)
-      },
-      test(sortType) {
-        if(sortType === 'last_at') {
+      itemAlign(sortType) {
+        if (sortType === "last_at") {
           this.shopBestList.sort((a, b) => {
             return a.index < b.index ? -1 : 1
           })
           console.log(this.shopBestList)
         }
-        if(sortType === 'low_price') {
+        if (sortType === "low_price") {
           this.shopBestList.sort((a, b) => {
             return a.price < b.price ? -1 : 1
           })
           console.log(this.shopBestList)
         }
-        if(sortType === 'high_price') {
+        if (sortType === "high_price") {
           this.shopBestList.sort((a, b) => {
             return a.price < b.price ? 1 : -1
           })
           console.log(this.shopBestList)
         }
-        
-        // console.log('test', sortType)
-        // switch (sortType) {
-        // case 'last_at':
-        //   this.latestList()
-        //   break
-        // case 'low_price':
-        //   this.lowestPriceList()
-        //   break
-        // case 'high_price':
-        //   this.highestPriceList()
-        //   break
-        // default:
-        //   break
-        // }
       }
     },
     mounted() {
@@ -147,7 +99,7 @@
       const dropDown = document.querySelector(".drop-down-icon")
       const selectedOption = document.querySelector(".selected-option")
       selectedOption.innerHTML = this.selectItemList[0].title
-    
+
       selected.addEventListener("click", () => {
         optionsContainer.classList.toggle("active")
         dropDown.classList.toggle("active")
