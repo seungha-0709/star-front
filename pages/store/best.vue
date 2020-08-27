@@ -2,8 +2,12 @@
   <div>
     <div class="top-banner"></div>
     <div class="shop-best-item-container">
-      <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
-      <selectBox />
+      <div class="shop-best-item-top">
+        <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
+        <div class="select-box">
+          <selectBox />
+        </div>
+      </div>
       <div class="shop-best-item-wrap">
         <shopBestItem v-bind:propsData="item" v-for="(item, i) in computedBestList" :key="i" />
       </div>
@@ -20,8 +24,7 @@ export default {
   data() {
     return {
       shopBestList,
-      limit: 9,
-      itemAlign: ["최신순", "가격 낮은 순", "가격 높은 순"]
+      limit: 9
     }
   },
   computed: {
@@ -52,14 +55,27 @@ export default {
 }
 .shop-best-item-container {
   width: 1200px;
-  margin: 40px auto 40px auto;
+  margin: 48px auto 48px auto;
 }
-
+.shop-best-item-top {
+  width: 1200px;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+.shop-best-item-sub-title {
+  align-self: center;
+  font-size: 18px;
+  color: #212121;
+}
+.select-box {
+  padding: 0;
+}
 .shop-best-item-wrap {
   display: flex;
+  justify-content: space-between;
   width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0px auto 20px auto;
   flex-wrap: wrap;
 }
 </style>
