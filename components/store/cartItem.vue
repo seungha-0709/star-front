@@ -30,8 +30,8 @@
               <tr
                 v-for="(cartList, index) in cartLists"
                 :key="index"
-                @click="backgroundColor = !backgroundColor"
-                :class="{normal: backgroundColor, clicked: !backgroundColor}"
+                id="selected-color"
+                v-bind:class="{normal: !(select.includes(index)), clicked: select.includes(index)}"
               >
                 <td class="tb-checkbox">
                   <input
@@ -80,9 +80,7 @@ export default {
     return {
       cartLists,
       selectAll: false,
-      select: [],
-      backgroundColor: false,
-      color: "white"
+      select: []
     }
   },
   methods: {
