@@ -51,7 +51,7 @@
         shopBestList,
         selectItemList: [
           /* 셀렉트 박스에 들어가는 옵션항목 */
-          { title: "최신순", sort: "last_at" },
+          { title: "최신순", sort: "latest_at" },
           { title: "가격 낮은 순", sort: "low_price" },
           { title: "가격 높은 순", sort: "high_price" },
           { title: "좋아요 많은 순", sort: "high_like" }
@@ -60,6 +60,7 @@
       }
     },
     computed: {
+      /* 받아 온 데이터 중 처음부터 9개까지만 화면에 표시되게 함 */
       computedBestList() {
         return this.shopBestList.slice(0, this.limit)
       }
@@ -69,23 +70,35 @@
       ChevronDownIcon
     },
     methods: {
-      /* 데이터 정렬 방식 */
+      /* 상품 정렬 함수 */
       itemAlign(sortType) {
-        if (sortType === "last_at") {
+        if (sortType === "latest_at") {
           this.shopBestList.sort((a, b) => {
-            return a.index < b.index ? -1 : 1
+            return a.index - b.index
           })
           console.log(this.shopBestList)
         }
         if (sortType === "low_price") {
           this.shopBestList.sort((a, b) => {
-            return a.price < b.price ? -1 : 1
+            return (
+              parseInt(a.price * a.discountRate, 10) -
+              parseInt(b.price * b.discountRate, 10)
+            )
           })
           console.log(this.shopBestList)
         }
         if (sortType === "high_price") {
           this.shopBestList.sort((a, b) => {
-            return a.price < b.price ? 1 : -1
+            return (
+              parseInt(b.price * b.discountRate, 10) -
+              parseInt(a.price * a.discountRate, 10)
+            )
+          })
+          console.log(this.shopBestList)
+        }
+        if (sortType === "high_like") {
+          this.shopBestList.sort((a, b) => {
+            return b.likes - a.likes
           })
           console.log(this.shopBestList)
         }
