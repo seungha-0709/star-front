@@ -121,25 +121,25 @@ export const shopBestList = [
     teacher: "김갹갹",
     lectureName: "10번 강의명",
     discountRate: 0.38,
-    price: 259000,
-    star: 4.3,
-    review: 21,
-    likes: 116,
+    price: 174000,
+    star: 4.4,
+    review: 17,
+    likes: 54,
     best: true,
     img:
-      "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
+      "https://cdn.pixabay.com/photo/2015/09/09/20/50/writing-933262_960_720.jpg"
   },
   {
     index: 10,
     teacher: "김갹갹",
     lectureName: "11번 강의명",
     discountRate: 0.38,
-    price: 259000,
-    star: 4.3,
-    review: 21,
-    likes: 56,
+    price: 293000,
+    star: 4.1,
+    review: 8,
+    likes: 23,
     best: true,
     img:
-      "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
+      "https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg"
   }
 ]
