@@ -135,7 +135,7 @@ export default {
       } else {
         this.select.push(index)
       }
-      console.log(this.select)
+      // console.log(this.select)
     },
     amountControl(index, type) {
       if (type === "plus") {

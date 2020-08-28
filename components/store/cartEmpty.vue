@@ -32,7 +32,16 @@
 </template>
 
 <script>
-export default {}
+import checkButton from "../common/checkButton"
+
+export default {
+  data() {
+    return {}
+  },
+  components: {
+    "check-button": checkButton
+  }
+}
 </script>
 <style scoped>
 .content {
