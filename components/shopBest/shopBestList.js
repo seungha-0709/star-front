@@ -8,6 +8,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 326,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2015/05/31/13/45/young-791849_960_720.jpg"
   },
@@ -20,6 +21,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 233,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2014/05/03/00/46/notebook-336634_960_720.jpg"
   },
@@ -32,6 +34,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 123,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2015/07/17/22/42/library-849797_960_720.jpg"
   },
@@ -44,6 +47,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 567,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2015/07/28/21/58/student-865073_960_720.jpg"
   },
@@ -56,6 +60,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 67,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2018/02/23/22/04/book-bindings-3176776_960_720.jpg"
   },
@@ -68,6 +73,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 88,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2017/10/17/14/10/financial-2860753_960_720.jpg"
   },
@@ -80,6 +86,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 122,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2017/07/17/00/58/coffee-2511065_960_720.jpg"
   },
@@ -92,6 +99,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 98,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2016/01/19/17/57/diary-1149992_960_720.jpg"
   },
@@ -104,6 +112,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 356,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
   },
@@ -116,6 +125,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 116,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
   },
@@ -128,6 +138,7 @@ export const shopBestList = [
     star: 4.3,
     review: 21,
     likes: 56,
+    best: true,
     img:
       "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
   }

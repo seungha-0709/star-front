@@ -3,7 +3,7 @@
   <div>
     <div class="best-item-img">
       <img :src="propsData.img" alt />
-      <span class="best-label">BEST</span>
+      <span class="best-label" v-if="propsData.best === true">BEST</span>
       <div class="like-btn" @click="likePlus(propsData.index)">
         <v-icon color="#fff" large>favorite_border</v-icon>
       </div>
@@ -43,6 +43,7 @@
         return num.toString().replace(regexp, ",")
       },
       likePlus(idx) {
+        /* 좋아요 버튼 누르면 +1 증가, 취소하면 -1 만드는 함수  */
         const likeBtn = document.getElementsByClassName("like-btn")
         this.likeToggle++
         if (this.likeToggle % 2 === 1) {

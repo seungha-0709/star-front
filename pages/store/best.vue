@@ -5,28 +5,7 @@
       <div class="shop-best-item-top">
         <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
         <div class="select-box">
-          <!-- 셀렉트 박스 시작 -->
-          <div class="select-box">
-            <div class="options-container">
-              <div
-                class="option"
-                @click="itemAlign(selectItem.sort)"
-                v-for="(selectItem, i) in selectItemList"
-                :key="i"
-              >
-                <input type="radio" class="radio" name="category" />
-                <label>{{ selectItem.title }}</label>
-              </div>
-            </div>
-            <div class="selected">
-              <span class="selected-option"></span>
-              <chevron-down-icon
-                size="1.5x"
-                class="drop-down-icon"
-              ></chevron-down-icon>
-            </div>
-          </div>
-          <!-- 셀렉트 박스 끝 -->
+          <selectBox />
         </div>
       </div>
       <div class="shop-best-item-wrap">
@@ -44,6 +23,7 @@
   import { shopBestList } from "../../components/shopBest/shopBestList.js"
   import shopBestItem from "../../components/shopBest/shopBestItem.vue"
   import { ChevronDownIcon } from "vue-feather-icons"
+  import selectBox from "../../components/shopBest/selectBox.vue"
 
   export default {
     data() {
@@ -67,64 +47,8 @@
     },
     components: {
       shopBestItem,
-      ChevronDownIcon
-    },
-    methods: {
-      /* 상품 정렬 함수 */
-      itemAlign(sortType) {
-        if (sortType === "latest_at") {
-          this.shopBestList.sort((a, b) => {
-            return a.index - b.index
-          })
-          console.log(this.shopBestList)
-        }
-        if (sortType === "low_price") {
-          this.shopBestList.sort((a, b) => {
-            return (
-              parseInt(a.price * a.discountRate, 10) -
-              parseInt(b.price * b.discountRate, 10)
-            )
-          })
-          console.log(this.shopBestList)
-        }
-        if (sortType === "high_price") {
-          this.shopBestList.sort((a, b) => {
-            return (
-              parseInt(b.price * b.discountRate, 10) -
-              parseInt(a.price * a.discountRate, 10)
-            )
-          })
-          console.log(this.shopBestList)
-        }
-        if (sortType === "high_like") {
-          this.shopBestList.sort((a, b) => {
-            return b.likes - a.likes
-          })
-          console.log(this.shopBestList)
-        }
-      }
-    },
-    mounted() {
-      /* 셀렉트 박스 스크립트 */
-      const selected = document.querySelector(".selected")
-      const optionsContainer = document.querySelector(".options-container")
-      const optionsList = document.querySelectorAll(".option")
-      const dropDown = document.querySelector(".drop-down-icon")
-      const selectedOption = document.querySelector(".selected-option")
-      selectedOption.innerHTML = this.selectItemList[0].title
-
-      selected.addEventListener("click", () => {
-        optionsContainer.classList.toggle("active")
-        dropDown.classList.toggle("active")
-      })
-
-      optionsList.forEach((o) => {
-        o.addEventListener("click", () => {
-          selectedOption.innerHTML = o.querySelector("label").innerHTML
-          optionsContainer.classList.remove("active")
-          dropDown.classList.remove("active")
-        })
-      })
+      ChevronDownIcon,
+      selectBox
     }
   }
 </script>

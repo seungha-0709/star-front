@@ -1,10 +1,15 @@
 <template>
-  <!-- 상품 정렬용 셀렉트 박스 (모양만 구현해 놓은 버전) -->
+  <!-- 상품 정렬용 셀렉트 박스 -->
   <div class="select-box">
     <div class="options-container">
-      <div class="option" v-for="(item, i) in selectItemList" :key="i">
+      <div
+        class="option"
+        @click="itemAlign(selectItem.sort)"
+        v-for="(selectItem, i) in selectItemList"
+        :key="i"
+      >
         <input type="radio" class="radio" name="category" />
-        <label>{{ item }}</label>
+        <label>{{ selectItem.title }}</label>
       </div>
     </div>
     <div class="selected">
@@ -16,20 +21,58 @@
 
 <script>
   import { ChevronDownIcon } from "vue-feather-icons"
+  import { shopBestList } from "./shopBestList.js"
 
   export default {
     data() {
       return {
+        shopBestList,
         selectItemList: [
-          "최신순",
-          "가격 낮은 순",
-          "가격 높은 순",
-          "좋아요 많은 순"
+          /* 셀렉트 박스에 들어가는 옵션항목 */
+          { title: "최신순", sort: "latest_at" },
+          { title: "가격 낮은 순", sort: "low_price" },
+          { title: "가격 높은 순", sort: "high_price" },
+          { title: "좋아요 많은 순", sort: "high_like" }
         ]
       }
     },
     components: {
       ChevronDownIcon
+    },
+    methods: {
+      /* 상품 정렬 함수 */
+      itemAlign(sortType) {
+        if (sortType === "latest_at") {
+          this.shopBestList.sort((a, b) => {
+            return a.index - b.index
+          })
+          console.log(this.shopBestList)
+        }
+        if (sortType === "low_price") {
+          this.shopBestList.sort((a, b) => {
+            return (
+              parseInt(a.price * a.discountRate, 10) -
+              parseInt(b.price * b.discountRate, 10)
+            )
+          })
+          console.log(this.shopBestList)
+        }
+        if (sortType === "high_price") {
+          this.shopBestList.sort((a, b) => {
+            return (
+              parseInt(b.price * b.discountRate, 10) -
+              parseInt(a.price * a.discountRate, 10)
+            )
+          })
+          console.log(this.shopBestList)
+        }
+        if (sortType === "high_like") {
+          this.shopBestList.sort((a, b) => {
+            return b.likes - a.likes
+          })
+          console.log(this.shopBestList)
+        }
+      }
     },
 
     mounted() {
@@ -39,7 +82,7 @@
       const dropDown = document.querySelector(".drop-down-icon")
       const selectedOption = document.querySelector(".selected-option")
 
-      selectedOption.innerHTML = this.selectItemList[0]
+      selectedOption.innerHTML = this.selectItemList[0].title
 
       selected.addEventListener("click", () => {
         optionsContainer.classList.toggle("active")
