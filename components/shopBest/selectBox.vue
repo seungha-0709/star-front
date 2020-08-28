@@ -4,12 +4,12 @@
     <div class="options-container">
       <div
         class="option"
-        @click="itemAlign(selectItem.sort)"
-        v-for="(selectItem, i) in selectItemList"
+        @click="itemAlign(select.sort)"
+        v-for="(select, i) in selectCreteria"
         :key="i"
       >
         <input type="radio" class="radio" name="category" />
-        <label>{{ selectItem.title }}</label>
+        <label>{{ select.title }}</label>
       </div>
     </div>
     <div class="selected">
@@ -24,10 +24,11 @@
   import { shopBestList } from "./shopBestList.js"
 
   export default {
+    props: ["bestList"],
     data() {
       return {
         shopBestList,
-        selectItemList: [
+        selectCreteria: [
           /* 셀렉트 박스에 들어가는 옵션항목 */
           { title: "최신순", sort: "latest_at" },
           { title: "가격 낮은 순", sort: "low_price" },
@@ -42,35 +43,32 @@
     methods: {
       /* 상품 정렬 함수 */
       itemAlign(sortType) {
+        console.log(this.$props.bestList)
         if (sortType === "latest_at") {
-          this.shopBestList.sort((a, b) => {
+          this.$props.bestList.sort((a, b) => {
             return a.index - b.index
           })
-          console.log(this.shopBestList)
         }
         if (sortType === "low_price") {
-          this.shopBestList.sort((a, b) => {
+          this.$props.bestList.sort((a, b) => {
             return (
               parseInt(a.price * a.discountRate, 10) -
               parseInt(b.price * b.discountRate, 10)
             )
           })
-          console.log(this.shopBestList)
         }
         if (sortType === "high_price") {
-          this.shopBestList.sort((a, b) => {
+          this.$props.bestList.sort((a, b) => {
             return (
               parseInt(b.price * b.discountRate, 10) -
               parseInt(a.price * a.discountRate, 10)
             )
           })
-          console.log(this.shopBestList)
         }
         if (sortType === "high_like") {
-          this.shopBestList.sort((a, b) => {
+          this.$props.bestList.sort((a, b) => {
             return b.likes - a.likes
           })
-          console.log(this.shopBestList)
         }
       }
     },
@@ -82,7 +80,7 @@
       const dropDown = document.querySelector(".drop-down-icon")
       const selectedOption = document.querySelector(".selected-option")
 
-      selectedOption.innerHTML = this.selectItemList[0].title
+      selectedOption.innerHTML = this.selectCreteria[0].title
 
       selected.addEventListener("click", () => {
         optionsContainer.classList.toggle("active")

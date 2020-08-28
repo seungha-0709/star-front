@@ -5,7 +5,7 @@
       <div class="shop-best-item-top">
         <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
         <div class="select-box">
-          <selectBox />
+          <selectBox v-bind:bestList="shopBestList" />
         </div>
       </div>
       <div class="shop-best-item-wrap">
