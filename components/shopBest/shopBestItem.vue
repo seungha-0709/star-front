@@ -4,7 +4,7 @@
     <div class="best-item-img">
       <img :src="propsData.img" alt />
       <span class="best-label" v-if="propsData.best === true">BEST</span>
-      <div class="like-btn" @click="likePlus(propsData.index)">
+      <div class="like-btn" @click="likePlus(indexData)">
         <v-icon color="#fff" large>favorite_border</v-icon>
       </div>
     </div>
@@ -32,7 +32,7 @@
 
 <script>
   export default {
-    props: ["propsData"],
+    props: ["propsData", "indexData"],
     data() {
       return { likeToggle: 0 }
     },
@@ -44,6 +44,7 @@
       },
       likePlus(idx) {
         /* 좋아요 버튼 누르면 +1 증가, 취소하면 -1 만드는 함수  */
+        console.log(idx)
         const likeBtn = document.getElementsByClassName("like-btn")
         this.likeToggle++
         if (this.likeToggle % 2 === 1) {

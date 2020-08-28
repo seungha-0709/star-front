@@ -11,6 +11,7 @@
       <div class="shop-best-item-wrap">
         <shopBestItem
           v-bind:propsData="item"
+          v-bind:indexData="i"
           v-for="(item, i) in computedBestList"
           :key="i"
         />

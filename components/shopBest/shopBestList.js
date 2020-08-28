@@ -104,7 +104,7 @@ export const shopBestList = [
       "https://cdn.pixabay.com/photo/2016/01/19/17/57/diary-1149992_960_720.jpg"
   },
   {
-    index: 9,
+    index: 8,
     teacher: "김갹갹",
     lectureName: "9번 강의명",
     discountRate: 0.38,
@@ -117,7 +117,7 @@ export const shopBestList = [
       "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
   },
   {
-    index: 10,
+    index: 9,
     teacher: "김갹갹",
     lectureName: "10번 강의명",
     discountRate: 0.38,
@@ -130,7 +130,7 @@ export const shopBestList = [
       "https://cdn.pixabay.com/photo/2015/11/07/11/39/book-1031359_960_720.jpg"
   },
   {
-    index: 11,
+    index: 10,
     teacher: "김갹갹",
     lectureName: "11번 강의명",
     discountRate: 0.38,
