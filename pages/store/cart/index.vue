@@ -17,7 +17,8 @@ export default {
   },
   components: {
     "cart-item": cartItem,
-    "cart-breakdown": cartBreakdown
+    "cart-breakdown": cartBreakdown,
+    "cart-empty": cartEmpty
   },
   methods: {
     getResultData(data) {

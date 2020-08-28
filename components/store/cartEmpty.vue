@@ -3,7 +3,8 @@
     <div class="rectangle">
       <div>
         <h3 class="cart-name">장바구니</h3>
-        <p class="cart-count">{{ `총 ${cartLists.length.toLocaleString()}개` }}</p>
+        <p class="cart-count">총 0개</p>
+        <!-- {{ `총 ${cartLists.length.toLocaleString()}개` }} -->
         <div>
           <table class="cart-table">
             <thead>
@@ -11,8 +12,9 @@
                 <th class="tb-checkbox">
                   <div class="checkbox-item">
                     <label>
-                      <input type="checkbox" v-model="selectAll" v-on:click="selectAllItems" />
-                      <check-button :value="selectAll" />
+                      <!-- <input type="checkbox" v-model="selectAll" v-on:click="selectAllItems" /> -->
+                      <check-button />
+                      <!-- <:value="selectAll" /> -->
                     </label>
                     <p class="select-all">전체선택</p>
                   </div>
@@ -25,7 +27,12 @@
               </tr>
             </thead>
           </table>
+          <div>
+            <p class="empty-cart">장바구니에 담긴 상품이 없습니다.</p>
+          </div>
         </div>
+
+        <button class="shopping-btn">쇼핑하러 가기</button>
       </div>
     </div>
   </div>
@@ -45,20 +52,22 @@ export default {
 </script>
 <style scoped>
 .content {
-  width: 100%;
+  width: 1200px;
   margin: 0 auto;
   font-family: SpoqaHanSans;
   font-weight: normal;
-  font-size: 14px;
   color: #212121;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 14px;
+  background-color: #ffffff;
 }
 .rectangle {
-  width: 1200px;
+  width: 100%;
+  height: 491px;
   margin: 32px auto 0;
-  border-top: solid 1px #dfdfdf;
-  border-right: solid 1px #dfdfdf;
-  border-left: solid 1px #dfdfdf;
-  background-color: #ffffff;
+  font-size: 14px;
+  border: solid 1px #dfdfdf;
 }
 .cart-name {
   width: 89px;
@@ -96,13 +105,13 @@ export default {
 .cart-table td {
   height: 140px;
   border-bottom: solid 1px #ececec;
-  font-size: 16px;
   vertical-align: middle;
 }
-.table-line {
-  height: 140px;
-  border-right: solid 1px #ecece0;
-  padding: 16px 16px 16px 0;
+.select-all {
+  font-size: 14px;
+  color: #666666;
+  margin-left: 8px;
+  text-align: center;
 }
 .checkbox-item {
   display: flex;
@@ -117,5 +126,24 @@ export default {
 .th-size {
   width: 140px;
   padding: 10px 0 10px;
+}
+.empty-cart {
+  width: 217px;
+  height: 24px;
+  text-align: center;
+  vertical-align: middle;
+  color: #666666;
+  font-size: 16px;
+  margin: 98px auto;
+}
+.shopping-btn {
+  width: 240px;
+  height: 52px;
+  border-radius: 26px;
+  border: solid 1px #1673e6;
+  background-color: #ffffff;
+  font-weight: bold;
+  color: #1673e6;
+  font-size: 16px;
 }
 </style>
