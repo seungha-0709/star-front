@@ -8,10 +8,10 @@
 </template>
 
 <style scoped>
-.scroll-test {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 800px;
-}
+  .scroll-test {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 800px;
+  }
 </style>
