@@ -12,7 +12,7 @@
         <shopBestItem
           :propsData="item"
           :indexData="i"
-          v-for="(item, i) in shopBestList"
+          v-for="(item, i) in computedBestList"
           :key="i"
         />
       </div>
@@ -78,75 +78,9 @@
   .select-box {
     padding: 0;
   }
-  /* 셀렉트 박스 시작----------------------------------------- */
-  .select-box {
-    /* 전체를 감싸는 컨테이너 */
-    background: #fff;
-    display: flex;
-    width: 189px;
-    position: relative;
-    flex-direction: column;
-  }
-  .select-box .options-container {
-    /* 클릭하면 나타나는 드롭다운 박스 */
-    position: absolute;
-    top: 52px;
-    right: 0;
-    z-index: 100;
-    border: 1px solid #dfdfdf;
-    background: #fff;
-    color: #212121;
-    max-height: 0;
-    width: 100%;
-    opacity: 0;
-    transition: all 0.4s;
-    border-radius: 4px;
-    overflow: hidden;
-  }
-  .selected {
-    /* 선택한 옵션이 나타나는 박스 */
-    width: 100%;
-    border-radius: 4px;
-    color: #212121;
-    position: relative;
-    border: 1px solid #dfdfdf;
-    margin: 0;
-    padding: 0;
-  }
-  .drop-down-icon {
-    /* 화살표 아이콘 */
-    float: right;
-    transition: 0.5s;
-    color: #666;
-  }
-  .drop-down-icon.active {
-    transform: rotate(180deg);
-  }
-  .select-box .options-container.active {
-    max-height: 240px;
-    opacity: 1;
-    overflow-y: scroll;
-  }
-  .select-box .option,
-  .selected {
-    /* option-container와 selected 박스 요소 공통 패딩값 */
-    padding: 14px 16px;
-    cursor: pointer;
-  }
-  .select-box .option:hover {
-    background: #dfdfdf;
-  }
-  .select-box label {
-    cursor: pointer;
-  }
-  .select-box .option .radio {
-    display: none;
-  }
-  /* 셀렉트 박스 끝-----------------------------------------*/
-
   .shop-best-item-wrap {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     width: 1200px;
     margin: 0px auto 20px auto;
     flex-wrap: wrap;
