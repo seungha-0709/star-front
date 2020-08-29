@@ -5,14 +5,14 @@
       <div class="shop-best-item-top">
         <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
         <div class="select-box">
-          <selectBox v-bind:bestList="shopBestList" />
+          <selectBox :itemList="shopBestList" />
         </div>
       </div>
       <div class="shop-best-item-wrap">
         <shopBestItem
-          v-bind:propsData="item"
-          v-bind:indexData="i"
-          v-for="(item, i) in computedBestList"
+          :propsData="item"
+          :indexData="i"
+          v-for="(item, i) in shopBestList"
           :key="i"
         />
       </div>

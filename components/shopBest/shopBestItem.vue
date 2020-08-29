@@ -5,7 +5,12 @@
       <img :src="propsData.img" alt />
       <span class="best-label" v-if="propsData.best === true">BEST</span>
       <div class="like-btn" @click="likePlus(indexData)">
-        <v-icon color="#fff" large>favorite_border</v-icon>
+        <v-icon color="#fff" large v-if="likeToggle % 2 === 0"
+          >favorite_border</v-icon
+        >
+        <v-icon color="#f65d58" large v-if="likeToggle % 2 === 1"
+          >favorite</v-icon
+        >
       </div>
     </div>
     <div class="best-item-info">
@@ -45,14 +50,14 @@
       likePlus(idx) {
         /* 좋아요 버튼 누르면 +1 증가, 취소하면 -1 만드는 함수  */
         console.log(idx)
-        const likeBtn = document.getElementsByClassName("like-btn")
+        // const likeBtn = document.getElementsByClassName("like-btn")
         this.likeToggle++
         if (this.likeToggle % 2 === 1) {
-          likeBtn[idx].classList.add("active")
+          // likeBtn[idx].classList.add("active")
           this.$props.propsData.likes =
             parseInt(this.$props.propsData.likes, 10) + parseInt(1, 10)
         } else {
-          likeBtn[idx].classList.remove("active")
+          // likeBtn[idx].classList.remove("active")
           this.$props.propsData.likes =
             parseInt(this.$props.propsData.likes, 10) - parseInt(1, 10)
         }

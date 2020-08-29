@@ -24,7 +24,7 @@
   import { shopBestList } from "./shopBestList.js"
 
   export default {
-    props: ["bestList"],
+    props: ["itemList"],
     data() {
       return {
         shopBestList,
@@ -43,14 +43,14 @@
     methods: {
       /* 상품 정렬 함수 */
       itemAlign(sortType) {
-        console.log(this.$props.bestList)
+        console.log(this.$props)
         if (sortType === "latest_at") {
-          this.$props.bestList.sort((a, b) => {
+          this.$props.itemList.sort((a, b) => {
             return a.index - b.index
           })
         }
         if (sortType === "low_price") {
-          this.$props.bestList.sort((a, b) => {
+          this.$props.itemList.sort((a, b) => {
             return (
               parseInt(a.price * a.discountRate, 10) -
               parseInt(b.price * b.discountRate, 10)
@@ -58,7 +58,7 @@
           })
         }
         if (sortType === "high_price") {
-          this.$props.bestList.sort((a, b) => {
+          this.$props.itemList.sort((a, b) => {
             return (
               parseInt(b.price * b.discountRate, 10) -
               parseInt(a.price * a.discountRate, 10)
@@ -66,7 +66,7 @@
           })
         }
         if (sortType === "high_like") {
-          this.$props.bestList.sort((a, b) => {
+          this.$props.itemList.sort((a, b) => {
             return b.likes - a.likes
           })
         }
