@@ -27,3 +27,12 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.cart-page {
+  width: 1200px;
+  margin: 32px auto 0;
+  border: 1px solid #dfdfdf;
+  background-color: #ffffff;
+}
+</style>

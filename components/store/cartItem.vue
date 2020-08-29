@@ -49,22 +49,29 @@
                   <img class="item-img" :src="cartList.img" alt="상품이미지" />
                   <div class="item-name">
                     {{ cartList.title }}
-                    <div class="origin-price">{{ `정상가 ${cartList.originPrice.toLocaleString()}원`}}</div>
+                    <div class="origin-price">{{ `정상가 ${cartList.originPrice.toLocaleString()}원` }}</div>
                   </div>
                 </td>
                 <td class="table-line amount">
-                  <button class="amt-btn" v-on:click="amountControl(index, 'min')">-</button>
+                  <button class="amt-btn" v-on:click="amountControl(index, 'min')">
+                    <minus-icon size="20" class="icon-add minus-icon"></minus-icon>
+                  </button>
                   <p class="amt-price">{{ cartList.amount }}</p>
-                  <button class="amt-btn" v-on:click="amountControl(index, 'plus')">+</button>
+                  <button class="amt-btn" v-on:click="amountControl(index, 'plus')">
+                    <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
+                  </button>
                 </td>
-                <td
-                  class="sale price table-line"
-                >{{ `-${(cartList.sale * cartList.amount).toLocaleString()}원` }}</td>
+                <td class="sale price table-line">
+                  {{
+                  `-${(cartList.sale * cartList.amount).toLocaleString()}원`
+                  }}
+                </td>
                 <td class="cart price table-line">
                   {{
-                  `${
-                  ((cartList.originPrice - cartList.sale) * cartList.amount).toLocaleString()
-                  }원`
+                  `${(
+                  (cartList.originPrice - cartList.sale) *
+                  cartList.amount
+                  ).toLocaleString()}원`
                   }}
                 </td>
                 <td class="shipping price">{{ `${cartList.shippingFee.toLocaleString()}원` }}</td>
@@ -81,6 +88,7 @@
 <script>
 import { cartLists } from "./cartLists.js"
 import checkButton from "../common/checkButton"
+import { PlusIcon, MinusIcon } from "vue-feather-icons"
 
 export default {
   data() {
@@ -91,7 +99,9 @@ export default {
     }
   },
   components: {
-    "check-button": checkButton
+    "check-button": checkButton,
+    PlusIcon,
+    MinusIcon
   },
   // filters: {
   //   currencyStyle(value) {
@@ -135,7 +145,7 @@ export default {
       } else {
         this.select.push(index)
       }
-      // console.log(this.select)
+      console.log(this.select)
     },
     amountControl(index, type) {
       if (type === "plus") {
@@ -149,8 +159,13 @@ export default {
     if (this.select.length === this.cartLists.length) {
       this.selectAll = true
     }
-    if (this.select.length !== this.cartLists.length) {
-      this.selectAll = false
+    // console.log(this.select)
+  },
+  amountControl(index, type) {
+    if (type === "plus") {
+      this.cartLists[index].amount += 1
+    } else if (type === "min") {
+      if (this.cartLists[index].amount > 1) this.cartLists[index].amount -= 1
     }
     this.$emit("sendResultData", this.select)
   }
@@ -165,14 +180,6 @@ export default {
   font-weight: normal;
   font-size: 14px;
   color: #212121;
-}
-.rectangle {
-  width: 1200px;
-  margin: 32px auto 0;
-  border-top: solid 1px #dfdfdf;
-  border-right: solid 1px #dfdfdf;
-  border-left: solid 1px #dfdfdf;
-  background-color: #ffffff;
 }
 .cart-name {
   width: 89px;
@@ -207,9 +214,11 @@ export default {
 .cart-table tbody {
   width: 100%;
 }
+.cart-table tbody tr {
+  border-bottom: solid 1px #ececec;
+}
 .cart-table td {
   height: 140px;
-  border-bottom: solid 1px #ececec;
   font-size: 16px;
   vertical-align: middle;
 }
@@ -223,7 +232,7 @@ export default {
 }
 .tb-checkbox {
   width: 114px;
-  padding: 11px 8px 11px 0;
+  padding: 11px 8px 11px 24px;
 }
 .tb-checkbox label input[type="checkbox"] {
   display: none;
@@ -240,7 +249,7 @@ export default {
   width: 146px;
   height: 108px;
   border-radius: 4px;
-  background-color: cornsilk;
+  background: darkturquoise;
 }
 .item-name {
   width: 268px;
@@ -277,14 +286,15 @@ export default {
   padding-left: 16px;
 }
 .amt-btn {
-  display: inline-block;
   width: 30px;
   height: 30px;
-  margin: 39px 0 39px;
   border-radius: 8px;
   border: solid 1px #dfdfdf;
   background-color: #ffffff;
   color: #c1c1c1;
+}
+.amt-btn .icon-add {
+  vertical-align: middle;
 }
 .amt-price {
   text-align: center;
