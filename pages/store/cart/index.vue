@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="cart-page">
     <cart-item v-on:sendResultData="getResultData" />
     <cart-breakdown v-bind:result-data="resultData" />
   </div>
@@ -24,3 +24,12 @@
     }
   }
 </script>
+
+<style scoped>
+  .cart-page {
+    width: 1200px;
+    margin: 32px auto 0;
+    border: 1px solid #dfdfdf;
+    background-color: #ffffff;
+  }
+</style>
