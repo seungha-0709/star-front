@@ -78,7 +78,9 @@
               </tr>
             </tbody>
           </table>
-          <button v-on:click="removeItem" class="select-delete">선택삭제</button>
+          <div class="select-delete">
+            <button v-on:click="removeItem" class="select-delete-btn">선택삭제</button>
+          </div>
         </div>
       </div>
     </div>
@@ -255,6 +257,7 @@ export default {
   width: 268px;
   height: 48px;
   margin: 23px 0 0 16px;
+  text-align: left;
 }
 .origin-price {
   font-size: 14px;
@@ -305,6 +308,9 @@ export default {
   padding-right: 16px;
 }
 .select-delete {
+  text-align: left;
+}
+.select-delete-btn {
   width: 84px;
   height: 42px;
   margin: 0 0 48px 40px;
