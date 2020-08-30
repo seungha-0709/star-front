@@ -5,7 +5,7 @@
       <div class="shop-best-item-top">
         <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
         <div class="select-box">
-          <selectBox :itemList="shopBestList" @listAlign="listAlignParent" />
+          <selectBox @listAlign="onAlignChange" />
         </div>
       </div>
       <div class="shop-best-item-wrap">
@@ -39,7 +39,7 @@ export default {
     }
   },
   methods: {
-    listAlignParent(value) {
+    onAlignChange(value) {
       console.log(value)
       if (value === "latest_at") {
         this.shopBestList.sort((a, b) => {
@@ -105,5 +105,6 @@ export default {
   width: 1200px;
   margin: 0px auto 20px auto;
   flex-wrap: wrap;
+  justify-content: space-between;
 }
 </style>
