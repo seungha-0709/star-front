@@ -114,7 +114,7 @@ export default {
         // console.log(this.cartLists.length)
         for (let index = 0; index < this.select.length; index++) {
           const tmpIdx = this.select[this.select.length - index - 1]
-          // tmpIdx 변수명 바꿀 예정
+          // cartCast에 cartItems 컴포넌트로 등록 후 tmpIdx 변수명 바꿀 예정
           // console.log(tmpIdx)
           this.cartLists.splice(tmpIdx, 1)
         }
