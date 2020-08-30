@@ -5,6 +5,8 @@
       <cart-item v-on:sendResultData="getResultData" />
       <cart-breakdown v-bind:result-data="resultData" />
       <order-button />
+      <cart-cast />
+      <cart-item2 />
     </div>
   </div>
 </template>
@@ -13,6 +15,8 @@ import cartEmpty from "../../../components/store/cartEmpty.vue"
 import cartItem from "../../../components/store/cartItem.vue"
 import cartBreakdown from "../../../components/store/cartBreakdown.vue"
 import orderButton from "../../../components/store/orderButton.vue"
+import cartCast from "../../../components/store/cartCast.vue"
+import cartItem2 from "../../../components/store/cartItem2.vue"
 
 export default {
   data() {
@@ -24,7 +28,9 @@ export default {
     "cart-item": cartItem,
     "cart-breakdown": cartBreakdown,
     "cart-empty": cartEmpty,
-    "order-button": orderButton
+    "order-button": orderButton,
+    "cart-cast": cartCast,
+    cartItem2: cartItem2
   },
   methods: {
     getResultData(data) {
