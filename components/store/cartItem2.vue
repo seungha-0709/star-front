@@ -1,61 +1,59 @@
 <template>
-  <div class="content">
-    <table class="cart-table">
-      <tbody>
-        <tr
-          v-for="(cartList, index) in cartLists"
-          :key="index"
-          id="selected-color"
-          v-bind:class="{
+  <table class="cart-table">
+    <tbody>
+      <tr
+        v-for="(cartList, index) in cartLists"
+        :key="index"
+        id="selected-color"
+        v-bind:class="{
                   normal: !select.includes(index),
                   clicked: select.includes(index)
                 }"
-        >
-          <td class="tb-checkbox">
-            <label>
-              <input
-                type="checkbox"
-                v-model="select"
-                :value="index"
-                v-on:click="clickCartIndex(index)"
-              />
-              <check-button :value="select.includes(index)" />
-            </label>
-          </td>
-          <td class="table-line item-title">
-            <img class="item-img" :src="cartList.img" alt="상품이미지" />
-            <div class="item-name">
-              {{ cartList.title }}
-              <div class="origin-price">{{ `정상가 ${cartList.originPrice.toLocaleString()}원` }}</div>
-            </div>
-          </td>
-          <td class="table-line amount">
-            <button class="amt-btn" v-on:click="amountControl(index, 'min')">
-              <minus-icon size="20" class="icon-add minus-icon"></minus-icon>
-            </button>
-            <p class="amt-price">{{ cartList.amount }}</p>
-            <button class="amt-btn" v-on:click="amountControl(index, 'plus')">
-              <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
-            </button>
-          </td>
-          <td class="sale price table-line">
-            {{
-            `-${(cartList.sale * cartList.amount).toLocaleString()}원`
-            }}
-          </td>
-          <td class="cart price table-line">
-            {{
-            `${(
-            (cartList.originPrice - cartList.sale) *
-            cartList.amount
-            ).toLocaleString()}원`
-            }}
-          </td>
-          <td class="shipping price">{{ `${cartList.shippingFee.toLocaleString()}원` }}</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+      >
+        <td class="tb-checkbox">
+          <label>
+            <input
+              type="checkbox"
+              v-model="select"
+              :value="index"
+              v-on:click="clickCartIndex(index)"
+            />
+            <check-button :value="select.includes(index)" />
+          </label>
+        </td>
+        <td class="table-line item-title">
+          <img class="item-img" :src="cartList.img" alt="상품이미지" />
+          <div class="item-name">
+            {{ cartList.title }}
+            <div class="origin-price">{{ `정상가 ${cartList.originPrice.toLocaleString()}원` }}</div>
+          </div>
+        </td>
+        <td class="table-line amount">
+          <button class="amt-btn" v-on:click="amountControl(index, 'min')">
+            <minus-icon size="20" class="icon-add minus-icon"></minus-icon>
+          </button>
+          <p class="amt-price">{{ cartList.amount }}</p>
+          <button class="amt-btn" v-on:click="amountControl(index, 'plus')">
+            <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
+          </button>
+        </td>
+        <td class="sale price table-line">
+          {{
+          `-${(cartList.sale * cartList.amount).toLocaleString()}원`
+          }}
+        </td>
+        <td class="cart price table-line">
+          {{
+          `${(
+          (cartList.originPrice - cartList.sale) *
+          cartList.amount
+          ).toLocaleString()}원`
+          }}
+        </td>
+        <td class="shipping price">{{ `${cartList.shippingFee.toLocaleString()}원` }}</td>
+      </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
@@ -133,14 +131,6 @@ export default {
 </script>
 
 <style scoped>
-.content {
-  width: 1120px;
-  margin: 0 auto;
-  font-family: SpoqaHanSans;
-  font-weight: normal;
-  font-size: 14px;
-  color: #212121;
-}
 .cart-table tbody tr {
   border-bottom: solid 1px #ececec;
 }

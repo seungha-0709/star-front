@@ -24,6 +24,7 @@
             </tr>
           </thead>
         </table>
+        <cart-item2 />
         <div class="select-delete">
           <button v-on:click="removeItem" class="select-delete-btn">선택삭제</button>
         </div>
@@ -34,6 +35,7 @@
 
 <script>
 import { cartLists } from "./cartLists.js"
+import cartItem2 from "./cartItem2.vue"
 import checkButton from "../common/checkButton"
 
 export default {
@@ -44,7 +46,8 @@ export default {
     }
   },
   components: {
-    "check-button": checkButton
+    "check-button": checkButton,
+    "cart-item2": cartItem2
   },
   updated() {
     if (this.select.length === this.cartLists.length) {
@@ -84,14 +87,14 @@ export default {
 }
 .cart-table {
   width: 1120px;
-  border-top: solid 1px #666666;
-  margin: 0 40px 16px;
+  margin: 0 40px;
 }
 .cart-table th {
   text-align: center;
 }
 .table-header {
   height: 42px;
+  border-top: solid 1px #666666;
   font-size: 15px;
   text-align: center;
 }
