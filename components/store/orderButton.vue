@@ -12,6 +12,7 @@ export default {}
   height: 52px;
   border-radius: 26px;
   background-color: #1673e6;
+  margin-bottom: 56px;
   font-size: 16px;
   font-weight: bold;
   text-align: center;

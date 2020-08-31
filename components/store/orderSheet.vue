@@ -36,7 +36,7 @@ export default {
 </script>
 <style scoped>
 .content {
-  width: 1200px;
+  width: 100%;
   margin: 0 auto;
   font-family: SpoqaHanSans;
   font-weight: normal;
@@ -47,7 +47,6 @@ export default {
   background-color: #ffffff;
 }
 .rectangle {
-  width: 100%;
   height: 491px;
   margin: 32px auto 0;
   font-size: 14px;
