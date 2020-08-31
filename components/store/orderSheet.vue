@@ -2,7 +2,7 @@
   <div class="content">
     <div class="rectangle">
       <div>
-        <h3 class="cart-name">장바구니</h3>
+        <h3 class="cart-name">주문서</h3>
         <p class="cart-count">총 0개</p>
         <!-- {{ `총 ${cartLists.length.toLocaleString()}개` }} -->
         <div>
@@ -51,7 +51,6 @@ export default {
   height: 491px;
   margin: 32px auto 0;
   font-size: 14px;
-  border: solid 1px #dfdfdf;
 }
 .cart-name {
   width: 89px;

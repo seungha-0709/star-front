@@ -111,6 +111,13 @@ export default {
         this.select.push(index)
       }
       console.log(this.select)
+    },
+    amountControl(index, type) {
+      if (type === "plus") {
+        this.cartLists[index].amount += 1
+      } else if (type === "min") {
+        if (this.cartLists[index].amount > 1) this.cartLists[index].amount -= 1
+      }
     }
   },
   updated() {
