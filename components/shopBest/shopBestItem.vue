@@ -28,7 +28,8 @@
         <v-icon color="#1673e9">star</v-icon>
         <span class="star">{{ propsData.star }}</span>
         <span class="review-number">{{ `상품리뷰 ${propsData.review}` }}</span>
-        <v-icon>favorite</v-icon>
+        <v-icon color="#c1c1c1" v-if="likeToggle % 2 === 0">favorite</v-icon>
+        <v-icon color="#f65d58" v-if="likeToggle % 2 === 1">favorite</v-icon>
         <span class="likes">{{ propsData.likes }}</span>
       </div>
     </div>
