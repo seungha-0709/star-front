@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .content {
   width: 100%;
-  margin: 0 auto;
+  margin: 0 auto 48px;
   font-family: SpoqaHanSans;
   font-weight: normal;
   color: #212121;

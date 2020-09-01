@@ -6,6 +6,7 @@
       <order-button />
       <order-sheet />
       <shipping-info />
+      <order-button />
     </div>
   </div>
 </template>

@@ -17,7 +17,8 @@
               </tr>
             </thead>
           </table>
-          <cart-items :cart-lists="cartLists" />
+          <cart-items />
+          <order-breakdown />
         </div>
       </div>
     </div>
@@ -27,6 +28,7 @@
 <script>
 import checkButton from "../common/checkButton"
 import cartItems from "./cartItems.vue"
+import orderBreakdown from "./orderBreakdown"
 
 export default {
   data() {
@@ -34,7 +36,8 @@ export default {
   },
   components: {
     "check-button": checkButton,
-    "cart-items": cartItems
+    "cart-items": cartItems,
+    "order-breakdown": orderBreakdown
   }
 }
 </script>
@@ -43,11 +46,9 @@ export default {
   width: 100%;
   margin: 0 auto;
   font-family: SpoqaHanSans;
-  font-weight: normal;
   color: #212121;
   vertical-align: middle;
   text-align: center;
-  font-size: 14px;
   background-color: #ffffff;
 }
 .rectangle {
@@ -78,6 +79,8 @@ export default {
 .table-header {
   height: 42px;
   font-size: 15px;
+  font-weight: normal;
+  font-size: 14px;
   text-align: center;
 }
 .cart-table thead tr {
