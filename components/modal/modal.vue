@@ -1,20 +1,23 @@
 <template>
   <div class="bg">
-    <div class="modal-bg">
+    <div class="modal-bg" v-if="modalInfo.isDimmed === true">
       <div class="modal-container">
-        <div class="close-icon-box" v-if="modalContents.closeBtn === true">
+        <div class="close-icon-box" v-if="modalInfo.isClose === true">
           <x-icon class="close-icon" />
         </div>
         <div class="modal-wrap">
           <div class="modal-header">
-            <h1>{{ modalContents.title }}</h1>
-            <h2>{{ modalContents.subTitle }}</h2>
-            <h3>{{ modalContents.description }}</h3>
-            <div class="modal-line" v-if="modalContents.line === true"></div>
+            <h1>{{ modalInfo.title }}</h1>
+            <h3>{{ modalInfo.subTitle }}</h3>
+            <div class="modal-divider" v-if="modalInfo.isDivider === true"></div>
           </div>
+          <div class="modal-main"></div>
           <div class="modal-footer">
-            <btn-white>취소</btn-white>
-            <btn-blue>접수하기</btn-blue>
+            <h3>{{ modalInfo.bottomText }}</h3>
+            <div class="btn-wrap">
+              <btn-border>{{ modalInfo.bottomBtn[0].title }}</btn-border>
+              <btn-color>{{ modalInfo.bottomBtn[1].title }}</btn-color>
+            </div>
           </div>
         </div>
       </div>
@@ -24,20 +27,20 @@
 
 <script>
 import { XIcon } from "vue-feather-icons"
-import { modalContents } from "./modalCancel.js"
-import btnWhite from "./btnWhite.vue"
-import btnBlue from "./btnBlue.vue"
+import { modalInfo } from "./modalCancel.js"
+import btnBorder from "../common/btnBorder.vue"
+import btnColor from "../common/btnColor.vue"
 
 export default {
   data() {
     return {
-      modalContents
+      modalInfo
     }
   },
   components: {
     XIcon,
-    btnWhite,
-    btnBlue
+    btnBorder,
+    btnColor
   }
 }
 </script>
@@ -87,16 +90,22 @@ h1 {
   font-weight: bold;
   margin-bottom: 2px;
 }
+h2 {
+  color: #212121;
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 24px;
+}
 h3 {
   color: #666;
   font-size: 14px;
 }
-.modal-line {
+.modal-divider {
   width: 100%;
   height: 16px;
   border-bottom: 1px solid #000;
 }
-.modal-footer {
+.btn-wrap {
   display: flex;
   justify-content: center;
 }

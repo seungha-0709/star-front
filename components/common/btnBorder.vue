@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="modal-btn-cancel">
+    <div class="btn-border">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <style scoped>
-.modal-btn-cancel {
+.btn-border {
   width: 180px;
   height: 52px;
   border: 1px solid #dfdfdf;

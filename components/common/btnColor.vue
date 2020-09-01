@@ -1,13 +1,13 @@
 <template>
   <div>
-    <div class="modal-btn-cancel">
+    <div class="btn-colored">
       <slot></slot>
     </div>
   </div>
 </template>
 
 <style scoped>
-.modal-btn-cancel {
+.btn-colored {
   width: 180px;
   height: 52px;
   background-color: #1673e6;
