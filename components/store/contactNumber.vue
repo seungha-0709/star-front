@@ -29,6 +29,7 @@ export default {
 <style scoped>
 .content {
   width: 100%;
+  height: 156px;
   margin: 0 auto;
   font-family: SpoqaHanSans;
   font-weight: normal;
@@ -40,7 +41,6 @@ export default {
 }
 .contact {
   font-weight: bold;
-  margin-left: 40px;
   padding-bottom: 24px;
   border-bottom: solid 1px #dfdfdf;
 }
@@ -57,10 +57,11 @@ export default {
   height: 86px;
 }
 .phone {
-  margin-top: 35px;
+  height: 46px;
+  margin: 11px 4px 0 0;
 }
 .input-box {
-  margin: 24px 0 0 44px;
+  margin: 0 0 16px 44px;
 }
 .contact-input {
   width: 80px;
@@ -76,7 +77,7 @@ export default {
 
 .verify {
   display: flex;
-  margin-left: 113px;
+  margin-left: 118px;
 }
 .verify-input {
   width: 200px;

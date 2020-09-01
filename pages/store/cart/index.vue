@@ -1,9 +1,9 @@
 <template>
   <div>
     <div class="cart-page">
-      <cart-cast v-on:sendResultData="getResultData" :cart-lists="cartLists" />
-      <cart-breakdown v-bind:result-data="resultData" />
-      <order-button />
+      <!-- <cart-cast v-on:sendResultData="getResultData" :cart-lists="cartLists" /> -->
+      <!-- <cart-breakdown v-bind:result-data="resultData" /> -->
+      <!-- <order-button /> -->
       <order-sheet />
       <shipping-info />
       <order-button />

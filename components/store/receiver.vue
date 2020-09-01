@@ -29,7 +29,7 @@ export default {
 }
 .receiver {
   font-weight: bold;
-  margin: 24px 0 0 40px;
+  margin-top: 24px;
   padding-bottom: 24px;
   border-bottom: solid 1px #dfdfdf;
 }
@@ -38,7 +38,7 @@ export default {
   height: 46px;
   border-radius: 4px;
   border: solid 1px #dfdfdf;
-  margin-left: 40px;
   color: #c1c1c1;
+  margin-left: 40px;
 }
 </style>
