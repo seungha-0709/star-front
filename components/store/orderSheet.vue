@@ -3,7 +3,7 @@
     <div class="rectangle">
       <div>
         <h3 class="cart-name">주문서</h3>
-        <p class="cart-count">총 0개</p>
+        <p class="cart-count">{{ `주문 정보 확인(${2})건`}}</p>
         <!-- {{ `총 ${cartLists.length.toLocaleString()}개` }} -->
         <div>
           <table class="cart-table">
@@ -17,6 +17,7 @@
               </tr>
             </thead>
           </table>
+          <cart-items :cart-lists="cartLists" />
         </div>
       </div>
     </div>
@@ -25,12 +26,15 @@
 
 <script>
 import checkButton from "../common/checkButton"
+import cartItems from "./cartItems.vue"
+
 export default {
   data() {
     return {}
   },
   components: {
-    "check-button": checkButton
+    "check-button": checkButton,
+    "cart-items": cartItems
   }
 }
 </script>
@@ -52,16 +56,16 @@ export default {
   font-size: 14px;
 }
 .cart-name {
-  width: 89px;
-  height: 36px;
+  text-align: left;
   margin: 32px 0 16px 40px;
   font-size: 24px;
   font-weight: bold;
 }
 .cart-count {
-  width: 38px;
-  height: 20px;
+  text-align: left;
   margin: 0 0 17px 40px;
+  font-size: 20px;
+  font-weight: bold;
 }
 .cart-table {
   width: 1120px;

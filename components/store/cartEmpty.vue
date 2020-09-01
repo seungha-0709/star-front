@@ -69,15 +69,13 @@ export default {
   border: solid 1px #dfdfdf;
 }
 .cart-name {
-  width: 89px;
-  height: 36px;
+  text-align: left;
   margin: 32px 0 16px 40px;
   font-size: 24px;
   font-weight: bold;
 }
 .cart-count {
-  width: 38px;
-  height: 20px;
+  text-align: left;
   margin: 0 0 17px 40px;
 }
 .cart-table {

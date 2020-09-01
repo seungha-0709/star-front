@@ -1,17 +1,15 @@
 <template>
   <div>
     <div class="cart-page">
-      <!-- <cart-item v-on:sendResultData="getResultData" /> -->
       <cart-cast v-on:sendResultData="getResultData" :cart-lists="cartLists" />
       <cart-breakdown v-bind:result-data="resultData" />
       <order-button />
-      <!-- <order-sheet /> -->
+      <order-sheet />
     </div>
   </div>
 </template>
 <script>
 import cartEmpty from "../../../components/store/cartEmpty.vue"
-import cartItem from "../../../components/store/cartItem.vue"
 import cartBreakdown from "../../../components/store/cartBreakdown.vue"
 import orderButton from "../../../components/store/orderButton.vue"
 import cartCast from "../../../components/store/cartCast.vue"
@@ -27,7 +25,6 @@ export default {
     }
   },
   components: {
-    "cart-item": cartItem,
     "cart-breakdown": cartBreakdown,
     "cart-empty": cartEmpty,
     "order-button": orderButton,
