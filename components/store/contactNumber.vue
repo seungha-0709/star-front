@@ -7,6 +7,7 @@
           <input class="contact-input" type="text" name="number" size="80" placeholder="010" />
           <input class="contact-input" type="text" name="number" size="80" placeholder="1234" />
           <input class="contact-input" type="text" name="number" size="80" placeholder="1234" />
+          <!-- placeholder 말고 text 로 해야할듯..? 우선 placeholder custom을 더 찾아보자능..  -->
           <button class="verify-num">인증번호 받기</button>
         </div>
       </div>
