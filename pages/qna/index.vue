@@ -1,5 +1,6 @@
 <template>
   <div class="qna-body">
+    <modal :modalProps="modalInfo3" v-if="modalOn === true"> </modal>
     <div class="cs-center-wrap">
       <div class="cs-service">
         <h2>고객센터</h2>
@@ -24,7 +25,7 @@
       </div>
       <div class="cs-online">
         <headphones-icon class="headphone-icon" size="78" color="#ececec" />
-        <div class="btn">1:1 온라인 문의하기</div>
+        <div class="btn" @click="modalPopOn()">1:1 온라인 문의하기</div>
       </div>
     </div>
 
@@ -80,6 +81,8 @@
 </template>
 
 <script>
+  import modal from "../../components/modal/modal.vue"
+  import { modalInfo3 } from "../../components/modal/modal.js"
   import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
   import qnaTab from "../../components/qnaContents/qnaTap.vue"
   import {
@@ -94,11 +97,14 @@
   export default {
     data() {
       return {
+        modalInfo3,
         categoryData: qnaCategory,
-        activeType: "all"
+        activeType: "all",
+        modalOn: false
       }
     },
     components: {
+      modal,
       qnaTab,
       HeadphonesIcon,
       MapPinIcon,
@@ -110,6 +116,9 @@
     methods: {
       onTypeChange(type) {
         this.activeType = type
+      },
+      modalPopOn() {
+        this.modalOn = true
       }
     }
   }

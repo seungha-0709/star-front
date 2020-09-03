@@ -31,8 +31,13 @@ export const modalInfo2 = {
   bottomBtn: []
 }
 
-//   closeBtn: true,
-//   title: "모달 제목",
-//   subTitle: "모달 부제목",
-//   description: "모달 부가 설명",
-//   line: true
+export const modalInfo3 = {
+  title: "1:1 온라인 문의하기",
+  subTitle: null,
+  isDimmed: true,
+  isClose: true,
+  isDivider: false,
+  bottomText: null,
+  footerBtn: false,
+  bottomBtn: []
+}
