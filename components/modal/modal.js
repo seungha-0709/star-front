@@ -7,6 +7,7 @@ export const modalInfo = {
   isDivider: true,
   bottomText:
     "접수 내용을 확인하는 대로 스토어 고객센터를 통해 개별 연락 드리겠습니다\n(영업시간기준: 평일 10시~18시)",
+  footerBtn: true,
   bottomBtn: [
     {
       title: "취소",
@@ -26,6 +27,7 @@ export const modalInfo2 = {
   isClose: true,
   isDivider: false,
   bottomText: null,
+  footerBtn: false,
   bottomBtn: []
 }
 

@@ -1,12 +1,12 @@
 <template>
   <div>
-    <modal v-bind:modalProps="modalInfo" />
+    <modal-cancel :modalProps="modalInfo" />
   </div>
 </template>
 
 <script>
-import modal from "../../components/modal/modal.vue"
-import { modalInfo } from "../../components/modal/modalCancel.js"
+import modalCancel from "../../components/modal/modalCancel.vue"
+import { modalInfo } from "../../components/modal/modal.js"
 
 export default {
   data() {
@@ -15,7 +15,7 @@ export default {
     }
   },
   components: {
-    modal
+    modalCancel
   }
 }
 </script>

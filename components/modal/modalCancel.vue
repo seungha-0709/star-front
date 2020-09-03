@@ -16,7 +16,7 @@
           </div>
           <div class="modal-footer">
             <h3>{{ modalProps.bottomText }}</h3>
-            <div class="btn-wrap">
+            <div class="btn-wrap" v-if="modalProps.footerBtn === true">
               <btn-border>{{ modalProps.bottomBtn[0].title }}</btn-border>
               <btn-color>{{ modalProps.bottomBtn[1].title }}</btn-color>
             </div>
