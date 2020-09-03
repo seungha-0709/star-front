@@ -3,7 +3,7 @@
     <div class="rectangle">
       <div>
         <h3 class="cart-name">주문서</h3>
-        <p class="cart-count">{{ `주문 정보 확인(${2})건`}}</p>
+        <p class="cart-count">{{ `주문 정보 확인(${2})건` }}</p>
         <!-- {{ `총 ${cartLists.length.toLocaleString()}개` }} -->
         <div>
           <table class="cart-table">
@@ -17,7 +17,7 @@
               </tr>
             </thead>
           </table>
-          <cart-items />
+          <cart-items :cart-lists="computedCartLists" :select="null" />
           <order-breakdown />
         </div>
       </div>
@@ -26,113 +26,120 @@
 </template>
 
 <script>
-import checkButton from "../common/checkButton"
-import cartItems from "./cartItems.vue"
-import orderBreakdown from "./orderBreakdown"
+  import checkButton from "../common/checkButton"
+  import cartItems from "./cartItems.vue"
+  import orderBreakdown from "./orderBreakdown"
 
-export default {
-  data() {
-    return {}
-  },
-  components: {
-    "check-button": checkButton,
-    "cart-items": cartItems,
-    "order-breakdown": orderBreakdown
+  export default {
+    props: ["cart-lists", "result-data"],
+    data() {
+      return {}
+    },
+    components: {
+      "check-button": checkButton,
+      "cart-items": cartItems,
+      "order-breakdown": orderBreakdown
+    },
+    computed: {
+      // 이부분 부터 수정 필요함.
+      computedCartLists() {
+        this.resultData.map((data) => data)
+      }
+    }
   }
-}
 </script>
 <style scoped>
-.content {
-  width: 100%;
-  margin: 0 auto;
-  font-family: SpoqaHanSans;
-  color: #212121;
-  vertical-align: middle;
-  text-align: center;
-  background-color: #ffffff;
-}
-.rectangle {
-  height: 491px;
-  margin: 32px auto 0;
-  font-size: 14px;
-}
-.cart-name {
-  text-align: left;
-  margin: 32px 0 16px 40px;
-  font-size: 24px;
-  font-weight: bold;
-}
-.cart-count {
-  text-align: left;
-  margin: 0 0 17px 40px;
-  font-size: 20px;
-  font-weight: bold;
-}
-.cart-table {
-  width: 1120px;
-  border-top: solid 1px #666666;
-  margin: 0 40px 16px;
-}
-.cart-table th {
-  text-align: center;
-}
-.table-header {
-  height: 42px;
-  font-size: 15px;
-  font-weight: normal;
-  font-size: 14px;
-  text-align: center;
-}
-.cart-table thead tr {
-  width: 100%;
-  border-bottom: solid 1px #ececec;
-  vertical-align: middle;
-}
-.cart-table tbody {
-  width: 100%;
-}
-.cart-table td {
-  height: 140px;
-  border-bottom: solid 1px #ececec;
-  vertical-align: middle;
-}
-.select-all {
-  font-size: 14px;
-  color: #666666;
-  margin-left: 8px;
-  text-align: center;
-}
-.checkbox-item {
-  display: flex;
-}
-.tb-checkbox {
-  width: 114px;
-  padding: 11px 8px 11px 0;
-}
-.tb-checkbox label input[type="checkbox"] {
-  display: none;
-}
-.th-size {
-  width: 140px;
-  padding: 10px 0 10px;
-}
-.empty-cart {
-  width: 217px;
-  height: 24px;
-  text-align: center;
-  vertical-align: middle;
-  color: #666666;
-  font-size: 16px;
-  margin: 98px auto;
-}
-.shopping-btn {
-  width: 240px;
-  height: 52px;
-  border-radius: 26px;
-  border: solid 1px #1673e6;
-  background-color: #ffffff;
-  font-weight: bold;
-  color: #1673e6;
-  font-size: 16px;
-}
+  .content {
+    width: 100%;
+    margin: 0 auto;
+    font-family: SpoqaHanSans;
+    color: #212121;
+    vertical-align: middle;
+    text-align: center;
+    background-color: #ffffff;
+  }
+  .rectangle {
+    height: 491px;
+    margin: 32px auto 0;
+    font-size: 14px;
+  }
+  .cart-name {
+    text-align: left;
+    margin: 32px 0 16px 40px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+  .cart-count {
+    text-align: left;
+    margin: 0 0 17px 40px;
+    font-size: 20px;
+    font-weight: bold;
+  }
+  .cart-table {
+    width: 1120px;
+    border-top: solid 1px #666666;
+    margin: 0 40px 16px;
+  }
+  .cart-table th {
+    text-align: center;
+  }
+  .table-header {
+    height: 42px;
+    font-size: 15px;
+    font-weight: normal;
+    font-size: 14px;
+    text-align: center;
+  }
+  .cart-table thead tr {
+    width: 100%;
+    border-bottom: solid 1px #ececec;
+    vertical-align: middle;
+  }
+  .cart-table tbody {
+    width: 100%;
+  }
+  .cart-table td {
+    height: 140px;
+    border-bottom: solid 1px #ececec;
+    vertical-align: middle;
+  }
+  .select-all {
+    font-size: 14px;
+    color: #666666;
+    margin-left: 8px;
+    text-align: center;
+  }
+  .checkbox-item {
+    display: flex;
+  }
+  .tb-checkbox {
+    width: 114px;
+    padding: 11px 8px 11px 0;
+  }
+  .tb-checkbox label input[type="checkbox"] {
+    display: none;
+  }
+  .th-size {
+    width: 140px;
+    padding: 10px 0 10px;
+  }
+  .empty-cart {
+    width: 217px;
+    height: 24px;
+    text-align: center;
+    vertical-align: middle;
+    color: #666666;
+    font-size: 16px;
+    margin: 98px auto;
+  }
+  .shopping-btn {
+    width: 240px;
+    height: 52px;
+    border-radius: 26px;
+    border: solid 1px #1673e6;
+    background-color: #ffffff;
+    font-weight: bold;
+    color: #1673e6;
+    font-size: 16px;
+  }
 </style>
