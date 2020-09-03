@@ -1,12 +1,15 @@
 <template>
   <div>
-    <modal-order :modalProps="modalInfo2" />
+    <modal :modalProps="modalInfo2">
+      <modal-order />
+    </modal>
   </div>
 </template>
 
 <script>
-import modalOrder from "../../components/modal/modalOrder.vue"
+import modal from "../../components/modal/modal.vue"
 import { modalInfo2 } from "../../components/modal/modal.js"
+import modalOrder from "../../components/modal/modalOrder.vue"
 
 export default {
   data() {
@@ -15,6 +18,7 @@ export default {
     }
   },
   components: {
+    modal,
     modalOrder
   }
 }

@@ -1,113 +1,130 @@
 <template>
-  <div class="bg">
-    <div class="modal-bg" v-if="modalProps.isDimmed === true">
-      <div class="modal-container">
-        <div class="close-icon-box" v-if="modalProps.isClose === true">
-          <x-icon class="close-icon" />
-        </div>
-        <div class="modal-wrap">
-          <div class="modal-header">
-            <h1>{{ modalProps.title }}</h1>
-            <h3>{{ modalProps.subTitle }}</h3>
-            <div class="modal-divider" v-if="modalProps.isDivider === true"></div>
-          </div>
-          <div class="modal-main">
-            <modal-cancel-main />
-          </div>
-          <div class="modal-footer">
-            <h3>{{ modalProps.bottomText }}</h3>
-            <div class="btn-wrap" v-if="modalProps.footerBtn === true">
-              <btn-border>{{ modalProps.bottomBtn[0].title }}</btn-border>
-              <btn-color>{{ modalProps.bottomBtn[1].title }}</btn-color>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <h2>주문상품정보</h2>
+    <div class="divider"></div>
+    <table>
+      <tbody>
+        <tr>
+          <th>결제번호(주문번호)</th>
+          <td>{{ `${orderInfo.paymentIdx}(${orderInfo.orderIdx})` }}</td>
+        </tr>
+        <tr>
+          <th>주문일자</th>
+          <td>{{ orderInfo.orderDate }}</td>
+        </tr>
+        <tr>
+          <th>상품번호</th>
+          <td>{{ orderInfo.goodsIdx }}</td>
+        </tr>
+        <tr>
+          <th>상품명</th>
+          <td>{{ orderInfo.name }}</td>
+        </tr>
+        <tr>
+          <th>상품금액(개수)</th>
+          <td>{{ commaAdd(orderInfo.price) }} ({{`${orderInfo.ordernum}개`}})</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>배송정보</h2>
+    <div class="divider"></div>
+    <table>
+      <tbody>
+        <tr>
+          <th>배송정보</th>
+          <td>{{ shippingInfo.online === true ? "온라인 배송" : shippingInfo.price }} ({{ shippingInfo.phone }})</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>결제정보</h2>
+    <div class="divider"></div>
+    <table>
+      <tbody>
+        <tr>
+          <th>최종결제금액</th>
+          <td>{{ commaAdd(orderInfo.price) }}</td>
+        </tr>
+        <tr>
+          <th>신용카드</th>
+          <td>
+            {{ payInfo.creditCard === true ? commaAdd(orderInfo.price) : "0원"}}
+            ({{ payInfo.creditCardName }}/{{ payInfo.paymentPlan === true ? payInfo.paymentPlanMonth : "일시불" }})
+          </td>
+        </tr>
+        <tr>
+          <th>현금</th>
+          <td>{{ payInfo.cash === true ? commaAdd(orderInfo.price) : "0원" }}</td>
+        </tr>
+        <tr>
+          <th>상품금액</th>
+          <td>{{ commaAdd(orderInfo.price) }}</td>
+        </tr>
+        <tr>
+          <th>배송비</th>
+          <td>{{ shippingInfo.online === true ? "0원" : shippingInfo.price }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import { XIcon } from "vue-feather-icons"
-import btnBorder from "../common/btnBorder.vue"
-import btnColor from "../common/btnColor.vue"
-import modalCancelMain from "./modalCancelMain.vue"
+import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
 
 export default {
-  props: ["modalProps"],
-  components: {
-    XIcon,
-    btnBorder,
-    btnColor,
-    modalCancelMain
+  data() {
+    return {
+      orderInfo,
+      shippingInfo,
+      payInfo
+    }
+  },
+  methods: {
+    commaAdd(num) {
+      /* 숫자 1000단위마다 , 표시하게 하는 함수 */
+      const regexp = /\B(?=(\d{3})+(?!\d))/g
+      return num.toString().replace(regexp, ",")
+    }
   }
 }
 </script>
 
 <style scoped>
-.bg {
-  position: relative;
-}
-.modal-bg {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.modal-container {
-  width: 640px;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.close-icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #000;
-  opacity: 0.4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-}
-.close-icon {
-  color: #fff;
-}
-.modal-wrap {
-  width: 640px;
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 32px 32px 40px 32px;
-}
-h1 {
-  color: #212121;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 2px;
-}
-h2 {
-  color: #212121;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 24px;
-}
-h3 {
-  color: #666;
-  font-size: 14px;
+h2:first-child {
   margin-top: 10px;
 }
-.modal-divider {
-  width: 100%;
-  height: 16px;
+h2 {
+  font-size: 20px;
+  color: #212121;
+  font-weight: bold;
+  margin-top: 46px;
+  margin-bottom: 10px;
+}
+.divider {
   border-bottom: 1px solid #000;
 }
-.btn-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+table {
+  border-collapse: collapse;
+  display: table-cell;
+  width: 576px;
+}
+tr {
+  border-bottom: 1px solid #ececec;
+  font-size: 14px;
+}
+th {
+  color: #212121;
+  font-weight: bold;
+  width: 152px;
+  height: 42px;
+  vertical-align: middle;
+  text-align: left;
+}
+td {
+  vertical-align: middle;
+  width: 468px;
+  color: #666666;
 }
 </style>

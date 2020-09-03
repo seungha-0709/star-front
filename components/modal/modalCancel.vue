@@ -1,123 +1,67 @@
 <template>
-  <div class="bg">
-    <div class="modal-bg" v-if="modalProps.isDimmed === true">
-      <div class="modal-container">
-        <div class="close-icon-box" v-if="modalProps.isClose === true">
-          <x-icon class="close-icon" @click="onClose()" />
-        </div>
-        <div class="modal-wrap">
-          <div class="modal-header">
-            <h1>{{ modalProps.title }}</h1>
-            <h3>{{ modalProps.subTitle }}</h3>
-            <div class="modal-divider" v-if="modalProps.isDivider === true"></div>
-          </div>
-          <div class="modal-main">
-            <modal-cancel-main />
-          </div>
-          <div class="modal-footer">
-            <h3>{{ modalProps.bottomText }}</h3>
-            <div class="btn-wrap" v-if="modalProps.footerBtn === true">
-              <btn-border>{{ modalProps.bottomBtn[0].title }}</btn-border>
-              <btn-color>{{ modalProps.bottomBtn[1].title }}</btn-color>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <th>상품명</th>
+          <td>{{ orderInfo.name }}</td>
+        </tr>
+        <tr>
+          <th>결제번호</th>
+          <td>{{ orderInfo.paymentIdx }}</td>
+        </tr>
+        <tr>
+          <th>결제금액</th>
+          <td>{{ orderInfo.price }}</td>
+        </tr>
+        <tr>
+          <th>배송비</th>
+          <td>{{ shippingInfo.online === true ? "0원" : shippingInfo.price }}</td>
+        </tr>
+        <tr>
+          <th>주문상태</th>
+          <td>{{ payInfo.paymentStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </template>
 
 <script>
-import { XIcon } from "vue-feather-icons"
-import btnBorder from "../common/btnBorder.vue"
-import btnColor from "../common/btnColor.vue"
-import modalCancelMain from "./modalCancelMain.vue"
+import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
 
 export default {
-  props: ["modalProps"],
-  components: {
-    XIcon,
-    btnBorder,
-    btnColor,
-    modalCancelMain
-  },
-  methods: {
-    onClose() {
-      this.modalProps.isClose = false
-      this.modalProps.isDimmed = false
-    },
-    clickFunc() {
-      console.log("123")
+  data() {
+    return {
+      orderInfo,
+      shippingInfo,
+      payInfo
     }
   }
 }
 </script>
 
 <style scoped>
-.bg {
-  position: relative;
+table {
+  border-collapse: collapse;
+  display: table-cell;
+  width: 576px;
 }
-.modal-bg {
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.6);
-}
-.modal-container {
-  width: 640px;
-  position: fixed;
-  top: 40%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-.close-icon-box {
-  width: 40px;
-  height: 40px;
-  border-radius: 20px;
-  background-color: #000;
-  opacity: 0.4;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-.close-icon {
-  color: #fff;
-}
-.modal-wrap {
-  width: 640px;
-  background-color: #fff;
-  border-radius: 4px;
-  padding: 32px 32px 40px 32px;
-}
-h1 {
-  color: #212121;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 2px;
-}
-h2 {
-  color: #212121;
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 24px;
-}
-h3 {
-  color: #666;
+tr {
+  border-bottom: 1px solid #ececec;
   font-size: 14px;
-  margin-top: 10px;
 }
-.modal-divider {
-  width: 100%;
-  height: 16px;
-  border-bottom: 1px solid #000;
+th {
+  color: #212121;
+  font-weight: bold;
+  width: 108px;
+  height: 42px;
+  vertical-align: middle;
+  text-align: left;
 }
-.btn-wrap {
-  display: flex;
-  justify-content: center;
-  margin-top: 40px;
+td {
+  vertical-align: middle;
+  width: 468px;
+  color: #666666;
 }
 </style>

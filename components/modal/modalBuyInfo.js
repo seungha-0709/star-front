@@ -1,7 +1,7 @@
 export const orderInfo = {
   paymentIdx: "C200213981",
   orderIdx: "O20086544",
-  orderDate: new Date(),
+  orderDate: "2020년 03월 17일",
   goodsIdx: "S50428760",
   name: "상품명 상품명 상품명 상품명",
   price: 139500,
