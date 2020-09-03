@@ -82,6 +82,7 @@ export default {
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 .close-icon {
   color: #fff;
