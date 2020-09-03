@@ -3,7 +3,7 @@
     <div class="modal-bg" v-if="modalProps.isDimmed === true">
       <div class="modal-container">
         <div class="close-icon-box" v-if="modalProps.isClose === true">
-          <x-icon class="close-icon" />
+          <x-icon class="close-icon" @click="onClose()" />
         </div>
         <div class="modal-wrap">
           <div class="modal-header">
@@ -40,6 +40,15 @@ export default {
     btnBorder,
     btnColor,
     modalCancelMain
+  },
+  methods: {
+    onClose() {
+      this.modalProps.isClose = false
+      this.modalProps.isDimmed = false
+    },
+    clickFunc() {
+      console.log("123")
+    }
   }
 }
 </script>

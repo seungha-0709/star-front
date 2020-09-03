@@ -19,5 +19,6 @@
   justify-content: center;
   align-items: center;
   margin: 0 8px 0 8px;
+  cursor: pointer;
 }
 </style>
