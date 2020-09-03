@@ -1,0 +1,67 @@
+<template>
+  <div>
+    <table>
+      <tbody>
+        <tr>
+          <th>상품명</th>
+          <td>{{ orderInfo.name }}</td>
+        </tr>
+        <tr>
+          <th>결제번호</th>
+          <td>{{ orderInfo.paymentIdx }}</td>
+        </tr>
+        <tr>
+          <th>결제금액</th>
+          <td>{{ orderInfo.price }}</td>
+        </tr>
+        <tr>
+          <th>배송비</th>
+          <td>{{ shippingInfo.online === true ? "0원" : shippingInfo.price }}</td>
+        </tr>
+        <tr>
+          <th>주문상태</th>
+          <td>{{ payInfo.paymentStatus }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>
+
+<script>
+import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
+
+export default {
+  data() {
+    return {
+      orderInfo,
+      shippingInfo,
+      payInfo
+    }
+  }
+}
+</script>
+
+<style scoped>
+table {
+  border-collapse: collapse;
+  display: table-cell;
+  width: 576px;
+}
+tr {
+  border-bottom: 1px solid #ececec;
+  font-size: 14px;
+}
+th {
+  color: #212121;
+  font-weight: bold;
+  width: 108px;
+  height: 42px;
+  vertical-align: middle;
+  text-align: left;
+}
+td {
+  vertical-align: middle;
+  width: 468px;
+  color: #666666;
+}
+</style>

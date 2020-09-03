@@ -1,22 +1,24 @@
 <template>
   <div class="bg">
-    <div class="modal-bg" v-if="modalInfo.isDimmed === true">
+    <div class="modal-bg" v-if="modalProps.isDimmed === true">
       <div class="modal-container">
-        <div class="close-icon-box" v-if="modalInfo.isClose === true">
+        <div class="close-icon-box" v-if="modalProps.isClose === true">
           <x-icon class="close-icon" />
         </div>
         <div class="modal-wrap">
           <div class="modal-header">
-            <h1>{{ modalInfo.title }}</h1>
-            <h3>{{ modalInfo.subTitle }}</h3>
-            <div class="modal-divider" v-if="modalInfo.isDivider === true"></div>
+            <h1>{{ modalProps.title }}</h1>
+            <h3>{{ modalProps.subTitle }}</h3>
+            <div class="modal-divider" v-if="modalProps.isDivider === true"></div>
           </div>
-          <div class="modal-main"></div>
+          <div class="modal-main">
+            <modal-cancel-main />
+          </div>
           <div class="modal-footer">
-            <h3>{{ modalInfo.bottomText }}</h3>
+            <h3>{{ modalProps.bottomText }}</h3>
             <div class="btn-wrap">
-              <btn-border>{{ modalInfo.bottomBtn[0].title }}</btn-border>
-              <btn-color>{{ modalInfo.bottomBtn[1].title }}</btn-color>
+              <btn-border>{{ modalProps.bottomBtn[0].title }}</btn-border>
+              <btn-color>{{ modalProps.bottomBtn[1].title }}</btn-color>
             </div>
           </div>
         </div>
@@ -27,20 +29,17 @@
 
 <script>
 import { XIcon } from "vue-feather-icons"
-import { modalInfo } from "./modalCancel.js"
 import btnBorder from "../common/btnBorder.vue"
 import btnColor from "../common/btnColor.vue"
+import modalCancelMain from "./modalCancelMain.vue"
 
 export default {
-  data() {
-    return {
-      modalInfo
-    }
-  },
+  props: ["modalProps"],
   components: {
     XIcon,
     btnBorder,
-    btnColor
+    btnColor,
+    modalCancelMain
   }
 }
 </script>
@@ -99,6 +98,7 @@ h2 {
 h3 {
   color: #666;
   font-size: 14px;
+  margin-top: 10px;
 }
 .modal-divider {
   width: 100%;
@@ -108,5 +108,6 @@ h3 {
 .btn-wrap {
   display: flex;
   justify-content: center;
+  margin-top: 40px;
 }
 </style>
