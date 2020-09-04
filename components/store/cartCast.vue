@@ -33,6 +33,7 @@
             color="#1673e6"
             bordercolor="#1673e6"
           />
+          <!-- borderColor 가 자꾸 bordercolor 로 바뀌어서 적용 X -->
         </div>
         <div class="select-delete">
           <button v-on:click="removeItem" class="select-delete-btn">선택삭제</button>
