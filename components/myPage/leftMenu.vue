@@ -1,5 +1,5 @@
 <template>
-  <div class="content">
+  <div class="content-menu">
     <div class="rectangle">
       <div class="title">
         <span class="menu-icon">img</span>
@@ -23,7 +23,7 @@ export default {
 </script>
 
 <style scoped>
-.content {
+.content-menu {
   width: 260px;
   height: 240px;
   border: solid 1px #dfdfdf;
@@ -34,12 +34,12 @@ export default {
   text-align: left;
   color: #212121;
 }
-.rectangle {
+.content-menu .rectangle {
   width: 100%;
   height: 100%;
   padding: 32px 24px 8px;
 }
-.title {
+.content-menu .title {
   margin-bottom: 8px;
 }
 .my-page {
@@ -48,13 +48,13 @@ export default {
   color: #666666;
   margin-left: 8px;
 }
-.sub-title {
+.content-menu .sub-title {
   width: 212px;
   border-bottom: solid 1px #ececec;
 }
 /* .sub-menu {
 } */
-.menu-icon {
+.content-menu .menu-icon {
   width: 24px;
   height: 27px;
 }
