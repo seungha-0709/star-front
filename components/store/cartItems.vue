@@ -12,7 +12,10 @@
           <check-button :value="select.includes(index)" />
         </label>
       </td>
-      <td class="table-line item-title">
+      <td
+        class="table-line item-title"
+        :class="{ 'auto-width': select === null }"
+      >
         <img class="item-img" :src="cartList.img" alt="상품이미지" />
         <div class="item-name">
           {{ cartList.title }}
@@ -22,11 +25,19 @@
         </div>
       </td>
       <td class="table-line amount">
-        <button class="amt-btn" v-on:click="amountControl(index, 'min')">
+        <button
+          v-if="select"
+          class="amt-btn"
+          v-on:click="amountControl(index, 'min')"
+        >
           <minus-icon size="20" class="icon-add minus-icon"></minus-icon>
         </button>
         <p class="amt-price">{{ cartList.amount }}</p>
-        <button class="amt-btn" v-on:click="amountControl(index, 'plus')">
+        <button
+          v-if="select"
+          class="amt-btn"
+          v-on:click="amountControl(index, 'plus')"
+        >
           <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
         </button>
       </td>
@@ -116,6 +127,9 @@
   .item-title {
     display: flex;
     width: 446px;
+  }
+  .item-title.auto-width {
+    width: auto;
   }
   .item-img {
     width: 146px;
