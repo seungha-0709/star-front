@@ -14,7 +14,6 @@
   </div>
 </template>
 <script>
-import cartEmpty from "../../../components/store/cartEmpty.vue"
 import cartBreakdown from "../../../components/store/cartBreakdown.vue"
 import cartCast from "../../../components/store/cartCast.vue"
 import orderSheet from "../../../components/store/orderSheet.vue"
@@ -32,7 +31,7 @@ export default {
   },
   components: {
     "cart-breakdown": cartBreakdown,
-    "cart-empty": cartEmpty,
+
     "cart-cast": cartCast,
     "order-sheet": orderSheet,
     "shipping-info": shippingInfo
