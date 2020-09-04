@@ -2,8 +2,12 @@
   <div class="bg">
     <div class="modal-bg" v-if="modalDisplay === true">
       <div class="modal-container" v-if="modalDisplay === true">
-        <div class="close-icon-box" v-if="modalProps.isClose === true">
-          <x-icon class="close-icon" @click="onClose()" />
+        <div
+          class="close-icon-box"
+          v-if="modalProps.isClose === true"
+          @click="onClose()"
+        >
+          <x-icon class="close-icon" />
         </div>
         <div class="modal-wrap">
           <div class="modal-header">
@@ -19,7 +23,10 @@
           </div>
           <div class="modal-footer">
             <h3>{{ modalProps.bottomText }}</h3>
-            <div class="btn-wrap" v-if="modalProps.footerBtn === true">
+            <div class="btn-wrap" v-if="modalProps.footerBtn1 === true">
+              <btn-color>{{ modalProps.bottomBtn[0].title }}</btn-color>
+            </div>
+            <div class="btn-wrap" v-if="modalProps.footerBtn2 === true">
               <btn-border>{{ modalProps.bottomBtn[0].title }}</btn-border>
               <btn-color>{{ modalProps.bottomBtn[1].title }}</btn-color>
             </div>

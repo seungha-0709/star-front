@@ -7,7 +7,8 @@ export const modalInfo = {
   isDivider: true,
   bottomText:
     "접수 내용을 확인하는 대로 스토어 고객센터를 통해 개별 연락 드리겠습니다\n(영업시간기준: 평일 10시~18시)",
-  footerBtn: true,
+  footerBtn1: false,
+  footerBtn2: true,
   bottomBtn: [
     {
       title: "취소",
@@ -27,7 +28,8 @@ export const modalInfo2 = {
   isClose: true,
   isDivider: false,
   bottomText: null,
-  footerBtn: false,
+  footerBtn1: false,
+  footerBtn2: false,
   bottomBtn: []
 }
 
@@ -38,12 +40,9 @@ export const modalInfo3 = {
   isClose: true,
   isDivider: true,
   bottomText: null,
-  footerBtn: true,
+  footerBtn1: true,
+  footerBtn2: false,
   bottomBtn: [
-    {
-      title: "취소",
-      style: "normalWhite"
-    },
     {
       title: "문의하기",
       style: "normalWhite"

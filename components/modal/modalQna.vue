@@ -21,12 +21,12 @@
     <h2>문의 제목</h2>
     <input type="text" placeholder="제목을 입력하세요" />
     <h2>문의 내용</h2>
-    <input
+    <textarea
       class="qna-content"
       type="text"
       placeholder="문의 내용을 입력하세요.
-      상품의 경우 문의하실 상품번호, 주문번호 등을 함께
-      기입해 주시면 더 정확하게 답변을 받으실 수 있습니다."
+상품의 경우 문의하실 상품번호, 주문번호 등을 함께
+기입해 주시면 더 정확하게 답변을 받으실 수 있습니다."
     />
   </div>
 </template>
@@ -84,7 +84,21 @@
     font-size: 16px;
     font-weight: normal;
   }
-  .qna-content {
+  input:focus {
+    outline: none;
+  }
+  textarea {
+    width: 100%;
     height: 166px;
+    border: 1px solid #dfdfdf;
+    padding: 11px 16px;
+  }
+  textarea::placeholder {
+    color: #c1c1c1;
+    font-size: 16px;
+    font-weight: normal;
+  }
+  textarea:focus {
+    outline: none;
   }
 </style>

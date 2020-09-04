@@ -2,8 +2,8 @@
   <div class="qna-body">
     <modal
       :modalProps="modalInfo3"
-      :modalDisplay="modalPopUp"
-      @modalClose="onModalDisplay"
+      :modalDisplay="modalOpen"
+      @modalClose="onModalClose"
     >
       <modal-qna />
     </modal>
@@ -31,7 +31,7 @@
       </div>
       <div class="cs-online">
         <headphones-icon class="headphone-icon" size="78" color="#ececec" />
-        <div class="btn" @click="modalPopOn">1:1 온라인 문의하기</div>
+        <div class="btn" @click="onModalOpen()">1:1 온라인 문의하기</div>
       </div>
     </div>
 
@@ -107,8 +107,7 @@
         modalInfo3,
         categoryData: qnaCategory,
         activeType: "all",
-        modalOn: false,
-        modalPopUp: false
+        modalOpen: false
       }
     },
     components: {
@@ -126,12 +125,12 @@
       onTypeChange(type) {
         this.activeType = type
       },
-      modalPopOn() {
-        this.modalPopUp = true
-        console.log(this.modalPopUp)
+      onModalOpen() {
+        this.modalOpen = true
+        console.log(this.modalOpen)
       },
-      onModalDisplay(a) {
-        this.modalPopUp = a
+      onModalClose(a) {
+        this.modalOpen = a
         console.log(a)
       }
     }
