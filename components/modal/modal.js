@@ -32,12 +32,21 @@ export const modalInfo2 = {
 }
 
 export const modalInfo3 = {
-  title: "1:1 온라인 문의하기",
+  title: "별별스토어 1:1 문의",
   subTitle: null,
   isDimmed: true,
   isClose: true,
-  isDivider: false,
+  isDivider: true,
   bottomText: null,
-  footerBtn: false,
-  bottomBtn: []
+  footerBtn: true,
+  bottomBtn: [
+    {
+      title: "취소",
+      style: "normalWhite"
+    },
+    {
+      title: "문의하기",
+      style: "normalWhite"
+    }
+  ]
 }

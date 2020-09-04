@@ -1,6 +1,12 @@
 <template>
   <div class="qna-body">
-    <modal :modalProps="modalInfo3" v-if="modalOn === true"> </modal>
+    <modal
+      :modalProps="modalInfo3"
+      :modalDisplay="modalPopUp"
+      @modalClose="onModalDisplay"
+    >
+      <modal-qna />
+    </modal>
     <div class="cs-center-wrap">
       <div class="cs-service">
         <h2>고객센터</h2>
@@ -25,7 +31,7 @@
       </div>
       <div class="cs-online">
         <headphones-icon class="headphone-icon" size="78" color="#ececec" />
-        <div class="btn" @click="modalPopOn()">1:1 온라인 문의하기</div>
+        <div class="btn" @click="modalPopOn">1:1 온라인 문의하기</div>
       </div>
     </div>
 
@@ -83,6 +89,7 @@
 <script>
   import modal from "../../components/modal/modal.vue"
   import { modalInfo3 } from "../../components/modal/modal.js"
+  import modalQna from "../../components/modal/modalQna.vue"
   import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
   import qnaTab from "../../components/qnaContents/qnaTap.vue"
   import {
@@ -100,11 +107,13 @@
         modalInfo3,
         categoryData: qnaCategory,
         activeType: "all",
-        modalOn: false
+        modalOn: false,
+        modalPopUp: false
       }
     },
     components: {
       modal,
+      modalQna,
       qnaTab,
       HeadphonesIcon,
       MapPinIcon,
@@ -118,7 +127,12 @@
         this.activeType = type
       },
       modalPopOn() {
-        this.modalOn = true
+        this.modalPopUp = true
+        console.log(this.modalPopUp)
+      },
+      onModalDisplay(a) {
+        this.modalPopUp = a
+        console.log(a)
       }
     }
   }
