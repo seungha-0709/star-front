@@ -92,6 +92,7 @@
     height: 166px;
     border: 1px solid #dfdfdf;
     padding: 11px 16px;
+    resize: none;
   }
   textarea::placeholder {
     color: #c1c1c1;

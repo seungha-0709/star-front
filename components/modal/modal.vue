@@ -24,11 +24,18 @@
           <div class="modal-footer">
             <h3>{{ modalProps.bottomText }}</h3>
             <div class="btn-wrap" v-if="modalProps.footerBtn1 === true">
-              <btn-color>{{ modalProps.bottomBtn[0].title }}</btn-color>
+              <btn width="240">{{ modalProps.bottomBtn[0].title }}</btn>
             </div>
             <div class="btn-wrap" v-if="modalProps.footerBtn2 === true">
-              <btn-border>{{ modalProps.bottomBtn[0].title }}</btn-border>
-              <btn-color>{{ modalProps.bottomBtn[1].title }}</btn-color>
+              <btn
+                color="#212121"
+                borderColor="#dfdfdf"
+                backgroundColor="#fff"
+                >{{ modalProps.bottomBtn[0].title }}</btn
+              >
+              <btn backgrorundColor="#1673e6" color="#fff">
+                {{ modalProps.bottomBtn[1].title }}</btn
+              >
             </div>
           </div>
         </div>
@@ -39,15 +46,13 @@
 
 <script>
   import { XIcon } from "vue-feather-icons"
-  import btnBorder from "../common/btnBorder.vue"
-  import btnColor from "../common/btnColor.vue"
+  import btn from "../common/btn.vue"
 
   export default {
     props: ["modalProps", "modalDisplay"],
     components: {
       XIcon,
-      btnBorder,
-      btnColor
+      btn
     },
     methods: {
       onClose() {

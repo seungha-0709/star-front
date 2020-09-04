@@ -1,15 +1,10 @@
 import { storiesOf } from "@storybook/vue"
-import btnBorder from "../components/common/btnBorder.vue"
-import btnColor from "../components/common/btnColor.vue"
+import btn from "../components/common/btn.vue"
 import { withKnobs } from "@storybook/addon-knobs"
 
 storiesOf("btn", module)
   .addDecorator(withKnobs)
-  .add("btn-border", () => ({
-    components: { btnBorder },
-    template: "<btn-border>test</btn-border>"
-  }))
-  .add("btn-color", () => ({
-    components: { btnColor },
-    template: "<btn-color>test</btn-color>"
+  .add("btn-basic", () => ({
+    components: { btn },
+    template: "<btn>test</btn>"
   }))
