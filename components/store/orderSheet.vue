@@ -16,9 +16,9 @@
                 <th class="th-size">배송비</th>
               </tr>
             </thead>
+            <cart-items :cart-lists="computedCartLists" :select="null" />
           </table>
-          <cart-items :cart-lists="computedCartLists" :select="null" />
-          <order-breakdown />
+          <order-breakdown :order-data="orderData" />
         </div>
       </div>
     </div>
@@ -31,7 +31,7 @@
   import orderBreakdown from "./orderBreakdown"
 
   export default {
-    props: ["cart-lists", "result-data"],
+    props: ["cart-lists", "result-data", "order-data"],
     data() {
       return {}
     },
@@ -41,9 +41,8 @@
       "order-breakdown": orderBreakdown
     },
     computed: {
-      // 이부분 부터 수정 필요함.
       computedCartLists() {
-        this.resultData.map((data) => data)
+        return this.resultData.map((data) => this.cartLists[data])
       }
     }
   }
@@ -59,7 +58,6 @@
     background-color: #ffffff;
   }
   .rectangle {
-    height: 491px;
     margin: 32px auto 0;
     font-size: 14px;
   }
@@ -78,7 +76,7 @@
   .cart-table {
     width: 1120px;
     border-top: solid 1px #666666;
-    margin: 0 40px 16px;
+    margin: 0 40px 50px;
   }
   .cart-table th {
     text-align: center;
