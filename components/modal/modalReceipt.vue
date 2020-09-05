@@ -22,7 +22,7 @@
       <div class="block-total">
         <span><strong>합계 / TOTAL</strong></span>
       </div>
-      <div class="block-price">₩</div>
+      <div class="block-price-won">₩</div>
       <div class="block-price">{{ priceTotal(orderInfo.price, 0) }}</div>
       <div class="block-price">{{ priceTotal(orderInfo.price, 1) }}</div>
       <div class="block-price">{{ priceTotal(orderInfo.price, 2) }}</div>
@@ -170,6 +170,18 @@
     display: flex;
     padding-left: 12px;
   }
+  .block-price-won {
+    width: 32px;
+    height: 40px;
+    margin: 15px 0 15px 0;
+    border-left: 1px solid #ececec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #212121;
+  }
   .block-price {
     width: 32px;
     height: 40px;
@@ -178,6 +190,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #212121;
   }
   .line {
     border-left: 1px solid #ececec;
