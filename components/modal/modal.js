@@ -49,3 +49,15 @@ export const modalInfo3 = {
     }
   ]
 }
+
+export const modalInfoReceipt = {
+  title: "구매 영수증",
+  subTitle: null,
+  isDimmed: true,
+  isClose: true,
+  isDivider: true,
+  bottomText: null,
+  footerBtn1: false,
+  footerBtn2: false,
+  bottomBtn: []
+}
