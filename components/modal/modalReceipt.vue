@@ -3,36 +3,36 @@
     <div class="gray">
       <div class="block">
         <span><strong>결제번호 / PAY NO.</strong></span>
-        <span>{{ paymentIdx }}</span>
+        <span>{{ orderInfo.paymentIdx }}</span>
       </div>
       <div class="line"></div>
       <div class="block">
         <span><strong>거래일자 / TRANS DATE</strong></span>
-        <span>{{ date }}</span>
+        <span>{{ orderInfo.orderDate }}</span>
       </div>
     </div>
 
     <div class="white">
       <div class="block-wide">
         <span><strong>품명 / ITEM DESCRIPTION</strong></span>
-        <span>({{ Idx }}) {{ name }}</span>
+        <span>({{ orderInfo.goodsIdx }}) {{ orderInfo.name }}</span>
       </div>
     </div>
     <div class="gray">
       <div class="block-total">
         <span><strong>합계 / TOTAL</strong></span>
       </div>
-      <div class="block-price">W</div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
-      <div class="block-price"></div>
+      <div class="block-price">₩</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 0) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 1) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 2) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 3) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 4) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 5) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 6) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 7) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 8) }}</div>
+      <div class="block-price">{{ priceTotal(orderInfo.price, 9) }}</div>
     </div>
 
     <div class="white">
@@ -67,7 +67,7 @@
       <div class="line"></div>
       <div class="block">
         <span><strong>서명 / SIGNATURE</strong></span>
-        <span>{{ buyer }}</span>
+        <span></span>
       </div>
     </div>
 
@@ -89,10 +89,51 @@
 
 <script>
   import btn from "../../components/common/btn.vue"
+  import { orderInfo } from "./modalBuyInfo.js"
 
   export default {
+    data() {
+      return {
+        orderInfo
+      }
+    },
     components: {
       btn
+    },
+    methods: {
+      priceTotal(price, num) {
+        const priceString = String(price)
+        const arr1 = priceString.split("")
+        console.log(arr1)
+        if (priceString.length === 1) {
+          arr1.unshift("", "", "", "", "", "", "", "", "")
+        }
+        if (priceString.length === 2) {
+          arr1.unshift("", "", "", "", "", "", "", "")
+        }
+        if (priceString.length === 3) {
+          arr1.unshift("", "", "", "", "", "", "")
+        }
+        if (priceString.length === 4) {
+          arr1.unshift("", "", "", "", "", "")
+        }
+        if (priceString.length === 5) {
+          arr1.unshift("", "", "", "", "")
+        }
+        if (priceString.length === 6) {
+          arr1.unshift("", "", "", "")
+        }
+        if (priceString.length === 7) {
+          arr1.unshift("", "", "")
+        }
+        if (priceString.length === 8) {
+          arr1.unshift("", "")
+        }
+        if (priceString.length === 9) {
+          arr1.unshift("")
+        }
+        return arr1[num]
+      }
     }
   }
 </script>
