@@ -12,11 +12,17 @@
         </tr>
         <tr>
           <th>결제금액</th>
-          <td>{{ orderInfo.price }}</td>
+          <td>{{ `${commaAdd(orderInfo.price)}원` }}</td>
         </tr>
         <tr>
           <th>배송비</th>
-          <td>{{ shippingInfo.online === true ? "0원" : shippingInfo.price }}</td>
+          <td>
+            {{
+              shippingInfo.online === true
+                ? "0원"
+                : commaAdd(shippingInfo.price)
+            }}
+          </td>
         </tr>
         <tr>
           <th>주문상태</th>
@@ -28,40 +34,47 @@
 </template>
 
 <script>
-import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
+  import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
 
-export default {
-  data() {
-    return {
-      orderInfo,
-      shippingInfo,
-      payInfo
+  export default {
+    data() {
+      return {
+        orderInfo,
+        shippingInfo,
+        payInfo
+      }
+    },
+    methods: {
+      commaAdd(num) {
+        /* 숫자 1000단위마다 , 표시하게 하는 함수 */
+        const regexp = /\B(?=(\d{3})+(?!\d))/g
+        return num.toString().replace(regexp, ",")
+      }
     }
   }
-}
 </script>
 
 <style scoped>
-table {
-  border-collapse: collapse;
-  display: table-cell;
-  width: 576px;
-}
-tr {
-  border-bottom: 1px solid #ececec;
-  font-size: 14px;
-}
-th {
-  color: #212121;
-  font-weight: bold;
-  width: 108px;
-  height: 42px;
-  vertical-align: middle;
-  text-align: left;
-}
-td {
-  vertical-align: middle;
-  width: 468px;
-  color: #666666;
-}
+  table {
+    border-collapse: collapse;
+    display: table-cell;
+    width: 576px;
+  }
+  tr {
+    border-bottom: 1px solid #ececec;
+    font-size: 14px;
+  }
+  th {
+    color: #212121;
+    font-weight: bold;
+    width: 108px;
+    height: 42px;
+    vertical-align: middle;
+    text-align: left;
+  }
+  td {
+    vertical-align: middle;
+    width: 468px;
+    color: #666666;
+  }
 </style>
