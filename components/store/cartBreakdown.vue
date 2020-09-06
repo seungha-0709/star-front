@@ -79,6 +79,7 @@
 <script>
   import { PlusIcon, MinusIcon } from "vue-feather-icons"
   import basicButton from "../common/basicButton"
+  // 버튼 공통 컴포넌트, 현 컴포넌트에서는 주문하기 버튼
 
   export default {
     components: {
@@ -88,45 +89,38 @@
     },
     props: ["result-data", "cart-lists"],
     data() {
-      // console.log("here")
-      // console.log(this["result-data"])
       return {}
     },
     computed: {
       productCount() {
-        return this.resultData.length === 0
-          ? 0
-          : this.resultData
-              .map((data) => this.cartLists[data]?.amount)
-              .reduce((accumulator, currentValue) => accumulator + currentValue)
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map((data) => this.cartLists[data]?.amount)
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
+
       productPrice() {
-        return this.resultData.length === 0
-          ? 0
-          : this.resultData
-              .map(
-                (data) =>
-                  this.cartLists[data]?.originPrice *
-                  this.cartLists[data]?.amount
-              )
-              .reduce((accumulator, currentValue) => accumulator + currentValue)
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map(
+            (data) =>
+              this.cartLists[data]?.originPrice * this.cartLists[data]?.amount
+          )
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
       productSale() {
-        return this.resultData.length === 0
-          ? 0
-          : this.resultData
-              .map(
-                (data) =>
-                  this.cartLists[data]?.sale * this.cartLists[data]?.amount
-              )
-              .reduce((accumulator, currentValue) => accumulator + currentValue)
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map(
+            (data) => this.cartLists[data]?.sale * this.cartLists[data]?.amount
+          )
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
       productShipping() {
-        return this.resultData.length === 0
-          ? 0
-          : this.resultData
-              .map((data) => this.cartLists[data]?.shippingFee)
-              .reduce((accumulator, currentValue) => accumulator + currentValue)
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map((data) => this.cartLists[data]?.shippingFee)
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
       }
     }
   }
