@@ -47,7 +47,9 @@
     },
     computed: {
       computedCartLists() {
-        return this.resultData.map((data) => this.cartLists[data])
+        return this.resultData.map((data) =>
+          this.cartLists.find((list) => list.id === data)
+        )
       }
     }
   }
