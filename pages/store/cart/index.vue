@@ -54,8 +54,12 @@
         this.resultData = data
       },
       handleShowOrder(order) {
-        this.orderState = true
-        this.orderData = order
+        if (this.resultData.length !== 0) {
+          this.orderState = true
+          this.orderData = order
+        } else {
+          alert("선택된 상품이 없습니다.")
+        }
       }
     }
   }
