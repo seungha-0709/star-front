@@ -46,7 +46,6 @@
             <div>
               <div class="icon-position">
                 <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
-                <!-- equal icon 이 없음...! -->
               </div>
               최종 결제금액
               <div class="content-title">
@@ -132,6 +131,7 @@
   .icon-add {
     color: #666;
   }
+  /* equal icon 이 없음...! */
   .content-title {
     font-size: 24px;
     color: #121210;

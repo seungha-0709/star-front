@@ -54,8 +54,8 @@
             <span>전체 주문금액</span>
             <span class="total-price">{{
               `${(
-                productPrice +
-                -productSale +
+                productPrice -
+                productSale +
                 productShipping
               ).toLocaleString()}원`
             }}</span>
