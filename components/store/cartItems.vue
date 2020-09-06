@@ -87,9 +87,8 @@
       amountControl(index, type) {
         if (type === "plus") {
           this.cartLists[index].amount += 1
-        } else if (type === "min") {
-          if (this.cartLists[index].amount > 1)
-            this.cartLists[index].amount -= 1
+        } else if (type === "min" && this.cartLists[index].amount > 1) {
+          this.cartLists[index].amount -= 1
         }
       }
     }
