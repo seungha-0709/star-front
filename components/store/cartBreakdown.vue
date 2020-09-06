@@ -1,93 +1,126 @@
 <template>
   <div class="content">
-    <div class="rectangle">
-      <table class="breakdown-table">
-        <tbody>
-          <tr class="title-amount outer-border">
-            <td class="content-amount quantity">
-              <div class="inner-border">
-                <div>
-                  수량
-                  <div class="content-title">1개</div>
+    <table class="breakdown-table">
+      <tbody>
+        <tr class="title-amount outer-border">
+          <td class="content-amount quantity">
+            <div class="inner-border">
+              <div>
+                수량
+                <div class="content-title">{{ productCount }}개</div>
+              </div>
+            </div>
+          </td>
+          <td class="content-amount origin-price">
+            <div class="inner-border">
+              <div>
+                상품금액
+                <div class="content-title">
+                  {{ `${productPrice.toLocaleString()}원` }}
                 </div>
               </div>
-            </td>
-            <td class="content-amount origin-price">
-              <div class="inner-border">
-                <div>
-                  상품금액
-                  <div class="content-title">
-                    {{ `${(40000).toLocaleString()}원` }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="content-amount discount">
-              <div class="inner-border">
-                <div>
-                  <div class="icon-position">
-                    <minus-icon
-                      size="20"
-                      class="icon-add minus-icon"
-                    ></minus-icon>
-                  </div>
-                  할인금액
-                  <div class="content-title discount-price">
-                    {{ `${(4000).toLocaleString()}원` }}
-                  </div>
-                </div>
-              </div>
-            </td>
-            <td class="content-amount shipping">
+            </div>
+          </td>
+          <td class="content-amount discount">
+            <div class="inner-border">
               <div>
                 <div class="icon-position">
-                  <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
+                  <minus-icon
+                    size="20"
+                    class="icon-add minus-icon"
+                  ></minus-icon>
                 </div>
-                배송비
-                <div class="content-title">
-                  {{ `${(0).toLocaleString()}원` }}
+                할인금액
+                <div class="content-title discount-price">
+                  {{ `${productSale.toLocaleString()}원` }}
                 </div>
               </div>
-            </td>
-          </tr>
-          <tr class="outer-border">
-            <td colspan="4" class="total">
-              <span>전체 주문금액</span>
-              <span class="total-price">{{
-                `${(36000).toLocaleString()}원`
-              }}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-      <button class="order-btn">주문하기</button>
-    </div>
+            </div>
+          </td>
+          <td class="content-amount shipping">
+            <div>
+              <div class="icon-position">
+                <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
+              </div>
+              배송비
+              <div class="content-title">
+                {{ `${productShipping.toLocaleString()}원` }}
+              </div>
+            </div>
+          </td>
+        </tr>
+        <tr class="outer-border">
+          <td colspan="4" class="total">
+            <span>전체 주문금액</span>
+            <span class="total-price">{{
+              `${(
+                productPrice -
+                productSale +
+                productShipping
+              ).toLocaleString()}원`
+            }}</span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <basic-button
+      text="주문하기"
+      v-on:event="
+        $emit('event', {
+          productCount,
+          productPrice,
+          productSale,
+          productShipping
+        })
+      "
+    />
   </div>
 </template>
 <script>
   import { PlusIcon, MinusIcon } from "vue-feather-icons"
+  import basicButton from "../common/basicButton"
+  // 버튼 공통 컴포넌트, 현 컴포넌트에서는 주문하기 버튼
 
   export default {
     components: {
       PlusIcon,
-      MinusIcon
+      MinusIcon,
+      "basic-button": basicButton
     },
-    props: ["result-data"],
+    props: ["result-data", "cart-lists"],
     data() {
-      console.log("here")
-      console.log(this["result-data"])
-      return {
-        paymentData: []
-      }
+      return {}
     },
     computed: {
       productCount() {
-        return {}
-      }
-    },
-    watch: {
-      resultData() {
-        this.paymentData = this.resultData
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map((data) => this.cartLists[data]?.amount)
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
+      },
+
+      productPrice() {
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map(
+            (data) =>
+              this.cartLists[data]?.originPrice * this.cartLists[data]?.amount
+          )
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
+      },
+      productSale() {
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map(
+            (data) => this.cartLists[data]?.sale * this.cartLists[data]?.amount
+          )
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
+      },
+      productShipping() {
+        if (this.resultData.length === 0) return 0
+        return this.resultData
+          .map((data) => this.cartLists[data]?.shippingFee)
+          .reduce((accumulator, currentValue) => accumulator + currentValue)
       }
     }
   }
@@ -95,16 +128,13 @@
 <style scoped>
   .content {
     width: 100%;
-    margin: 0 auto;
+    margin: 0 auto 48px;
     text-align: center;
     vertical-align: middle;
     font-family: SpoqaHanSans;
     font-weight: bold;
     font-size: 16px;
     color: #666666;
-  }
-  .rectangle {
-    height: 406px;
   }
   .breakdown-table {
     margin: 0 40px 48px;
@@ -163,15 +193,5 @@
   .total-price {
     color: #1673e6;
     margin-left: 16px;
-  }
-  .order-btn {
-    width: 240px;
-    height: 52px;
-    border-radius: 26px;
-    background-color: #1673e6;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: center;
-    color: #ffffff;
   }
 </style>
