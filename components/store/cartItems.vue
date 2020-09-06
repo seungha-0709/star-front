@@ -6,10 +6,10 @@
           <input
             type="checkbox"
             v-model="select"
-            :value="index"
-            v-on:click="clickCartIndex(index)"
+            :value="cartList.id"
+            v-on:click="clickCartIndex(cartList.id)"
           />
-          <check-button :value="select.includes(index)" />
+          <check-button :value="select.includes(cartList.id)" />
         </label>
       </td>
       <td

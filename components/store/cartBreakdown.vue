@@ -95,16 +95,18 @@
       productCount() {
         if (this.resultData.length === 0) return 0
         return this.resultData
-          .map((data) => this.cartLists[data]?.amount)
+          .map(
+            (data) => this.cartLists.find((list) => list.id === data)?.amount
+          )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
-
       productPrice() {
         if (this.resultData.length === 0) return 0
         return this.resultData
           .map(
             (data) =>
-              this.cartLists[data]?.originPrice * this.cartLists[data]?.amount
+              this.cartLists.find((list) => list.id === data)?.originPrice *
+              this.cartLists.find((list) => list.id === data)?.amount
           )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
@@ -112,14 +114,19 @@
         if (this.resultData.length === 0) return 0
         return this.resultData
           .map(
-            (data) => this.cartLists[data]?.sale * this.cartLists[data]?.amount
+            (data) =>
+              this.cartLists.find((list) => list.id === data)?.sale *
+              this.cartLists.find((list) => list.id === data)?.amount
           )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
       productShipping() {
         if (this.resultData.length === 0) return 0
         return this.resultData
-          .map((data) => this.cartLists[data]?.shippingFee)
+          .map(
+            (data) =>
+              this.cartLists.find((list) => list.id === data)?.shippingFee
+          )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       }
     }
