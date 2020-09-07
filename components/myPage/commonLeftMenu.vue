@@ -1,54 +1,86 @@
 <template>
-  <div
-    class="left-menu"
-    :style="{
-      color,
-      backgroundColor,
-      fontSize: fontSize + 'px',
-      fontWeight,
-      border,
-      borderRadius: borderRadius + 'px',
-      width: width + 'px',
-      height: height + 'px',
-      padding: padding + 'px',
-      marggin: marggin + 'px'
-    }"
-    @click="$emit('event')"
-  >
-    {{ text }}
+  <div class="left-menu">
+    <div class="rectangle">
+      <div class="title">
+        <span class="menu-icon"><user-icon class="user-icon" /></span>
+        <h4 class="menu-title">마이페이지</h4>
+      </div>
+      <div>
+        <h5 class="sub-title sub-menu">프로필</h5>
+        <h5 class="sub-title sub-menu">기본정보</h5>
+        <h5 class="sub-menu">팔로우</h5>
+        <!-- 나의 쇼핑 메뉴에선 5개인데..... -->
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+  import { UserIcon } from "vue-feather-icons"
+
   export default {
     props: {
-      text: {
+      icon: {
         default: ""
       },
-      color: {
-        default: "##212121"
-      },
-      fontSize: {
-        default: 16
-      },
-      fontWeight: {
-        default: 700
-      },
-      backgroundColor: {
-        default: "#ffffff"
-      },
-      borderColor: {
+      menuTitle: {
         default: ""
       },
-      width: {
-        default: 260
+      subTitle: {
+        default: ""
       },
       height: {
-        default: 240
+        default: ""
       }
     },
-    computed: {}
+    components: {
+      UserIcon
+    }
   }
 </script>
 
-<style scoped></style>
+<style scoped>
+  .left-menu {
+    width: 260px;
+    height: 240px;
+    border: solid 1px #dfdfdf;
+    background-color: #ffffff;
+    margin: 0 16px 8px 0;
+    font-family: SpoqaHanSans;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: #212121;
+  }
+  .left-menu .rectangle {
+    width: 100%;
+    height: 100%;
+    padding: 32px 24px 8px;
+  }
+  .left-menu .title {
+    margin-bottom: 8px;
+  }
+  .left-menu .menu-title {
+    display: inline-block;
+    font-size: 24px;
+    font-weight: normal;
+    color: #666666;
+    margin-left: 8px;
+  }
+  .left-menu .sub-title {
+    width: 212px;
+    border-bottom: solid 1px #ececec;
+  }
+  .sub-menu {
+    height: 52px;
+    padding: 14px 0 14px;
+  }
+  .left-menu .menu-icon {
+    width: 24px;
+    height: 36px;
+    padding: 4px 0 5px;
+  }
+  .left-menu .user-icon {
+    color: #dfdfdf;
+  }
+</style>

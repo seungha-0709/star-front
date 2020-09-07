@@ -3,7 +3,7 @@
     <div class="rectangle">
       <div class="title">
         <span class="menu-icon"><user-icon class="user-icon" /></span>
-        <h4 class="my-page-title">마이페이지</h4>
+        <h4 class="menu-title">마이페이지</h4>
       </div>
       <div>
         <h5 class="sub-title sub-menu">프로필</h5>
