@@ -2,7 +2,8 @@
   <div>
     <div class="my-page">
       <left-menu />
-      <notification-content />
+      <left-menu />
+      <!-- <notification-content /> -->
     </div>
   </div>
 </template>

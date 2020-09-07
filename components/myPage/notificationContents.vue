@@ -13,7 +13,7 @@
           fontSize="14"
           borderRadius="-22"
           backgroundColor="#ffffff"
-          bordercolor="#dfdfdf"
+          borderColor="#dfdfdf"
         />
       </td>
     </tr>
@@ -21,27 +21,27 @@
 </template>
 
 <script>
-import basicButton from "../common/basicButton.vue"
-export default {
-  data() {
-    return {}
-  },
-  components: {
-    "basic-button": basicButton
+  import basicButton from "../common/basicButton.vue"
+  export default {
+    data() {
+      return {}
+    },
+    components: {
+      "basic-button": basicButton
+    }
   }
-}
 </script>
 
 <style scoped>
-.noti-content {
-  width: 844px;
-  height: 42px;
-  font-size: 14px;
-  font-weight: normal;
-  text-align: center;
-  color: #666666;
-}
-.noti-title {
-  text-align: left;
-}
+  .noti-content {
+    width: 844px;
+    height: 42px;
+    font-size: 14px;
+    font-weight: normal;
+    text-align: center;
+    color: #666666;
+  }
+  .noti-title {
+    text-align: left;
+  }
 </style>

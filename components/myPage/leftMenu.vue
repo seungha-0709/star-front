@@ -1,5 +1,5 @@
 <template>
-  <div class="content-menu">
+  <div class="left-menu">
     <div class="rectangle">
       <div class="title">
         <span class="menu-icon"><user-icon class="user-icon" /></span>
@@ -27,7 +27,7 @@
 </script>
 
 <style scoped>
-  .content-menu {
+  .left-menu {
     width: 260px;
     height: 240px;
     border: solid 1px #dfdfdf;
@@ -39,12 +39,12 @@
     text-align: left;
     color: #212121;
   }
-  .content-menu .rectangle {
+  .left-menu .rectangle {
     width: 100%;
     height: 100%;
     padding: 32px 24px 8px;
   }
-  .content-menu .title {
+  .left-menu .title {
     margin-bottom: 8px;
   }
   .my-page-title {
@@ -54,7 +54,7 @@
     color: #666666;
     margin-left: 8px;
   }
-  .content-menu .sub-title {
+  .left-menu .sub-title {
     width: 212px;
     border-bottom: solid 1px #ececec;
   }
@@ -62,12 +62,12 @@
     height: 52px;
     padding: 14px 0 14px;
   }
-  .content-menu .menu-icon {
+  .left-menu .menu-icon {
     width: 24px;
     height: 36px;
     padding: 4px 0 5px;
   }
-  .content-menu .user-icon {
+  .left-menu .user-icon {
     color: #dfdfdf;
   }
 </style>
