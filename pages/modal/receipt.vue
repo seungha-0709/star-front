@@ -13,8 +13,8 @@
 
 <script>
   import modal from "../../components/modal/modal.vue"
-  import { modalInfoReceipt } from "../../components/modal/modal.js"
   import modalReceipt from "../../components/modal/modalReceipt.vue"
+  import { modalInfoReceipt } from "../../components/modal/modal.js"
 
   export default {
     data() {
@@ -32,9 +32,8 @@
         this.modalOpen = true
         console.log(this.modalOpen)
       },
-      onModalClose(a) {
-        this.modalOpen = a
-        console.log(a)
+      onModalClose(value) {
+        this.modalOpen = value
       }
     }
   }

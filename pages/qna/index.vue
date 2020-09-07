@@ -1,7 +1,7 @@
 <template>
   <div class="qna-body">
     <modal
-      :modalProps="modalInfo3"
+      :modalProps="modalInfoQna"
       :modalDisplay="modalOpen"
       @modalClose="onModalClose"
     >
@@ -88,10 +88,10 @@
 
 <script>
   import modal from "../../components/modal/modal.vue"
-  import { modalInfo3 } from "../../components/modal/modal.js"
   import modalQna from "../../components/modal/modalQna.vue"
-  import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
   import qnaTab from "../../components/qnaContents/qnaTap.vue"
+  import { modalInfoQna } from "../../components/modal/modal.js"
+  import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
   import {
     HeadphonesIcon,
     MapPinIcon,
@@ -104,7 +104,7 @@
   export default {
     data() {
       return {
-        modalInfo3,
+        modalInfoQna,
         categoryData: qnaCategory,
         activeType: "all",
         modalOpen: false

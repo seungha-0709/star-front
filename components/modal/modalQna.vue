@@ -2,21 +2,26 @@
   <div>
     <h2>문의 유형</h2>
     <div class="qna-type">
-      <span class="check-icon-box"
-        ><check-icon size="1x" class="check-icon" /></span
-      ><span class="qna-type-name">상품</span>
-      <span class="check-icon-box"
-        ><check-icon size="1x" class="check-icon" /></span
-      ><span class="qna-type-name">배송</span>
-      <span class="check-icon-box"
-        ><check-icon size="1x" class="check-icon" /></span
-      ><span class="qna-type-name">취소/환불</span>
-      <span class="check-icon-box"
-        ><check-icon size="1x" class="check-icon" /></span
-      ><span class="qna-type-name">교환/변경</span>
-      <span class="check-icon-box"
-        ><check-icon size="1x" class="check-icon" /></span
-      ><span class="qna-type-name">기타</span>
+      <span class="check-icon-box">
+        <check-icon size="1x" class="check-icon" />
+      </span>
+      <span class="qna-type-name">상품</span>
+      <span class="check-icon-box">
+        <check-icon size="1x" class="check-icon" />
+      </span>
+      <span class="qna-type-name">배송</span>
+      <span class="check-icon-box">
+        <check-icon size="1x" class="check-icon" />
+      </span>
+      <span class="qna-type-name">취소/환불</span>
+      <span class="check-icon-box">
+        <check-icon size="1x" class="check-icon" />
+      </span>
+      <span class="qna-type-name">교환/변경</span>
+      <span class="check-icon-box">
+        <check-icon size="1x" class="check-icon" />
+      </span>
+      <span class="qna-type-name">기타</span>
     </div>
     <h2>문의 제목</h2>
     <input type="text" placeholder="제목을 입력하세요" />

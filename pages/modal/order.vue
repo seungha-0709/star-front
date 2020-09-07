@@ -2,7 +2,7 @@
   <div>
     <span @click="onModalOpen">주문 상세정보</span>
     <modal
-      :modalProps="modalInfo2"
+      :modalProps="modalInfoOrder"
       :modalDisplay="modalOpen"
       @modalClose="onModalClose"
     >
@@ -13,13 +13,13 @@
 
 <script>
   import modal from "../../components/modal/modal.vue"
-  import { modalInfo2 } from "../../components/modal/modal.js"
   import modalOrder from "../../components/modal/modalOrder.vue"
+  import { modalInfoOrder } from "../../components/modal/modal.js"
 
   export default {
     data() {
       return {
-        modalInfo2,
+        modalInfoOrder,
         modalOpen: false
       }
     },
@@ -30,11 +30,9 @@
     methods: {
       onModalOpen() {
         this.modalOpen = true
-        console.log(this.modalOpen)
       },
-      onModalClose(a) {
-        this.modalOpen = a
-        console.log(a)
+      onModalClose(value) {
+        this.modalOpen = value
       }
     }
   }

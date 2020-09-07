@@ -57,8 +57,6 @@
     methods: {
       onClose() {
         this.$emit("modalClose", false)
-        // this.modalProps.isClose = false
-        // this.modalProps.isDimmed = false
       }
     }
   }

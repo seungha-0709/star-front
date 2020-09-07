@@ -1,3 +1,6 @@
+/** 주문 상세정보 모달에 들어가는 정보 */
+
+/** 주문 및 결제 정보 */
 export const orderInfo = {
   paymentIdx: "C200213981",
   orderIdx: "O20086544",
@@ -8,6 +11,7 @@ export const orderInfo = {
   ordernum: 2
 }
 
+/** 배송 정보 */
 export const shippingInfo = {
   online: true,
   address: "",
@@ -15,6 +19,7 @@ export const shippingInfo = {
   price: ""
 }
 
+/** 지불 정보  */
 export const payInfo = {
   creditCard: true,
   paymentPlan: true,

@@ -2,7 +2,7 @@
   <div>
     <span @click="onModalOpen">취소/환불 신청</span>
     <modal
-      :modalProps="modalInfo"
+      :modalProps="modalInfoCancel"
       :modalDisplay="modalOpen"
       @modalClose="onModalClose"
     >
@@ -13,13 +13,13 @@
 
 <script>
   import modal from "../../components/modal/modal.vue"
-  import { modalInfo } from "../../components/modal/modal.js"
   import modalCancel from "../../components/modal/modalCancel.vue"
+  import { modalInfoCancel } from "../../components/modal/modal.js"
 
   export default {
     data() {
       return {
-        modalInfo,
+        modalInfoCancel,
         modalOpen: false
       }
     },
@@ -32,9 +32,8 @@
         this.modalOpen = true
         console.log(this.modalOpen)
       },
-      onModalClose(a) {
-        this.modalOpen = a
-        console.log(a)
+      onModalClose(value) {
+        this.modalOpen = value
       }
     }
   }
