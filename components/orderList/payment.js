@@ -7,8 +7,10 @@ export const paymentInfo = [
     cancel: false,
     refund: false,
     paymentStatus: "결제완료",
-    orderIdx: "O20086544",
-    goodsName: "1번 상품명 상품명 상품명 상품명",
+    finalDate: "2020-03-20",
+    orderIdx: "O16086544",
+    goodsName:
+      "1번 상품명이 노출되는 영역. 1번 상품명이 노출되는 영역. 1번 상품명이 노출되는 영역. 1번 상품명이 노출되는 영역. 1번 상품명이 노출되는 영역",
     goodsimg:
       "https://cdn.pixabay.com/photo/2015/02/02/11/08/office-620817_960_720.jpg",
     ordernum: 2,
@@ -23,15 +25,17 @@ export const paymentInfo = [
     paymentPlanMonth: "6개월"
   },
   {
-    orderDate: "2020-02-10",
-    paymentDate: "2020-02-10",
+    orderDate: "2020-03-10",
+    paymentDate: "2020-03-10",
     paymentIdx: "C300213981",
     paymentPrice: 122000,
     cancel: true,
     refund: true,
     paymentStatus: "환불신청중",
-    orderIdx: "O20086544",
-    goodsName: "2번 상품명 상품명 상품명 상품명",
+    finalDate: "2020-03-15",
+    orderIdx: "O20346544",
+    goodsName:
+      "2번 상품명이 노출되는 영역. 2번 상품명이 노출되는 영역. 2번 상품명이 노출되는 영역. 2번 상품명이 노출되는 영역. 2번 상품명이 노출되는 영역",
     goodsimg:
       "https://cdn.pixabay.com/photo/2015/01/08/18/26/write-593333_960_720.jpg",
     ordernum: 1,
@@ -46,15 +50,17 @@ export const paymentInfo = [
     paymentPlanMonth: "5개월"
   },
   {
-    orderDate: "2020-02-05",
-    paymentDate: "2020-02-05",
+    orderDate: "2020-03-05",
+    paymentDate: "2020-03-05",
     paymentIdx: "C400213981",
     paymentPrice: 94000,
     cancel: true,
     refund: true,
     paymentStatus: "환불신청중",
-    orderIdx: "O20086544",
-    goodsName: "3번 상품명 상품명 상품명 상품명",
+    finalDate: "2020-03-15",
+    orderIdx: "O20086744",
+    goodsName:
+      "3번 상품명이 노출되는 영역. 3번 상품명이 노출되는 영역. 3번 상품명이 노출되는 영역. 3번 상품명이 노출되는 영역. 3번 상품명이 노출되는 영역",
     goodsimg:
       "https://cdn.pixabay.com/photo/2015/06/08/15/11/typewriter-801921_960_720.jpg",
     ordernum: 1,
@@ -69,15 +75,17 @@ export const paymentInfo = [
     paymentPlanMonth: "3개월"
   },
   {
-    orderDate: "2020-02-01",
-    paymentDate: "2020-02-01",
-    paymentIdx: "C400213981",
+    orderDate: "2020-02-23",
+    paymentDate: "2020-02-23",
+    paymentIdx: "C123213981",
     paymentPrice: 45000,
     cancel: true,
     refund: true,
     paymentStatus: "환불완료",
-    orderIdx: "O20086544",
-    goodsName: "4번 상품명 상품명 상품명 상품명",
+    finalDate: "2020-02-23",
+    orderIdx: "O20024544",
+    goodsName:
+      "4번 상품명이 노출되는 영역. 4번 상품명이 노출되는 영역. 4번 상품명이 노출되는 영역. 4번 상품명이 노출되는 영역. 4번 상품명이 노출되는 영역",
     goodsimg:
       "https://cdn.pixabay.com/photo/2014/05/02/21/49/home-office-336373_960_720.jpg",
     ordernum: 1,
@@ -92,15 +100,17 @@ export const paymentInfo = [
     paymentPlanMonth: "6개월"
   },
   {
-    orderDate: "2020-02-01",
-    paymentDate: "2020-02-01",
-    paymentIdx: "C400213981",
+    orderDate: "2020-02-11",
+    paymentDate: "2020-02-11",
+    paymentIdx: "C42341934",
     paymentPrice: 162000,
     cancel: true,
     refund: true,
     paymentStatus: "환불완료",
-    orderIdx: "O20086544",
-    goodsName: "5번 상품명 상품명 상품명 상품명",
+    finalDate: "2020-02-15",
+    orderIdx: "O21486544",
+    goodsName:
+      "5번 상품명이 노출되는 영역. 5번 상품명이 노출되는 영역. 5번 상품명이 노출되는 영역. 5번 상품명이 노출되는 영역. 5번 상품명이 노출되는 영역",
     goodsimg:
       "https://cdn.pixabay.com/photo/2015/01/08/18/27/startup-593341_960_720.jpg",
     ordernum: 1,
@@ -115,15 +125,17 @@ export const paymentInfo = [
     paymentPlanMonth: "6개월"
   },
   {
-    orderDate: "2020-02-01",
-    paymentDate: "2020-02-01",
-    paymentIdx: "C400213981",
+    orderDate: "2020-02-04",
+    paymentDate: "2020-02-04",
+    paymentIdx: "C234987631",
     paymentPrice: 88000,
     cancel: true,
     refund: true,
     paymentStatus: "환불완료",
-    orderIdx: "O20086544",
-    goodsName: "6번 상품명 상품명 상품명 상품명",
+    finalDate: "2020-02-07",
+    orderIdx: "O20086512",
+    goodsName:
+      "6번 상품명이 노출되는 영역. 6번 상품명이 노출되는 영역. 6번 상품명이 노출되는 영역. 6번 상품명이 노출되는 영역. 6번 상품명이 노출되는 영역",
     goodsimg:
       "https://cdn.pixabay.com/photo/2015/01/09/11/08/startup-594090_960_720.jpg",
     ordernum: 1,
