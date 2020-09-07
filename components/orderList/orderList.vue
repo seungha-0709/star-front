@@ -57,6 +57,9 @@
   table {
     border-collapse: collapse;
   }
+  table:hover {
+    background-color: rgba(255, 255, 255, 0);
+  }
   tr {
     border-top: 1px solid #ececec;
     border-bottom: 1px solid #ececec;
