@@ -4,7 +4,7 @@
     <div class="options-container">
       <div
         class="option"
-        @click="itemAlign(select.sort)"
+        @click="onSortChange(select.sort)"
         v-for="(select, i) in selectCreteria"
         :key="i"
       >
@@ -41,35 +41,9 @@
       ChevronDownIcon
     },
     methods: {
-      /* 상품 정렬 함수 */
-      itemAlign(sortType) {
-        console.log(this.$props)
-        if (sortType === "latest_at") {
-          this.$props.itemList.sort((a, b) => {
-            return a.index - b.index
-          })
-        }
-        if (sortType === "low_price") {
-          this.$props.itemList.sort((a, b) => {
-            return (
-              parseInt(a.price * a.discountRate, 10) -
-              parseInt(b.price * b.discountRate, 10)
-            )
-          })
-        }
-        if (sortType === "high_price") {
-          this.$props.itemList.sort((a, b) => {
-            return (
-              parseInt(b.price * b.discountRate, 10) -
-              parseInt(a.price * a.discountRate, 10)
-            )
-          })
-        }
-        if (sortType === "high_like") {
-          this.$props.itemList.sort((a, b) => {
-            return b.likes - a.likes
-          })
-        }
+      /* 부모 컴포넌트에 셀렉트박스 옵션 값 전달 */
+      onSortChange(sortType) {
+        this.$emit("listAlign", sortType)
       }
     },
 
@@ -87,9 +61,9 @@
         dropDown.classList.toggle("active")
       })
 
-      optionsList.forEach((o) => {
-        o.addEventListener("click", () => {
-          selectedOption.innerHTML = o.querySelector("label").innerHTML
+      optionsList.forEach((option) => {
+        option.addEventListener("click", () => {
+          selectedOption.innerHTML = option.querySelector("label").innerHTML
           optionsContainer.classList.remove("active")
           dropDown.classList.remove("active")
         })

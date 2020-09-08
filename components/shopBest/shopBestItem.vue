@@ -5,30 +5,31 @@
       <img :src="propsData.img" alt />
       <span class="best-label" v-if="propsData.best === true">BEST</span>
       <div class="like-btn" @click="likePlus(indexData)">
-        <v-icon color="#fff" large v-if="likeToggle % 2 === 0"
-          >favorite_border</v-icon
-        >
-        <v-icon color="#f65d58" large v-if="likeToggle % 2 === 1"
-          >favorite</v-icon
-        >
+        <v-icon color="#fff" large v-if="likeToggle % 2 === 0">
+          favorite_border
+        </v-icon>
+        <v-icon color="#f65d58" large v-if="likeToggle % 2 === 1">
+          favorite
+        </v-icon>
       </div>
     </div>
     <div class="best-item-info">
       <span class="teacher-name">{{ propsData.teacher }}</span>
       <span class="lecture-name">{{ propsData.lectureName }}</span>
-      <span class="discount-rate">{{
-        `${propsData.discountRate * 100}%`
-      }}</span>
-      <span class="discounted-price">{{
-        commaAdd(propsData.price * propsData.discountRate)
-      }}</span>
+      <span class="discount-rate">
+        {{ `${propsData.discountRate * 100}%` }}
+      </span>
+      <span class="discounted-price">
+        {{ commaAdd(propsData.price * propsData.discountRate) }}
+      </span>
       <span class="price">{{ commaAdd(propsData.price) }}</span>
       <br />
       <div class="best-item-info-sub">
         <v-icon color="#1673e9">star</v-icon>
         <span class="star">{{ propsData.star }}</span>
         <span class="review-number">{{ `상품리뷰 ${propsData.review}` }}</span>
-        <v-icon>favorite</v-icon>
+        <v-icon color="#c1c1c1" v-if="likeToggle % 2 === 0">favorite</v-icon>
+        <v-icon color="#f65d58" v-if="likeToggle % 2 === 1">favorite</v-icon>
         <span class="likes">{{ propsData.likes }}</span>
       </div>
     </div>
@@ -42,53 +43,31 @@
       return { likeToggle: 0 }
     },
     methods: {
+      /* 숫자 1000단위마다 , 표시하게 하는 함수 */
       commaAdd(num) {
-        /* 숫자 1000단위마다 , 표시하게 하는 함수 */
         const regexp = /\B(?=(\d{3})+(?!\d))/g
         return num.toString().replace(regexp, ",")
       },
+      /* 좋아요 버튼 누르면 +1 증가, 취소하면 -1 만드는 함수  */
       likePlus(idx) {
-        /* 좋아요 버튼 누르면 +1 증가, 취소하면 -1 만드는 함수  */
-        console.log(idx)
-        // const likeBtn = document.getElementsByClassName("like-btn")
         this.likeToggle++
         if (this.likeToggle % 2 === 1) {
-          // likeBtn[idx].classList.add("active")
           this.$props.propsData.likes =
             parseInt(this.$props.propsData.likes, 10) + parseInt(1, 10)
         } else {
-          // likeBtn[idx].classList.remove("active")
           this.$props.propsData.likes =
             parseInt(this.$props.propsData.likes, 10) - parseInt(1, 10)
         }
-        console.log()
       }
     }
   }
 </script>
 
 <style scoped>
-  .top-banner {
-    width: 100%;
-    height: 300px;
-    background-color: #000;
-  }
-  .best-item-wrap {
-    width: 1200px;
-    margin: 40px auto 40px auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .best-item-sub-title {
-    font-size: 18px;
-    color: #212121;
-    margin-left: 10px;
-  }
   .best-item-img {
     width: 378px;
     display: inline-block;
     box-sizing: border-box;
-    margin: 10px;
     position: relative;
   }
   .best-item-img > img {
@@ -136,7 +115,7 @@
     background-color: #e13a3a;
   }
   .best-item-info {
-    padding-left: 10px;
+    padding-top: 16px;
     margin-bottom: 80px;
   }
   .teacher-name {
