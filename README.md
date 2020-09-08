@@ -1,10 +1,12 @@
+empty commit
+
 # star-front
 
 > Nuxt.js + Vuetify.js project
 
 ## Build Setup
 
-``` bash
+```bash
 # install dependencies
 $ npm install # Or yarn install
 
