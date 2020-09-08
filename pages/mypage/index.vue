@@ -1,18 +1,18 @@
 <template>
   <div>
     <div class="my-page">
-      <left-menu title="마이페이지" :menu="myPageMenu">
+      <sidebar-menu title="마이페이지" :menu="myPageMenu">
         <user-icon size="24" color="#dfdfdf" />
-      </left-menu>
-      <left-menu title="나의 쇼핑" :menu="myShoppingMenu">
+      </sidebar-menu>
+      <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
         <shopping-bag-icon size="24" color="#dfdfdf" />
-      </left-menu>
+      </sidebar-menu>
       <!-- <notification-content /> -->
     </div>
   </div>
 </template>
 <script>
-  import leftMenu from "../../components/myPage/leftMenu.vue"
+  import sidebarMenu from "../../components/common/sidebarMenu.vue"
   import notificationCast from "../../components/myPage/notificationCast"
   import notificationContents from "../../components/myPage/notificationContents.vue"
 
@@ -27,7 +27,7 @@
       }
     },
     components: {
-      "left-menu": leftMenu,
+      "sidebar-menu": sidebarMenu,
       "notification-cast": notificationCast,
       "notification-content": notificationContents,
       UserIcon,
