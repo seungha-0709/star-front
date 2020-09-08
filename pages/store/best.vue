@@ -3,9 +3,9 @@
     <div class="top-banner"></div>
     <div class="shop-best-item-container">
       <div class="shop-best-item-top">
-        <span class="shop-best-item-sub-title">{{ `${limit}개의 강의` }}</span>
+        <span class="shop-best-item-sub-title">{{ `${total}개의 강의` }}</span>
         <div class="select-box">
-          <selectBox :itemList="shopBestList" />
+          <selectBox @listAlign="onAlignChange" />
         </div>
       </div>
       <div class="shop-best-item-wrap">
@@ -23,32 +23,47 @@
 <script>
   import { shopBestList } from "../../components/shopBest/shopBestList.js"
   import shopBestItem from "../../components/shopBest/shopBestItem.vue"
-  import { ChevronDownIcon } from "vue-feather-icons"
   import selectBox from "../../components/shopBest/selectBox.vue"
 
   export default {
     data() {
       return {
         shopBestList,
-        selectItemList: [
-          /* 셀렉트 박스에 들어가는 옵션항목 */
-          { title: "최신순", sort: "latest_at" },
-          { title: "가격 낮은 순", sort: "low_price" },
-          { title: "가격 높은 순", sort: "high_price" },
-          { title: "좋아요 많은 순", sort: "high_like" }
-        ],
-        limit: 9
+        total: 9
       }
     },
     computed: {
       /* 받아 온 데이터 중 처음부터 9개까지만 화면에 표시되게 함 */
       computedBestList() {
-        return this.shopBestList.slice(0, this.limit)
+        return this.shopBestList.slice(0, this.total)
+      }
+    },
+    methods: {
+      onAlignChange(value) {
+        if (value === "latest_at") {
+          this.shopBestList.sort((a, b) => a.index - b.index)
+        }
+        if (value === "low_price") {
+          this.shopBestList.sort(
+            (a, b) =>
+              parseInt(a.price * a.discountRate, 10) -
+              parseInt(b.price * b.discountRate, 10)
+          )
+        }
+        if (value === "high_price") {
+          this.shopBestList.sort(
+            (a, b) =>
+              parseInt(b.price * b.discountRate, 10) -
+              parseInt(a.price * a.discountRate, 10)
+          )
+        }
+        if (value === "high_like") {
+          this.shopBestList.sort((a, b) => b.likes - a.likes)
+        }
       }
     },
     components: {
       shopBestItem,
-      ChevronDownIcon,
       selectBox
     }
   }
@@ -80,9 +95,9 @@
   }
   .shop-best-item-wrap {
     display: flex;
-    justify-content: center;
     width: 1200px;
     margin: 0px auto 20px auto;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 </style>
