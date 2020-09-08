@@ -40,7 +40,6 @@
                 height="28"
                 @event="onModalOrderOpen"
               >
-                <!-- <span @click="onModalOrderOpen">구매 상세보기</span> -->
               </basic-button>
               <modal
                 :modalProps="modalInfoOrder"
@@ -61,7 +60,6 @@
                 height="28"
                 @event="onModalReceiptOpen"
               >
-                <!-- <span @click="onModalReceiptOpen">구매 영수증 출력</span> -->
               </basic-button>
               <modal
                 :modalProps="modalInfoReceipt"
@@ -83,8 +81,11 @@
               width="102"
               height="28"
               @event="onModalCancelOpen"
+              v-if="
+                orderListData[idxData].cancel === false &&
+                orderListData[idxData].refund === false
+              "
             >
-              <!-- <span @click="onModalCancelOpen">취소/환불 신청</span> -->
             </basic-button>
             <modal
               :modalProps="modalInfoCancel"
@@ -92,6 +93,30 @@
               @modalClose="onModalCancelClose"
             >
               <modal-cancel :paymentData="orderListData[idxData]" />
+            </modal>
+
+            <basic-button
+              text="고객센터 문의"
+              color="#212121"
+              backgroundColor="#fff"
+              borderRadius="4"
+              borderColor="#dfdfdf"
+              fontSize="14"
+              width="102"
+              height="28"
+              @event="onModalQnaOpen"
+              v-if="
+                orderListData[idxData].cancel === true ||
+                orderListData[idxData].refund === true
+              "
+            >
+            </basic-button>
+            <modal
+              :modalProps="modalInfoQna"
+              :modalDisplay="modalQnaOpen"
+              @modalClose="onModalQnaClose"
+            >
+              <modal-qna :paymentData="orderListData[idxData]" />
             </modal>
           </td>
         </tr>
@@ -110,7 +135,8 @@
   import {
     modalInfoCancel,
     modalInfoOrder,
-    modalInfoReceipt
+    modalInfoReceipt,
+    modalInfoQna
   } from "../../components/modal/modal.js"
 
   export default {
@@ -120,9 +146,11 @@
         modalInfoCancel,
         modalInfoOrder,
         modalInfoReceipt,
+        modalInfoQna,
         modalOrderOpen: false,
         modalReceiptOpen: false,
-        modalCancelOpen: false
+        modalCancelOpen: false,
+        modalQnaOpen: false
       }
     },
     components: {
@@ -149,14 +177,20 @@
       onModalReceiptOpen() {
         this.modalReceiptOpen = true
       },
-      onModalReceiptClose(value) {
-        this.modalReceiptOpen = value
+      onModalReceiptClose(isClosed) {
+        this.modalReceiptOpen = isClosed
       },
       onModalCancelOpen() {
         this.modalCancelOpen = true
       },
-      onModalCancelClose(value) {
-        this.modalCancelOpen = value
+      onModalCancelClose(isClosed) {
+        this.modalCancelOpen = isClosed
+      },
+      onModalQnaOpen() {
+        this.modalQnaOpen = true
+      },
+      onModalQnaClose(isClosed) {
+        this.modalQnaOpen = isClosed
       }
     }
   }

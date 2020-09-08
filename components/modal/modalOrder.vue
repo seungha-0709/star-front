@@ -39,7 +39,7 @@
           <th>배송정보</th>
           <td>
             {{
-              paymentData.shippingonline === true
+              paymentData.shippingOnline === true
                 ? "온라인 배송"
                 : paymentData.shippingFee
             }}
@@ -91,7 +91,7 @@
           <th>배송비</th>
           <td>
             {{
-              paymentData.shippingonline === true
+              paymentData.shippingOnline === true
                 ? "0원"
                 : paymentData.shippingFee + "원"
             }}

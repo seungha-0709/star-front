@@ -18,7 +18,7 @@
           <th>배송비</th>
           <td>
             {{
-              shippingOnline === true
+              paymentData.shippingOnline === true
                 ? "0원"
                 : commaAdd(paymentData.shippingFee)
             }}
