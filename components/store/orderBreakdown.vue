@@ -47,13 +47,7 @@
               <div class="icon-position equal-icon"></div>
               최종 결제금액
               <div class="content-title">
-                {{
-                  `${(
-                    orderData.productPrice +
-                    -orderData.productSale +
-                    orderData.productShipping
-                  ).toLocaleString()}원`
-                }}
+                {{ `${orderData.totalPrice.toLocaleString()}원` }}
               </div>
             </div>
           </td>

@@ -53,11 +53,7 @@
           <td colspan="4" class="total">
             <span>전체 주문금액</span>
             <span class="total-price">{{
-              `${(
-                productPrice -
-                productSale +
-                productShipping
-              ).toLocaleString()}원`
+              `${totalPrice.toLocaleString()}원`
             }}</span>
           </td>
         </tr>
@@ -70,7 +66,8 @@
           productCount,
           productPrice,
           productSale,
-          productShipping
+          productShipping,
+          totalPrice
         })
       "
     />
@@ -128,6 +125,11 @@
               this.cartLists.find((list) => list.id === data)?.shippingFee
           )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
+      },
+      totalPrice() {
+        return this.productPrice > this.productSale
+          ? this.productPrice - this.productSale + this.productShipping
+          : 0
       }
     }
   }
