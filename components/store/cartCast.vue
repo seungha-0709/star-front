@@ -72,6 +72,7 @@
       return {
         selectAll: false,
         select: [],
+        // filter함수 이용시 props로 받은 데이터가 업데이트 되지않아, 새 데이터로 재정의함.
         resultList: this.cartLists
       }
     },
@@ -83,9 +84,11 @@
     methods: {
       removeItem() {
         if (this.select.length) {
+          // 선택된 리스트의 id를 가지고 전체 cartLists에서 해당 id를 가지고있는 데이터만 찾음.
           const selectItem = this.select.map((data) =>
             this.cartLists.find((list) => list.id === data)
           )
+          // filter함수 이용하여 selectItem의 data가 resultList에서 포함하지 않는것만 반환함.
           this.resultList = this.resultList.filter(
             (item) => !selectItem.includes(item)
           )
