@@ -4,29 +4,29 @@
       <tbody>
         <tr>
           <th>상품명</th>
-          <td>{{ orderInfo.name }}</td>
+          <td>{{ paymentData.goodsName }}</td>
         </tr>
         <tr>
           <th>결제번호</th>
-          <td>{{ orderInfo.paymentIdx }}</td>
+          <td>{{ paymentData.paymentIdx }}</td>
         </tr>
         <tr>
           <th>결제금액</th>
-          <td>{{ `${commaAdd(orderInfo.price)}원` }}</td>
+          <td>{{ `${commaAdd(paymentData.paymentPrice)}원` }}</td>
         </tr>
         <tr>
           <th>배송비</th>
           <td>
             {{
-              shippingInfo.online === true
+              shippingOnline === true
                 ? "0원"
-                : commaAdd(shippingInfo.price)
+                : commaAdd(paymentData.shippingFee)
             }}
           </td>
         </tr>
         <tr>
           <th>주문상태</th>
-          <td>{{ payInfo.paymentStatus }}</td>
+          <td>{{ paymentData.paymentStatus }}</td>
         </tr>
       </tbody>
     </table>
@@ -34,16 +34,10 @@
 </template>
 
 <script>
-  import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
+  // import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
 
   export default {
-    data() {
-      return {
-        orderInfo,
-        shippingInfo,
-        payInfo
-      }
-    },
+    props: ["paymentData"],
     methods: {
       commaAdd(num) {
         /* 숫자 1000단위마다 , 표시하게 하는 함수 */

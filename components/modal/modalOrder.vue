@@ -6,24 +6,26 @@
       <tbody>
         <tr>
           <th>결제번호(주문번호)</th>
-          <td>{{ `${orderInfo.paymentIdx}(${orderInfo.orderIdx})` }}</td>
+          <td>{{ `${paymentData.paymentIdx}(${paymentData.orderIdx})` }}</td>
         </tr>
         <tr>
           <th>주문일자</th>
-          <td>{{ orderInfo.orderDate }}</td>
+          <td>{{ paymentData.orderDate }}</td>
         </tr>
         <tr>
           <th>상품번호</th>
-          <td>{{ orderInfo.goodsIdx }}</td>
+          <td>{{ paymentData.goodsIdx }}</td>
         </tr>
         <tr>
           <th>상품명</th>
-          <td>{{ orderInfo.name }}</td>
+          <td>{{ paymentData.goodsName }}</td>
         </tr>
         <tr>
           <th>상품금액(개수)</th>
           <td>
-            {{ commaAdd(orderInfo.price) }} ({{ `${orderInfo.ordernum}개` }})
+            {{ commaAdd(paymentData.paymentPrice) }} ({{
+              `${paymentData.ordernum}개`
+            }})
           </td>
         </tr>
       </tbody>
@@ -37,9 +39,11 @@
           <th>배송정보</th>
           <td>
             {{
-              shippingInfo.online === true ? "온라인 배송" : shippingInfo.price
+              paymentData.shippingonline === true
+                ? "온라인 배송"
+                : paymentData.shippingFee
             }}
-            ({{ shippingInfo.phone }})
+            ({{ paymentData.phone }})
           </td>
         </tr>
       </tbody>
@@ -51,19 +55,20 @@
       <tbody>
         <tr>
           <th>최종결제금액</th>
-          <td>{{ `${commaAdd(orderInfo.price)}원` }}</td>
+          <td>{{ `${commaAdd(paymentData.paymentPrice)}원` }}</td>
         </tr>
         <tr>
           <th>신용카드</th>
           <td>
             {{
-              payInfo.creditCard === true
-                ? commaAdd(orderInfo.price) + "원"
+              paymentData.creditCard === true
+                ? `${commaAdd(paymentData.paymentPrice)}원`
                 : "0원"
             }}
-            ({{ payInfo.creditCardName }}/{{
-              payInfo.paymentPlan === true
-                ? payInfo.paymentPlanMonth
+            ({{ paymentData.creditCardName }}/
+            {{
+              paymentData.paymentPlan === true
+                ? paymentData.paymentPlanMonth
                 : "일시불"
             }})
           </td>
@@ -71,18 +76,24 @@
         <tr>
           <th>현금</th>
           <td>
-            {{ payInfo.cash === true ? commaAdd(orderInfo.price) : "0원" }}
+            {{
+              paymentData.cash === true
+                ? commaAdd(paymentData.paymentPrice)
+                : "0원"
+            }}
           </td>
         </tr>
         <tr>
           <th>상품금액</th>
-          <td>{{ `${commaAdd(orderInfo.price)}원` }}</td>
+          <td>{{ `${commaAdd(paymentData.paymentPrice)}원` }}</td>
         </tr>
         <tr>
           <th>배송비</th>
           <td>
             {{
-              shippingInfo.online === true ? "0원" : shippingInfo.price + "원"
+              paymentData.shippingonline === true
+                ? "0원"
+                : paymentData.shippingFee + "원"
             }}
           </td>
         </tr>
@@ -92,16 +103,10 @@
 </template>
 
 <script>
-  import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
+  // import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
 
   export default {
-    data() {
-      return {
-        orderInfo,
-        shippingInfo,
-        payInfo
-      }
-    },
+    props: ["paymentData"],
     methods: {
       commaAdd(num) {
         /* 숫자 1000단위마다 , 표시하게 하는 함수 */
