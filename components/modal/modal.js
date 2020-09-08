@@ -2,6 +2,7 @@
 
 /** 취소/환불 신청 모달 */
 export const modalInfoCancel = {
+  type: "cancel",
   title: "취소/환불 신청",
   subTitle:
     "환불/취소 요청 시 먼저, 다음의 내용으로 접수하여 주세요.\n세부사항에 대한 확인이 필요합니다.",
@@ -27,6 +28,7 @@ export const modalInfoCancel = {
 
 /** 주문 상세정보 모달 */
 export const modalInfoOrder = {
+  type: "order",
   title: "주문 상세정보",
   subTitle: null,
   isDimmed: true,
@@ -40,6 +42,7 @@ export const modalInfoOrder = {
 
 /** 고객센터 페이지의 "1:1 온라인 문의하기" 모달 팝업 */
 export const modalInfoQna = {
+  type: "qna",
   title: "별별스토어 1:1 문의",
   subTitle: null,
   isDimmed: true,
@@ -58,6 +61,7 @@ export const modalInfoQna = {
 
 /** 구매 영수증 모달 */
 export const modalInfoReceipt = {
+  type: "receipt",
   title: "구매 영수증",
   subTitle: null,
   isDimmed: true,

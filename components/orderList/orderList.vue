@@ -38,13 +38,13 @@
                 fontSize="14"
                 width="97"
                 height="28"
-                @event="onModalOrderOpen"
+                @event="onModalOnOff('order', true)"
               >
               </basic-button>
               <modal
                 :modalProps="modalInfoOrder"
                 :modalDisplay="modalOrderOpen"
-                @modalClose="onModalOrderClose"
+                @modalClose="onModalOnOff"
               >
                 <modal-order :paymentData="orderListData[idxData]" />
               </modal>
@@ -58,13 +58,13 @@
                 fontSize="14"
                 width="113"
                 height="28"
-                @event="onModalReceiptOpen"
+                @event="onModalOnOff('receipt', true)"
               >
               </basic-button>
               <modal
                 :modalProps="modalInfoReceipt"
                 :modalDisplay="modalReceiptOpen"
-                @modalClose="onModalReceiptClose"
+                @modalClose="onModalOnOff"
               >
                 <modal-receipt :paymentData="orderListData[idxData]" />
               </modal>
@@ -80,7 +80,7 @@
               fontSize="14"
               width="102"
               height="28"
-              @event="onModalCancelOpen"
+              @event="onModalOnOff('cancel', true)"
               v-if="
                 orderListData[idxData].cancel === false &&
                 orderListData[idxData].refund === false
@@ -90,7 +90,7 @@
             <modal
               :modalProps="modalInfoCancel"
               :modalDisplay="modalCancelOpen"
-              @modalClose="onModalCancelClose"
+              @modalClose="onModalOnOff"
             >
               <modal-cancel :paymentData="orderListData[idxData]" />
             </modal>
@@ -104,7 +104,7 @@
               fontSize="14"
               width="102"
               height="28"
-              @event="onModalQnaOpen"
+              @event="onModalOnOff('qna', true)"
               v-if="
                 orderListData[idxData].cancel === true ||
                 orderListData[idxData].refund === true
@@ -114,7 +114,7 @@
             <modal
               :modalProps="modalInfoQna"
               :modalDisplay="modalQnaOpen"
-              @modalClose="onModalQnaClose"
+              @modalClose="onModalOnOff"
             >
               <modal-qna :paymentData="orderListData[idxData]" />
             </modal>
@@ -168,29 +168,16 @@
         return num.toString().replace(regexp, ",")
       },
       /** 모달 팝업 열고 닫는 기능 함수 */
-      onModalOrderOpen() {
-        this.modalOrderOpen = true
-      },
-      onModalOrderClose(isClosed) {
-        this.modalOrderOpen = isClosed
-      },
-      onModalReceiptOpen() {
-        this.modalReceiptOpen = true
-      },
-      onModalReceiptClose(isClosed) {
-        this.modalReceiptOpen = isClosed
-      },
-      onModalCancelOpen() {
-        this.modalCancelOpen = true
-      },
-      onModalCancelClose(isClosed) {
-        this.modalCancelOpen = isClosed
-      },
-      onModalQnaOpen() {
-        this.modalQnaOpen = true
-      },
-      onModalQnaClose(isClosed) {
-        this.modalQnaOpen = isClosed
+      onModalOnOff(type, onOff) {
+        if (type === "order") {
+          this.modalOrderOpen = onOff
+        } else if (type === "receipt") {
+          this.modalReceiptOpen = onOff
+        } else if (type === "cancel") {
+          this.modalCancelOpen = onOff
+        } else if (type === "qna") {
+          this.modalQnaOpen = onOff
+        }
       }
     }
   }

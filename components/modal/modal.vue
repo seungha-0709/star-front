@@ -58,7 +58,7 @@
     },
     methods: {
       onClose() {
-        this.$emit("modalClose", false)
+        this.$emit("modalClose", this.$props.modalProps.type, false)
       }
     }
   }
