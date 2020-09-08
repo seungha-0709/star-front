@@ -14,7 +14,7 @@
             <p class="goods-name">{{ orderListData[idxData].goodsName }}</p>
           </td>
           <td class="price">
-            {{ `${commaAdd(orderListData[idxData].paymentPrice)}원` }}
+            {{ `${orderListData[idxData].paymentPrice.toLocaleString()}원` }}
           </td>
           <td class="status">
             <span class="status-content">
@@ -162,11 +162,6 @@
       modalQna
     },
     methods: {
-      commaAdd(num) {
-        /* 숫자 1000단위마다 , 표시하게 하는 함수 */
-        const regexp = /\B(?=(\d{3})+(?!\d))/g
-        return num.toString().replace(regexp, ",")
-      },
       /** 모달 팝업 열고 닫는 기능 함수 */
       onModalOnOff(type, onOff) {
         if (type === "order") {
