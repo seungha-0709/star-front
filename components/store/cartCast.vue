@@ -3,7 +3,7 @@
     <div class="rectangle">
       <h3 class="cart-name">장바구니</h3>
       <p class="cart-count">
-        {{ `총 ${resultList.length.toLocaleString()}개` }}
+        {{ `총 ${cartLists.length.toLocaleString()}개` }}
       </p>
       <div>
         <table class="cart-table">
@@ -30,23 +30,23 @@
             </tr>
           </thead>
           <cart-items
-            :cart-lists="resultList"
+            :cart-lists="cartLists"
             :select-all="selectAll"
             :select="select"
           />
         </table>
-        <div v-if="resultList.length === 0" class="empty-cart">
+        <div v-if="cartLists.length === 0" class="empty-cart">
           <p>장바구니에 담긴 상품이 없습니다.</p>
           <basic-button
             text="쇼핑하러 가기"
             backgroundColor="#ffffff"
             color="#1673e6"
-            borderColor="#1673e6"
+            bordercolor="#1673e6"
           />
         </div>
         <div class="select-delete">
           <button
-            v-if="resultList.length !== 0"
+            v-if="cartLists.length !== 0"
             v-on:click="removeItem"
             class="select-delete-btn"
           >
@@ -71,9 +71,7 @@
     data() {
       return {
         selectAll: false,
-        select: [],
-        // filter함수 이용시 props로 받은 데이터가 업데이트 되지않아, 새 데이터로 재정의함.
-        resultList: this.cartLists
+        select: []
       }
     },
     components: {
@@ -84,14 +82,10 @@
     methods: {
       removeItem() {
         if (this.select.length) {
-          // 선택된 리스트의 id를 가지고 전체 cartLists에서 해당 id를 가지고있는 데이터만 찾음.
-          const selectItem = this.select.map((data) =>
-            this.cartLists.find((list) => list.id === data)
-          )
-          // filter함수 이용하여 selectItem의 data가 resultList에서 포함하지 않는것만 반환함.
-          this.resultList = this.resultList.filter(
-            (item) => !selectItem.includes(item)
-          )
+          for (let index = 0; index < this.select.length; index++) {
+            const selectRemove = this.select[this.select.length - index - 1]
+            this.cartLists.splice(selectRemove, 1)
+          }
           this.select = []
         }
       },
@@ -104,14 +98,13 @@
           // this.select = this.cartLists
           this.select = []
           for (let index = 0; index < this.cartLists.length; index++) {
-            this.select.push(this.cartLists[index].id)
+            this.select.push(index)
           }
         }
       }
     },
     updated() {
       this.selectAll = this.select.length === this.cartLists.length
-      this.$emit("sendFilterData", this.resultList)
       this.$emit("sendResultData", this.select)
     }
   }

@@ -3,12 +3,11 @@
     <div class="cart-page">
       <cart-cast
         v-if="!orderState"
-        v-on:sendFilterData="getFilterData"
         v-on:sendResultData="getResultData"
         :cart-lists="cartLists"
       />
       <cart-breakdown
-        v-if="!orderState && filterData.length !== 0"
+        v-if="!orderState && cartLists.length !== 0"
         v-bind:result-data="resultData"
         v-on:event="handleShowOrder"
         :cart-lists="cartLists"
@@ -39,13 +38,13 @@
       return {
         cartLists,
         resultData: [],
-        filterData: [0],
         orderState: false,
         orderData: null
       }
     },
     components: {
       "cart-breakdown": cartBreakdown,
+
       "cart-cast": cartCast,
       "order-sheet": orderSheet,
       "shipping-info": shippingInfo
@@ -53,9 +52,6 @@
     methods: {
       getResultData(data) {
         this.resultData = data
-      },
-      getFilterData(data) {
-        this.filterData = data
       },
       handleShowOrder(order) {
         if (this.resultData.length !== 0) {
