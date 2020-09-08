@@ -2,26 +2,26 @@
   <div class="left-menu">
     <div class="rectangle">
       <div class="title">
-        <span class="menu-icon"><user-icon class="user-icon" /></span>
-        <h4 class="menu-title">마이페이지</h4>
+        <slot></slot>
+        <h4 class="menu-title">{{ title }}</h4>
       </div>
-      <div>
-        <h5 class="sub-title sub-menu">프로필</h5>
-        <h5 class="sub-title sub-menu">기본정보</h5>
-        <h5 class="sub-menu">팔로우</h5>
-      </div>
+      <ul class="menu-list">
+        <li v-for="(item, index) in menu" :key="index">
+          <nuxt-link :to="item.link"> {{ item.title }}</nuxt-link>
+        </li>
+      </ul>
     </div>
   </div>
 </template>
 <script>
-  import { UserIcon } from "vue-feather-icons"
-
   export default {
-    data() {
-      return {}
-    },
-    components: {
-      UserIcon
+    props: {
+      title: {
+        default: ""
+      },
+      menu: {
+        default: []
+      }
     }
   }
 </script>
@@ -29,15 +29,9 @@
 <style scoped>
   .left-menu {
     width: 260px;
-    height: 240px;
     border: solid 1px #dfdfdf;
     background-color: #ffffff;
     margin: 0 16px 8px 0;
-    font-family: SpoqaHanSans;
-    font-size: 16px;
-    font-weight: bold;
-    text-align: left;
-    color: #212121;
   }
   .left-menu .rectangle {
     width: 100%;
@@ -45,29 +39,31 @@
     padding: 32px 24px 8px;
   }
   .left-menu .title {
+    display: flex;
+    align-items: center;
     margin-bottom: 8px;
   }
-  .my-page-title {
-    display: inline-block;
+  .menu-title {
     font-size: 24px;
-    font-weight: normal;
     color: #666666;
     margin-left: 8px;
   }
-  .left-menu .sub-title {
-    width: 212px;
-    border-bottom: solid 1px #ececec;
+  .left-menu .menu-list li {
+    border-bottom: 1px solid #ececec;
   }
-  .sub-menu {
-    height: 52px;
-    padding: 14px 0 14px;
+  .left-menu .menu-list li:last-child {
+    border-bottom: 0;
   }
-  .left-menu .menu-icon {
-    width: 24px;
-    height: 36px;
-    padding: 4px 0 5px;
+  .left-menu .menu-list li a {
+    display: block;
+    line-height: 52px;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: left;
+    color: #212121;
+    text-decoration: none;
   }
-  .left-menu .user-icon {
-    color: #dfdfdf;
+  .left-menu .menu-list li a:hover {
+    color: #3f60cc;
   }
 </style>
