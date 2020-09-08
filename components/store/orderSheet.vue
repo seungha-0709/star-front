@@ -17,11 +17,7 @@
                 <th class="th-size">배송비</th>
               </tr>
             </thead>
-            <cart-items
-              :cart-lists="computedCartLists"
-              :select="null"
-              :select-all="selectAll"
-            />
+            <cart-items :cart-lists="computedCartLists" :select="null" />
           </table>
           <order-breakdown :order-data="orderData" />
         </div>
@@ -47,7 +43,9 @@
     },
     computed: {
       computedCartLists() {
-        return this.resultData.map((data) => this.cartLists[data])
+        return this.resultData.map((data) =>
+          this.cartLists.find((list) => list.id === data)
+        )
       }
     }
   }

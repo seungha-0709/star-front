@@ -53,11 +53,7 @@
           <td colspan="4" class="total">
             <span>전체 주문금액</span>
             <span class="total-price">{{
-              `${(
-                productPrice -
-                productSale +
-                productShipping
-              ).toLocaleString()}원`
+              `${totalPrice.toLocaleString()}원`
             }}</span>
           </td>
         </tr>
@@ -70,7 +66,8 @@
           productCount,
           productPrice,
           productSale,
-          productShipping
+          productShipping,
+          totalPrice
         })
       "
     />
@@ -95,16 +92,18 @@
       productCount() {
         if (this.resultData.length === 0) return 0
         return this.resultData
-          .map((data) => this.cartLists[data]?.amount)
+          .map(
+            (data) => this.cartLists.find((list) => list.id === data)?.amount
+          )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
-
       productPrice() {
         if (this.resultData.length === 0) return 0
         return this.resultData
           .map(
             (data) =>
-              this.cartLists[data]?.originPrice * this.cartLists[data]?.amount
+              this.cartLists.find((list) => list.id === data)?.originPrice *
+              this.cartLists.find((list) => list.id === data)?.amount
           )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
@@ -112,15 +111,25 @@
         if (this.resultData.length === 0) return 0
         return this.resultData
           .map(
-            (data) => this.cartLists[data]?.sale * this.cartLists[data]?.amount
+            (data) =>
+              this.cartLists.find((list) => list.id === data)?.sale *
+              this.cartLists.find((list) => list.id === data)?.amount
           )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
       },
       productShipping() {
         if (this.resultData.length === 0) return 0
         return this.resultData
-          .map((data) => this.cartLists[data]?.shippingFee)
+          .map(
+            (data) =>
+              this.cartLists.find((list) => list.id === data)?.shippingFee
+          )
           .reduce((accumulator, currentValue) => accumulator + currentValue)
+      },
+      totalPrice() {
+        return this.productPrice > this.productSale
+          ? this.productPrice - this.productSale + this.productShipping
+          : 0
       }
     }
   }
