@@ -17,11 +17,7 @@
                 <th class="th-size">배송비</th>
               </tr>
             </thead>
-            <cart-items
-              :cart-lists="computedCartLists"
-              :select="null"
-              :select-all="selectAll"
-            />
+            <cart-items :cart-lists="computedCartLists" :select="null" />
           </table>
           <order-breakdown :order-data="orderData" />
         </div>
