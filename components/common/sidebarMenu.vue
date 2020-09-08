@@ -1,8 +1,7 @@
 <template>
-  <div class="left-menu">
+  <div class="sidebar-menu">
     <div class="rectangle">
       <div class="title">
-        <slot></slot>
         <h4 class="menu-title">{{ title }}</h4>
       </div>
       <ul class="menu-list">
@@ -27,18 +26,18 @@
 </script>
 
 <style scoped>
-  .left-menu {
+  .sidebar-menu {
     width: 260px;
     border: solid 1px #dfdfdf;
     background-color: #ffffff;
     margin: 0 16px 8px 0;
   }
-  .left-menu .rectangle {
+  .sidebar-menu .rectangle {
     width: 100%;
     height: 100%;
     padding: 32px 24px 8px;
   }
-  .left-menu .title {
+  .sidebar-menu .title {
     display: flex;
     align-items: center;
     margin-bottom: 8px;
@@ -48,13 +47,13 @@
     color: #666666;
     margin-left: 8px;
   }
-  .left-menu .menu-list li {
+  .sidebar-menu .menu-list li {
     border-bottom: 1px solid #ececec;
   }
-  .left-menu .menu-list li:last-child {
+  .sidebar-menu .menu-list li:last-child {
     border-bottom: 0;
   }
-  .left-menu .menu-list li a {
+  .sidebar-menu .menu-list li a {
     display: block;
     line-height: 52px;
     font-size: 16px;
@@ -63,7 +62,7 @@
     color: #212121;
     text-decoration: none;
   }
-  .left-menu .menu-list li a:hover {
+  .sidebar-menu .menu-list li a:hover {
     color: #3f60cc;
   }
 </style>
