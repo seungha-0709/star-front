@@ -1,5 +1,12 @@
 <template>
   <div class="qna-body">
+    <modal
+      :modalProps="modalInfoQna"
+      :modalDisplay="modalOpen"
+      @modalClose="onModalClose"
+    >
+      <modal-qna />
+    </modal>
     <div class="cs-center-wrap">
       <div class="cs-service">
         <h2>고객센터</h2>
@@ -24,7 +31,7 @@
       </div>
       <div class="cs-online">
         <headphones-icon class="headphone-icon" size="78" color="#ececec" />
-        <div class="btn">1:1 온라인 문의하기</div>
+        <div class="btn" @click="onModalOpen()">1:1 온라인 문의하기</div>
       </div>
     </div>
 
@@ -80,8 +87,11 @@
 </template>
 
 <script>
-  import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
+  import modal from "../../components/modal/modal.vue"
+  import modalQna from "../../components/modal/modalQna.vue"
   import qnaTab from "../../components/qnaContents/qnaTap.vue"
+  import { modalInfoQna } from "../../components/modal/modal.js"
+  import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
   import {
     HeadphonesIcon,
     MapPinIcon,
@@ -94,11 +104,15 @@
   export default {
     data() {
       return {
+        modalInfoQna,
         categoryData: qnaCategory,
-        activeType: "all"
+        activeType: "all",
+        modalOpen: false
       }
     },
     components: {
+      modal,
+      modalQna,
       qnaTab,
       HeadphonesIcon,
       MapPinIcon,
@@ -110,6 +124,14 @@
     methods: {
       onTypeChange(type) {
         this.activeType = type
+      },
+      onModalOpen() {
+        this.modalOpen = true
+        console.log(this.modalOpen)
+      },
+      onModalClose(a) {
+        this.modalOpen = a
+        console.log(a)
       }
     }
   }
