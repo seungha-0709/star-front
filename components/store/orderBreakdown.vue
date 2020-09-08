@@ -44,10 +44,18 @@
           </td>
           <td class="content-amount shipping">
             <div>
-              <div class="icon-position equal-icon"></div>
+              <div class="icon-position">
+                <plus-icon size="20" class="icon-add plus-icon"></plus-icon>
+              </div>
               최종 결제금액
               <div class="content-title">
-                {{ `${orderData.totalPrice.toLocaleString()}원` }}
+                {{
+                  `${(
+                    orderData.productPrice +
+                    -orderData.productSale +
+                    orderData.productShipping
+                  ).toLocaleString()}원`
+                }}
               </div>
             </div>
           </td>
@@ -123,22 +131,7 @@
   .icon-add {
     color: #666;
   }
-  .icon-position.equal-icon::before,
-  .icon-position.equal-icon::after {
-    content: "";
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 14px;
-    height: 2px;
-    background-color: #666;
-  }
-  .icon-position.equal-icon::before {
-    top: 10px;
-  }
-  .icon-position.equal-icon::after {
-    bottom: 10px;
-  }
+  /* equal icon 이 없음...! */
   .content-title {
     font-size: 24px;
     color: #121210;
