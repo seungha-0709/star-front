@@ -53,7 +53,7 @@
         <span>
           <strong>회사명 / COMPANY NAME</strong>
         </span>
-        <span>주식회사 티밸류와이즈</span>
+        <span>주식회사 가나다라마바사</span>
       </div>
       <div class="line"></div>
       <div class="block">
@@ -115,7 +115,6 @@
 
 <script>
   import basicButton from "../../components/common/basicButton.vue"
-  // import { orderInfo } from "./modalBuyInfo.js"
 
   export default {
     props: ["paymentData"],

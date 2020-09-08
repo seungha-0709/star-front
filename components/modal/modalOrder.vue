@@ -103,8 +103,6 @@
 </template>
 
 <script>
-  // import { orderInfo, shippingInfo, payInfo } from "./modalBuyInfo.js"
-
   export default {
     props: ["paymentData"],
     methods: {
