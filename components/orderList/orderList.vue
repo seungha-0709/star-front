@@ -4,18 +4,18 @@
       <tbody>
         <tr class="tr-main">
           <td class="order-list-img">
-            <img :src="orderListData[indexData].goodsimg" alt />
+            <img :src="orderListData[idxData].goodsimg" alt />
           </td>
           <td class="order-list-body">
-            <span class="date">{{ orderListData[indexData].paymentDate }}</span>
-            <span class="payment-idx">({{ orderListData[indexData].paymentIdx }})</span>
-            <p class="goods-name">{{ orderListData[indexData].goodsName }}</p>
+            <span class="date">{{ orderListData[idxData].paymentDate }}</span>
+            <span class="payment-idx">({{ orderListData[idxData].paymentIdx }})</span>
+            <p class="goods-name">{{ orderListData[idxData].goodsName }}</p>
           </td>
-          <td class="price">{{ `${commaAdd(orderListData[indexData].paymentPrice)}원` }}</td>
+          <td class="price">{{ `${commaAdd(orderListData[idxData].paymentPrice)}원` }}</td>
           <td class="status">
-            <span class="status-content">{{ orderListData[indexData].paymentStatus }}</span>
+            <span class="status-content">{{ orderListData[idxData].paymentStatus }}</span>
             <br />
-            <span class="final-date">{{ orderListData[indexData].finalDate }}</span>
+            <span class="final-date">{{ orderListData[idxData].finalDate }}</span>
           </td>
         </tr>
         <tr class="tr-bottom">
@@ -29,7 +29,7 @@
 
 <script>
 export default {
-  props: ["orderListData", "indexData"],
+  props: ["orderListData", "idxData"],
   components: {},
   methods: {
     commaAdd(num) {
