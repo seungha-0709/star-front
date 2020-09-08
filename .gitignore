@@ -13,3 +13,6 @@ dist
 # Environment
 .env.local
 .env.*.local
+
+# Mac file environment
+.DS_Store

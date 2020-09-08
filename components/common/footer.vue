@@ -4,38 +4,38 @@
       <div class="logo-sns-box">
         <div class="logo">
           <img
-            src="img/logo/invalid-name.jpg"
+            src="/img/logo/invalid-name.jpg"
             srcset="
-              img/logo/invalid-name@2x.jpg 2x,
-              img/logo/invalid-name@3x.jpg 3x
+              /img/logo/invalid-name@2x.jpg 2x,
+              /img/logo/invalid-name@3x.jpg 3x
             "
           />
         </div>
         <div class="sns">
           <a>
             <img
-              src="img/sns/blog.jpg"
-              srcset="img/sns/blog@2x.jpg 2x, img/sns/blog@3x.jpg 3x"
+              src="/img/sns/blog.jpg"
+              srcset="/img/sns/blog@2x.jpg 2x, /img/sns/blog@3x.jpg 3x"
             />
           </a>
           <a>
             <img
-              src="img/sns/facebook.jpg"
-              srcset="img/sns/facebook@2x.jpg 2x, img/sns/facebook@3x.jpg 3x"
+              src="/img/sns/facebook.jpg"
+              srcset="/img/sns/facebook@2x.jpg 2x, /img/sns/facebook@3x.jpg 3x"
             />
           </a>
           <a>
             <img
-              src="img/sns/insta.jpg"
-              srcset="img/sns/insta@2x.jpg 2x, img/sns/insta@3x.jpg 3x"
+              src="/img/sns/insta.jpg"
+              srcset="/img/sns/insta@2x.jpg 2x, /img/sns/insta@3x.jpg 3x"
             />
           </a>
           <a>
             <img
-              src="img/sns/plus-friend.jpg"
+              src="/img/sns/plus-friend.jpg"
               srcset="
-                img/sns/plus-friend@2x.jpg 2x,
-                img/sns/plus-friend@3x.jpg 3x
+                /img/sns/plus-friend@2x.jpg 2x,
+                /img/sns/plus-friend@3x.jpg 3x
               "
             />
           </a>

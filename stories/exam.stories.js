@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue"
 import footer from "../components/common/footer.vue"
-import header from "../components/common/header/index.vue"
+import headerComponent from "../components/common/header/index.vue"
 import {
   withKnobs,
   number,
@@ -16,8 +16,8 @@ storiesOf("Common", module)
     template: '  <v-footer color="purple lighten-3" height="80">푸터</v-footer>'
   }))
   .add("헤더", () => ({
-    components: { header },
-    template: "<Header />"
+    components: { headerComponent },
+    template: "<header-component />"
   }))
   .add("Icons", () => ({
     components: { SearchIcon },
