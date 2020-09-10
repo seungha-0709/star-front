@@ -30,13 +30,8 @@ export default {
     orderList,
     pagination
   },
-  computed: {
-    // listData: {
-    //   get() {
-    //     return this.paymentInfo.slice(0, this.limit)
-    //   },
-    //   set() {}
-    // }
+  created() {
+    this.listData = this.paymentInfo.slice(0, this.limit)
   },
   methods: {
     /**
