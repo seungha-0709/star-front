@@ -1,13 +1,17 @@
 <template>
   <div>
     <div class="my-page">
-      <sidebar-menu title="마이페이지" :menu="myPageMenu">
-        <user-icon size="24" color="#dfdfdf" />
-      </sidebar-menu>
-      <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
-        <shopping-bag-icon size="24" color="#dfdfdf" />
-      </sidebar-menu>
-      <!-- <notification-content /> -->
+      <div class="left-menu">
+        <sidebar-menu title="마이페이지" :menu="myPageMenu">
+          <user-icon size="24" color="#dfdfdf" />
+        </sidebar-menu>
+        <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
+          <shopping-bag-icon size="24" color="#dfdfdf" />
+        </sidebar-menu>
+      </div>
+      <div class="notification">
+        <notification-content />
+      </div>
     </div>
   </div>
 </template>
@@ -37,8 +41,15 @@
 </script>
 <style scoped>
   .my-page {
+    display: flex;
     width: 1200px;
     margin: 32px auto 0;
     text-align: center;
+  }
+  .my-page .left-menu {
+    display: block;
+  }
+  .my-page .notification {
+    display: block;
   }
 </style>
