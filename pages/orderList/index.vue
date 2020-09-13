@@ -1,7 +1,11 @@
 <template>
   <div>
     <order-list v-for="(item, i) in listData" :key="i" :orderListData="listData" :idxData="i" />
-    <pagination :pageSetting="pageDataSetting(total, limit, block)" @paging="pagingMethod" />
+    <pagination
+      :pageSetting="pageDataSetting(total, limit, block, this.page)"
+      :pageBlock="this.block"
+      @paging="pagingMethod"
+    />
   </div>
 </template>
 
@@ -22,7 +26,8 @@ export default {
       listData: [],
       paymentInfo,
       total: paymentInfo.length,
-      limit: 3,
+      page: 1,
+      limit: 5,
       block: 5
     }
   },
@@ -30,8 +35,8 @@ export default {
     orderList,
     pagination
   },
-  created() {
-    this.listData = this.paymentInfo.slice(0, this.limit)
+  mounted() {
+    this.pagingMethod(this.page)
   },
   methods: {
     /**
@@ -43,11 +48,11 @@ export default {
      * 페이지 리스트를 표시하기 위해 다음 함수 pageDataSetting에 page 값을 전달
      */
     pagingMethod(page) {
-      console.log(page)
       this.listData = this.paymentInfo.slice(
         (page - 1) * this.limit,
         page * this.limit
       )
+      this.page = page
       this.pageDataSetting(this.total, this.limit, this.block, page)
     },
     /**
@@ -59,18 +64,23 @@ export default {
      */
     pageDataSetting(total, limit, block, page) {
       const totalPage = total / limit + (total % limit > 0 ? 1 : 0)
-      let currentPage
-      if (currentPage !== page) currentPage = page
-      else {
-        currentPage = 1
-      }
-      const first = currentPage > 1
-      const end = totalPage !== currentPage
+      console.log(page)
+      let currentPage = page
+      const first =
+        currentPage > 1 ? parseInt(currentPage, 10) - parseInt(1, 10) : null
+      const end =
+        totalPage !== currentPage
+          ? parseInt(currentPage, 10) + parseInt(1, 10)
+          : null
+      // 페이지 리스트를 block 단위로 표시하기 위한 부분
+      let startIndex = (Math.ceil(currentPage / block) - 1) * block + 1
+      let endIndex =
+        startIndex + block > totalPage ? totalPage : startIndex + block - 1
       let list = []
-      for (let index = 1; index <= totalPage; index++) {
+      for (let index = startIndex; index <= endIndex; index++) {
         list.push(index)
       }
-      return { first, end, list }
+      return { first, end, list, currentPage }
     }
   }
 }

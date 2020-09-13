@@ -1,11 +1,19 @@
 <template>
   <div>
     <div v-if="pageSetting.list.length" class="page-list">
-      <chevrons-left-icon v-if="pageSetting.first" color="#dfdfdf" />
+      <chevrons-left-icon
+        v-if="pageSetting.first !== null"
+        color="#dfdfdf"
+        @click="pageSetting.first !== null ? sendPage(pageSetting.first) : ''"
+      />
       <ol>
         <li v-for="page in pageSetting.list" :key="page" @click="sendPage(page)">{{ page }}</li>
       </ol>
-      <chevrons-right-icon v-if="pageSetting.end" color="#dfdfdf" />
+      <chevrons-right-icon
+        v-if="pageSetting.end !== null"
+        color="#dfdfdf"
+        @click="pageSetting.end !== null ? sendPage(pageSetting.end) : ''"
+      />
     </div>
   </div>
 </template>
@@ -13,19 +21,18 @@
 <script>
 import { ChevronsLeftIcon, ChevronsRightIcon } from "vue-feather-icons"
 export default {
-  props: ["pageSetting"],
+  props: ["pageSetting", "pageBlock"],
+
   components: {
     ChevronsLeftIcon,
     ChevronsRightIcon
   },
   methods: {
-    clickPage(total, limit, block, currentPage) {
-      this.$emit("pageingTest", total, limit, block, currentPage)
-    },
     sendPage(page) {
       this.$emit("paging", page)
     }
-  }
+  },
+  computed: {}
 }
 </script>
 
