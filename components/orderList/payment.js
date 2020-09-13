@@ -184,14 +184,14 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
-    orderDate: "2020-01-30",
-    paymentDate: "2020-01-30",
+    orderDate: "2020-01-28",
+    paymentDate: "2020-01-28",
     paymentIdx: "C234987631",
     paymentPrice: 53000,
     cancel: false,
     refund: false,
     paymentStatus: "결제완료",
-    finalDate: "2020-01-30",
+    finalDate: "2020-01-28",
     orderIdx: "O20086512",
     goodsName:
       "8번 상품명이 노출되는 영역. 7번 상품명이 노출되는 영역. 8번 상품명이 노출되는 영역. 8번 상품명이 노출되는 영역. 8번 상품명이 노출되는 영역",
@@ -210,14 +210,14 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
-    orderDate: "2020-01-30",
-    paymentDate: "2020-01-30",
+    orderDate: "2020-01-22",
+    paymentDate: "2020-01-22",
     paymentIdx: "C234987631",
-    paymentPrice: 79000,
+    paymentPrice: 81000,
     cancel: false,
     refund: false,
     paymentStatus: "결제완료",
-    finalDate: "2020-01-30",
+    finalDate: "2020-01-22",
     orderIdx: "O20086512",
     goodsName:
       "9번 상품명이 노출되는 영역. 9번 상품명이 노출되는 영역. 9번 상품명이 노출되는 영역. 9번 상품명이 노출되는 영역. 9번 상품명이 노출되는 영역",
@@ -236,14 +236,14 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
-    orderDate: "2020-01-30",
-    paymentDate: "2020-01-30",
+    orderDate: "2020-01-18",
+    paymentDate: "2020-01-18",
     paymentIdx: "C234987631",
-    paymentPrice: 79000,
+    paymentPrice: 43000,
     cancel: false,
     refund: false,
     paymentStatus: "결제완료",
-    finalDate: "2020-01-30",
+    finalDate: "2020-01-18",
     orderIdx: "O20086512",
     goodsName:
       "10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역",
@@ -262,20 +262,20 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
-    orderDate: "2020-01-30",
-    paymentDate: "2020-01-30",
+    orderDate: "2020-01-13",
+    paymentDate: "2020-01-13",
     paymentIdx: "C234987631",
-    paymentPrice: 79000,
+    paymentPrice: 99000,
     cancel: false,
     refund: false,
     paymentStatus: "결제완료",
-    finalDate: "2020-01-30",
+    finalDate: "2020-01-13",
     orderIdx: "O20086512",
     goodsName:
       "11번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역",
     goodsIdx: 1234567,
     goodsimg:
-      "https://cdn.pixabay.com/photo/2015/07/17/22/42/whiteboard-849808_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2015/01/09/11/11/office-594132_960_720.jpg",
     ordernum: 1,
     shippingOnline: true,
     shippingAddress: "",
@@ -288,20 +288,20 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
-    orderDate: "2020-01-30",
-    paymentDate: "2020-01-30",
+    orderDate: "2020-01-09",
+    paymentDate: "2020-01-09",
     paymentIdx: "C234987631",
     paymentPrice: 79000,
     cancel: false,
     refund: false,
     paymentStatus: "결제완료",
-    finalDate: "2020-01-30",
+    finalDate: "2020-01-09",
     orderIdx: "O20086512",
     goodsName:
       "12번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역. 10번 상품명이 노출되는 영역",
     goodsIdx: 1234567,
     goodsimg:
-      "https://cdn.pixabay.com/photo/2015/07/17/22/42/whiteboard-849808_960_720.jpg",
+      "https://cdn.pixabay.com/photo/2016/03/26/13/09/notebook-1280538_960_720.jpg",
     ordernum: 1,
     shippingOnline: true,
     shippingAddress: "",

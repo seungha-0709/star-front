@@ -8,9 +8,9 @@
           </td>
           <td class="order-list-body">
             <span class="date">{{ orderListData[idxData].paymentDate }}</span>
-            <span class="payment-idx"
-              >({{ orderListData[idxData].paymentIdx }})</span
-            >
+            <span class="payment-idx">
+              ({{ orderListData[idxData].paymentIdx }})
+            </span>
             <p class="goods-name">{{ orderListData[idxData].goodsName }}</p>
           </td>
           <td class="price">
@@ -18,29 +18,31 @@
           </td>
           <td class="status">
             <span class="status-content">
-              {{ orderListData[idxData].paymentStatus }}</span
-            >
+              {{ orderListData[idxData].paymentStatus }}
+            </span>
             <br />
             <span class="final-date">
-              {{ orderListData[idxData].finalDate }}</span
-            >
+              {{ orderListData[idxData].finalDate }}
+            </span>
           </td>
         </tr>
         <tr class="tr-bottom">
           <td colspan="3" class="bottom-left">
             <div class="bottom-left-wrap">
-              <basic-button
-                text="구매 상세보기"
-                color="#212121"
-                backgroundColor="#fff"
-                borderRadius="4"
-                borderColor="#dfdfdf"
-                fontSize="14"
-                width="97"
-                height="28"
-                @event="onModalOnOff('order', true)"
-              >
-              </basic-button>
+              <div class="btn-order-position">
+                <basic-button
+                  text="구매 상세보기"
+                  color="#212121"
+                  fontWeight="normal"
+                  backgroundColor="#fff"
+                  borderRadius="4"
+                  borderColor="#dfdfdf"
+                  fontSize="14"
+                  width="97"
+                  height="28"
+                  @event="onModalOnOff('order', true)"
+                ></basic-button>
+              </div>
               <modal
                 :modalProps="modalInfoOrder"
                 :modalDisplay="modalOrderOpen"
@@ -48,19 +50,20 @@
               >
                 <modal-order :paymentData="orderListData[idxData]" />
               </modal>
-
-              <basic-button
-                text="구매 영수증 출력"
-                color="#212121"
-                backgroundColor="#fff"
-                borderRadius="4"
-                borderColor="#dfdfdf"
-                fontSize="14"
-                width="113"
-                height="28"
-                @event="onModalOnOff('receipt', true)"
-              >
-              </basic-button>
+              <div class="btn-receipt-position">
+                <basic-button
+                  text="구매 영수증 출력"
+                  color="#212121"
+                  fontWeight="normal"
+                  backgroundColor="#fff"
+                  borderRadius="4"
+                  borderColor="#dfdfdf"
+                  fontSize="14"
+                  width="113"
+                  height="28"
+                  @event="onModalOnOff('receipt', true)"
+                ></basic-button>
+              </div>
               <modal
                 :modalProps="modalInfoReceipt"
                 :modalDisplay="modalReceiptOpen"
@@ -74,6 +77,7 @@
             <basic-button
               text="취소/환불 신청"
               color="#212121"
+              fontWeight="normal"
               backgroundColor="#fff"
               borderRadius="4"
               borderColor="#dfdfdf"
@@ -85,8 +89,7 @@
                 orderListData[idxData].cancel === false &&
                 orderListData[idxData].refund === false
               "
-            >
-            </basic-button>
+            ></basic-button>
             <modal
               :modalProps="modalInfoCancel"
               :modalDisplay="modalCancelOpen"
@@ -98,6 +101,7 @@
             <basic-button
               text="고객센터 문의"
               color="#212121"
+              fontWeight="normal"
               backgroundColor="#fff"
               borderRadius="4"
               borderColor="#dfdfdf"
@@ -109,8 +113,7 @@
                 orderListData[idxData].cancel === true ||
                 orderListData[idxData].refund === true
               "
-            >
-            </basic-button>
+            ></basic-button>
             <modal
               :modalProps="modalInfoQna"
               :modalDisplay="modalQnaOpen"
@@ -275,5 +278,12 @@
   }
   .bottom-right {
     padding: 14px 24px;
+  }
+  .btn-order-position {
+    margin: 0;
+    padding: 0;
+  }
+  .btn-receipt-position {
+    margin-left: 8px;
   }
 </style>
