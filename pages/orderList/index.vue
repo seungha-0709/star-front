@@ -64,7 +64,6 @@ export default {
      */
     pageDataSetting(total, limit, block, page) {
       const totalPage = total / limit + (total % limit > 0 ? 1 : 0)
-      console.log(page)
       let currentPage = page
       const first =
         currentPage > 1 ? parseInt(currentPage, 10) - parseInt(1, 10) : null

@@ -6,9 +6,14 @@
         color="#dfdfdf"
         @click="pageSetting.first !== null ? sendPage(pageSetting.first) : ''"
       />
-      <ol>
-        <li v-for="page in pageSetting.list" :key="page" @click="sendPage(page)">{{ page }}</li>
-      </ol>
+      <ul>
+        <li
+          :class="{ active: page === pageSetting.currentPage }"
+          v-for="page in pageSetting.list"
+          :key="page"
+          @click="sendPage(page)"
+        >{{ page }}</li>
+      </ul>
       <chevrons-right-icon
         v-if="pageSetting.end !== null"
         color="#dfdfdf"
@@ -31,8 +36,7 @@ export default {
     sendPage(page) {
       this.$emit("paging", page)
     }
-  },
-  computed: {}
+  }
 }
 </script>
 
@@ -42,7 +46,7 @@ export default {
   justify-content: center;
   align-items: center;
 }
-.page-list > ol {
+.page-list ul {
   list-style: none;
   display: flex;
 }
@@ -55,5 +59,7 @@ export default {
 .page-list li.active {
   font-size: 14px;
   color: #2c428d;
+  font-weight: bold;
+  cursor: pointer;
 }
 </style>
