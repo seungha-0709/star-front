@@ -49,15 +49,19 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 32px;
   }
   .page-list ul {
     list-style: none;
     display: flex;
   }
   .page-list li {
+    width: 36px;
+    height: 36px;
     font-size: 14px;
     color: #666;
-    padding: 12px;
+    padding: 9px 14px;
+    box-sizing: border-box;
     cursor: pointer;
   }
   .page-list li.active {
