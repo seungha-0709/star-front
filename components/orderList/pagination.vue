@@ -30,7 +30,7 @@
 <script>
   import { ChevronsLeftIcon, ChevronsRightIcon } from "vue-feather-icons"
   export default {
-    props: ["pageSetting", "pageBlock"],
+    props: ["pageSetting"],
 
     components: {
       ChevronsLeftIcon,

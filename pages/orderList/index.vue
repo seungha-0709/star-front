@@ -8,7 +8,6 @@
     />
     <pagination
       :pageSetting="pageDataSetting(total, limit, block, this.page)"
-      :pageBlock="this.block"
       @paging="pagingMethod"
     />
   </div>
