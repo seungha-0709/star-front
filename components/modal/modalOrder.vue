@@ -23,7 +23,7 @@
         <tr>
           <th>상품금액(개수)</th>
           <td>
-            {{ commaAdd(paymentData.paymentPrice) }} ({{
+            {{ paymentData.paymentPrice.toLocaleString() }} ({{
               `${paymentData.ordernum}개`
             }})
           </td>
@@ -55,14 +55,14 @@
       <tbody>
         <tr>
           <th>최종결제금액</th>
-          <td>{{ `${commaAdd(paymentData.paymentPrice)}원` }}</td>
+          <td>{{ `${paymentData.paymentPrice.toLocaleString()}원` }}</td>
         </tr>
         <tr>
           <th>신용카드</th>
           <td>
             {{
               paymentData.creditCard === true
-                ? `${commaAdd(paymentData.paymentPrice)}원`
+                ? `${paymentData.paymentPrice.toLocaleString()}원`
                 : "0원"
             }}
             ({{ paymentData.creditCardName }}/
@@ -78,14 +78,14 @@
           <td>
             {{
               paymentData.cash === true
-                ? commaAdd(paymentData.paymentPrice)
+                ? paymentData.paymentPrice.toLocaleString()
                 : "0원"
             }}
           </td>
         </tr>
         <tr>
           <th>상품금액</th>
-          <td>{{ `${commaAdd(paymentData.paymentPrice)}원` }}</td>
+          <td>{{ `${paymentData.paymentPrice.toLocaleString()}원` }}</td>
         </tr>
         <tr>
           <th>배송비</th>
@@ -104,14 +104,7 @@
 
 <script>
   export default {
-    props: ["paymentData"],
-    methods: {
-      commaAdd(num) {
-        /* 숫자 1000단위마다 , 표시하게 하는 함수 */
-        const regexp = /\B(?=(\d{3})+(?!\d))/g
-        return num.toString().replace(regexp, ",")
-      }
-    }
+    props: ["paymentData"]
   }
 </script>
 
