@@ -16,10 +16,17 @@ export const modalInfoCancel = {
   footerBtn2: true, // 푸터에 버튼이 두 개일 때
   bottomBtn: [
     {
+      width: 180,
+      color: "#212121",
+      borderColor: "#dfdfdf",
+      backgroundColor: "#fff",
       title: "취소",
       style: "normalWhite"
     },
     {
+      width: 180,
+      color: "#fff",
+      backgroundColor: "#1673e6",
       title: "접수하기",
       style: "normalBlue"
     }
@@ -53,6 +60,9 @@ export const modalInfoQna = {
   footerBtn2: false,
   bottomBtn: [
     {
+      width: 240,
+      color: "#fff",
+      backgroundColor: "#1673e6",
       title: "문의하기",
       style: "normalWhite"
     }
