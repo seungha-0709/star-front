@@ -12,8 +12,7 @@ export const modalInfoCancel = {
   // 모달 푸터에 들어갈 텍스트
   bottomText:
     "접수 내용을 확인하는 대로 스토어 고객센터를 통해 개별 연락 드리겠습니다\n(영업시간기준: 평일 10시~18시)",
-  footerBtn1: false, // 푸터에 버튼이 한 개일 때
-  footerBtn2: true, // 푸터에 버튼이 두 개일 때
+  footerBtn: true, // 푸터에 버튼 존재여부
   bottomBtn: [
     {
       width: 180,
@@ -56,8 +55,7 @@ export const modalInfoQna = {
   isClose: true,
   isDivider: true,
   bottomText: null,
-  footerBtn1: true,
-  footerBtn2: false,
+  footerBtn: true,
   bottomBtn: [
     {
       width: 240,
@@ -78,7 +76,6 @@ export const modalInfoReceipt = {
   isClose: true,
   isDivider: true,
   bottomText: null,
-  footerBtn1: false,
-  footerBtn2: false,
+  footerBtn: false, // 푸터에 버튼 존재여부
   bottomBtn: []
 }

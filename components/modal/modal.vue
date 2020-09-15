@@ -16,10 +16,7 @@
           </div>
           <div class="modal-footer">
             <h3>{{ modalProps.bottomText }}</h3>
-            <div
-              class="btn-wrap"
-              v-if="modalProps.footerBtn1 === true || modalProps.footerBtn2 === true"
-            >
+            <div class="btn-wrap" v-if="modalProps.footerBtn">
               <basic-button
                 v-for="(data, i) in modalProps.bottomBtn"
                 v-bind:key="i"
