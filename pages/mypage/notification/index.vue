@@ -8,7 +8,7 @@
   </div>
 </template>
 <script>
-  import notificationContents from "../../components/myPage/notificationContents.vue"
+  import notificationContents from "../../../components/myPage/notificationContents"
   // 나의 쇼핑 메뉴 중 알림 테이블 콘텐츠 컴포넌트
   export default {
     data() {

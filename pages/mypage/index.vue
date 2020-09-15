@@ -10,9 +10,6 @@
         </sidebar-menu>
         <status />
       </div>
-      <div class="notification">
-        <notification-content />
-      </div>
     </div>
   </div>
 </template>
@@ -21,7 +18,6 @@
   // 좌측 사이드바 메뉴 컴포넌트
   import status from "../../components/common/status.vue"
   // 사이드바 메뉴 하단 로그아웃 상태 컴포넌트
-
   import { myPageMenu, myShoppingMenu } from "../../assets/data/sidebar"
   // 사이드바 메뉴 서브타이틀 데이터
   import { UserIcon, ShoppingBagIcon } from "vue-feather-icons"
