@@ -19,8 +19,6 @@
 <script>
   import sidebarMenu from "../../components/common/sidebarMenu.vue"
   // 좌측 사이드바 메뉴 컴포넌트
-  import notificationContents from "../../components/myPage/notificationContents.vue"
-  // 나의 쇼핑 메뉴 중 알림 테이블 콘텐츠 컴포넌트
   import status from "../../components/common/status.vue"
   // 사이드바 메뉴 하단 로그아웃 상태 컴포넌트
 
@@ -37,7 +35,6 @@
     },
     components: {
       "sidebar-menu": sidebarMenu,
-      "notification-content": notificationContents,
       status: status,
       UserIcon,
       ShoppingBagIcon
