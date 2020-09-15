@@ -5,14 +5,14 @@
         <span>
           <strong>결제번호 / PAY NO.</strong>
         </span>
-        <span>{{ orderInfo.paymentIdx }}</span>
+        <span>{{ paymentData.paymentIdx }}</span>
       </div>
       <div class="line"></div>
       <div class="block">
         <span>
           <strong>거래일자 / TRANS DATE</strong>
         </span>
-        <span>{{ orderInfo.orderDate }}</span>
+        <span>{{ paymentData.orderDate }}</span>
       </div>
     </div>
 
@@ -21,7 +21,7 @@
         <span>
           <strong>품명 / ITEM DESCRIPTION</strong>
         </span>
-        <span>({{ orderInfo.goodsIdx }}) {{ orderInfo.name }}</span>
+        <span>({{ paymentData.goodsIdx }}) {{ paymentData.goodsName }}</span>
       </div>
     </div>
     <div class="gray">
@@ -41,7 +41,7 @@
       <!-- 방법 2에 따른 자릿수 숫자 반환 -->
       <div
         class="block-price"
-        v-for="(price, i) in orderInfo.slicePrice2"
+        v-for="(price, i) in paymentData.slicePrice2"
         v-bind:key="i"
       >
         {{ price }}
@@ -53,7 +53,7 @@
         <span>
           <strong>회사명 / COMPANY NAME</strong>
         </span>
-        <span>주식회사 티밸류와이즈</span>
+        <span>주식회사 가나다라마바사</span>
       </div>
       <div class="line"></div>
       <div class="block">
@@ -101,34 +101,39 @@
       없습니다.
     </span>
     <div class="btn-wrap">
-      <btn
+      <basic-button
+        text="화면프린트"
         width="240"
         color="#212121"
-        bordercolor="#dfdfdf"
+        borderColor="#dfdfdf"
         backgroundColor="#fff"
-        >화면프린트</btn
       >
+      </basic-button>
     </div>
   </div>
 </template>
 
 <script>
-  import btn from "../../components/common/btn.vue"
-  import { orderInfo } from "./modalBuyInfo.js"
+  import basicButton from "../../components/common/basicButton.vue"
 
   export default {
+    props: ["paymentData"],
     data() {
       // 합계 가격 자릿수
-      orderInfo.slicePrice = String(orderInfo.price).split("")
+      this.paymentData.slicePrice = String(this.paymentData.paymentPrice).split(
+        ""
+      )
       // 합계 가격 자릿수 잘린것
-      orderInfo.slicePrice2 = this.slicePriceTotal(orderInfo.price)
+      this.paymentData.slicePrice2 = this.slicePriceTotal(
+        this.paymentData.paymentPrice
+      )
       return {
-        priceLength: 10,
-        orderInfo
+        priceLength: 10
+        // orderInfo
       }
     },
     components: {
-      btn
+      basicButton
     },
     methods: {
       /** @description 표시할 합계 값의 길이를 받아 받은 값을 자릿수에 따라 반환 */
