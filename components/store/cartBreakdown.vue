@@ -16,7 +16,7 @@
               <div>
                 상품금액
                 <div class="content-title">
-                  {{ `${productPrice.toLocaleString()}원` }}
+                  {{ `${new Number(productPrice).toLocaleString()}원` }}
                 </div>
               </div>
             </div>
@@ -32,7 +32,7 @@
                 </div>
                 할인금액
                 <div class="content-title discount-price">
-                  {{ `${productSale.toLocaleString()}원` }}
+                  {{ `${new Number(productSale).toLocaleString()}원` }}
                 </div>
               </div>
             </div>
@@ -44,7 +44,7 @@
               </div>
               배송비
               <div class="content-title">
-                {{ `${productShipping.toLocaleString()}원` }}
+                {{ `${new Number(productShipping).toLocaleString()}원` }}
               </div>
             </div>
           </td>
@@ -52,9 +52,9 @@
         <tr class="outer-border">
           <td colspan="4" class="total">
             <span>전체 주문금액</span>
-            <span class="total-price">{{
-              `${totalPrice.toLocaleString()}원`
-            }}</span>
+            <span class="total-price">
+              {{ `${new Number(totalPrice).toLocaleString()}원` }}
+            </span>
           </td>
         </tr>
       </tbody>

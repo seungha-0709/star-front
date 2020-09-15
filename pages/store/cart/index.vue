@@ -3,19 +3,18 @@
     <div class="cart-page">
       <cart-cast
         v-if="!orderState"
-        v-on:sendFilterData="getFilterData"
         v-on:sendResultData="getResultData"
-        :cart-lists="cartLists"
+        :cart-lists="storeCartLists"
       />
       <cart-breakdown
-        v-if="!orderState && filterData.length !== 0"
+        v-if="!orderState && storeCartLists.length !== 0"
         v-bind:result-data="resultData"
         v-on:event="handleShowOrder"
-        :cart-lists="cartLists"
+        :cart-lists="storeCartLists"
       />
       <order-sheet
         v-if="orderState"
-        :cart-lists="cartLists"
+        :cart-lists="storeCartLists"
         :result-data="resultData"
         :order-data="orderData"
       />
@@ -24,6 +23,8 @@
   </div>
 </template>
 <script>
+  import { mapActions, mapGetters } from "vuex"
+
   import cartBreakdown from "../../../components/store/cartBreakdown.vue"
   // 장바구니 내 가격계산서 + 주문 버튼
   import cartCast from "../../../components/store/cartCast.vue"
@@ -39,10 +40,20 @@
       return {
         cartLists,
         resultData: [],
-        filterData: [0],
         orderState: false,
         orderData: null
       }
+    },
+    computed: {
+      // store에 해당되는 getters값 불러옴
+      ...mapGetters({
+        storeCartLists: "GE_CART_LISTS"
+      })
+    },
+    // 페이지가 생성될때 바로 실행됨
+    created() {
+      // 만들어놓은 cartLists데이터를 vuex state에 새롭게 넣어줌.
+      this.createdCartLists()
     },
     components: {
       "cart-breakdown": cartBreakdown,
@@ -51,11 +62,13 @@
       "shipping-info": shippingInfo
     },
     methods: {
+      ...mapActions(["AC_CART_LISTS"]),
+      // AC_CART_LISTS 액션 실행하는 메소드
+      createdCartLists() {
+        this.AC_CART_LISTS(this.cartLists)
+      },
       getResultData(data) {
         this.resultData = data
-      },
-      getFilterData(data) {
-        this.filterData = data
       },
       handleShowOrder(order) {
         if (this.resultData.length !== 0) {
