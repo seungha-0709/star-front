@@ -7,15 +7,14 @@
       <td>고객센터</td>
       <td>
         <basic-button
-          width="-166"
-          height="-24"
+          width="166"
+          height="24"
           color="#212121"
           fontSize="14"
-          borderRadius="-22"
+          borderRadius="22"
           backgroundColor="#ffffff"
           borderColor="#dfdfdf"
         />
-        <!-- 버튼 왜 안나옴...... -->
       </td>
     </tr>
   </table>
