@@ -32,7 +32,7 @@
       </table>
     </div>
     <div>
-      <!-- <page-nation /> -->
+      <page-nation />
       <!-- list error 발생! -->
     </div>
   </div>
