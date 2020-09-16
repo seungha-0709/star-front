@@ -1,3 +1,5 @@
+import orderListModal from "./orderListModal.js"
+
 // 값을 저장하는 객체
 export const state = () => ({
   cartLists: []
@@ -31,5 +33,11 @@ export const actions = {
   },
   async AC_CART_PRODUCT_AMOUNT_DOWN({ commit }, payload) {
     await commit("MU_CART_PRODUCT_AMOUNT_DOWN", payload)
+  }
+}
+
+export default {
+  modules: {
+    orderListModal
   }
 }

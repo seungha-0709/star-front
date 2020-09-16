@@ -1,8 +1,8 @@
 <template>
-  <div class="bg">
-    <div class="modal-bg" v-if="modalDisplay === true">
-      <div class="modal-container" v-if="modalDisplay === true">
-        <div class="close-icon-box" v-if="modalProps.isClose === true" @click="onClose()">
+  <div class="bg" v-if="modalDisplay === true">
+    <div class="modal-bg" v-if="modalProps.isDimmed === true">
+      <div class="modal-container">
+        <div class="close-icon-box" v-if="modalProps.isClose === true" @click="onClose">
           <x-icon class="close-icon" />
         </div>
         <div class="modal-wrap">
@@ -39,14 +39,19 @@ import { XIcon } from "vue-feather-icons"
 import basicButton from "../common/basicButton.vue"
 
 export default {
-  props: ["modalProps", "modalDisplay"],
+  props: ["modalProps"],
   components: {
     XIcon,
     basicButton
   },
+  computed: {
+    modalDisplay() {
+      return this.$store.state.orderListModal.modalDisplay
+    }
+  },
   methods: {
     onClose() {
-      this.$emit("modalClose", this.$props.modalProps.type, false)
+      this.$store.commit("orderListModal/modalOff")
     }
   }
 }
