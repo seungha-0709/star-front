@@ -7,13 +7,15 @@
       <td>고객센터</td>
       <td>
         <basic-button
-          width="166"
-          height="24"
+          text="삭제하기"
+          width="74"
+          height="28"
           color="#212121"
           fontSize="14"
-          borderRadius="22"
+          borderRadius="4"
           backgroundColor="#ffffff"
           borderColor="#dfdfdf"
+          :fontWeight="400"
         />
       </td>
     </tr>

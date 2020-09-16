@@ -1,15 +1,13 @@
 <template>
-  <div>
-    <div class="my-page">
-      <div class="left-menu">
-        <sidebar-menu title="마이페이지" :menu="myPageMenu">
-          <user-icon size="24" color="#dfdfdf" />
-        </sidebar-menu>
-        <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
-          <shopping-bag-icon size="24" color="#dfdfdf" />
-        </sidebar-menu>
-        <status />
-      </div>
+  <div class="my-page">
+    <div class="left-menu">
+      <sidebar-menu title="마이페이지" :menu="myPageMenu">
+        <user-icon size="24" color="#dfdfdf" />
+      </sidebar-menu>
+      <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
+        <shopping-bag-icon size="24" color="#dfdfdf" />
+      </sidebar-menu>
+      <status />
     </div>
   </div>
 </template>
