@@ -1,4 +1,4 @@
-import orderListModal from "./orderListModal.js"
+import orderListModal from "./modules/orderListModal"
 
 // 값을 저장하는 객체
 export const state = () => ({

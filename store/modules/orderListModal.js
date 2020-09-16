@@ -1,7 +1,6 @@
 export default {
   namespaced: true,
   state: () => ({
-    modalDisplay: true,
     modalOrderOpen: false,
     modalReceiptOpen: false,
     modalCancelOpen: false,
@@ -9,8 +8,11 @@ export default {
   }),
   getters: {},
   mutations: {
-    modalOff(state) {
-      state.modalDisplay = false
+    modalOff(state, type) {
+      if (type === "order") state.modalOrderOpen = false
+      if (type === "receipt") state.modalReceiptOpen = false
+      if (type === "cancel") state.modalCancelOpen = false
+      if (type === "qna") state.modalQnaOpen = false
     },
     modalOn(state, type) {
       if (type === "order") state.modalOrderOpen = true
