@@ -5,7 +5,7 @@
       :key="i"
       :orderListData="listData"
       :idxData="i"
-      @open="onModalOn"
+      @open="modalOn"
       @id="modalId"
     />
     <pagination
@@ -13,19 +13,23 @@
       @paging="pagingMethod"
     />
 
-    <modal :modalProps="modalInfoOrder" v-if="modalOrderOpen" @close="onModalOff('order')">
+    <modal :modalProps="modalInfoOrder" v-if="modalTypeOnOff[0].onoff" @close="modalOff('order')">
       <modal-order :paymentData="paymentInfo.find(el => el.id === modalindex)" />
     </modal>
 
-    <modal :modalProps="modalInfoReceipt" v-if="modalReceiptOpen" @close="onModalOff('receipt')">
+    <modal
+      :modalProps="modalInfoReceipt"
+      v-if="modalTypeOnOff[1].onoff"
+      @close="modalOff('receipt')"
+    >
       <modal-receipt :paymentData="paymentInfo.find(el => el.id === modalindex)" />
     </modal>
 
-    <modal :modalProps="modalInfoCancel" v-if="modalCancelOpen" @close="onModalOff('cancel')">
+    <modal :modalProps="modalInfoCancel" v-if="modalTypeOnOff[2].onoff" @close="modalOff('cancel')">
       <modal-cancel :paymentData="paymentInfo.find(el => el.id === modalindex)" />
     </modal>
 
-    <modal :modalProps="modalInfoQna" v-if="modalQnaOpen" @close="onModalOff('qna')">
+    <modal :modalProps="modalInfoQna" v-if="modalTypeOnOff[3].onoff" @close="modalOff('qna')">
       <modal-qna :paymentData="paymentInfo.find(el => el.id === modalindex)" />
     </modal>
   </div>
@@ -83,17 +87,8 @@ export default {
     this.pagingMethod(this.page)
   },
   computed: {
-    modalOrderOpen() {
-      return this.$store.state.orderListModal.modalOrderOpen
-    },
-    modalReceiptOpen() {
-      return this.$store.state.orderListModal.modalReceiptOpen
-    },
-    modalCancelOpen() {
-      return this.$store.state.orderListModal.modalCancelOpen
-    },
-    modalQnaOpen() {
-      return this.$store.state.orderListModal.modalQnaOpen
+    modalTypeOnOff() {
+      return this.$store.state.orderListModal.modalTypeOpen
     }
   },
   methods: {
@@ -102,11 +97,11 @@ export default {
       this.modalindex = id
     },
     /** 모달 팝업 열고 닫는 함수 */
-    onModalOn(type) {
-      this.$store.commit("orderListModal/modalOn", type)
+    modalOn(type) {
+      this.$store.commit("orderListModal/onModalOn", type)
     },
-    onModalOff(type) {
-      this.$store.commit("orderListModal/modalOff", type)
+    modalOff(type) {
+      this.$store.commit("orderListModal/onModalOff", type)
     },
     /**
      * @description

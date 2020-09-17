@@ -1,24 +1,26 @@
 export default {
   namespaced: true,
   state: () => ({
-    modalOrderOpen: false,
-    modalReceiptOpen: false,
-    modalCancelOpen: false,
-    modalQnaOpen: false
+    modalTypeOpen: [
+      { type: "order", onoff: false },
+      { type: "receipt", onoff: false },
+      { type: "cancel", onoff: false },
+      { type: "qna", onoff: false }
+    ]
   }),
   getters: {},
   mutations: {
-    modalOff(state, type) {
-      if (type === "order") state.modalOrderOpen = false
-      if (type === "receipt") state.modalReceiptOpen = false
-      if (type === "cancel") state.modalCancelOpen = false
-      if (type === "qna") state.modalQnaOpen = false
+    onModalOff(state, type) {
+      if (type === "order") state.modalTypeOpen[0].onoff = false
+      if (type === "receipt") state.modalTypeOpen[1].onoff = false
+      if (type === "cancel") state.modalTypeOpen[2].onoff = false
+      if (type === "qna") state.modalTypeOpen[3].onoff = false
     },
-    modalOn(state, type) {
-      if (type === "order") state.modalOrderOpen = true
-      if (type === "receipt") state.modalReceiptOpen = true
-      if (type === "cancel") state.modalCancelOpen = true
-      if (type === "qna") state.modalQnaOpen = true
+    onModalOn(state, type) {
+      if (type === "order") state.modalTypeOpen[0].onoff = true
+      if (type === "receipt") state.modalTypeOpen[1].onoff = true
+      if (type === "cancel") state.modalTypeOpen[2].onoff = true
+      if (type === "qna") state.modalTypeOpen[3].onoff = true
     }
   },
   actions: {}
