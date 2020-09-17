@@ -16,6 +16,7 @@
           backgroundColor="#ffffff"
           borderColor="#dfdfdf"
           :fontWeight="400"
+          @click="removeItem(index)"
         />
       </td>
     </tr>
@@ -28,6 +29,12 @@
     props: ["content"],
     components: {
       "basic-button": basicButton
+    },
+    methods: {
+      removeItem(index) {
+        return this.content.splice[(index, 1)]
+        // 이것도 이렇게 하는 게 아닌가봅니다..
+      }
     }
   }
 </script>
@@ -48,6 +55,9 @@
   }
   .noti-content td {
     vertical-align: middle;
+  }
+  .noti-content tr:hover {
+    background-color: rgba(0.09, 0.45, 0.9, 0.03);
   }
   .noti-title {
     text-align: left;

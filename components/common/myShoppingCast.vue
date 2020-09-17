@@ -75,7 +75,10 @@
       pagination
     },
     methods: {
-      deleteAll() {}
+      deleteAll() {
+        this.tableList = []
+        // 이렇게 하는 게 아닌 가 봅니다.....
+      }
     }
   }
 </script>
