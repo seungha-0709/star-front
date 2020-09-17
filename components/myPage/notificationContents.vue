@@ -1,10 +1,10 @@
 <template>
   <table class="noti-content">
-    <tr>
-      <td>10</td>
-      <td>2020-03-13 10:30</td>
-      <td class="noti-title">[결제확인] 주문번호 23451 결제완료</td>
-      <td>고객센터</td>
+    <tr v-for="(notification, index) in notifications" :key="index">
+      <td>{{ notification.id }}</td>
+      <td>{{ notification.date }}</td>
+      <td class="noti-title">{{ notification.title }}</td>
+      <td>{{ notification.sender }}</td>
       <td>
         <basic-button
           text="삭제하기"
@@ -23,10 +23,13 @@
 </template>
 
 <script>
+  import { notifications } from "../myPage/notifications.js"
   import basicButton from "../common/basicButton.vue"
   export default {
     data() {
-      return {}
+      return {
+        notifications
+      }
     },
     components: {
       "basic-button": basicButton
