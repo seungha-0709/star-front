@@ -1,4 +1,4 @@
-export const notifications = [
+export const notificationLists = [
   {
     id: 1,
     date: "2020-03-13  10:30",
