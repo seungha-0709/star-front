@@ -15,6 +15,11 @@
         backgroundColor="#ffffff"
         borderColor="#dfdfdf"
         fontWeight="400"
+        @click="
+          $emit('event', {
+            deleteAll
+          })
+        "
       />
     </div>
     <div>
@@ -29,42 +34,51 @@
           </tr>
           <!-- vertical-align middle 했는데 왜 세로중앙정렬이 안되죠? -->
         </thead>
+        <notification-contents />
       </table>
     </div>
     <div>
-      <page-nation />
+      <!-- <page-nation /> -->
       <!-- list error 발생! -->
     </div>
   </div>
 </template>
 <script>
   import basicButton from "../common/basicButton.vue"
+  import notificationContents from "../myPage/notificationContents.vue"
   import pagination from "../orderList/pagination.vue"
+
   export default {
-    props: {
-      title: {
-        default: ""
+    props:
+      // ["notification-lists"],
+      {
+        title: {
+          default: ""
+        },
+        thFirst: {
+          default: ""
+        },
+        thSecond: {
+          default: ""
+        },
+        thThird: {
+          default: ""
+        },
+        thFourth: {
+          default: ""
+        },
+        thFifth: {
+          default: ""
+        }
       },
-      thFirst: {
-        default: ""
-      },
-      thSecond: {
-        default: ""
-      },
-      thThird: {
-        default: ""
-      },
-      thFourth: {
-        default: ""
-      },
-      thFifth: {
-        default: ""
-      }
-    },
 
     components: {
       "basic-button": basicButton,
+      "notification-contents": notificationContents,
       "page-nation": pagination
+    },
+    methods: {
+      deleteAll() {}
     }
   }
 </script>
@@ -105,10 +119,6 @@
     width: 100%;
     height: 40px;
     border-top: solid 1px #666666;
-    vertical-align: middle;
-  }
-  .my-shopping tr {
-    width: 100%;
     border-bottom: solid 1px #dfdfdf;
     vertical-align: middle;
   }

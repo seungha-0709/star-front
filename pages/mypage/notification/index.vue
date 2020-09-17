@@ -4,7 +4,7 @@
       <my-shopping-cast />
     </div>
     <div class="notification">
-      <notification-content />
+      <!-- <notification-content /> -->
     </div>
   </div>
 </template>
@@ -13,7 +13,7 @@
   // 나의 쇼핑 메뉴 테이블 공통 캄포넌트
   import notificationContents from "../../../components/myPage/notificationContents"
   // 나의 쇼핑 메뉴 중 알림 테이블 콘텐츠 컴포넌트
-  import { notificationLists } from "../../../components/myPage/notifications.js"
+  import { notificationLists } from "../../../components/myPage/notificationLists.js"
   // 알림 list data
   export default {
     data() {
