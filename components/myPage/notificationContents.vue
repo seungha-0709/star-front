@@ -46,6 +46,12 @@
     text-align: center;
     color: #666666;
   }
+  .noti-content tr {
+    height: 42px;
+    width: 100%;
+    border-bottom: solid 1px #dfdfdf;
+    vertical-align: middle;
+  }
   .noti-title {
     text-align: left;
   }
