@@ -4,7 +4,9 @@
       <h3 class="shopping-menu">{{ title }}</h3>
     </div>
     <div class="content-status">
-      <p class="content-count">{{ `총 ${(123).toLocaleString()}개` }}</p>
+      <p class="content-count">
+        {{ `총 ${tableList.length.toLocaleString()}개` }}
+      </p>
       <basic-button
         text="모두삭제"
         width="84"
@@ -26,56 +28,51 @@
       <table class="my-shopping-table">
         <thead>
           <tr class="table-header">
-            <th class="th-num">{{ thFirst }}</th>
-            <th class="th-date">{{ thSecond }}</th>
-            <th class="th-title">{{ thThird }}</th>
-            <th class="th-date">{{ thFourth }}</th>
-            <th class="th-date">{{ thFifth }}</th>
+            <th
+              v-for="(item, index) in tableHeader"
+              :key="index"
+              :style="{ width: tableColumnWidth[index] + 'px' }"
+            >
+              {{ item }}
+            </th>
           </tr>
-          <!-- vertical-align middle 했는데 왜 세로중앙정렬이 안되죠? -->
         </thead>
-        <notification-contents />
+        <my-shopping-cast-content :content="tableList" />
       </table>
-    </div>
-    <div>
-      <!-- <page-nation /> -->
-      <!-- list error 발생! -->
+      <div>
+        <!-- <pagination :pageSetting="pageSetting" /> -->
+        <!-- list error 발생! -->
+      </div>
     </div>
   </div>
 </template>
 <script>
   import basicButton from "../common/basicButton.vue"
-  import notificationContents from "../myPage/notificationContents.vue"
+  import myShoppingCastContent from "../common/myShoppingCastContent.vue"
   import pagination from "../orderList/pagination.vue"
 
   export default {
-    props:
-      // ["notification-lists"],
-      {
-        title: {
-          default: ""
-        },
-        thFirst: {
-          default: ""
-        },
-        thSecond: {
-          default: ""
-        },
-        thThird: {
-          default: ""
-        },
-        thFourth: {
-          default: ""
-        },
-        thFifth: {
-          default: ""
-        }
+    props: {
+      title: {
+        default: ""
       },
-
+      tableColumnWidth: {
+        default: []
+      },
+      tableHeader: {
+        default: []
+      },
+      tableList: {
+        default: []
+      }
+    },
+    data() {
+      return {}
+    },
     components: {
       "basic-button": basicButton,
-      "notification-contents": notificationContents,
-      "page-nation": pagination
+      "my-shopping-cast-content": myShoppingCastContent,
+      pagination
     },
     methods: {
       deleteAll() {}
@@ -120,16 +117,8 @@
     height: 40px;
     border-top: solid 1px #666666;
     border-bottom: solid 1px #dfdfdf;
+  }
+  .table-header th {
     vertical-align: middle;
-  }
-  .table-header .th-num {
-    width: 60px;
-  }
-  .table-header .th-date {
-    width: 140px;
-  }
-  .table-header .th-title {
-    width: 364px;
-    text-align: left;
   }
 </style>

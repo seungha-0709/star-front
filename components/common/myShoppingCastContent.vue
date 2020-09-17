@@ -1,11 +1,11 @@
 <template>
-  <table class="noti-content">
-    <tr v-for="(notificationList, index) in notificationLists" :key="index">
-      <td>{{ notificationList.id }}</td>
-      <td>{{ notificationList.date }}</td>
-      <td class="noti-title">{{ notificationList.title }}</td>
-      <td>{{ notificationList.sender }}</td>
-      <td>
+  <tbody class="noti-content">
+    <tr v-for="(data, index) in content" :key="index">
+      <td>{{ index + 1 }}</td>
+      <td v-if="data.date">{{ data.date }}</td>
+      <td v-if="data.title" class="noti-title">{{ data.title }}</td>
+      <td v-if="data.sender">{{ data.sender }}</td>
+      <td v-if="data.delete">
         <basic-button
           text="삭제하기"
           width="74"
@@ -19,18 +19,13 @@
         />
       </td>
     </tr>
-  </table>
+  </tbody>
 </template>
 
 <script>
-  import { notificationLists } from "../myPage/notificationLists.js"
   import basicButton from "../common/basicButton.vue"
   export default {
-    data() {
-      return {
-        notificationLists
-      }
-    },
+    props: ["content"],
     components: {
       "basic-button": basicButton
     }
@@ -50,6 +45,8 @@
     height: 42px;
     width: 100%;
     border-bottom: solid 1px #dfdfdf;
+  }
+  .noti-content td {
     vertical-align: middle;
   }
   .noti-title {
