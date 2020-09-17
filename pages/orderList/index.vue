@@ -5,7 +5,7 @@
       :key="i"
       :orderListData="listData"
       :idxData="i"
-      @open="onModalOn('order')"
+      @open="onModalOn"
       @id="modalId"
     />
     <pagination
@@ -14,7 +14,19 @@
     />
 
     <modal :modalProps="modalInfoOrder" v-if="modalOrderOpen" @close="onModalOff('order')">
-      <modal-order :paymentData="paymentInfo.find(el => el.id == modalindex)" />
+      <modal-order :paymentData="paymentInfo.find(el => el.id === modalindex)" />
+    </modal>
+
+    <modal :modalProps="modalInfoReceipt" v-if="modalReceiptOpen" @close="onModalOff('receipt')">
+      <modal-receipt :paymentData="paymentInfo.find(el => el.id === modalindex)" />
+    </modal>
+
+    <modal :modalProps="modalInfoCancel" v-if="modalCancelOpen" @close="onModalOff('cancel')">
+      <modal-cancel :paymentData="paymentInfo.find(el => el.id === modalindex)" />
+    </modal>
+
+    <modal :modalProps="modalInfoQna" v-if="modalQnaOpen" @close="onModalOff('qna')">
+      <modal-qna :paymentData="paymentInfo.find(el => el.id === modalindex)" />
     </modal>
   </div>
 </template>

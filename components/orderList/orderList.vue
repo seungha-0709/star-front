@@ -32,7 +32,7 @@
                   fontSize="14"
                   width="97"
                   height="28"
-                  @event="modalOpen"
+                  @event="modalOpen('order')"
                 ></basic-button>
               </div>
 
@@ -47,6 +47,7 @@
                   fontSize="14"
                   width="113"
                   height="28"
+                  @event="modalOpen('receipt')"
                 ></basic-button>
               </div>
             </div>
@@ -62,6 +63,7 @@
               fontSize="14"
               width="102"
               height="28"
+              @event="modalOpen('cancel')"
               v-if="
                 orderListData[idxData].cancel === false &&
                 orderListData[idxData].refund === false
@@ -78,6 +80,7 @@
               fontSize="14"
               width="102"
               height="28"
+              @event="modalOpen('qna')"
               v-if="
                 orderListData[idxData].cancel === true ||
                 orderListData[idxData].refund === true
@@ -99,9 +102,10 @@ export default {
     basicButton
   },
   methods: {
-    modalOpen() {
+    modalOpen(type) {
       // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
-      this.$emit("open")
+      this.$emit("open", type)
+      console.log(type)
       this.$emit("id", this.orderListData[this.idxData].id)
     }
   }
