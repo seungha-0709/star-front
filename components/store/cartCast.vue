@@ -41,7 +41,7 @@
             text="쇼핑하러 가기"
             backgroundColor="#ffffff"
             color="#1673e6"
-            bordercolor="#1673e6"
+            borderColor="#1673e6"
           />
         </div>
         <div class="select-delete">
