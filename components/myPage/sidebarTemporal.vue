@@ -7,14 +7,14 @@
       <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
         <shopping-bag-icon size="24" color="#dfdfdf" />
       </sidebar-menu>
-      <log-status />
+      <status-log />
     </div>
   </div>
 </template>
 <script>
   import sidebarMenu from "../common/sidebarMenu.vue"
   // 좌측 사이드바 메뉴 컴포넌트
-  import logStatus from "../components/common/logStatus.vue"
+  import statusLog from "../common/statusLog.vue"
   // 사이드바 메뉴 하단 로그아웃 상태 컴포넌트
   import { myPageMenu, myShoppingMenu } from "../../assets/data/sidebar"
   // 사이드바 메뉴 서브타이틀 데이터
@@ -29,7 +29,7 @@
     },
     components: {
       "sidebar-menu": sidebarMenu,
-      "log-status": logStatus,
+      "status-log": statusLog,
       UserIcon,
       ShoppingBagIcon
     }
@@ -38,7 +38,6 @@
 <style scoped>
   .my-page {
     display: flex;
-    width: 1200px;
     margin: 32px auto 0;
     text-align: center;
   }

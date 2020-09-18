@@ -20,8 +20,6 @@
   import myShoppingCast from "../../../components/common/myShoppingCast.vue"
   // 알림 list data
   import { notificationLists } from "../../../components/myPage/notificationLists.js"
-  // 사이드바 메뉴 컴포넌트
-  import sidebarMenu from "../../../components/common/sidebarMenu.vue"
   // 사이드바 메뉴 컴포넌트 입시 import
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
 
@@ -42,13 +40,13 @@
     components: {
       "my-shopping-cast": myShoppingCast,
       "notification-lists": notificationLists,
-      "sidebar-menu": sidebarMenu,
       "sidebar-temporal": sidebarTemporal
     }
   }
 </script>
 <style scoped>
   .notification-page {
+    width: 1200px;
     display: flex;
     margin: 0 auto;
   }
