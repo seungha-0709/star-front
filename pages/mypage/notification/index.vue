@@ -1,7 +1,7 @@
 <template>
   <div class="notification-page">
     <div class="sidebar">
-      <sidebar-menu />
+      <sidebar-temporal />
     </div>
     <div>
       <div class="my-shopping-cast">
@@ -22,8 +22,8 @@
   import { notificationLists } from "../../../components/myPage/notificationLists.js"
   // 사이드바 메뉴 컴포넌트
   import sidebarMenu from "../../../components/common/sidebarMenu.vue"
-  // 로그아웃 상태 컴포넌트
-  import status from "../../../components/common/status.vue"
+  // 사이드바 메뉴 컴포넌트 입시 import
+  import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
 
   export default {
     data() {
@@ -42,9 +42,8 @@
     components: {
       "my-shopping-cast": myShoppingCast,
       "notification-lists": notificationLists,
-
-      // status: status, ""가 자꾸 삭제돼요!!!!!
-      "sidebar-menu": sidebarMenu
+      "sidebar-menu": sidebarMenu,
+      "sidebar-temporal": sidebarTemporal
     }
   }
 </script>
