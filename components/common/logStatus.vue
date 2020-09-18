@@ -1,5 +1,5 @@
 <template>
-  <div class="status-show">
+  <div class="status-show" v-on:click="logOut">
     <div class="off-icon">
       <power-icon size="8" class="power-icon"></power-icon>
     </div>
@@ -13,6 +13,9 @@
   export default {
     components: {
       PowerIcon
+    },
+    methods: {
+      logOut() {}
     }
   }
 </script>
