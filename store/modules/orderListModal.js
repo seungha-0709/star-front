@@ -1,6 +1,17 @@
+import {
+  modalInfoCancel,
+  modalInfoOrder,
+  modalInfoReceipt,
+  modalInfoQna
+} from "../../components/modal/modal.js"
+
 export default {
   namespaced: true,
   state: () => ({
+    modalInfoCancel,
+    modalInfoOrder,
+    modalInfoReceipt,
+    modalInfoQna,
     modalTypeOpen: [
       { type: "order", onoff: false },
       { type: "receipt", onoff: false },
