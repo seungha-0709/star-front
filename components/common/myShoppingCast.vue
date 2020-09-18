@@ -17,11 +17,7 @@
         backgroundColor="#ffffff"
         borderColor="#dfdfdf"
         fontWeight="400"
-        @click="
-          $emit('event', {
-            deleteAll
-          })
-        "
+        v-on:event="deleteAll"
       />
     </div>
     <div>
@@ -76,9 +72,9 @@
     },
     methods: {
       deleteAll() {
-        this.tableList = []
-        // 이렇게 하는 게 아닌 가 봅니다.....
+        this.$props.tableList = []
       }
+      // $props.tableList 에서 $props 는 왜 붙여야하는지?
     }
   }
 </script>

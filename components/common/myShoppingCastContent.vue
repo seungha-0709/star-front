@@ -16,7 +16,7 @@
           backgroundColor="#ffffff"
           borderColor="#dfdfdf"
           :fontWeight="400"
-          @click="removeItem(index)"
+          v-on:event="removeItem(index)"
         />
       </td>
     </tr>
@@ -32,8 +32,7 @@
     },
     methods: {
       removeItem(index) {
-        return this.content.splice[(index, 1)]
-        // 이것도 이렇게 하는 게 아닌가봅니다..
+        return this.$props.content.splice(index, 1)
       }
     }
   }
