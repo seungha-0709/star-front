@@ -41,7 +41,7 @@
                   width="97"
                   height="28"
                   @event="modalOpen('order')"
-                ></basic-button>
+                />
               </div>
 
               <div class="btn-receipt-position">
@@ -56,30 +56,18 @@
                   width="113"
                   height="28"
                   @event="modalOpen('receipt')"
-                ></basic-button>
+                />
               </div>
             </div>
           </td>
           <td class="bottom-right">
             <basic-button
-              text="취소/환불 신청"
-              color="#212121"
-              fontWeight="normal"
-              backgroundColor="#fff"
-              borderRadius="4"
-              borderColor="#dfdfdf"
-              fontSize="14"
-              width="102"
-              height="28"
-              @event="modalOpen('cancel')"
-              v-if="
+              :text="
                 orderListData[idxData].cancel === false &&
                 orderListData[idxData].refund === false
+                  ? '취소/환불 신청'
+                  : '고객센터 문의'
               "
-            ></basic-button>
-
-            <basic-button
-              text="고객센터 문의"
               color="#212121"
               fontWeight="normal"
               backgroundColor="#fff"
@@ -88,12 +76,13 @@
               fontSize="14"
               width="102"
               height="28"
-              @event="modalOpen('qna')"
-              v-if="
-                orderListData[idxData].cancel === true ||
-                orderListData[idxData].refund === true
+              @event="
+                orderListData[idxData].cancel === false &&
+                orderListData[idxData].refund === false
+                  ? modalOpen('cancel')
+                  : modalOpen('qna')
               "
-            ></basic-button>
+            />
           </td>
         </tr>
       </tbody>
