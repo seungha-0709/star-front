@@ -8,22 +8,22 @@
           </td>
           <td class="order-list-body">
             <span class="date">{{ orderListData[idxData].paymentDate }}</span>
-            <span class="payment-idx"
-              >({{ orderListData[idxData].paymentIdx }})</span
-            >
+            <span class="payment-idx">
+              ({{ orderListData[idxData].paymentIdx }})
+            </span>
             <p class="goods-name">{{ orderListData[idxData].goodsName }}</p>
           </td>
           <td class="price">
             {{ `${orderListData[idxData].paymentPrice.toLocaleString()}원` }}
           </td>
           <td class="status">
-            <span class="status-content">{{
-              orderListData[idxData].paymentStatus
-            }}</span>
+            <span class="status-content">
+              {{ orderListData[idxData].paymentStatus }}
+            </span>
             <br />
-            <span class="final-date">{{
-              orderListData[idxData].finalDate
-            }}</span>
+            <span class="final-date">
+              {{ orderListData[idxData].finalDate }}
+            </span>
           </td>
         </tr>
         <tr class="tr-bottom">
@@ -113,7 +113,6 @@
       modalOpen(type) {
         // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
         this.$emit("open", type)
-        console.log(type)
         this.$emit("id", this.orderListData[this.idxData].id)
       }
     }
