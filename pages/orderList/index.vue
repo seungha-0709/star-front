@@ -56,7 +56,7 @@
 </template>
 
 <script>
-  import { mapState } from "vuex"
+  import { mapState, mapMutations } from "vuex"
   import modal from "../../components/modal/modal.vue"
   import modalOrder from "../../components/modal/modalOrder.vue"
   import modalReceipt from "../../components/modal/modalReceipt.vue"
@@ -113,12 +113,8 @@
         this.modalIndex = id
       },
       /** 모달 팝업 열고 닫는 함수 */
-      modalOn(type) {
-        this.$store.commit("orderListModal/onModalOn", type)
-      },
-      modalOff(type) {
-        this.$store.commit("orderListModal/onModalOff", type)
-      },
+      ...mapMutations("orderListModal", ["modalOn", "modalOff"]),
+
       /**
        * @description
        * pagingMethod: pagination.vue에서 클릭 이벤트를 감지하여
