@@ -26,12 +26,13 @@
             <div class="btn-wrap" v-if="modalProps.footerBtn">
               <basic-button
                 v-for="(data, i) in modalProps.bottomBtn"
-                v-bind:key="i"
+                :key="i"
                 :width="data.width || null"
                 :text="data.title"
                 :color="data.color || null"
                 :borderColor="data.borderColor || null"
                 :backgroundColor="data.backgroundColor || null"
+                @event="data.title === '취소' ? $emit('close') : null"
               />
             </div>
           </div>
@@ -50,16 +51,6 @@
     components: {
       XIcon,
       basicButton
-    },
-    // computed: {
-    //   modalDisplay() {
-    //     return this.$store.state.orderListModal.modalDisplay
-    //   }
-    // },
-    methods: {
-      // onClose() {
-      //   this.$store.commit("orderListModal/modalOff")
-      // }
     }
   }
 </script>
@@ -129,8 +120,14 @@
     border-bottom: 1px solid #000;
   }
   .btn-wrap {
+    width: 376px;
+    margin-left: auto;
+    margin-right: auto;
     display: flex;
     justify-content: center;
     margin-top: 40px;
+  }
+  .btn-wrap button {
+    margin: 8px;
   }
 </style>
