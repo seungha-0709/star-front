@@ -100,11 +100,11 @@
     computed: {
       /** store에서 각 데이터들 불러오는 부분 */
       ...mapState("orderListModal", {
-        modalInfoCancel: (state) => state.modalInfoCancel,
-        modalInfoOrder: (state) => state.modalInfoOrder,
-        modalInfoReceipt: (state) => state.modalInfoReceipt,
-        modalInfoQna: (state) => state.modalInfoQna,
-        modalTypeOnOff: (state) => state.modalTypeOpen
+        modalInfoCancel: "modalInfoCancel",
+        modalInfoOrder: "modalInfoOrder",
+        modalInfoReceipt: "modalInfoReceipt",
+        modalInfoQna: "modalInfoQna",
+        modalTypeOnOff: "modalTypeOpen"
       })
     },
     methods: {
