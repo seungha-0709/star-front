@@ -12,7 +12,7 @@
         <div class="modal-wrap">
           <div class="modal-header">
             <h1>{{ modalProps.title }}</h1>
-            <h3>{{ modalProps.subTitle }}</h3>
+            <h3 v-html="modalSubTitle"></h3>
             <div
               class="modal-divider"
               v-if="modalProps.isDivider === true"
@@ -22,7 +22,7 @@
             <slot></slot>
           </div>
           <div class="modal-footer">
-            <h3>{{ modalProps.bottomText }}</h3>
+            <h3 v-html="modalBottomText"></h3>
             <div class="btn-wrap" v-if="modalProps.footerBtn">
               <basic-button
                 v-for="(data, i) in modalProps.bottomBtn"
@@ -51,6 +51,19 @@
     components: {
       XIcon,
       basicButton
+    },
+    computed: {
+      modalSubTitle() {
+        console.log(this.modalProps.subTitle)
+        return this.modalProps.subTitle !== null
+          ? this.modalProps.subTitle.replace("\n", "<br />")
+          : null
+      },
+      modalBottomText() {
+        return this.modalProps.bottomText !== null
+          ? this.modalProps.bottomText.replace("\n", "<br />")
+          : null
+      }
     }
   }
 </script>
