@@ -18,10 +18,10 @@
 <script>
   // 나의 쇼핑 메뉴 테이블 공통 캄포넌트
   import basicBoardCast from "../../../components/common/basicBoardCast.vue"
-  // 알림 list data
-  import { notificationLists } from "../../../components/myPage/notificationLists.js"
   // 사이드바 메뉴 컴포넌트 입시 import
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
+  // 알림 list data
+  import { notificationLists } from "../../../components/myPage/notificationLists.js"
 
   export default {
     data() {
