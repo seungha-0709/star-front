@@ -4,8 +4,8 @@
       <sidebar-temporal />
     </div>
     <div>
-      <div class="my-shopping-cast">
-        <my-shopping-cast
+      <div class="basic-board-cast">
+        <basic-board-cast
           title="알림"
           :tableColumnWidth="tableColumnWidth"
           :tableHeader="notificationHeaderList"
@@ -17,7 +17,7 @@
 </template>
 <script>
   // 나의 쇼핑 메뉴 테이블 공통 캄포넌트
-  import myShoppingCast from "../../../components/common/myShoppingCast.vue"
+  import basicBoardCast from "../../../components/common/basicBoardCast.vue"
   // 알림 list data
   import { notificationLists } from "../../../components/myPage/notificationLists.js"
   // 사이드바 메뉴 컴포넌트 입시 import
@@ -38,7 +38,7 @@
       }
     },
     components: {
-      "my-shopping-cast": myShoppingCast,
+      "basic-board-cast": basicBoardCast,
       "notification-lists": notificationLists,
       "sidebar-temporal": sidebarTemporal
     }
@@ -53,7 +53,7 @@
   .notification-page .sidebar {
     display: inline-block;
   }
-  .notification-page .my-shopping-cast {
+  .notification-page .basic-board-cast {
     display: inline-block;
     margin: 32px 0 0 16px;
   }

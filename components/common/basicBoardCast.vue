@@ -1,7 +1,7 @@
 <template>
-  <div class="my-shopping">
+  <div class="basic-board">
     <div>
-      <h3 class="shopping-menu">{{ title }}</h3>
+      <h3 class="basic-board-menu">{{ title }}</h3>
     </div>
     <div class="content-status">
       <p class="content-count">
@@ -21,7 +21,7 @@
       />
     </div>
     <div>
-      <table class="my-shopping-table">
+      <table class="basic-board-table">
         <thead>
           <tr class="table-header">
             <th
@@ -33,7 +33,7 @@
             </th>
           </tr>
         </thead>
-        <my-shopping-cast-content :content="tableList" />
+        <basic-board-cast-content :content="tableList" />
       </table>
       <div>
         <pagination
@@ -48,7 +48,7 @@
 </template>
 <script>
   import basicButton from "../common/basicButton.vue"
-  import myShoppingCastContent from "../common/myShoppingCastContent.vue"
+  import basicBoardCastContent from "../common/basicBoardCastContent.vue"
   import pagination from "../orderList/pagination.vue"
 
   export default {
@@ -76,7 +76,7 @@
     },
     components: {
       "basic-button": basicButton,
-      "my-shopping-cast-content": myShoppingCastContent,
+      "basic-board-cast-content": basicBoardCastContent,
       pagination
     },
     methods: {
@@ -89,7 +89,7 @@
 </script>
 
 <style scoped>
-  .my-shopping {
+  .basic-board {
     width: 924px;
     height: 696px;
     border: solid 1px #dfdfdf;
@@ -100,7 +100,7 @@
     color: #212121;
     vertical-align: middle;
   }
-  .shopping-menu {
+  .basic-board-menu {
     text-align: left;
     font-size: 24px;
     font-weight: bold;
@@ -114,7 +114,7 @@
     margin-top: 22px;
     margin-right: 706px;
   }
-  .my-shopping-table {
+  .basic-board-table {
     width: 844px;
     text-align: center;
     margin-bottom: 32px;
