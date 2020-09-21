@@ -1,7 +1,7 @@
 <template>
   <tbody class="noti-content">
-    <tr v-for="(data, index) in content" :key="index">
-      <td>{{ index + 1 }}</td>
+    <tr v-for="(data, index) in content" :key="pageNumber(index)">
+      <td>{{ pageNumber(index) }}</td>
       <td v-if="data.date">{{ data.date }}</td>
       <td v-if="data.title" class="noti-title">{{ data.title }}</td>
       <td v-if="data.sender">{{ data.sender }}</td>
@@ -26,9 +26,16 @@
 <script>
   import basicButton from "../common/basicButton.vue"
   export default {
-    props: ["content"],
+    props: ["content", "currentPage", "total", "limit"],
     components: {
       "basic-button": basicButton
+    },
+    computed: {
+      pageNumber() {
+        return (index) => {
+          return this.total - (this.currentPage - 1) * this.limit - index
+        }
+      }
     },
     methods: {
       removeItem(index) {

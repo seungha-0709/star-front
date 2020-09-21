@@ -33,7 +33,12 @@
             </th>
           </tr>
         </thead>
-        <basic-board-cast-content :content="tableList" />
+        <basic-board-cast-content
+          :content="tableList"
+          :currentPage="page"
+          :total="total"
+          :limit="limit"
+        />
       </table>
       <div>
         <pagination
@@ -83,7 +88,6 @@
       deleteAll() {
         this.$props.tableList = []
       }
-      // $props.tableList 에서 $props 는 왜 붙여야하는지?
     }
   }
 </script>
