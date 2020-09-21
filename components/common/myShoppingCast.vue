@@ -36,8 +36,12 @@
         <my-shopping-cast-content :content="tableList" />
       </table>
       <div>
-        <!-- <pagination :pageSetting="pageSetting" /> -->
-        <!-- list error 발생! -->
+        <pagination
+          :currentPage="page"
+          :total="total"
+          :limit="limit"
+          :blockSize="blockSize"
+        />
       </div>
     </div>
   </div>
@@ -63,7 +67,12 @@
       }
     },
     data() {
-      return {}
+      return {
+        total: this.tableList.length,
+        page: 1,
+        limit: 5,
+        blockSize: 5
+      }
     },
     components: {
       "basic-button": basicButton,
