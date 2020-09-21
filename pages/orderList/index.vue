@@ -53,8 +53,8 @@
     methods: {
       // page 이동 메서드. 블록단위 이전, 다음, 단일 페이징
       pagingMethod(clickPage) {
-        if (!clickPage || clickPage === this.page) return
-        this.page = clickPage
+        if (!clickPage || clickPage === this.page) return null
+        return (this.page = clickPage)
       }
     }
   }
