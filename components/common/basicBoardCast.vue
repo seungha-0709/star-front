@@ -5,7 +5,7 @@
     </div>
     <div class="content-status">
       <p class="content-count">
-        {{ `총 ${tableList.length.toLocaleString()}개` }}
+        {{ `총 ${tableList.total.toLocaleString()}개` }}
       </p>
       <basic-button
         text="모두삭제"
@@ -34,17 +34,17 @@
           </tr>
         </thead>
         <basic-board-cast-content
-          :content="tableList"
-          :currentPage="page"
-          :total="total"
-          :limit="limit"
+          :content="tableList.data"
+          :currentPage="tableList.page"
+          :total="tableList.total"
+          :limit="tableList.limit"
         />
       </table>
       <div>
         <pagination
-          :currentPage="page"
-          :total="total"
-          :limit="limit"
+          :currentPage="tableList.page"
+          :total="tableList.total"
+          :limit="tableList.limit"
           :blockSize="blockSize"
         />
       </div>
@@ -68,16 +68,14 @@
         default: []
       },
       tableList: {
-        default: []
+        default: null
+      },
+      blockSize: {
+        default: 5
       }
     },
     data() {
-      return {
-        total: this.tableList.length,
-        page: 1,
-        limit: 5,
-        blockSize: 5
-      }
+      return {}
     },
     components: {
       "basic-button": basicButton,
@@ -86,7 +84,7 @@
     },
     methods: {
       deleteAll() {
-        this.$props.tableList = []
+        this.$props.tableList.data = []
       }
     }
   }

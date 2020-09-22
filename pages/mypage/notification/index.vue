@@ -10,6 +10,7 @@
           :tableColumnWidth="tableColumnWidth"
           :tableHeader="notificationHeaderList"
           :tableList="notificationLists"
+          :blockSize="5"
         />
       </div>
     </div>
