@@ -13,9 +13,9 @@
 </template>
 <script>
   // 좌측 사이드바 메뉴 컴포넌트
-  import sidebarMenu from "../../components/common/sidebarMenu.vue"
+  import sidebarMenu from "../common/sidebarMenu.vue"
   // 사이드바 메뉴 하단 로그아웃 상태 컴포넌트
-  import statusLog from "../../components/common/statusLog.vue"
+  import statusLog from "../common/statusLog.vue"
   // 사이드바 메뉴 서브타이틀 데이터
   import { myPageMenu, myShoppingMenu } from "../../assets/data/sidebar"
   // 사이드바 메뉴 타이틀 아이콘
