@@ -4,10 +4,7 @@
       <sidebar-temporal />
     </div>
     <div class="my-page-content">
-      <my-page-board
-        :myPageBoardInfo="myOrderListInfo"
-        :boardData="myClassList"
-      >
+      <my-page-board :myPageBoardInfo="myOrderListInfo">
         <order-list-main />
       </my-page-board>
     </div>
@@ -18,13 +15,11 @@
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal"
   import myPageBoard from "../../../components/myClass/myPageBoard.vue"
   import orderListMain from "../../../components/orderList/orderListMain.vue"
-  import { myClassList } from "../../../components/myClass/myClassList.js"
   import { myOrderListInfo } from "../../../components/myPageBoard.js"
 
   export default {
     data() {
       return {
-        myClassList,
         myOrderListInfo
       }
     },

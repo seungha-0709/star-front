@@ -64,6 +64,7 @@
     font-weight: normal;
     color: #212121;
     vertical-align: middle;
+    margin-top: 32px;
   }
   .basic-board-menu {
     text-align: left;
@@ -78,5 +79,14 @@
   }
   .content-count {
     margin-top: 22px;
+  }
+  .table-header {
+    width: 100%;
+    height: 40px;
+    border-top: solid 1px #666666;
+    border-bottom: solid 1px #dfdfdf;
+  }
+  .table-header th {
+    vertical-align: middle;
   }
 </style>
