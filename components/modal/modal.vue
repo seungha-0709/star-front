@@ -1,30 +1,31 @@
 <template>
   <div class="bg">
-    <div class="modal-bg" v-if="modalDisplay === true">
-      <div class="modal-container" v-if="modalDisplay === true">
-        <div class="close-icon-box" v-if="modalProps.isClose === true" @click="onClose()">
+    <div class="modal-bg" v-if="modalProps.isDimmed === true">
+      <div class="modal-container">
+        <div class="close-icon-box" v-if="modalProps.isClose === true" @click="$emit('close')">
           <x-icon class="close-icon" />
         </div>
         <div class="modal-wrap">
           <div class="modal-header">
             <h1>{{ modalProps.title }}</h1>
-            <h3>{{ modalProps.subTitle }}</h3>
+            <h3 v-html="modalSubTitle"></h3>
             <div class="modal-divider" v-if="modalProps.isDivider === true"></div>
           </div>
           <div class="modal-main">
             <slot></slot>
           </div>
           <div class="modal-footer">
-            <h3>{{ modalProps.bottomText }}</h3>
+            <h3 v-html="modalBottomText"></h3>
             <div class="btn-wrap" v-if="modalProps.footerBtn">
               <basic-button
                 v-for="(data, i) in modalProps.bottomBtn"
-                v-bind:key="i"
+                :key="i"
                 :width="data.width || null"
                 :text="data.title"
                 :color="data.color || null"
                 :borderColor="data.borderColor || null"
                 :backgroundColor="data.backgroundColor || null"
+                @event="data.title === '취소' ? $emit('close') : null"
               />
             </div>
           </div>
@@ -39,14 +40,21 @@ import { XIcon } from "vue-feather-icons"
 import basicButton from "../common/basicButton.vue"
 
 export default {
-  props: ["modalProps", "modalDisplay"],
+  props: ["modalProps"],
   components: {
     XIcon,
     basicButton
   },
-  methods: {
-    onClose() {
-      this.$emit("modalClose", this.$props.modalProps.type, false)
+  computed: {
+    modalSubTitle() {
+      return this.modalProps.subTitle !== null
+        ? this.modalProps.subTitle.replace("\n", "<br />")
+        : null
+    },
+    modalBottomText() {
+      return this.modalProps.bottomText !== null
+        ? this.modalProps.bottomText.replace("\n", "<br />")
+        : null
     }
   }
 }
@@ -117,8 +125,14 @@ h3 {
   border-bottom: 1px solid #000;
 }
 .btn-wrap {
+  width: 376px;
+  margin-left: auto;
+  margin-right: auto;
   display: flex;
   justify-content: center;
   margin-top: 40px;
+}
+.btn-wrap button {
+  margin: 8px;
 }
 </style>

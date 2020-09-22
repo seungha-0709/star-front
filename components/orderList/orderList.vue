@@ -8,22 +8,22 @@
           </td>
           <td class="order-list-body">
             <span class="date">{{ orderListData[idxData].paymentDate }}</span>
-            <span class="payment-idx">
-              ({{ orderListData[idxData].paymentIdx }})
-            </span>
+            <span class="payment-idx"
+              >({{ orderListData[idxData].paymentIdx }})</span
+            >
             <p class="goods-name">{{ orderListData[idxData].goodsName }}</p>
           </td>
           <td class="price">
             {{ `${orderListData[idxData].paymentPrice.toLocaleString()}원` }}
           </td>
           <td class="status">
-            <span class="status-content">
-              {{ orderListData[idxData].paymentStatus }}
-            </span>
+            <span class="status-content">{{
+              orderListData[idxData].paymentStatus
+            }}</span>
             <br />
-            <span class="final-date">
-              {{ orderListData[idxData].finalDate }}
-            </span>
+            <span class="final-date">{{
+              orderListData[idxData].finalDate
+            }}</span>
           </td>
         </tr>
         <tr class="tr-bottom">
@@ -40,16 +40,10 @@
                   fontSize="14"
                   width="97"
                   height="28"
-                  @event="onModalOnOff('order', true)"
-                ></basic-button>
+                  @event="modalOpen('order')"
+                />
               </div>
-              <modal
-                :modalProps="modalInfoOrder"
-                :modalDisplay="modalOrderOpen"
-                @modalClose="onModalOnOff"
-              >
-                <modal-order :paymentData="orderListData[idxData]" />
-              </modal>
+
               <div class="btn-receipt-position">
                 <basic-button
                   text="구매 영수증 출력"
@@ -61,21 +55,16 @@
                   fontSize="14"
                   width="113"
                   height="28"
-                  @event="onModalOnOff('receipt', true)"
-                ></basic-button>
+                  @event="modalOpen('receipt')"
+                />
               </div>
-              <modal
-                :modalProps="modalInfoReceipt"
-                :modalDisplay="modalReceiptOpen"
-                @modalClose="onModalOnOff"
-              >
-                <modal-receipt :paymentData="orderListData[idxData]" />
-              </modal>
             </div>
           </td>
           <td class="bottom-right">
             <basic-button
-              text="취소/환불 신청"
+              :text="
+                isCancelRefund === true ? '고객센터 문의' : '취소/환불 신청'
+              "
               color="#212121"
               fontWeight="normal"
               backgroundColor="#fff"
@@ -84,43 +73,10 @@
               fontSize="14"
               width="102"
               height="28"
-              @event="onModalOnOff('cancel', true)"
-              v-if="
-                orderListData[idxData].cancel === false &&
-                orderListData[idxData].refund === false
+              @event="
+                isCancelRefund === true ? modalOpen('qna') : modalOpen('cancel')
               "
-            ></basic-button>
-            <modal
-              :modalProps="modalInfoCancel"
-              :modalDisplay="modalCancelOpen"
-              @modalClose="onModalOnOff"
-            >
-              <modal-cancel :paymentData="orderListData[idxData]" />
-            </modal>
-
-            <basic-button
-              text="고객센터 문의"
-              color="#212121"
-              fontWeight="normal"
-              backgroundColor="#fff"
-              borderRadius="4"
-              borderColor="#dfdfdf"
-              fontSize="14"
-              width="102"
-              height="28"
-              @event="onModalOnOff('qna', true)"
-              v-if="
-                orderListData[idxData].cancel === true ||
-                orderListData[idxData].refund === true
-              "
-            ></basic-button>
-            <modal
-              :modalProps="modalInfoQna"
-              :modalDisplay="modalQnaOpen"
-              @modalClose="onModalOnOff"
-            >
-              <modal-qna :paymentData="orderListData[idxData]" />
-            </modal>
+            />
           </td>
         </tr>
       </tbody>
@@ -130,52 +86,17 @@
 
 <script>
   import basicButton from "../../components/common/basicButton.vue"
-  import modal from "../../components/modal/modal.vue"
-  import modalOrder from "../../components/modal/modalOrder.vue"
-  import modalReceipt from "../../components/modal/modalReceipt.vue"
-  import modalCancel from "../../components/modal/modalCancel.vue"
-  import modalQna from "../../components/modal/modalQna.vue"
-  import {
-    modalInfoCancel,
-    modalInfoOrder,
-    modalInfoReceipt,
-    modalInfoQna
-  } from "../../components/modal/modal.js"
 
   export default {
-    props: ["orderListData", "idxData"],
-    data() {
-      return {
-        modalInfoCancel,
-        modalInfoOrder,
-        modalInfoReceipt,
-        modalInfoQna,
-        modalOrderOpen: false,
-        modalReceiptOpen: false,
-        modalCancelOpen: false,
-        modalQnaOpen: false
-      }
-    },
+    props: ["orderListData", "idxData", "isCancelRefund"],
     components: {
-      basicButton,
-      modal,
-      modalOrder,
-      modalReceipt,
-      modalCancel,
-      modalQna
+      basicButton
     },
     methods: {
-      /** 모달 팝업 열고 닫는 기능 함수 */
-      onModalOnOff(type, onOff) {
-        if (type === "order") {
-          this.modalOrderOpen = onOff
-        } else if (type === "receipt") {
-          this.modalReceiptOpen = onOff
-        } else if (type === "cancel") {
-          this.modalCancelOpen = onOff
-        } else if (type === "qna") {
-          this.modalQnaOpen = onOff
-        }
+      modalOpen(type) {
+        // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
+        this.$emit("open", type)
+        this.$emit("id", this.orderListData[this.idxData].id)
       }
     }
   }

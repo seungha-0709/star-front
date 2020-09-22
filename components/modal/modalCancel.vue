@@ -56,10 +56,12 @@
     height: 42px;
     vertical-align: middle;
     text-align: left;
+    padding: 11px 0;
   }
   td {
     vertical-align: middle;
     width: 468px;
     color: #666666;
+    padding: 11px 0;
   }
 </style>

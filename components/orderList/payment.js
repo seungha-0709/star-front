@@ -2,6 +2,7 @@
 /** 거래내역 모달(구매 상세정보, 구매 영수증)에도 전달되어 모달에 표기됨 */
 export const paymentInfo = [
   {
+    id: 12,
     orderDate: "2020-03-20",
     paymentDate: "2020-03-20",
     paymentIdx: "C200213981",
@@ -28,6 +29,7 @@ export const paymentInfo = [
     paymentPlanMonth: "6개월"
   },
   {
+    id: 34,
     orderDate: "2020-03-10",
     paymentDate: "2020-03-10",
     paymentIdx: "C300213981",
@@ -54,6 +56,7 @@ export const paymentInfo = [
     paymentPlanMonth: "5개월"
   },
   {
+    id: 56,
     orderDate: "2020-03-05",
     paymentDate: "2020-03-05",
     paymentIdx: "C400213981",
@@ -80,6 +83,7 @@ export const paymentInfo = [
     paymentPlanMonth: "3개월"
   },
   {
+    id: 78,
     orderDate: "2020-02-23",
     paymentDate: "2020-02-23",
     paymentIdx: "C123213981",
@@ -106,6 +110,7 @@ export const paymentInfo = [
     paymentPlanMonth: "6개월"
   },
   {
+    id: 90,
     orderDate: "2020-02-11",
     paymentDate: "2020-02-11",
     paymentIdx: "C42341934",
@@ -132,6 +137,7 @@ export const paymentInfo = [
     paymentPlanMonth: "6개월"
   },
   {
+    id: 123,
     orderDate: "2020-02-04",
     paymentDate: "2020-02-04",
     paymentIdx: "C234987631",
@@ -158,6 +164,7 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
+    id: 234,
     orderDate: "2020-01-30",
     paymentDate: "2020-01-30",
     paymentIdx: "C234987631",
@@ -184,6 +191,7 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
+    id: 345,
     orderDate: "2020-01-28",
     paymentDate: "2020-01-28",
     paymentIdx: "C234987631",
@@ -210,6 +218,7 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
+    id: 456,
     orderDate: "2020-01-22",
     paymentDate: "2020-01-22",
     paymentIdx: "C234987631",
@@ -236,6 +245,7 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
+    id: 567,
     orderDate: "2020-01-18",
     paymentDate: "2020-01-18",
     paymentIdx: "C234987631",
@@ -262,6 +272,7 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
+    id: 678,
     orderDate: "2020-01-13",
     paymentDate: "2020-01-13",
     paymentIdx: "C234987631",
@@ -288,6 +299,7 @@ export const paymentInfo = [
     paymentPlanMonth: ""
   },
   {
+    id: 789,
     orderDate: "2020-01-09",
     paymentDate: "2020-01-09",
     paymentIdx: "C234987631",
