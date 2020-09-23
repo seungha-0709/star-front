@@ -1,10 +1,10 @@
 <template>
   <div>
-    <table class="my-class-content">
+    <table class="my-class-content" v-if="tableList.data !== []">
       <tbody>
         <tr v-for="(myClass, index) in tableList.data" :key="index">
           <td :style="{ width: myPageBoardInfo.tableColumnWidth[0] + 'px' }">
-            1
+            {{}}
           </td>
           <td :style="{ width: myPageBoardInfo.tableColumnWidth[1] + 'px' }">
             {{ myClass.date }}
@@ -16,12 +16,52 @@
             {{ myClass.name }}
           </td>
           <td :style="{ width: myPageBoardInfo.tableColumnWidth[3] + 'px' }">
-            {{ myClass.statusTitle }}
+            <basic-button
+              v-if="(myClass.status === 'future')"
+              text="수강예정"
+              fontSize="12"
+              width="64"
+              height="28"
+              color="#ffb00f"
+              borderColor="#ffb00f"
+              borderRadius="4"
+              backgroundColor="#fff"
+            />
+            <basic-button
+              v-if="(myClass.status === 'now')"
+              text="수강중"
+              fontSize="12"
+              width="64"
+              height="28"
+              color="#b0c93d"
+              borderColor="#b0c93d"
+              borderRadius="4"
+              backgroundColor="#fff"
+            />
+            <basic-button
+              v-if="(myClass.status === 'past')"
+              text="수강완료"
+              fontSize="12"
+              width="64"
+              height="28"
+              color="#e13a3a"
+              borderColor="#e13a3a"
+              borderRadius="4"
+              backgroundColor="#fff"
+            />
           </td>
         </tr>
       </tbody>
     </table>
-    <div class="btn-position">
+    <div class="my-class-none-wrap" v-if="tableList.data === []">
+      <div class="my-class-none">
+        <p>강의 목록이 존재하지 않습니다.</p>
+      </div>
+      <div class="class-btn-position">
+        <basic-button text="강의 상품 보러 가기" />
+      </div>
+    </div>
+    <div class="coupon-btn-position">
       <basic-button
         text="수강권 코드 등록하기"
         borderColor="#1673e6"
@@ -40,6 +80,7 @@
     components: {
       basicButton
     },
+    computed: {},
     methods: {
       modalOpen(type) {
         // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
@@ -57,6 +98,7 @@
     font-weight: normal;
     text-align: center;
     color: #666666;
+    margin-bottom: 32px;
   }
   .my-class-content tr {
     height: 42px;
@@ -73,8 +115,22 @@
     text-align: left;
     padding-left: 16px;
   }
-  .btn-position {
-    margin-top: 32px;
+  .my-class-none {
+    height: 220px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .my-class-none p {
+    color: #666;
+    font-size: 16px;
+  }
+  .class-btn-position {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 16px;
+  }
+  .coupon-btn-position {
     display: flex;
     justify-content: center;
   }
