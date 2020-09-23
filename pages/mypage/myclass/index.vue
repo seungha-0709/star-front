@@ -8,17 +8,26 @@
         <my-class-table
           :myPageBoardInfo="myClassInfo"
           :tableList="myClassList"
+          @open="modalOn"
         />
       </my-page-board>
     </div>
+    <modal
+      :modalProps="modalInfoCoupon"
+      v-if="modalTypeOnOff[4].onoff"
+      @close="modalOff('coupon')"
+    >
+    </modal>
   </div>
 </template>
 
 <script>
   //   import { mapState } from "vuex"
+  import { mapState, mapMutations } from "vuex"
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   import myPageBoard from "../../../components/myClass/myPageBoard.vue"
   import myClassTable from "../../../components/myClass/myClassTable.vue"
+  import modal from "../../../components/modal/modal.vue"
   import { myClassList } from "../../../components/myClass/myClassList.js"
   import { myClassInfo } from "../../../components/myPageBoard.js"
 
@@ -32,13 +41,17 @@
     components: {
       sidebarTemporal,
       myPageBoard,
-      myClassTable
+      myClassTable,
+      modal
     },
     computed: {
-      //   myClassInfo() {
-      //     return this.$store.state.myPageBoard.myClassInfo
-      //   }
-      //   ...mapState("myPageBoard", ["myClassInfo"])
+      ...mapState("orderListModal", {
+        modalInfoCoupon: "modalInfoCoupon",
+        modalTypeOnOff: "modalTypeOpen"
+      })
+    },
+    methods: {
+      ...mapMutations("orderListModal", ["modalOn", "modalOff"])
     }
   }
 </script>

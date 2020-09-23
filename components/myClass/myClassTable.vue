@@ -21,12 +21,31 @@
         </tr>
       </tbody>
     </table>
+    <div class="btn-position">
+      <basic-button
+        text="수강권 코드 등록하기"
+        borderColor="#1673e6"
+        backgroundColor="#fff"
+        color="#1673e6"
+        @event="modalOpen('coupon')"
+      />
+    </div>
   </div>
 </template>
 
 <script>
+  import basicButton from "../common/basicButton"
   export default {
-    props: ["myPageBoardInfo", "tableList"]
+    props: ["myPageBoardInfo", "tableList"],
+    components: {
+      basicButton
+    },
+    methods: {
+      modalOpen(type) {
+        // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
+        this.$emit("open", type)
+      }
+    }
   }
 </script>
 
@@ -53,5 +72,10 @@
   .my-class-title {
     text-align: left;
     padding-left: 16px;
+  }
+  .btn-position {
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
   }
 </style>
