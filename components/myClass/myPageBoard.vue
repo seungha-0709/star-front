@@ -1,10 +1,12 @@
 <template>
   <div class="basic-board">
     <div>
-      <h3 class="basic-board-menu">{{ myPageBoardInfo.title }}</h3>
+      <h3 class="my-page-title">{{ myPageBoardInfo.title }}</h3>
     </div>
-    <div v-if="myPageBoardInfo.subTitle">{{ myPageBoardInfo.subTitle }}</div>
-    <div class="content-header-wrap">
+    <div class="my-page-sub-title" v-if="myPageBoardInfo.subTitle">
+      {{ myPageBoardInfo.subTitle }}
+    </div>
+    <div class="content-count-wrap">
       <p class="content-count" v-if="myPageBoardInfo.isAllAmount">
         {{ `총 ${myPageBoardInfo.allAmount}개` }}
       </p>
@@ -25,9 +27,9 @@
         :event="deleteAll"
       />
     </div>
-    <table class="basic-board-table">
+    <table class="my-page-table">
       <thead>
-        <tr class="table-header">
+        <tr class="my-page-table-header">
           <th
             v-for="(title, index) in myPageBoardInfo.thTitle"
             :key="index"
@@ -73,17 +75,19 @@
     background-color: #ffffff;
     padding: 32px 40px 40px 40px;
     font-size: 14px;
-    font-weight: normal;
-    color: #212121;
     vertical-align: middle;
   }
-  .basic-board-menu {
+  .my-page-title {
     text-align: left;
     font-size: 24px;
     font-weight: bold;
     margin-bottom: 2px;
   }
-  .content-header-wrap {
+  .my-page-sub-title {
+    font-size: 14px;
+    color: #666;
+  }
+  .content-count-wrap {
     display: flex;
     justify-content: space-between;
     margin-bottom: 14px;
@@ -91,13 +95,13 @@
   .content-count {
     margin-top: 22px;
   }
-  .table-header {
+  .my-page-table-header {
     width: 100%;
     height: 40px;
     border-top: solid 1px #666666;
     border-bottom: solid 1px #dfdfdf;
   }
-  .table-header th {
+  .my-page-table-header th {
     vertical-align: middle;
   }
 </style>
