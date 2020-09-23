@@ -39,16 +39,27 @@
       </thead>
     </table>
     <slot></slot>
+    <pagination
+      :currentPage="tableList.page"
+      :total="tableList.total"
+      :limit="tableList.limit"
+      :blockSize="blockSize"
+    />
   </div>
 </template>
 
 <script>
   import basicButton from "../common/basicButton.vue"
+  import pagination from "../orderList/pagination.vue"
 
   export default {
-    props: ["myPageBoardInfo", "boardData"],
+    props: ["myPageBoardInfo", "tableList"],
+    data() {
+      return {}
+    },
     components: {
-      basicButton
+      basicButton,
+      pagination
     },
     methods: {}
   }
@@ -78,5 +89,14 @@
   }
   .content-count {
     margin-top: 22px;
+  }
+  .table-header {
+    width: 100%;
+    height: 40px;
+    border-top: solid 1px #666666;
+    border-bottom: solid 1px #dfdfdf;
+  }
+  .table-header th {
+    vertical-align: middle;
   }
 </style>

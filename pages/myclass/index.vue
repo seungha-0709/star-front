@@ -1,13 +1,22 @@
 <template>
-  <div>
-    <my-page-board :myPageBoardInfo="myClassInfo">
-      <my-class-table :myPageBoardInfo="myClassInfo" :boardData="myClassList" />
-    </my-page-board>
+  <div class="my-page-wrap">
+    <div class="sidebar">
+      <sidebar-temporal />
+    </div>
+    <div class="my-page-content">
+      <my-page-board :myPageBoardInfo="myClassInfo" :tableList="myClassList">
+        <my-class-table
+          :myPageBoardInfo="myClassInfo"
+          :tableList="myClassList"
+        />
+      </my-page-board>
+    </div>
   </div>
 </template>
 
 <script>
   //   import { mapState } from "vuex"
+  import sidebarTemporal from "../../components/myPage/sidebarTemporal.vue"
   import myPageBoard from "../../components/myClass/myPageBoard.vue"
   import myClassTable from "../../components/myClass/myClassTable.vue"
   import { myClassList } from "../../components/myClass/myClassList.js"
@@ -21,6 +30,7 @@
       }
     },
     components: {
+      sidebarTemporal,
       myPageBoard,
       myClassTable
     },
@@ -32,3 +42,17 @@
     }
   }
 </script>
+
+<style scoped>
+  .my-page-wrap {
+    width: 1200px;
+    display: flex;
+    margin: 0 auto;
+  }
+  .sidebar {
+    display: inline-block;
+  }
+  .my-page-content {
+    margin-top: 32px;
+  }
+</style>

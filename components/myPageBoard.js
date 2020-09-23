@@ -4,7 +4,7 @@ export const myClassInfo = {
   subTitle: "별별선생이 진행하는 클래스 수업 리스트만 노출됩니다.",
   isAllAmount: true,
   allAmount: 15,
-  removeAllBtn: true,
+  removeAllBtn: false,
   writeBtn: false,
   thTitle: ["No.", "수강신청일", "강의(상품)명", "상태"],
   tableColumnWidth: [60, 140, 504, 140]
