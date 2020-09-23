@@ -17,6 +17,7 @@
       v-if="modalTypeOnOff[4].onoff"
       @close="modalOff('coupon')"
     >
+      <modal-register-coupon />
     </modal>
   </div>
 </template>
@@ -28,6 +29,7 @@
   import myPageBoard from "../../../components/myClass/myPageBoard.vue"
   import myClassTable from "../../../components/myClass/myClassTable.vue"
   import modal from "../../../components/modal/modal.vue"
+  import modalRegisterCoupon from "../../../components/modal/modalRegisterCoupon.vue"
   import { myClassList } from "../../../components/myClass/myClassList.js"
   import { myClassInfo } from "../../../components/myPageBoard.js"
 
@@ -42,7 +44,8 @@
       sidebarTemporal,
       myPageBoard,
       myClassTable,
-      modal
+      modal,
+      modalRegisterCoupon
     },
     computed: {
       ...mapState("orderListModal", {
