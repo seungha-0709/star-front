@@ -40,6 +40,7 @@
     </table>
     <slot></slot>
     <pagination
+      v-if="myPageBoardInfo.pagination"
       :currentPage="tableList.page"
       :total="tableList.total"
       :limit="tableList.limit"
