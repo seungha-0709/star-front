@@ -1,10 +1,10 @@
 <template>
   <div>
-    <table class="my-class-content" v-if="tableList.data !== []">
+    <table class="my-class-content" v-if="tableList.data !== null">
       <tbody>
         <tr v-for="(myClass, index) in tableList.data" :key="index">
           <td :style="{ width: myPageBoardInfo.tableColumnWidth[0] + 'px' }">
-            {{}}
+            {{ contentNum(index) }}
           </td>
           <td :style="{ width: myPageBoardInfo.tableColumnWidth[1] + 'px' }">
             {{ myClass.date }}
@@ -53,7 +53,7 @@
         </tr>
       </tbody>
     </table>
-    <div class="my-class-none-wrap" v-if="tableList.data === []">
+    <div class="my-class-none-wrap" v-if="tableList.data === null">
       <div class="my-class-none">
         <p>강의 목록이 존재하지 않습니다.</p>
       </div>
@@ -80,7 +80,11 @@
     components: {
       basicButton
     },
-    computed: {},
+    computed: {
+      contentNum() {
+        return (index) => this.tableList.total - index
+      }
+    },
     methods: {
       modalOpen(type) {
         // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
