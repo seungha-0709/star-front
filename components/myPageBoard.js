@@ -7,7 +7,8 @@ export const myClassInfo = {
   removeAllBtn: false,
   writeBtn: false,
   thTitle: ["No.", "수강신청일", "강의(상품)명", "상태"],
-  tableColumnWidth: [60, 140, 504, 140]
+  tableColumnWidth: [60, 140, 504, 140],
+  pagenation: false
 }
 
 export const myQnaInfo = {
@@ -18,7 +19,8 @@ export const myQnaInfo = {
   allAmount: 20,
   removeAllBtn: true,
   writeBtn: true,
-  thTitle: ["No.", "구분", "제목", "접수일시", "상태"]
+  thTitle: ["No.", "구분", "제목", "접수일시", "상태"],
+  pagenation: true
 }
 
 export const myNoticeInfo = {
@@ -30,7 +32,8 @@ export const myNoticeInfo = {
   removeAllBtn: true,
   writeBtn: false,
   thTitle: ["No.", "구분", "제목", "접수일시", "상태"],
-  tableColumnWidth: [60, 140, 364, 140, 140]
+  tableColumnWidth: [60, 140, 364, 140, 140],
+  pagenation: true
 }
 
 export const myOrderListInfo = {
@@ -43,5 +46,6 @@ export const myOrderListInfo = {
   removeAllBtn: false,
   writeBtn: false,
   thTitle: ["결제일/결제번호/상품명", "결제금액", "상태"],
-  tableColumnWidth: [564, 140, 140]
+  tableColumnWidth: [564, 140, 140],
+  pagination: false
 }
