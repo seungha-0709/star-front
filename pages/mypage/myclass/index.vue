@@ -16,11 +16,11 @@
 
 <script>
   //   import { mapState } from "vuex"
-  import sidebarTemporal from "../../components/myPage/sidebarTemporal.vue"
-  import myPageBoard from "../../components/myClass/myPageBoard.vue"
-  import myClassTable from "../../components/myClass/myClassTable.vue"
-  import { myClassList } from "../../components/myClass/myClassList.js"
-  import { myClassInfo } from "../../components/myPageBoard.js"
+  import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
+  import myPageBoard from "../../../components/myClass/myPageBoard.vue"
+  import myClassTable from "../../../components/myClass/myClassTable.vue"
+  import { myClassList } from "../../../components/myClass/myClassList.js"
+  import { myClassInfo } from "../../../components/myPageBoard.js"
 
   export default {
     data() {
