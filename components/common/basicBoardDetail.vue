@@ -18,10 +18,10 @@
       <div class="modifing">
         <span>수정하기</span>
         <span class="divider"></span>
-        <span class="delete">삭제하기</span>
+        <span>삭제하기</span>
       </div>
     </div>
-    <div>
+    <div class="content">
       <p>
         {{ counsel }}
       </p>
@@ -121,6 +121,9 @@
     height: 10px;
     background-color: #dfdfdf;
     margin: 0 10px;
+  }
+  .board-detail .content {
+    font-size: 16px;
   }
   .board-detail .button {
     margin-top: 48px;
