@@ -37,7 +37,9 @@
       background-color="#ffffff"
       borderColor="#dfdfdf"
       fontWeight="400"
+      v-on:href="mypage / counsel"
     />
+    <!-- 클릭시 목록으로(/mypge/counsel) -->
   </div>
 </template>
 <script>
