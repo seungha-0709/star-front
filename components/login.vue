@@ -2,6 +2,10 @@
   <div>
     <div class="login-body">
       <div class="login-left">
+        <img
+          src="../static/img/login/login_logo_h_white.png"
+          class="top-logo"
+        />
         <div class="login-left-wrap">
           <img src="../static/img/login/group-6.png" />
           <span>
@@ -78,6 +82,12 @@
     justify-content: center;
     align-items: center;
     position: relative;
+  }
+  .top-logo {
+    position: absolute;
+    top: 48px;
+    left: 48px;
+    height: 45px;
   }
   .login-left-wrap {
     width: 327px;
@@ -190,6 +200,7 @@
   .login-main-bottom > span:nth-child(even) {
     color: #c1c1c1;
   }
+  /** 우측 하단 푸터 **************************************/
   .login-footer {
     position: absolute;
     bottom: 0px;
