@@ -8,8 +8,11 @@
           class="top-logo"
         />
         <div class="login-left-wrap">
-          <img src="../static/img/login/group-6.png" / alt="별별선생은 우리
-          모두의 공간입니다.">
+          <img
+            src="../static/img/login/group-6.png"
+            alt="별별선생은 우리
+          모두의 공간입니다."
+          />
           <span>
             <basic-button
               text="자세히 보기"
