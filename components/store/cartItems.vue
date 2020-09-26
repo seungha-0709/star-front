@@ -60,6 +60,8 @@
 </template>
 
 <script>
+  import { mapActions } from "vuex"
+
   import checkButton from "../common/checkButton"
   // 장바구니 체크박스 체크버튼 아이콘
   import { PlusIcon, MinusIcon } from "vue-feather-icons"
@@ -75,6 +77,10 @@
       MinusIcon
     },
     methods: {
+      ...mapActions([
+        "AC_CART_PRODUCT_AMOUNT_UP",
+        "AC_CART_PRODUCT_AMOUNT_DOWN"
+      ]),
       clickCartIndex(index) {
         if (this.select.includes(index)) {
           // indexOf > 위치
@@ -86,9 +92,10 @@
       },
       amountControl(index, type) {
         if (type === "plus") {
-          this.cartLists[index].amount += 1
+          // 기존에 코드에서 크게 변동사항없이 로컬에서 적용되던 값들을 vuex 액션으로 변경
+          this.AC_CART_PRODUCT_AMOUNT_UP(index)
         } else if (type === "min" && this.cartLists[index].amount > 1) {
-          this.cartLists[index].amount -= 1
+          this.AC_CART_PRODUCT_AMOUNT_DOWN(index)
         }
       }
     }
