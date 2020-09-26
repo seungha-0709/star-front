@@ -11,7 +11,7 @@
             {{ list.name }}
           </li>
         </ul>
-        <div class="cancel">취소</div>
+        <div class="cancel" @click="menuModalClose">취소</div>
       </div>
     </div>
   </div>
@@ -26,6 +26,9 @@
         this.$emit("tab", type)
         this.$emit("menuClose", false)
         console.log(this.modalOnOff)
+      },
+      menuModalClose() {
+        this.$emit("menuClose", false)
       }
     }
   }
