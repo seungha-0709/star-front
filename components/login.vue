@@ -215,4 +215,19 @@
     font-size: 14px;
     color: #c1c1c1;
   }
+  /** 반응형 구현을 위한 미디어 쿼리 *************************/
+  @media screen and (max-width: 1199px) {
+    .login-left {
+      display: none;
+    }
+    .login-right {
+      width: 100%;
+    }
+    .login-main h2 {
+      font-size: 24px;
+    }
+    .login-main-h3 > h3 {
+      font-size: 14px;
+    }
+  }
 </style>
