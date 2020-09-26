@@ -4,10 +4,12 @@
       <div class="login-left">
         <img
           src="../static/img/login/login_logo_h_white.png"
+          alt="별별선생"
           class="top-logo"
         />
         <div class="login-left-wrap">
-          <img src="../static/img/login/group-6.png" />
+          <img src="../static/img/login/group-6.png" / alt="별별선생은 우리
+          모두의 공간입니다.">
           <span>
             <basic-button
               text="자세히 보기"
@@ -19,6 +21,9 @@
         </div>
       </div>
       <div class="login-right">
+        <div class="mobile-logo">
+          <img src="../static/img/login/logo_square_gray.png" alt="별별선생" />
+        </div>
         <div class="login-main">
           <div class="login-main-h3">
             <h3><span>대한민국 No.1</span> 강사평가 플랫폼</h3>
@@ -101,6 +106,9 @@
     text-align: center;
   }
   /** 우측 로그인 화면 **************************************/
+  .mobile-logo {
+    display: none;
+  }
   .login-right {
     position: relative;
     width: calc(100% - 610px);
@@ -144,21 +152,27 @@
   }
   .login-sns-naver {
     background-image: url(../static/img/login/btn_login_naver01.png);
+    background-size: cover;
   }
   .login-sns-kakao {
     background-image: url(../static/img/login/btn_login_kakao01.png);
+    background-size: cover;
   }
   .login-sns-facebook {
     background-image: url(../static/img/login/btn_login_facebook01.png);
+    background-size: cover;
   }
   .login-sns-naver:hover {
     background-image: url(../static/img/login/btn_login_naver01_hover.png);
+    background-size: cover;
   }
   .login-sns-kakao:hover {
     background-image: url(../static/img/login/btn_login_kakao01_hover.png);
+    background-size: cover;
   }
   .login-sns-facebook:hover {
     background-image: url(../static/img/login/btn_login_facebook01_hover.png);
+    background-size: cover;
   }
   .login-input-wrap {
     margin-top: 20px;
@@ -217,17 +231,37 @@
   }
   /** 반응형 구현을 위한 미디어 쿼리 *************************/
   @media screen and (max-width: 1199px) {
+    .mobile-logo {
+      display: block;
+      padding: 20px 20px 0 20px;
+      width: 100%;
+    }
+    .mobile-logo > img {
+      width: 24px;
+      height: 24px;
+    }
     .login-left {
       display: none;
     }
     .login-right {
       width: 100%;
+      display: block;
+    }
+    .login-main {
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+      padding: 0 32px;
     }
     .login-main h2 {
       font-size: 24px;
     }
     .login-main-h3 > h3 {
       font-size: 14px;
+    }
+    .login-sns > span {
+      width: 40px;
+      height: 40px;
     }
   }
 </style>
