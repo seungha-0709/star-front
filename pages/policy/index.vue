@@ -1,24 +1,20 @@
 <template>
-  <div>
-    <table class="policy">
-      <tr>
-        <ul class="tab-menu">
-          <li
-            v-for="(data, index) in tabData"
-            :key="index"
-            v-on:click="onTypeChange(data.type)"
-            :class="{ active: data.type === activeType }"
-          >
-            {{ data.name }}
-          </li>
-        </ul>
-      </tr>
-      <tr>
-        <td colspan="5">
-          <tab v-bind:tab-type="activeType"></tab>
-        </td>
-      </tr>
-    </table>
+  <div class="policy">
+    <div class="tab-menu-wrap">
+      <ul class="tab-menu">
+        <li
+          v-for="(data, index) in tabData"
+          :key="index"
+          v-on:click="onTypeChange(data.type)"
+          :class="{ active: data.type === activeType }"
+        >
+          {{ data.name }}
+        </li>
+      </ul>
+    </div>
+    <div class="policy-content">
+      <tab v-bind:tab-type="activeType"></tab>
+    </div>
   </div>
 </template>
 
@@ -78,6 +74,12 @@
     font-size: 16px;
     text-align: center;
     cursor: pointer;
+    border-width: 1px 0 0 1px;
+    border-style: solid;
+    border-color: #dfdfdf;
+  }
+  .tab-menu > li:last-child {
+    border-width: 1px 1px 0 1px;
   }
   .tab-menu > li.active {
     background-color: #fff;
@@ -89,15 +91,13 @@
   .policy {
     margin-top: 80px;
     width: 1200px;
-    border: 1px solid #dfdfdf;
-    border-collapse: collapse;
     margin-left: auto;
     margin-right: auto;
     background-color: #ffffff;
   }
-  .policy td {
-    padding-left: 32px;
-    padding-right: 32px;
+  .policy-content {
+    padding: 28px 32px;
     text-align: left;
+    border: 1px solid #dfdfdf;
   }
 </style>
