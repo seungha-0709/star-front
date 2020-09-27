@@ -14,6 +14,7 @@
         />
       </basic-join-select-card>
     </div>
+
     <div class="join-select-card">
       <basic-join-select-card
         type="학부모"
@@ -29,6 +30,7 @@
         />
       </basic-join-select-card>
     </div>
+
     <div class="join-select-card">
       <basic-join-select-card
         type="선생님 / 교수님"
@@ -43,7 +45,8 @@
         />
       </basic-join-select-card>
     </div>
-    <div class="join-select-card-last">
+
+    <div>
       <basic-join-select-card
         type="학원/유치원 등 기업회원"
         description="소속 강사, 학생관리 서비스를 이용하실 수 있습니다.
