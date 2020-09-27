@@ -107,4 +107,13 @@
     flex-wrap: wrap;
     justify-content: space-between;
   }
+  @media (max-width: 1199px) {
+    .shop-best-item-container {
+      width: 100%;
+    }
+    .shop-best-item-wrap {
+      width: 100%;
+      justify-content: space-around;
+    }
+  }
 </style>

@@ -1,8 +1,11 @@
 <template>
   <!-- 상품 정보 표기 개별 컴포넌트 -->
-  <div>
-    <div class="best-item-img">
-      <img :src="propsData.img" alt />
+  <div class="best-item-body">
+    <div
+      class="best-item-img"
+      :style="{ backgroundImage: 'url(' + propsData.img + ')' }"
+    >
+      <!-- <img :src="propsData.img" alt="상품 이미지" /> -->
       <span class="best-label" v-if="propsData.best === true">BEST</span>
       <div class="like-btn" @click="likePlus(indexData)">
         <v-icon color="#fff" large v-if="likeToggle % 2 === 0">
@@ -64,15 +67,18 @@
 </script>
 
 <style scoped>
-  .best-item-img {
+  .best-item-body {
     width: 378px;
+    display: inline-block;
+  }
+  .best-item-img {
+    width: 100%;
+    height: 267px;
+    /* height: 500px; */
     display: inline-block;
     box-sizing: border-box;
     position: relative;
-  }
-  .best-item-img > img {
-    width: 378px;
-    height: 280px;
+    background-size: cover;
     border-radius: 4px;
   }
   .best-label {
@@ -115,6 +121,7 @@
     background-color: #e13a3a;
   }
   .best-item-info {
+    width: 100%;
     padding-top: 16px;
     margin-bottom: 80px;
   }
