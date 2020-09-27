@@ -2,6 +2,7 @@
   <div class="join-select-page">
     <div class="join-select-title">
       <basic-join-title
+        title="별별선생"
         subtitle="회원가입"
         description="본인이 해당하시는 가입 유형을 아래에서 선택해주세요."
       />
