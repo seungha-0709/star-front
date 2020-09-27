@@ -7,7 +7,7 @@
       />
     </div>
     <div class="join-title">
-      <span class="starteacher">별별선생 </span>
+      <span class="starteacher">{{ title }} </span>
       <span class="subtitle">{{ subtitle }}</span>
     </div>
     <p class="description">{{ description }}</p>
@@ -16,6 +16,9 @@
 <script>
   export default {
     props: {
+      title: {
+        default: ""
+      },
       subtitle: {
         default: ""
       },
