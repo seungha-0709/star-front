@@ -126,4 +126,9 @@
   .select-box .option .radio {
     display: none;
   }
+  @media (max-width: 1199px) {
+    .select-box {
+      width: 100%;
+    }
+  }
 </style>

@@ -98,17 +98,17 @@
   .like-btn {
     display: block;
     position: absolute;
-    top: 205px;
-    left: 303px;
+    bottom: 20px;
+    right: 20px;
     z-index: 10;
     width: 56px;
     height: 56px;
     border-radius: 28px;
     background-color: rgba(0, 0, 0, 0.3);
     color: #fff;
-    text-align: center;
-    padding-top: 11px;
-    padding-left: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     font-size: 20px;
     -webkit-touch-callout: none;
     user-select: none;
@@ -116,6 +116,8 @@
     -ms-user-select: none;
     -webkit-user-select: none;
     cursor: pointer;
+    padding-left: 1px;
+    padding-top: 2px;
   }
   .like-btn.active {
     background-color: #e13a3a;
@@ -161,5 +163,15 @@
     color: #212121;
     font-size: 16px;
     margin-right: 5px;
+  }
+  @media (max-width: 770px) {
+    .best-item-info {
+      padding-left: 16px;
+      padding-right: 16px;
+    }
+    .like-btn {
+      width: 48px;
+      height: 48px;
+    }
   }
 </style>

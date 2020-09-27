@@ -4,7 +4,7 @@
     <div class="shop-best-item-container">
       <div class="shop-best-item-top">
         <span class="shop-best-item-sub-title">{{ `${total}개의 강의` }}</span>
-        <div class="select-box">
+        <div class="select-box-position">
           <selectBox @listAlign="onAlignChange" :sortList="selectCreteria" />
         </div>
       </div>
@@ -84,7 +84,7 @@
   }
   .shop-best-item-container {
     width: 1200px;
-    margin: 48px auto 48px auto;
+    margin: 48px auto;
   }
   .shop-best-item-top {
     width: 1200px;
@@ -97,7 +97,7 @@
     font-size: 18px;
     color: #212121;
   }
-  .select-box {
+  .select-box-position {
     padding: 0;
   }
   .shop-best-item-wrap {
@@ -110,10 +110,24 @@
   @media (max-width: 1199px) {
     .shop-best-item-container {
       width: 100%;
+      margin: 16px auto;
     }
     .shop-best-item-wrap {
       width: 100%;
       justify-content: space-around;
+    }
+    .shop-best-item-top {
+      display: block;
+      width: 100%;
+    }
+    .select-box-position {
+      width: 100%;
+      padding: 16px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .shop-best-item-sub-title {
+      padding-left: 16px;
     }
   }
 </style>
