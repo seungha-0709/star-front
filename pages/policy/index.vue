@@ -155,6 +155,7 @@
     }
     .policy-content {
       margin-top: 8px;
+      border-width: 1px;
     }
   }
 </style>
