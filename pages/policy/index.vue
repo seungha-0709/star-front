@@ -124,7 +124,9 @@
   .policy-content {
     padding: 28px 32px;
     text-align: left;
-    border: 1px solid #dfdfdf;
+    border-width: 0 1px 1px 1px;
+    border-style: solid;
+    border-color: #dfdfdf;
   }
   .tab-menu-mobile {
     background-color: rgb(251, 251, 251);
