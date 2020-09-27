@@ -6,12 +6,13 @@
           <li
             v-for="(list, index) in tabChange"
             :key="index"
-            @click="menuModalClick(list.type)"
+            @click="menuClick(list.type)"
+            :class="{ active: list.type === activeTab }"
           >
             {{ list.name }}
           </li>
         </ul>
-        <div class="cancel" @click="menuModalClose">취소</div>
+        <div class="cancel" @click="menuClose">취소</div>
       </div>
     </div>
   </div>
@@ -19,15 +20,15 @@
 
 <script>
   export default {
-    props: ["tabChange", "menuOnOff"],
+    props: ["tabChange", "activeTab", "menuOnOff"],
 
     methods: {
-      menuModalClick(type) {
+      menuClick(type) {
         this.$emit("tab", type)
         this.$emit("menuClose", false)
         console.log(this.modalOnOff)
       },
-      menuModalClose() {
+      menuClose() {
         this.$emit("menuClose", false)
       }
     }
@@ -73,5 +74,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  }
+  .menu-list > li:hover {
+    background-color: #f4f7ff;
+  }
+  .menu-list > .active {
+    font-weight: bold;
   }
 </style>

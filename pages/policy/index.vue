@@ -1,8 +1,9 @@
 <template>
-  <div>
+  <div class="policy-body">
     <div class="policy">
       <div class="tab-menu-mobile" @click="onMenuOnOff">
         {{ tabData.find((tabdata) => tabdata.type === activeType).name }}
+        <chevron-down-icon size="1.5x" class="down-icon"></chevron-down-icon>
       </div>
       <div class="tab-menu-wrap">
         <ul class="tab-menu">
@@ -22,6 +23,7 @@
       <menu-modal
         :modalMenuList="tabData.name"
         :tabChange="tabData"
+        :activeTab="activeType"
         :menuOnOff="isMenuOnoff"
         @tab="onTypeChange"
         @menuClose="onMenuOnOff"
@@ -31,6 +33,7 @@
 </template>
 
 <script>
+  import { ChevronDownIcon } from "vue-feather-icons"
   import TabVue from "../../components/policyTab.vue"
   import menuModal from "../../components/modal/menuModal.vue"
 
@@ -65,7 +68,8 @@
     },
     components: {
       tab: TabVue,
-      menuModal
+      menuModal,
+      ChevronDownIcon
     },
     methods: {
       onTypeChange(type) {
@@ -93,12 +97,15 @@
     font-size: 16px;
     text-align: center;
     cursor: pointer;
-    border-width: 1px 0 0 1px;
+    border-width: 1px 0 0 0;
     border-style: solid;
     border-color: #dfdfdf;
   }
+  .tab-menu > li:first-child {
+    border-width: 1px 0 0 1px;
+  }
   .tab-menu > li:last-child {
-    border-width: 1px 1px 0 1px;
+    border-width: 1px 1px 0 0;
   }
   .tab-menu > li.active {
     background-color: #fff;
@@ -130,6 +137,9 @@
     color: #212121;
     display: none;
   }
+  .down-icon {
+    color: #666;
+  }
   @media (max-width: 1199px) {
     .tab-menu-wrap {
       display: none;
@@ -139,6 +149,7 @@
     }
     .policy {
       width: 100%;
+      margin-top: 8px;
     }
     .policy-content {
       margin-top: 8px;
