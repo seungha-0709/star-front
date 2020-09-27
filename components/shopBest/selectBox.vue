@@ -5,7 +5,7 @@
       <div
         class="option"
         @click="onSortChange(select.sort)"
-        v-for="(select, i) in selectCreteria"
+        v-for="(select, i) in sortList"
         :key="i"
       >
         <input type="radio" class="radio" name="category" />
@@ -21,21 +21,11 @@
 
 <script>
   import { ChevronDownIcon } from "vue-feather-icons"
-  import { shopBestList } from "./shopBestList.js"
 
   export default {
-    props: ["itemList"],
+    props: ["sortList"],
     data() {
-      return {
-        shopBestList,
-        selectCreteria: [
-          /* 셀렉트 박스에 들어가는 옵션항목 */
-          { title: "최신순", sort: "latest_at" },
-          { title: "가격 낮은 순", sort: "low_price" },
-          { title: "가격 높은 순", sort: "high_price" },
-          { title: "좋아요 많은 순", sort: "high_like" }
-        ]
-      }
+      return {}
     },
     components: {
       ChevronDownIcon
@@ -54,7 +44,7 @@
       const dropDown = document.querySelector(".drop-down-icon")
       const selectedOption = document.querySelector(".selected-option")
 
-      selectedOption.innerHTML = this.selectCreteria[0].title
+      selectedOption.innerHTML = this.sortList[0].title
 
       selected.addEventListener("click", () => {
         optionsContainer.classList.toggle("active")
