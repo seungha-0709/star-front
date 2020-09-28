@@ -20,6 +20,37 @@
             v-on:event="removeItem(index)"
           />
         </div>
+        <div v-if="item === 'status'">
+          <basic-button
+            :text="
+              data.status === 'future'
+                ? '수강예정'
+                : data.status === 'now'
+                ? '수강중'
+                : '수강완료'
+            "
+            fontSize="12"
+            width="64"
+            height="28"
+            :color="
+              data.status === 'future'
+                ? '#ffb00f'
+                : data.status === 'now'
+                ? '#b0c93d'
+                : '#e13a3a'
+            "
+            :borderColor="
+              data.status === 'future'
+                ? '#ffb00f'
+                : data.status === 'now'
+                ? '#b0c93d'
+                : '#e13a3a'
+            "
+            borderRadius="4"
+            backgroundColor="#fff"
+            :style="{ pointerEvents: 'none' }"
+          />
+        </div>
       </td>
     </tr>
   </tbody>
@@ -27,15 +58,9 @@
 
 <script>
   import basicButton from "../common/basicButton.vue"
-  import { myNoticeInfo } from "../../components/myPageBoard"
 
   export default {
-    props: ["content", "currentPage", "total", "limit"],
-    data() {
-      return {
-        thCols: myNoticeInfo.thCols
-      }
-    },
+    props: ["content", "currentPage", "total", "limit", "thCols"],
     components: {
       "basic-button": basicButton
     },

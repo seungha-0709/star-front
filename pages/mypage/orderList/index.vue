@@ -5,12 +5,9 @@
     </div>
     <div class="basic-board-cast">
       <basic-board-cast
-        :title="myOrderListInfo.title"
-        :tableColumnWidth="myOrderListInfo.tableColumnWidth"
-        :tableHeader="myOrderListInfo.thTitle"
+        :defaultTableSet="myOrderListInfo"
         :tableList="paymentInfo"
         :blockSize="5"
-        :showBtnDeleteAll="myOrderListInfo.removeAllBtn"
         :differentContent="true"
       >
         <order-list

@@ -1,14 +1,14 @@
 <template>
   <div class="basic-board">
     <div>
-      <h3 class="basic-board-menu">{{ title }}</h3>
+      <h3 class="basic-board-menu">{{ defaultTableSet.title }}</h3>
     </div>
     <div class="content-status">
       <p class="content-count">
         {{ `총 ${tableList.total.toLocaleString()}개` }}
       </p>
       <basic-button
-        v-if="showBtnDeleteAll"
+        v-if="defaultTableSet.removeAllBtn"
         text="모두삭제"
         width="84"
         height="42"
@@ -26,24 +26,27 @@
         <thead>
           <tr class="table-header">
             <th
-              v-for="(item, index) in tableHeader"
+              v-for="(item, index) in defaultTableSet.thTitle"
               :key="index"
-              :style="{ width: tableColumnWidth[index] + 'px' }"
+              :style="{ width: defaultTableSet.tableColumnWidth[index] + 'px' }"
             >
               {{ item }}
             </th>
           </tr>
         </thead>
         <basic-board-cast-content
-          v-if="!differentContent"
-          :content="tableList.data"
+          v-if="!differentContent && tableList.total !== 0"
+          :content="computedListData"
           :currentPage="tableList.page"
           :total="tableList.total"
           :limit="tableList.limit"
+          :thCols="defaultTableSet.thCols"
         />
         <slot v-else></slot>
+        <!-- 예외처리 -->
+        <slot name="nullSet"></slot>
       </table>
-      <div>
+      <div v-if="defaultTableSet.pagination && tableList.total !== 0">
         <pagination
           :currentPage="tableList.page"
           :total="tableList.total"
@@ -52,6 +55,7 @@
           v-on:paging="pagingMethod"
         />
       </div>
+      <slot name="customButton" />
     </div>
   </div>
 </template>
@@ -62,14 +66,8 @@
 
   export default {
     props: {
-      title: {
-        default: ""
-      },
-      tableColumnWidth: {
-        default: []
-      },
-      tableHeader: {
-        default: []
+      defaultTableSet: {
+        default: null
       },
       tableList: {
         default: null
@@ -77,15 +75,21 @@
       blockSize: {
         default: 5
       },
-      showBtnDeleteAll: {
-        default: true
-      },
       differentContent: {
         default: false
       }
     },
     data() {
       return {}
+    },
+    computed: {
+      // 로컬 데이터를 limit값 기준으로 리스트 분할
+      computedListData() {
+        return this.tableList.data.slice(
+          (this.tableList.page - 1) * this.tableList.limit,
+          this.tableList.page * this.tableList.limit
+        )
+      }
     },
     components: {
       "basic-button": basicButton,

@@ -5,9 +5,7 @@
     </div>
     <div class="basic-board-cast">
       <basic-board-cast
-        title="알림"
-        :tableColumnWidth="tableColumnWidth"
-        :tableHeader="notificationHeaderList"
+        :defaultTableSet="myNoticeInfo"
         :tableList="notificationLists"
         :blockSize="5"
       />
@@ -26,8 +24,7 @@
   export default {
     data() {
       return {
-        tableColumnWidth: myNoticeInfo.tableColumnWidth,
-        notificationHeaderList: myNoticeInfo.thTitle,
+        myNoticeInfo,
         notificationLists
       }
     },
