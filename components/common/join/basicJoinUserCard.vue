@@ -38,11 +38,6 @@
       width: {
         default: 161
       }
-    },
-    methods: {
-      hoverCard() {
-        // user-card 에 마우스 오버 되면 backgroundColor="#2c428d"
-      }
     }
   }
 </script>
