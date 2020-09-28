@@ -8,6 +8,7 @@
         {{ `총 ${tableList.total.toLocaleString()}개` }}
       </p>
       <basic-button
+        v-if="showBtnDeleteAll"
         text="모두삭제"
         width="84"
         height="42"
@@ -34,11 +35,13 @@
           </tr>
         </thead>
         <basic-board-cast-content
+          v-if="!differentContent"
           :content="tableList.data"
           :currentPage="tableList.page"
           :total="tableList.total"
           :limit="tableList.limit"
         />
+        <slot v-else></slot>
       </table>
       <div>
         <pagination
@@ -46,6 +49,7 @@
           :total="tableList.total"
           :limit="tableList.limit"
           :blockSize="blockSize"
+          v-on:paging="pagingMethod"
         />
       </div>
     </div>
@@ -54,7 +58,7 @@
 <script>
   import basicButton from "../common/basicButton.vue"
   import basicBoardCastContent from "../common/basicBoardCastContent.vue"
-  import pagination from "../orderList/pagination.vue"
+  import pagination from "../common/pagination.vue"
 
   export default {
     props: {
@@ -72,6 +76,12 @@
       },
       blockSize: {
         default: 5
+      },
+      showBtnDeleteAll: {
+        default: true
+      },
+      differentContent: {
+        default: false
       }
     },
     data() {
@@ -85,6 +95,10 @@
     methods: {
       deleteAll() {
         this.$props.tableList.data = []
+      },
+      pagingMethod(clickPage) {
+        if (!clickPage || clickPage === this.tableList.page) return null
+        return (this.tableList.page = clickPage)
       }
     }
   }
@@ -93,7 +107,7 @@
 <style scoped>
   .basic-board {
     width: 924px;
-    height: 696px;
+    height: 100%;
     border: solid 1px #dfdfdf;
     background-color: #ffffff;
     padding: 32px 40px 40px;
@@ -117,7 +131,7 @@
     margin-right: 706px;
   }
   .basic-board-table {
-    width: 844px;
+    width: 100%;
     text-align: center;
     margin-bottom: 32px;
     font-size: 15px;

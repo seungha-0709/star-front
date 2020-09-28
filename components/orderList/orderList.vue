@@ -1,94 +1,82 @@
 <template>
-  <div class="order-list">
-    <table>
-      <tbody>
-        <tr class="tr-main">
-          <td class="order-list-img">
-            <img :src="orderListData[idxData].goodsimg" alt />
-          </td>
-          <td class="order-list-body">
-            <span class="date">{{ orderListData[idxData].paymentDate }}</span>
-            <span class="payment-idx"
-              >({{ orderListData[idxData].paymentIdx }})</span
-            >
-            <p class="goods-name">{{ orderListData[idxData].goodsName }}</p>
-          </td>
-          <td class="price">
-            {{ `${orderListData[idxData].paymentPrice.toLocaleString()}원` }}
-          </td>
-          <td class="status">
-            <span class="status-content">{{
-              orderListData[idxData].paymentStatus
-            }}</span>
-            <br />
-            <span class="final-date">{{
-              orderListData[idxData].finalDate
-            }}</span>
-          </td>
-        </tr>
-        <tr class="tr-bottom">
-          <td colspan="3" class="bottom-left">
-            <div class="bottom-left-wrap">
-              <div class="btn-order-position">
-                <basic-button
-                  text="구매 상세보기"
-                  color="#212121"
-                  fontWeight="normal"
-                  backgroundColor="#fff"
-                  borderRadius="4"
-                  borderColor="#dfdfdf"
-                  fontSize="14"
-                  width="97"
-                  height="28"
-                  @event="modalOpen('order')"
-                />
-              </div>
-
-              <div class="btn-receipt-position">
-                <basic-button
-                  text="구매 영수증 출력"
-                  color="#212121"
-                  fontWeight="normal"
-                  backgroundColor="#fff"
-                  borderRadius="4"
-                  borderColor="#dfdfdf"
-                  fontSize="14"
-                  width="113"
-                  height="28"
-                  @event="modalOpen('receipt')"
-                />
-              </div>
-            </div>
-          </td>
-          <td class="bottom-right">
+  <tbody>
+    <tr class="tr-main">
+      <td class="order-list-body">
+        <img class="order-list-img" :src="orderListData.goodsimg" alt="" />
+        <div class="order-list-body-content">
+          <span class="date">{{ orderListData.paymentDate }}</span>
+          <span class="payment-idx">({{ orderListData.paymentIdx }})</span>
+          <p class="goods-name">{{ orderListData.goodsName }}</p>
+        </div>
+      </td>
+      <td class="price">
+        {{ `${parseInt(orderListData.paymentPrice).toLocaleString()}원` }}
+      </td>
+      <td class="status">
+        <span class="status-content">{{ orderListData.paymentStatus }}</span>
+        <br />
+        <span class="final-date">{{ orderListData.finalDate }}</span>
+      </td>
+    </tr>
+    <tr class="tr-bottom">
+      <td colspan="2" class="bottom-left">
+        <div class="bottom-left-wrap">
+          <div class="btn-order-position">
             <basic-button
-              :text="
-                isCancelRefund === true ? '고객센터 문의' : '취소/환불 신청'
-              "
+              text="구매 상세보기"
               color="#212121"
               fontWeight="normal"
               backgroundColor="#fff"
               borderRadius="4"
               borderColor="#dfdfdf"
               fontSize="14"
-              width="102"
+              width="97"
               height="28"
-              @event="
-                isCancelRefund === true ? modalOpen('qna') : modalOpen('cancel')
-              "
+              @event="modalOpen('order')"
             />
-          </td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+          </div>
+
+          <div class="btn-receipt-position">
+            <basic-button
+              text="구매 영수증 출력"
+              color="#212121"
+              fontWeight="normal"
+              backgroundColor="#fff"
+              borderRadius="4"
+              borderColor="#dfdfdf"
+              fontSize="14"
+              width="113"
+              height="28"
+              @event="modalOpen('receipt')"
+            />
+          </div>
+        </div>
+      </td>
+      <td class="bottom-right">
+        <basic-button
+          :text="isCancelRefund === true ? '고객센터 문의' : '취소/환불 신청'"
+          color="#212121"
+          fontWeight="normal"
+          backgroundColor="#fff"
+          borderRadius="4"
+          borderColor="#dfdfdf"
+          fontSize="14"
+          width="102"
+          height="28"
+          @event="
+            isCancelRefund === true ? modalOpen('qna') : modalOpen('cancel')
+          "
+        />
+      </td>
+    </tr>
+  </tbody>
 </template>
 
 <script>
   import basicButton from "../../components/common/basicButton.vue"
 
   export default {
-    props: ["orderListData", "idxData", "isCancelRefund"],
+    props: ["orderListData", "isCancelRefund"],
     components: {
       basicButton
     },
@@ -96,7 +84,7 @@
       modalOpen(type) {
         // index.vue(부모 컴포넌트)에 모달 열기 이벤트와 클릭한 데이터의 id값을 넘겨주는 부분
         this.$emit("open", type)
-        this.$emit("id", this.orderListData[this.idxData].id)
+        this.$emit("id", this.orderListData.id)
       }
     }
   }
@@ -118,29 +106,26 @@
     height: 108px;
     border-bottom: 1px solid #ececec;
   }
-  img {
+  /** 테이블 각 td 클래스별 서식 */
+  .order-list-body {
+    width: 413px;
+    vertical-align: middle;
+    padding: 0 24px;
+  }
+  .order-list-img {
     width: 103px;
     height: 76px;
     border-radius: 4px;
+    margin-right: 24px;
+    float: left;
   }
-  /** 테이블 각 td 클래스별 서식 */
-  .order-list-img {
-    width: 151px;
-    line-height: 0;
-    display: table-cell;
-    vertical-align: middle;
-    text-align: center;
-  }
-  .order-list-body {
-    width: 413px;
-    display: table-cell;
-    vertical-align: middle;
+  .order-list-body-content {
+    text-align: left;
   }
   .price {
     width: 140px;
     border-left: 1px solid #ececec;
     border-right: 1px solid #ececec;
-    display: table-cell;
     vertical-align: middle;
     text-align: center;
     font-size: 14px;
@@ -171,7 +156,6 @@
   }
   .goods-name {
     margin-top: 8px;
-    width: 268px;
     height: 48px;
     font-size: 16px;
     color: #212121;

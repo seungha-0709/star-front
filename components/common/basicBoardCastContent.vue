@@ -1,23 +1,25 @@
 <template>
   <tbody class="noti-content">
     <tr v-for="(data, index) in content" :key="pageNumber(index)">
-      <td>{{ pageNumber(index) }}</td>
-      <td v-if="data.date">{{ data.date }}</td>
-      <td v-if="data.title" class="noti-title">{{ data.title }}</td>
-      <td v-if="data.sender">{{ data.sender }}</td>
-      <td v-if="data.delete">
-        <basic-button
-          text="삭제하기"
-          width="74"
-          height="28"
-          color="#212121"
-          fontSize="14"
-          borderRadius="4"
-          backgroundColor="#ffffff"
-          borderColor="#dfdfdf"
-          :fontWeight="400"
-          v-on:event="removeItem(index)"
-        />
+      <td v-for="(item, itemIndex) in thCols" :key="itemIndex">
+        <div v-if="item === 'id'">{{ pageNumber(index) }}</div>
+        <div v-if="item === 'date'">{{ data.date }}</div>
+        <div v-if="item === 'title'">{{ data.title }}</div>
+        <div v-if="item === 'sender'">{{ data.sender }}</div>
+        <div v-if="item === 'delete'">
+          <basic-button
+            text="삭제하기"
+            width="74"
+            height="28"
+            color="#212121"
+            fontSize="14"
+            borderRadius="4"
+            backgroundColor="#ffffff"
+            borderColor="#dfdfdf"
+            :fontWeight="400"
+            v-on:event="removeItem(index)"
+          />
+        </div>
       </td>
     </tr>
   </tbody>
@@ -25,8 +27,15 @@
 
 <script>
   import basicButton from "../common/basicButton.vue"
+  import { myNoticeInfo } from "../../components/myPageBoard"
+
   export default {
     props: ["content", "currentPage", "total", "limit"],
+    data() {
+      return {
+        thCols: myNoticeInfo.thCols
+      }
+    },
     components: {
       "basic-button": basicButton
     },

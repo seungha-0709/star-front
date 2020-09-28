@@ -3,16 +3,14 @@
     <div class="sidebar">
       <sidebar-temporal />
     </div>
-    <div>
-      <div class="basic-board-cast">
-        <basic-board-cast
-          title="알림"
-          :tableColumnWidth="tableColumnWidth"
-          :tableHeader="notificationHeaderList"
-          :tableList="notificationLists"
-          :blockSize="5"
-        />
-      </div>
+    <div class="basic-board-cast">
+      <basic-board-cast
+        title="알림"
+        :tableColumnWidth="tableColumnWidth"
+        :tableHeader="notificationHeaderList"
+        :tableList="notificationLists"
+        :blockSize="5"
+      />
     </div>
   </div>
 </template>
@@ -23,18 +21,13 @@
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   // 알림 list data
   import { notificationLists } from "../../../components/myPage/notificationLists.js"
+  import { myNoticeInfo } from "../../../components/myPageBoard"
 
   export default {
     data() {
       return {
-        tableColumnWidth: [60, 140, 364, 140, 140],
-        notificationHeaderList: [
-          "No.",
-          "수신일시",
-          "제목/내용",
-          "발신자",
-          "삭제"
-        ],
+        tableColumnWidth: myNoticeInfo.tableColumnWidth,
+        notificationHeaderList: myNoticeInfo.thTitle,
         notificationLists
       }
     },

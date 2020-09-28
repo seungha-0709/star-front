@@ -29,7 +29,8 @@ export const myNoticeInfo = {
   allAmount: 525,
   removeAllBtn: true,
   writeBtn: false,
-  thTitle: ["No.", "구분", "제목", "접수일시", "상태"],
+  thTitle: ["No.", "수신일시", "제목/내용", "발신자", "삭제"],
+  thCols: ["id", "date", "title", "sender", "delete"],
   tableColumnWidth: [60, 140, 364, 140, 140]
 }
 
