@@ -62,7 +62,7 @@ export const modalInfoQna = {
       color: "#fff",
       backgroundColor: "#1673e6",
       title: "문의하기",
-      style: "normalWhite"
+      style: "normalBlue"
     }
   ]
 }
@@ -78,4 +78,26 @@ export const modalInfoReceipt = {
   bottomText: null,
   footerBtn: false, // 푸터에 버튼 존재여부
   bottomBtn: []
+}
+
+/** 수강권 코드 등록하기 모달 */
+export const modalInfoCoupon = {
+  type: "coupon",
+  title: "수강권 코드 등록하기",
+  subTitle:
+    "별별선생에서 구매하신 클래스 상품의 코드를 등록하여 활성화 합니다.\n클래스 상품 외 타 학원 상품의 경우, 상품 상세 설명을 참조하셔서 해당 사이트에 등록하여 주세요.",
+  isDimmed: true,
+  isClose: true,
+  isDivider: true,
+  bottomText: null,
+  footerBtn: true,
+  bottomBtn: [
+    {
+      width: 240,
+      color: "#fff",
+      backgroundColor: "#1673e6",
+      title: "등록하기",
+      style: "normalBlue"
+    }
+  ]
 }
