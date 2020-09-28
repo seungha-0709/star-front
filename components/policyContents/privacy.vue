@@ -44,7 +44,6 @@
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin-top: 40px;
   }
   h2 {
     font-size: 16px;
