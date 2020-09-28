@@ -47,7 +47,6 @@
   import { mapState, mapMutations } from "vuex"
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   import basicBoardCast from "../../../components/common/basicBoardCast.vue"
-  import myClassTable from "../../../components/myClass/myClassTable.vue"
   import basicButton from "../../../components/common/basicButton"
   import modal from "../../../components/modal/modal.vue"
   import modalRegisterCoupon from "../../../components/modal/modalRegisterCoupon.vue"
@@ -64,7 +63,6 @@
     components: {
       sidebarTemporal,
       basicBoardCast,
-      myClassTable,
       basicButton,
       modal,
       modalRegisterCoupon
