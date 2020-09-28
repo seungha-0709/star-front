@@ -1,6 +1,5 @@
 <template>
-  <div class="select-card">
-    <!-- v-on:mouseover="hoverCard()" -->
+  <div class="select-card" v-on:mouseover="hoverCard()">
     <div class="type-img">
       <slot />
     </div>
@@ -11,9 +10,10 @@
       text="선택하기"
       width="140"
       borderRadius="31"
-      backgroundColor="#3f60cc"
+      :backgroundColor="hoverState ? '#2c428d' : '#3f60cc'"
       fontWeight="400"
       fontSize="16"
+      v-on:event="hoverState"
     />
   </div>
 </template>
@@ -21,7 +21,9 @@
   import basicButton from "../basicButton.vue"
   export default {
     data() {
-      return {}
+      return {
+        hoverState: false
+      }
     },
     props: {
       type: {
@@ -33,12 +35,16 @@
     },
     components: {
       "basic-button": basicButton
+    },
+    methods: {
+      hoverCard() {
+        if (this.hoverState) {
+          this.hoverState = false
+        } else {
+          this.hoverState = true
+        }
+      }
     }
-    // methods: {
-    //   hoverCard() {
-    //     this.basicButton.backgroundColor = "#2c428d"
-    //   }
-    // }
   }
 </script>
 <style scoped>
@@ -61,9 +67,9 @@
     font-weight: normal;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
-  .select-card:hover :global(.join-select-card-button) {
+  /* .select-card:hover :global(.join-select-card-button) {
     background-color: #2c428d;
-  }
+  } */
 
   .select-card .type-name {
     font-size: 20px;
