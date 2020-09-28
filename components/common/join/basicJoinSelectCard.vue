@@ -24,9 +24,7 @@
   import basicButton from "../basicButton.vue"
   export default {
     data() {
-      return {
-        hoverState: false
-      }
+      return {}
     },
     props: {
       type: {
@@ -38,15 +36,6 @@
     },
     components: {
       "basic-button": basicButton
-    },
-    methods: {
-      hoverCard() {
-        if (this.hoverState) {
-          this.hoverState = false
-        } else {
-          this.hoverState = true
-        }
-      }
     }
   }
 </script>
@@ -70,10 +59,6 @@
     font-weight: normal;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
-  /* .select-card:hover :global(.join-select-card-button) {
-    background-color: #2c428d;
-  } */
-
   .select-card .type-name {
     font-size: 20px;
     font-weight: bold;
