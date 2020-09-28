@@ -1,5 +1,9 @@
 <template>
-  <div class="select-card" v-on:mouseover="hoverCard()">
+  <div
+    class="select-card"
+    v-on:mouseenter="hoverState = true"
+    v-on:mouseleave="hoverState = false"
+  >
     <div class="type-img">
       <slot />
     </div>
@@ -13,7 +17,6 @@
       :backgroundColor="hoverState ? '#2c428d' : '#3f60cc'"
       fontWeight="400"
       fontSize="16"
-      v-on:event="hoverState"
     />
   </div>
 </template>
