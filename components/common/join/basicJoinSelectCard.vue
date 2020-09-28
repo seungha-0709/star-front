@@ -1,24 +1,28 @@
 <template>
   <div class="select-card">
+    <!-- v-on:mouseover="hoverCard()" -->
     <div class="type-img">
       <slot />
     </div>
     <div class="type-name">{{ type }}</div>
     <p class="description">{{ description }}</p>
     <basic-button
+      class="join-select-card-button"
       text="선택하기"
       width="140"
       borderRadius="31"
       backgroundColor="#3f60cc"
       fontWeight="400"
       fontSize="16"
-      v-on:event="hoverCard"
     />
   </div>
 </template>
 <script>
   import basicButton from "../basicButton.vue"
   export default {
+    data() {
+      return {}
+    },
     props: {
       type: {
         default: ""
@@ -29,12 +33,12 @@
     },
     components: {
       "basic-button": basicButton
-    },
-    methods: {
-      hoverCard() {
-        // select-card 에 마우스 오버 되면 backgroundColor="#2c428d"
-      }
     }
+    // methods: {
+    //   hoverCard() {
+    //     this.basicButton.backgroundColor = "#2c428d"
+    //   }
+    // }
   }
 </script>
 <style scoped>
@@ -57,6 +61,10 @@
     font-weight: normal;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
+  .select-card:hover :global(.join-select-card-button) {
+    background-color: #2c428d;
+  }
+
   .select-card .type-name {
     font-size: 20px;
     font-weight: bold;
