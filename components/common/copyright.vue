@@ -1,5 +1,7 @@
 <template>
-  <p class="copyright">Copyright © TEvalueWise Corp. All Rights Reserved.</p>
+  <p class="copyright">
+    Copyright &copy; TEvalueWise Corp. All Rights Reserved.
+  </p>
 </template>
 <script>
   export default {}
