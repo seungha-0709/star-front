@@ -28,10 +28,23 @@
             </tr>
           </tbody>
         </table>
+        <div class="btn-position-mobile">
+          <basic-button
+            text="1:1 온라인 문의하기"
+            fontSize="14"
+            borderRadius="4"
+            borderColor="#1673e6"
+            width="328"
+            height="42"
+            color="#1673e6"
+            backgroundColor="#fff"
+            @event="modalOn('qna')"
+          />
+        </div>
       </div>
       <div class="cs-online">
         <headphones-icon class="headphone-icon" size="78" color="#ececec" />
-        <div class="btn-position">
+        <div class="btn-position-desktop">
           <basic-button
             text="1:1 온라인 문의하기"
             borderRadius="4"
@@ -89,6 +102,16 @@
             />
             <!-- <v-icon color="#8f8f8f">{{ item.icon }}</v-icon> -->
           </div>
+          {{ item.name }}
+        </li>
+      </ul>
+      <ul class="qna-category-mobile">
+        <li
+          v-for="(item, index) in categoryData"
+          :key="index"
+          :class="{ active: item.type === activeType }"
+          @click="onTypeChange(item.type)"
+        >
           {{ item.name }}
         </li>
       </ul>
@@ -197,8 +220,11 @@
     margin-right: auto;
     vertical-align: top;
   }
-  .btn-position {
+  .btn-position-desktop {
     margin: 10px auto 41px auto;
+  }
+  .btn-position-mobile {
+    display: none;
   }
   .btn {
     width: 200px;
@@ -228,6 +254,9 @@
     width: 1180px;
     margin-bottom: 40px;
     color: #212121;
+  }
+  .qna-category-mobile {
+    display: none;
   }
   .icon-bg {
     display: flex;
@@ -298,5 +327,59 @@
   .qna-category > li.active .icon-bg > .icon-buy > span {
     color: white;
     border-color: white;
+  }
+
+  /** 모바일 화면 1200px 기준 ****************************************** */
+  @media (max-width: 1199px) {
+    .cs-service h2 {
+      font-size: 18px;
+      margin-bottom: 16px;
+    }
+    .cs-center-wrap {
+      padding: 19px 16px;
+      width: 100%;
+      height: 248px;
+    }
+    .cs-service {
+      width: 100%;
+    }
+    .cs-online {
+      display: none;
+    }
+    .btn-position-mobile {
+      display: block;
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .qna-wrap {
+      width: 100%;
+      padding: 16px;
+    }
+    .qna-wrap h2 {
+      font-size: 12px;
+      font-weight: normal;
+    }
+    .qna-category {
+      display: none;
+    }
+    .qna-category-mobile {
+      display: block;
+      border-bottom: 1px solid #dfdfdf;
+      overflow-x: auto;
+      white-space: nowrap;
+    }
+    .qna-category-mobile ul {
+      margin: 0 auto;
+    }
+    .qna-category-mobile li {
+      margin: 0;
+      padding: 16px 11px;
+      box-sizing: border-box;
+      font-size: 14px;
+      color: #666;
+      display: inline-block;
+      float: left;
+    }
   }
 </style>
