@@ -337,18 +337,26 @@
     }
     .cs-center-wrap {
       padding: 19px 16px;
+      box-sizing: border-box;
       width: 100%;
       height: 248px;
     }
     .cs-service {
       width: 100%;
     }
+    td {
+      padding: 4px;
+      margin: 0;
+    }
+    td:last-child {
+      padding-bottom: 0;
+    }
     .cs-online {
       display: none;
     }
     .btn-position-mobile {
       display: block;
-      margin-top: 24px;
+      margin: 24px 0;
       display: flex;
       justify-content: center;
     }
