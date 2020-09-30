@@ -2,8 +2,8 @@
   <div class="qna-body">
     <modal
       :modalProps="modalInfoQna"
-      :modalDisplay="modalOpen"
-      @modalClose="onModalClose"
+      v-if="modalTypeOnOff[3].onoff"
+      @close="modalOff('qna')"
     >
       <modal-qna />
     </modal>
@@ -31,7 +31,18 @@
       </div>
       <div class="cs-online">
         <headphones-icon class="headphone-icon" size="78" color="#ececec" />
-        <div class="btn" @click="onModalOpen()">1:1 온라인 문의하기</div>
+        <div class="btn-position">
+          <basic-button
+            text="1:1 온라인 문의하기"
+            borderRadius="4"
+            borderColor="#1673e6"
+            width="200"
+            height="42"
+            color="#1673e6"
+            backgroundColor="#fff"
+            @event="modalOn('qna')"
+          />
+        </div>
       </div>
     </div>
 
@@ -87,10 +98,11 @@
 </template>
 
 <script>
+  import { mapState, mapMutations } from "vuex"
+  import basicButton from "../../components/common/basicButton.vue"
   import modal from "../../components/modal/modal.vue"
   import modalQna from "../../components/modal/modalQna.vue"
   import qnaTab from "../../components/qnaContents/qnaTap.vue"
-  import { modalInfoQna } from "../../components/modal/modal.js"
   import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
   import {
     HeadphonesIcon,
@@ -104,13 +116,13 @@
   export default {
     data() {
       return {
-        modalInfoQna,
         categoryData: qnaCategory,
         activeType: "all",
         modalOpen: false
       }
     },
     components: {
+      basicButton,
       modal,
       modalQna,
       qnaTab,
@@ -121,18 +133,19 @@
       FileTextIcon,
       HeartIcon
     },
+    computed: {
+      /** store에서 각 데이터들 불러오는 부분 */
+      ...mapState("orderListModal", {
+        modalInfoQna: "modalInfoQna",
+        modalTypeOnOff: "modalTypeOpen"
+      })
+    },
     methods: {
       onTypeChange(type) {
         this.activeType = type
       },
-      onModalOpen() {
-        this.modalOpen = true
-        console.log(this.modalOpen)
-      },
-      onModalClose(a) {
-        this.modalOpen = a
-        console.log(a)
-      }
+      /** 모달 팝업 열고 닫는 함수 */
+      ...mapMutations("orderListModal", ["modalOn", "modalOff"])
     }
   }
 </script>
@@ -180,7 +193,12 @@
   }
   .cs-online .headphone-icon {
     margin-top: 4px;
+    margin-left: auto;
+    margin-right: auto;
     vertical-align: top;
+  }
+  .btn-position {
+    margin: 10px auto 41px auto;
   }
   .btn {
     width: 200px;
