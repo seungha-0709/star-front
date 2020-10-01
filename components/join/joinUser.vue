@@ -8,7 +8,8 @@
         width="107"
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/C03A309E-F2D5-428D-8CAF-946453B8A771.svg"
+          src="/img/image/group-3.png"
+          srcset="/img/image/group-3@2x.png 2x, /img/image/group-3@3x.png 3x"
           alt="email image"
           width="120px"
           height="120px"
@@ -25,7 +26,8 @@
         width="148"
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/A18A51C2-73CA-4D98-B0FD-9D120DB4C928.png"
+          src="/img/image/group-4.png"
+          srcset="/img/image/group-4@2x.png 2x, /img/image/group-4@3x.png 3x"
           alt="naver image"
           width="120px"
           height="120px"
@@ -42,7 +44,8 @@
         color="#423630"
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/C30E6689-3119-4347-8749-DD4ECED1C0FD.png"
+          src="/img/image/group-5.png"
+          srcset="/img/image/group-5@2x.png 2x, /img/image/group-5@3x.png 3x"
           alt="kakaotalk image"
           width="120px"
           height="120px"
@@ -57,12 +60,7 @@
 가입하기!"
         backgroundColor="#3a5998"
       >
-        <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/55D13F21-206E-47B0-86E0-B39601AD0758.png"
-          alt="facebook image"
-          width="120px"
-          height="120px"
-        />
+        <img src="alt" ="페이스북 로고" width="120px" height="120px" />
       </basic-join-user-card>
     </div>
   </div>

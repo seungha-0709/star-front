@@ -7,8 +7,9 @@
         확인하실 수 있습니다."
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/68A7DF9F-3BFD-4B8F-A8D9-BA8D3808DA4F.png"
-          alt="student image"
+          src="/img/image/group-3.png"
+          srcset="/img/image/group-3@2x.png 2x, /img/image/group-3@3x.png 3x"
+          alt="학생 이미지"
           width="120px"
           height="85px"
         />
@@ -24,7 +25,7 @@
       >
         <img
           src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/789034D3-E670-4A32-9912-E5AEBD1FFA55.png"
-          alt="parents image"
+          alt="학부모 이미지"
           width="120px"
           height="85px"
         />
@@ -39,7 +40,7 @@
       >
         <img
           src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/32B16243-3355-4A68-A261-B19C7BD3A98E.png"
-          alt="teacher image"
+          alt="강사 이미지"
           width="120px"
           height="85px"
         />
@@ -53,8 +54,8 @@
   "
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/7E896F2D-A9B4-4961-8058-114D5CE667DD.png"
-          alt="parents image"
+          src="/img/image/invalid-4.jpg"
+          alt="기업 이미지"
           width="120px"
           height="85px"
         />
