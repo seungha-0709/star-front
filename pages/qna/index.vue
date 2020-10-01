@@ -105,16 +105,18 @@
           {{ item.name }}
         </li>
       </ul>
-      <ul class="qna-category-mobile">
-        <li
-          v-for="(item, index) in categoryData"
-          :key="index"
-          :class="{ active: item.type === activeType }"
-          @click="onTypeChange(item.type)"
-        >
-          {{ item.name }}
-        </li>
-      </ul>
+      <div class="qna-category-mobile-wrap">
+        <ul class="qna-category-mobile">
+          <li
+            v-for="(item, index) in categoryData"
+            :key="index"
+            :class="{ active: item.type === activeType }"
+            @click="onTypeChange(item.type)"
+          >
+            {{ item.name }}
+          </li>
+        </ul>
+      </div>
       <qnaTab v-bind:tabType="activeType" />
     </div>
   </div>
@@ -367,14 +369,19 @@
     .qna-wrap h2 {
       font-size: 12px;
       font-weight: normal;
+      margin-bottom: 19px;
     }
     .qna-category {
       display: none;
     }
+    .qna-category-mobile-wrap {
+      height: 32px;
+      overflow: hidden;
+    }
     .qna-category-mobile {
       display: block;
       border-bottom: 1px solid #dfdfdf;
-      overflow-x: auto;
+      overflow: auto;
       white-space: nowrap;
     }
     .qna-category-mobile ul {
@@ -382,12 +389,11 @@
     }
     .qna-category-mobile li {
       margin: 0;
-      padding: 16px 11px;
+      padding: 0 16px 11px 16px;
       box-sizing: border-box;
       font-size: 14px;
       color: #666;
       display: inline-block;
-      float: left;
     }
   }
 </style>
