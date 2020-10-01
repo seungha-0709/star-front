@@ -7,8 +7,7 @@
         확인하실 수 있습니다."
       >
         <img
-          src="/img/image/group-3.png"
-          srcset="/img/image/group-3@2x.png 2x, /img/image/group-3@3x.png 3x"
+          src="/img/image/student.png"
           alt="학생 이미지"
           width="120px"
           height="85px"
@@ -24,7 +23,7 @@
 있습니다."
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/789034D3-E670-4A32-9912-E5AEBD1FFA55.png"
+          src="/img/image/parents.png"
           alt="학부모 이미지"
           width="120px"
           height="85px"
@@ -39,7 +38,7 @@
 있습니다."
       >
         <img
-          src="https://cdn.zeplin.io/5c9896e0ea78dc066bbc8cac/assets/32B16243-3355-4A68-A261-B19C7BD3A98E.png"
+          src="/img/image/teacher.png"
           alt="강사 이미지"
           width="120px"
           height="85px"
@@ -54,10 +53,10 @@
   "
       >
         <img
-          src="/img/image/invalid-4.jpg"
-          alt="기업 이미지"
-          width="120px"
-          height="85px"
+          src="/img/image/academy.png"
+          alt="학원 이미지"
+          width="86px"
+          height="76px"
         />
       </basic-join-select-card>
     </div>

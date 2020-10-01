@@ -8,8 +8,7 @@
         width="107"
       >
         <img
-          src="/img/image/group-3.png"
-          srcset="/img/image/group-3@2x.png 2x, /img/image/group-3@3x.png 3x"
+          src="/img/image/join_email.png"
           alt="email image"
           width="120px"
           height="120px"
@@ -26,9 +25,8 @@
         width="148"
       >
         <img
-          src="/img/image/group-4.png"
-          srcset="/img/image/group-4@2x.png 2x, /img/image/group-4@3x.png 3x"
-          alt="naver image"
+          src="/img/image/join_naver.png"
+          alt="네이버 로고"
           width="120px"
           height="120px"
         />
@@ -44,9 +42,8 @@
         color="#423630"
       >
         <img
-          src="/img/image/group-5.png"
-          srcset="/img/image/group-5@2x.png 2x, /img/image/group-5@3x.png 3x"
-          alt="kakaotalk image"
+          src="/img/image/join_kakao.png"
+          alt="카카오톡 로고"
           width="120px"
           height="120px"
         />
@@ -60,7 +57,12 @@
 가입하기!"
         backgroundColor="#3a5998"
       >
-        <img src="alt" ="페이스북 로고" width="120px" height="120px" />
+        <img
+          src="/img/image/join_facebook.png"
+          alt="페이스북 로고"
+          width="120px"
+          height="120px"
+        />
       </basic-join-user-card>
     </div>
   </div>
