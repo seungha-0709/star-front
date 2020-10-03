@@ -14,25 +14,23 @@ export default {
     modalInfoReceipt,
     modalInfoQna,
     modalInfoCoupon,
-    modalTypeOpen: [
-      { type: "order", onoff: false },
-      { type: "receipt", onoff: false },
-      { type: "cancel", onoff: false },
-      { type: "qna", onoff: false },
-      { type: "coupon", onoff: false }
-    ]
+    modalTypeOpen: {
+      order: { type: "order", onoff: false },
+      receipt: { type: "receipt", onoff: false },
+      cancel: { type: "cancel", onoff: false },
+      qna: { type: "qna", onoff: false },
+      coupon: { type: "coupon", onoff: false }
+    }
   }),
   getters: {},
   mutations: {
-    modalOff(state, type) {
+    modalOnOff(state, type) {
       const modalType = ["order", "receipt", "cancel", "qna", "coupon"]
       const index = modalType.indexOf(type)
-      if (index !== -1) state.modalTypeOpen[index].onoff = false
-    },
-    modalOn(state, type) {
-      const modalType = ["order", "receipt", "cancel", "qna", "coupon"]
-      const index = modalType.indexOf(type)
-      if (index !== -1) state.modalTypeOpen[index].onoff = true
+      console.log(type)
+      console.log(state.modalTypeOpen[type].onoff)
+      if (index !== -1)
+        state.modalTypeOpen[type].onoff = !state.modalTypeOpen[type].onoff
     }
   },
   actions: {}
