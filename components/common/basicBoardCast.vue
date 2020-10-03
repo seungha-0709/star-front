@@ -42,7 +42,7 @@
           :limit="tableList.limit"
           :tableHeaderCols="defaultTableSet.tableHeaderCols"
         />
-        <slot v-else></slot>
+        <slot v-if="differentContent" name="differentContent"></slot>
         <!-- 예외처리 -->
         <slot name="nullSet"></slot>
       </table>

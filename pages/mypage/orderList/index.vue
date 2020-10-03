@@ -10,14 +10,16 @@
         :blockSize="5"
         :differentContent="true"
       >
-        <order-list
-          v-for="(item, i) in computedListData"
-          :key="i"
-          :orderListData="item"
-          :isCancelRefund="item === true || item.refund === true"
-          @open="modalOn"
-          @id="modalId"
-        />
+        <template v-slot:differentContent>
+          <order-list
+            v-for="(item, i) in computedListData"
+            :key="i"
+            :orderListData="item"
+            :isCancelRefund="item === true || item.refund === true"
+            @open="modalOn"
+            @id="modalId"
+          />
+        </template>
       </basic-board-cast>
     </div>
 
