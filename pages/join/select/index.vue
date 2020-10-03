@@ -18,9 +18,9 @@
   </div>
 </template>
 <script>
-  import copyright from "../../../components/common/copyright"
   import basicJoinTitle from "../../../components/common/join/basicJoinTitle"
   import joinSelect from "../../../components/join/joinSelect"
+  import copyright from "../../../components/common/copyright"
   export default {
     layout: "contentOnly",
     components: {
