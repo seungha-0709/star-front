@@ -18,8 +18,6 @@
       fontSize="16"
       :backgroundColor="buttonHoverColor"
     />
-
-    <!-- hover O '#2c428d' : X '#3f60cc'" -->
   </div>
 </template>
 <script>
