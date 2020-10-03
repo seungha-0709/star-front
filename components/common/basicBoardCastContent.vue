@@ -1,7 +1,7 @@
 <template>
   <tbody class="noti-content">
     <tr v-for="(data, index) in content" :key="pageNumber(index)">
-      <td v-for="(item, itemIndex) in thCols" :key="itemIndex">
+      <td v-for="(item, itemIndex) in tableHeaderCols" :key="itemIndex">
         <div v-if="item === 'id'">{{ pageNumber(index) }}</div>
         <div v-if="item === 'date'">{{ data.date }}</div>
         <div v-if="item === 'title'">{{ data.title }}</div>
@@ -60,7 +60,7 @@
   import basicButton from "../common/basicButton.vue"
 
   export default {
-    props: ["content", "currentPage", "total", "limit", "thCols"],
+    props: ["content", "currentPage", "total", "limit", "tableHeaderCols"],
     components: {
       "basic-button": basicButton
     },

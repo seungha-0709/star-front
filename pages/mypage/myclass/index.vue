@@ -23,7 +23,10 @@
         <template v-slot:nullSet>
           <tbody v-if="myClassList.total === 0">
             <tr>
-              <td class="my-class-none" :colspan="myClassInfo.thTitle.length">
+              <td
+                class="my-class-none"
+                :colspan="myClassInfo.tableHeaderTitle.length"
+              >
                 <p>강의 목록이 존재하지 않습니다.</p>
                 <basic-button text="강의 상품 보러 가기" />
               </td>

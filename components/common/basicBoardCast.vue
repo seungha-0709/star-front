@@ -26,7 +26,7 @@
         <thead>
           <tr class="table-header">
             <th
-              v-for="(item, index) in defaultTableSet.thTitle"
+              v-for="(item, index) in defaultTableSet.tableHeaderTitle"
               :key="index"
               :style="{ width: defaultTableSet.tableColumnWidth[index] + 'px' }"
             >
@@ -40,7 +40,7 @@
           :currentPage="tableList.page"
           :total="tableList.total"
           :limit="tableList.limit"
-          :thCols="defaultTableSet.thCols"
+          :tableHeaderCols="defaultTableSet.tableHeaderCols"
         />
         <slot v-else></slot>
         <!-- 예외처리 -->
