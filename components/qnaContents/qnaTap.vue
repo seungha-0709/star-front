@@ -58,7 +58,7 @@
 <style scoped>
   .qna-title {
     border-top: 1px solid #dfdfdf;
-    width: 1120px;
+    width: 100%;
     height: 52px;
     font-size: 15px;
     color: #212121;
