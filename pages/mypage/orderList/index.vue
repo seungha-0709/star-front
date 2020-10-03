@@ -70,7 +70,7 @@
   import modalReceipt from "../../../components/modal/modalReceipt.vue"
   import modalCancel from "../../../components/modal/modalCancel.vue"
   import modalQna from "../../../components/modal/modalQna.vue"
-  import sidebarTemporal from "../../../components/myPage/sidebarTemporal"
+  import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   import basicBoardCast from "../../../components/common/basicBoardCast.vue"
   import orderList from "../../../components/orderList/orderList.vue"
   import { paymentInfo } from "../../../components/orderList/payment.js"

@@ -19,7 +19,7 @@
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   // 알림 list data
   import { notificationLists } from "../../../components/myPage/notificationLists.js"
-  import { myNoticeInfo } from "../../../components/myPageBoard"
+  import { myNoticeInfo } from "../../../components/myPageBoard.js"
 
   export default {
     data() {
