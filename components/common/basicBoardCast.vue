@@ -35,7 +35,11 @@
           </tr>
         </thead>
         <basic-board-cast-content
-          v-if="!differentContent && tableList.total !== 0"
+          v-if="
+            !differentContent &&
+            tableList.total !== 0 &&
+            typeof tableList.total === 'number'
+          "
           :content="computedListData"
           :currentPage="tableList.page"
           :total="tableList.total"
@@ -46,7 +50,13 @@
         <!-- 예외처리 -->
         <slot name="nullSet"></slot>
       </table>
-      <div v-if="defaultTableSet.pagination && tableList.total !== 0">
+      <div
+        v-if="
+          defaultTableSet.pagination &&
+          tableList.total !== 0 &&
+          typeof tableList.total === 'number'
+        "
+      >
         <pagination
           :currentPage="tableList.page"
           :total="tableList.total"

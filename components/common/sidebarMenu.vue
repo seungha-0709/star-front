@@ -29,9 +29,7 @@
     },
     computed: {
       sidebarPath() {
-        return (link) => {
-          return this.$route.path === link
-        }
+        return (link) => this.$route.path === link
       }
     }
   }
