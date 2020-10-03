@@ -27,8 +27,6 @@ export default {
     modalOnOff(state, type) {
       const modalType = ["order", "receipt", "cancel", "qna", "coupon"]
       const index = modalType.indexOf(type)
-      console.log(type)
-      console.log(state.modalTypeOpen[type].onoff)
       if (index !== -1)
         state.modalTypeOpen[type].onoff = !state.modalTypeOpen[type].onoff
     }
