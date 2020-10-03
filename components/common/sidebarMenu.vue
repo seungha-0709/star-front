@@ -6,7 +6,11 @@
         <h4 class="menu-title">{{ title }}</h4>
       </div>
       <ul class="menu-list">
-        <li v-for="(item, index) in menu" :key="index">
+        <li
+          v-for="(item, index) in menu"
+          :key="index"
+          :class="{ on: sidebarPath(item.link) }"
+        >
           <nuxt-link :to="item.link"> {{ item.title }}</nuxt-link>
         </li>
       </ul>
@@ -21,6 +25,11 @@
       },
       menu: {
         default: []
+      }
+    },
+    computed: {
+      sidebarPath() {
+        return (link) => this.$route.path === link
       }
     }
   }
@@ -63,7 +72,8 @@
     color: #212121;
     text-decoration: none;
   }
-  .sidebar-menu .menu-list li a:hover {
+  .sidebar-menu .menu-list li a:hover,
+  .sidebar-menu .menu-list li.on a {
     color: #3f60cc;
   }
 </style>

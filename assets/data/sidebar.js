@@ -5,9 +5,9 @@ export const myPageMenu = [
 ]
 
 export const myShoppingMenu = [
-  { title: "알림", link: "" },
-  { title: "내 강의보기", link: "" },
-  { title: "거래내역", link: "" },
-  { title: "장바구니", link: "store/cart" },
+  { title: "알림", link: "/mypage/notification" },
+  { title: "내 강의보기", link: "/mypage/myclass" },
+  { title: "거래내역", link: "/mypage/orderlist" },
+  { title: "장바구니", link: "/store/cart" },
   { title: "1:1 문의", link: "" }
 ]

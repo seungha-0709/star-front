@@ -1,23 +1,38 @@
 <template>
   <tbody class="noti-content">
     <tr v-for="(data, index) in content" :key="pageNumber(index)">
-      <td>{{ pageNumber(index) }}</td>
-      <td v-if="data.date">{{ data.date }}</td>
-      <td v-if="data.title" class="noti-title">{{ data.title }}</td>
-      <td v-if="data.sender">{{ data.sender }}</td>
-      <td v-if="data.delete">
-        <basic-button
-          text="삭제하기"
-          width="74"
-          height="28"
-          color="#212121"
-          fontSize="14"
-          borderRadius="4"
-          backgroundColor="#ffffff"
-          borderColor="#dfdfdf"
-          :fontWeight="400"
-          v-on:event="removeItem(index)"
-        />
+      <td v-for="(item, itemIndex) in tableHeaderCols" :key="itemIndex">
+        <div v-if="item === 'id'">{{ pageNumber(index) }}</div>
+        <div v-if="item === 'date'">{{ data.date }}</div>
+        <div v-if="item === 'title'">{{ data.title }}</div>
+        <div v-if="item === 'sender'">{{ data.sender }}</div>
+        <div v-if="item === 'delete'">
+          <basic-button
+            text="삭제하기"
+            width="74"
+            height="28"
+            color="#212121"
+            fontSize="14"
+            borderRadius="4"
+            backgroundColor="#ffffff"
+            borderColor="#dfdfdf"
+            :fontWeight="400"
+            v-on:event="removeItem(index)"
+          />
+        </div>
+        <div v-if="item === 'status'">
+          <basic-button
+            :text="computedColumnStatus(data.status).title"
+            fontSize="12"
+            width="64"
+            height="28"
+            :color="computedColumnStatus(data.status).fontColor"
+            :borderColor="computedColumnStatus(data.status).borderColor"
+            borderRadius="4"
+            backgroundColor="#fff"
+            :style="{ pointerEvents: 'none' }"
+          />
+        </div>
       </td>
     </tr>
   </tbody>
@@ -25,8 +40,9 @@
 
 <script>
   import basicButton from "../common/basicButton.vue"
+
   export default {
-    props: ["content", "currentPage", "total", "limit"],
+    props: ["content", "currentPage", "total", "limit", "tableHeaderCols"],
     components: {
       "basic-button": basicButton
     },
@@ -34,6 +50,29 @@
       pageNumber() {
         return (index) => {
           return this.total - (this.currentPage - 1) * this.limit - index
+        }
+      },
+      computedColumnStatus() {
+        return (status) => {
+          if (status === "future") {
+            return {
+              title: "수강예정",
+              fontColor: "#ffb00f",
+              borderColor: "#ffb00f"
+            }
+          } else if (status === "now") {
+            return {
+              title: "수강중",
+              fontColor: "#b0c93d",
+              borderColor: "#b0c93d"
+            }
+          } else if (status === "past") {
+            return {
+              title: "수강완료",
+              fontColor: "#e13a3a",
+              borderColor: "#e13a3a"
+            }
+          }
         }
       }
     },
