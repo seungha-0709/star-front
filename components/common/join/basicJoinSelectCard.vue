@@ -1,8 +1,8 @@
 <template>
   <div
     class="select-card"
-    v-on:mouseenter="hoverState = true"
-    v-on:mouseleave="hoverState = false"
+    @mouseenter="handleCardOnOff"
+    @mouseleave="handleCardOnOff"
   >
     <div class="type-img">
       <slot />
@@ -14,17 +14,21 @@
       text="선택하기"
       width="140"
       borderRadius="31"
-      :backgroundColor="hoverState ? '#2c428d' : '#3f60cc'"
       fontWeight="400"
       fontSize="16"
+      :backgroundColor="buttonHoverColor"
     />
+
+    <!-- hover O '#2c428d' : X '#3f60cc'" -->
   </div>
 </template>
 <script>
   import basicButton from "../basicButton.vue"
   export default {
     data() {
-      return {}
+      return {
+        hoverState: false
+      }
     },
     props: {
       type: {
@@ -34,8 +38,18 @@
         default: ""
       }
     },
+    computed: {
+      buttonHoverColor() {
+        return this.hoverState ? "#2c428d" : "#3f60cc"
+      }
+    },
     components: {
       "basic-button": basicButton
+    },
+    methods: {
+      handleCardOnOff() {
+        return (this.hoverState = !this.hoverState)
+      }
     }
   }
 </script>
