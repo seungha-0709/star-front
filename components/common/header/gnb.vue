@@ -71,6 +71,7 @@
     font-size: 16px;
     color: #666;
     margin-right: 22px;
+    white-space: nowrap;
   }
   nav .menu-list > li.active {
     position: relative;

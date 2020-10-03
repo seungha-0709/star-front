@@ -34,7 +34,9 @@ module.exports = {
   build: {
     transpile: [/^vuetify/],
     plugins: [new VuetifyLoaderPlugin()],
-    extractCSS: true,
+    extractCSS: {
+      ignoreOrder: true
+    },
     extend(config, ctx) {
       // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {

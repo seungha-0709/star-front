@@ -110,7 +110,6 @@
     font-size: 24px;
     font-weight: bold;
     text-align: center;
-    margin: 40px;
   }
   h2 {
     margin-top: 35px;
