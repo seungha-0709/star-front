@@ -22,30 +22,12 @@
         </div>
         <div v-if="item === 'status'">
           <basic-button
-            :text="
-              data.status === 'future'
-                ? '수강예정'
-                : data.status === 'now'
-                ? '수강중'
-                : '수강완료'
-            "
+            :text="computedColumnStatus(data.status).title"
             fontSize="12"
             width="64"
             height="28"
-            :color="
-              data.status === 'future'
-                ? '#ffb00f'
-                : data.status === 'now'
-                ? '#b0c93d'
-                : '#e13a3a'
-            "
-            :borderColor="
-              data.status === 'future'
-                ? '#ffb00f'
-                : data.status === 'now'
-                ? '#b0c93d'
-                : '#e13a3a'
-            "
+            :color="computedColumnStatus(data.status).fontColor"
+            :borderColor="computedColumnStatus(data.status).borderColor"
             borderRadius="4"
             backgroundColor="#fff"
             :style="{ pointerEvents: 'none' }"
@@ -68,6 +50,29 @@
       pageNumber() {
         return (index) => {
           return this.total - (this.currentPage - 1) * this.limit - index
+        }
+      },
+      computedColumnStatus() {
+        return (status) => {
+          if (status === "future") {
+            return {
+              title: "수강예정",
+              fontColor: "#ffb00f",
+              borderColor: "#ffb00f"
+            }
+          } else if (status === "now") {
+            return {
+              title: "수강중",
+              fontColor: "#b0c93d",
+              borderColor: "#b0c93d"
+            }
+          } else if (status === "past") {
+            return {
+              title: "수강완료",
+              fontColor: "#e13a3a",
+              borderColor: "#e13a3a"
+            }
+          }
         }
       }
     },
