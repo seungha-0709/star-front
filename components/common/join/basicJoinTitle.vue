@@ -1,10 +1,7 @@
 <template>
   <div class="basic-join">
     <div class="logo">
-      <img
-        src="https://d1ta1myjmiqbpz.cloudfront.net/static/images/logo/logo_square_gray.png"
-        alt="logo"
-      />
+      <img src="/img/logo/logo_square_gray.png" alt="별별선생 로고" />
     </div>
     <div class="join-title">
       <span class="starteacher">{{ title }} </span>
