@@ -12,31 +12,31 @@
 </template>
 
 <script>
-  import modal from "../../components/modal/modal.vue"
-  import modalCancel from "../../components/modal/modalCancel.vue"
-  import { modalInfoCancel } from "../../components/modal/modal.js"
+import modal from "../../components/modal/modal.vue"
+import modalCancel from "../../components/modal/modalCancel.vue"
+import { modalInfoCancel } from "../../assets/data/modal.js"
 
-  export default {
-    data() {
-      return {
-        modalInfoCancel,
-        modalOpen: false
-      }
+export default {
+  data() {
+    return {
+      modalInfoCancel,
+      modalOpen: false
+    }
+  },
+  components: {
+    modal,
+    modalCancel
+  },
+  methods: {
+    onModalOpen() {
+      this.modalOpen = true
+      console.log(this.modalOpen)
     },
-    components: {
-      modal,
-      modalCancel
-    },
-    methods: {
-      onModalOpen() {
-        this.modalOpen = true
-        console.log(this.modalOpen)
-      },
-      onModalClose(value) {
-        this.modalOpen = value
-      }
+    onModalClose(value) {
+      this.modalOpen = value
     }
   }
+}
 </script>
 
 <style scoped></style>

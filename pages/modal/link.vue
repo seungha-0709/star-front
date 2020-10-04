@@ -60,55 +60,55 @@
 </template>
 
 <script>
-  import btn from "../../components/common/btn.vue"
-  import modal from "../../components/modal/modal.vue"
-  import modalOrder from "../../components/modal/modalOrder.vue"
-  import modalReceipt from "../../components/modal/modalReceipt.vue"
-  import modalCancel from "../../components/modal/modalCancel.vue"
-  import {
-    modalInfoCancel,
-    modalInfoOrder,
-    modalInfoReceipt
-  } from "../../components/modal/modal.js"
+import btn from "../../components/common/btn.vue"
+import modal from "../../components/modal/modal.vue"
+import modalOrder from "../../components/modal/modalOrder.vue"
+import modalReceipt from "../../components/modal/modalReceipt.vue"
+import modalCancel from "../../components/modal/modalCancel.vue"
+import {
+  modalInfoCancel,
+  modalInfoOrder,
+  modalInfoReceipt
+} from "../../assets/data/modal.js"
 
-  export default {
-    data() {
-      return {
-        modalInfoCancel,
-        modalInfoOrder,
-        modalInfoReceipt,
-        modalOrderOpen: false,
-        modalReceiptOpen: false,
-        modalCancelOpen: false
-      }
+export default {
+  data() {
+    return {
+      modalInfoCancel,
+      modalInfoOrder,
+      modalInfoReceipt,
+      modalOrderOpen: false,
+      modalReceiptOpen: false,
+      modalCancelOpen: false
+    }
+  },
+  components: {
+    btn,
+    modal,
+    modalOrder,
+    modalReceipt,
+    modalCancel
+  },
+  methods: {
+    /** 모달 팝업 열고 닫는 기능 함수 */
+    onModalOrderOpen() {
+      this.modalOrderOpen = true
     },
-    components: {
-      btn,
-      modal,
-      modalOrder,
-      modalReceipt,
-      modalCancel
+    onModalOrderClose(value) {
+      this.modalOrderOpen = value
     },
-    methods: {
-      /** 모달 팝업 열고 닫는 기능 함수 */
-      onModalOrderOpen() {
-        this.modalOrderOpen = true
-      },
-      onModalOrderClose(value) {
-        this.modalOrderOpen = value
-      },
-      onModalReceiptOpen() {
-        this.modalReceiptOpen = true
-      },
-      onModalReceiptClose(value) {
-        this.modalReceiptOpen = value
-      },
-      onModalCancelOpen() {
-        this.modalCancelOpen = true
-      },
-      onModalCancelClose(value) {
-        this.modalCancelOpen = value
-      }
+    onModalReceiptOpen() {
+      this.modalReceiptOpen = true
+    },
+    onModalReceiptClose(value) {
+      this.modalReceiptOpen = value
+    },
+    onModalCancelOpen() {
+      this.modalCancelOpen = true
+    },
+    onModalCancelClose(value) {
+      this.modalCancelOpen = value
     }
   }
+}
 </script>

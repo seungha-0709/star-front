@@ -12,30 +12,30 @@
 </template>
 
 <script>
-  import modal from "../../components/modal/modal.vue"
-  import modalOrder from "../../components/modal/modalOrder.vue"
-  import { modalInfoOrder } from "../../components/modal/modal.js"
+import modal from "../../components/modal/modal.vue"
+import modalOrder from "../../components/modal/modalOrder.vue"
+import { modalInfoOrder } from "../../assets/data/modal.js"
 
-  export default {
-    data() {
-      return {
-        modalInfoOrder,
-        modalOpen: false
-      }
+export default {
+  data() {
+    return {
+      modalInfoOrder,
+      modalOpen: false
+    }
+  },
+  components: {
+    modal,
+    modalOrder
+  },
+  methods: {
+    onModalOpen() {
+      this.modalOpen = true
     },
-    components: {
-      modal,
-      modalOrder
-    },
-    methods: {
-      onModalOpen() {
-        this.modalOpen = true
-      },
-      onModalClose(value) {
-        this.modalOpen = value
-      }
+    onModalClose(value) {
+      this.modalOpen = value
     }
   }
+}
 </script>
 
 <style scoped></style>

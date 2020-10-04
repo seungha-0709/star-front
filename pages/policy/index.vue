@@ -36,7 +36,7 @@
 import { ChevronDownIcon } from "vue-feather-icons"
 import tab from "../../components/policyTab.vue"
 import menuModal from "../../components/modal/menuModal.vue"
-import { tabData } from "../../components/modal/menuModal.js"
+import { tabData } from "../../assets/data/menuModal.js"
 
 export default {
   data() {

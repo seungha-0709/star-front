@@ -4,7 +4,7 @@ import {
   modalInfoReceipt,
   modalInfoQna,
   modalInfoCoupon
-} from "../../components/modal/modal.js"
+} from "../../assets/data/modal.js"
 
 export default {
   namespaced: true,

@@ -12,31 +12,31 @@
 </template>
 
 <script>
-  import modal from "../../components/modal/modal.vue"
-  import modalReceipt from "../../components/modal/modalReceipt.vue"
-  import { modalInfoReceipt } from "../../components/modal/modal.js"
+import modal from "../../components/modal/modal.vue"
+import modalReceipt from "../../components/modal/modalReceipt.vue"
+import { modalInfoReceipt } from "../../assets/data/modal.js"
 
-  export default {
-    data() {
-      return {
-        modalInfoReceipt,
-        modalOpen: false
-      }
+export default {
+  data() {
+    return {
+      modalInfoReceipt,
+      modalOpen: false
+    }
+  },
+  components: {
+    modal,
+    modalReceipt
+  },
+  methods: {
+    onModalOpen() {
+      this.modalOpen = true
+      console.log(this.modalOpen)
     },
-    components: {
-      modal,
-      modalReceipt
-    },
-    methods: {
-      onModalOpen() {
-        this.modalOpen = true
-        console.log(this.modalOpen)
-      },
-      onModalClose(value) {
-        this.modalOpen = value
-      }
+    onModalClose(value) {
+      this.modalOpen = value
     }
   }
+}
 </script>
 
 <style scoped></style>
