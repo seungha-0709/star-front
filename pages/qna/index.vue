@@ -130,7 +130,7 @@ import basicButton from "../../components/common/basicButton.vue"
 import modal from "../../components/modal/modal.vue"
 import modalQna from "../../components/modal/modalQna.vue"
 import qnaTab from "../../components/qnaContents/qnaTap.vue"
-import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
+import { qnaCategory } from "../../assets/data/qnaCategory.js"
 import {
   HeadphonesIcon,
   MapPinIcon,

@@ -24,82 +24,82 @@
 </template>
 
 <script>
-  import { qnaList } from "../../components/qnaContents/qnaList.js"
+import { qnaList } from "../../assets/data/qnaList.js"
 
-  export default {
-    props: ["tabType"],
-    data() {
-      return { qnaList, qnaListActiveIndex: null }
-    },
-    computed: {
-      qnaListType() {
-        if (this.tabType === "all") return qnaList.qnaListMain
-        if (this.tabType === "buy") return qnaList.qnaListBuy
-        if (this.tabType === "logistics") return qnaList.qnaListLogistics
-        if (this.tabType === "cancel") return qnaList.qnaListCancel
-        if (this.tabType === "exchange") return qnaList.qnaListExchange
-        if (this.tabType === "receipt") return qnaList.qnaListReceipt
-        return qnaList.qnaListEtc
-      }
-    },
-    watch: {
-      qnaListType() {
-        this.qnaListActiveIndex = null
-      }
-    },
-    methods: {
-      onClassChange(i) {
-        this.qnaListActiveIndex = this.qnaListActiveIndex === i ? null : i
-      }
+export default {
+  props: ["tabType"],
+  data() {
+    return { qnaList, qnaListActiveIndex: null }
+  },
+  computed: {
+    qnaListType() {
+      if (this.tabType === "all") return qnaList.qnaListMain
+      if (this.tabType === "buy") return qnaList.qnaListBuy
+      if (this.tabType === "logistics") return qnaList.qnaListLogistics
+      if (this.tabType === "cancel") return qnaList.qnaListCancel
+      if (this.tabType === "exchange") return qnaList.qnaListExchange
+      if (this.tabType === "receipt") return qnaList.qnaListReceipt
+      return qnaList.qnaListEtc
+    }
+  },
+  watch: {
+    qnaListType() {
+      this.qnaListActiveIndex = null
+    }
+  },
+  methods: {
+    onClassChange(i) {
+      this.qnaListActiveIndex = this.qnaListActiveIndex === i ? null : i
     }
   }
+}
 </script>
 
 <style scoped>
-  .qna-title {
-    border-top: 1px solid #dfdfdf;
-    width: 100%;
-    height: 52px;
-    font-size: 15px;
-    color: #212121;
-    padding: 15px;
-  }
-  .qna-wrap:first-child .qna-title {
-    border: 0;
-  }
+.qna-title {
+  border-top: 1px solid #dfdfdf;
+  width: 100%;
+  height: 52px;
+  font-size: 15px;
+  color: #212121;
+  padding: 15px;
+}
+.qna-wrap:first-child .qna-title {
+  border: 0;
+}
 
-  .qna-title.active {
-    background-color: #f6f8fc;
-    color: #1673e6;
-    font-weight: bold;
-  }
-  .qna-q-circle {
-    width: 24px;
-    height: 24px;
-    border-radius: 12px;
-    display: inline-block;
-    background-color: #dfdfdf;
-    color: #666;
-    text-align: center;
-    line-height: 2;
-    font-size: 12px;
-    font-weight: bold;
-  }
-  .qna-title.active .qna-q-circle {
-    background-color: #1673e6;
-    color: #fff;
-  }
-  .qna-nav-icon {
-    float: right;
-    transition: 0.5s;
-  }
-  .qna-title.active .qna-nav-icon {
-    transform: rotate(180deg);
-  }
-  .qna-content {
-    background-color: #f6f8fc;
-    color: #212121;
-    font-size: 14px;
-    padding: 16px 16px 32px 16px;
-  }
+.qna-title.active {
+  background-color: #f6f8fc;
+  color: #1673e6;
+  font-weight: bold;
+}
+.qna-q-circle {
+  width: 24px;
+  height: 24px;
+  border-radius: 12px;
+  display: inline-block;
+  background-color: #dfdfdf;
+  color: #666;
+  text-align: center;
+  line-height: 2;
+  font-size: 12px;
+  font-weight: bold;
+}
+.qna-title.active .qna-q-circle {
+  background-color: #1673e6;
+  color: #fff;
+}
+.qna-nav-icon {
+  float: right;
+  transition: 0.5s;
+}
+.qna-title.active .qna-nav-icon {
+  transform: rotate(180deg);
+}
+.qna-content {
+  background-color: #f6f8fc;
+  color: #212121;
+  font-size: 14px;
+  padding: 16px 16px 32px 16px;
+}
 </style>
