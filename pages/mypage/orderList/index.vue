@@ -16,7 +16,7 @@
             :key="i"
             :orderListData="item"
             :isCancelRefund="item === true || item.refund === true"
-            @open="modalOn"
+            @open="modalOnOff"
             @id="modalId"
           />
         </template>
@@ -25,8 +25,8 @@
 
     <modal
       :modalProps="modalInfoOrder"
-      v-if="modalTypeOnOff[0].onoff"
-      @close="modalOff('order')"
+      v-if="modalTypeOnOff.order.onoff"
+      @close="modalOnOff('order')"
     >
       <modal-order
         :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
@@ -35,8 +35,8 @@
 
     <modal
       :modalProps="modalInfoReceipt"
-      v-if="modalTypeOnOff[1].onoff"
-      @close="modalOff('receipt')"
+      v-if="modalTypeOnOff.receipt.onoff"
+      @close="modalOnOff('receipt')"
     >
       <modal-receipt
         :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
@@ -45,8 +45,8 @@
 
     <modal
       :modalProps="modalInfoCancel"
-      v-if="modalTypeOnOff[2].onoff"
-      @close="modalOff('cancel')"
+      v-if="modalTypeOnOff.cancel.onoff"
+      @close="modalOnOff('cancel')"
     >
       <modal-cancel
         :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
@@ -55,8 +55,8 @@
 
     <modal
       :modalProps="modalInfoQna"
-      v-if="modalTypeOnOff[3].onoff"
-      @close="modalOff('qna')"
+      v-if="modalTypeOnOff.qna.onoff"
+      @close="modalOnOff('qna')"
     >
       <modal-qna
         :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
@@ -117,7 +117,7 @@
       modalId(id) {
         this.modalIndex = id
       },
-      ...mapMutations("orderListModal", ["modalOn", "modalOff"])
+      ...mapMutations("orderListModal", ["modalOnOff"])
     }
   }
 </script>
