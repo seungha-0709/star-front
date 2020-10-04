@@ -42,9 +42,7 @@
     data() {
       return {
         isMenuOnoff: false,
-        activeType: `${
-          this.$route.query.tab ? this.$route.query.tab : "service"
-        }`,
+        activeType: `${this.$route.query.tab || "service"}`,
         tabData
       }
     },
