@@ -53,7 +53,7 @@ import basicButton from "../../../components/common/basicButton.vue"
 import modal from "../../../components/modal/modal.vue"
 import modalRegisterCoupon from "../../../components/modal/modalRegisterCoupon.vue"
 import { myClassList } from "../../../assets/data/myClassList.js"
-import { myClassInfo } from "../../../components/myPageBoard.js"
+import { myClassInfo } from "../../../assets/data/myPageBoard.js"
 
 export default {
   data() {
