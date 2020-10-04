@@ -16,7 +16,7 @@
               borderColor="#1673e6"
               backgroundColor="#fff"
               color="#1673e6"
-              @event="modalOn('coupon')"
+              @event="modalOnOff('coupon')"
             />
           </div>
         </template>
@@ -37,8 +37,8 @@
     </div>
     <modal
       :modalProps="modalInfoCoupon"
-      v-if="modalTypeOnOff[4].onoff"
-      @close="modalOff('coupon')"
+      v-if="modalTypeOnOff.coupon.onoff"
+      @close="modalOnOff('coupon')"
     >
       <modal-register-coupon />
     </modal>
@@ -77,7 +77,7 @@
       })
     },
     methods: {
-      ...mapMutations("orderListModal", ["modalOn", "modalOff"])
+      ...mapMutations("orderListModal", ["modalOnOff"])
     }
   }
 </script>
