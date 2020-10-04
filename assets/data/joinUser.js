@@ -50,3 +50,52 @@ export const joinUserCardInfo = [
     }
   }
 ]
+
+export const joinSelectCardInfo = [
+  {
+    name: "student",
+    type: "학생",
+    description: "리뷰작성과 함께 모든 선생님들의 리뷰를 확인하실 수 있습니다.",
+    img: {
+      src: "/img/image/student.png",
+      alt: "학생 이미지",
+      width: "120px",
+      height: "85px"
+    }
+  },
+  {
+    name: "parent",
+    type: "학부모",
+    description:
+      "리뷰작성과 함께 우리 아이의 선생님과 유치원, 어린이집의 리뷰를 확인하실 수 있습니다.",
+    img: {
+      src: "/img/image/parents.png",
+      alt: "학부모 이미지",
+      width: "120px",
+      height: "85px"
+    }
+  },
+  {
+    name: "teacher",
+    type: "선생님 / 교수님",
+    description:
+      "세상 가장 쉬운 방법으로 우리 학생들과 소통을 할 수 도, 내 강의를 등록할 수도 있습니다.",
+    img: {
+      src: "/img/image/teacher.png",
+      alt: "강사 이미지",
+      width: "120px",
+      height: "85px"
+    }
+  },
+  {
+    name: "academy",
+    type: "학원/유치원 등 기업회원",
+    description: "소속 강사, 학생 관리 서비스를 이용하실 수 있습니다.",
+    img: {
+      src: "/img/image/academy.png",
+      alt: "학원 이미지",
+      width: "120px",
+      height: "85px"
+    }
+  }
+]
