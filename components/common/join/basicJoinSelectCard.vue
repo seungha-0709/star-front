@@ -12,10 +12,10 @@
     <basic-button
       class="join-select-card-button"
       text="선택하기"
-      width="140"
-      borderRadius="31"
+      width="140px"
+      borderRadius="31px"
       fontWeight="400"
-      fontSize="16"
+      fontSize="16px"
       :backgroundColor="buttonHoverColor"
     />
   </div>

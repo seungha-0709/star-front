@@ -9,11 +9,11 @@
         <div v-if="item === 'delete'">
           <basic-button
             text="삭제하기"
-            width="74"
-            height="28"
+            width="74px"
+            height="28px"
             color="#212121"
-            fontSize="14"
-            borderRadius="4"
+            fontSize="14px"
+            borderRadius="4px"
             backgroundColor="#ffffff"
             borderColor="#dfdfdf"
             :fontWeight="400"
@@ -23,12 +23,12 @@
         <div v-if="item === 'status'">
           <basic-button
             :text="computedColumnStatus(data.status).title"
-            fontSize="12"
-            width="64"
-            height="28"
+            fontSize="12px"
+            width="64px"
+            height="28px"
             :color="computedColumnStatus(data.status).fontColor"
             :borderColor="computedColumnStatus(data.status).borderColor"
-            borderRadius="4"
+            borderRadius="4px"
             backgroundColor="#fff"
             :style="{ pointerEvents: 'none' }"
           />
