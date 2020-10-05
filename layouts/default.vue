@@ -12,6 +12,8 @@
 </template>
 
 <script>
+  import { mapActions } from "vuex"
+
   import headerVue from "../components/common/header/index.vue"
   import footerVue from "../components/common/footer.vue"
   import goTopVue from "../components/common/goTop.vue"
@@ -24,6 +26,12 @@
       "header-component": headerVue,
       "footer-component": footerVue,
       "go-top-component": goTopVue
+    },
+    methods: {
+      ...mapActions(["AC_ISSUE_TOKEN"])
+    },
+    mounted() {
+      this.AC_ISSUE_TOKEN()
     }
   }
 </script>
