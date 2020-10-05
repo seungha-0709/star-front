@@ -26,6 +26,10 @@ module.exports = {
       }
     ]
   },
+  modules: ["@nuxtjs/axios"],
+  axios: {
+    baseURL: process.env.API_URL || "http://localhost:5000/v1"
+  },
   plugins: ["~/plugins/vuetify.js"],
   css: ["~/assets/style/app.styl", "~/assets/style/reset.css"],
   /* Customize the progress bar color */
