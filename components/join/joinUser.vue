@@ -5,7 +5,7 @@
         type="이메일로 회원가입"
         description="사용하는 이메일로
 가입하기!"
-        width="107"
+        width="107px"
       >
         <img
           src="/img/image/join_email.png"
@@ -22,7 +22,7 @@
         description="사용하는 네이버 계정으로
 가입하기!"
         backgroundColor="#3ec728"
-        width="148"
+        width="148px"
       >
         <img
           src="/img/image/join_naver.png"

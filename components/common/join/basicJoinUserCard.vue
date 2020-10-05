@@ -12,7 +12,7 @@
     <div class="type-name">{{ type }}</div>
     <p
       :style="{
-        width: width + 'px'
+        width: width
       }"
       class="description"
     >
@@ -36,7 +36,7 @@
         default: "#ffffff"
       },
       width: {
-        default: 161
+        default: "161px"
       }
     }
   }
