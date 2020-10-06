@@ -28,7 +28,7 @@
             <th
               v-for="(item, index) in defaultTableSet.tableHeaderTitle"
               :key="index"
-              :style="{ width: defaultTableSet.tableColumnWidth[index] + 'px' }"
+              :style="{ width: defaultTableSet.tableColumnWidth[index] }"
             >
               {{ item }}
             </th>
