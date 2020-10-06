@@ -41,11 +41,11 @@
     <btn
       color="#212121"
       backgroundColor="#fff"
-      borderRadius="4"
+      borderRadius="4px"
       borderColor="#dfdfdf"
-      fontSize="14"
-      width="102"
-      height="28"
+      fontSize="14px"
+      width="102px"
+      height="28px"
     >
       <span @click="onModalCancelOpen">취소/환불 신청</span>
     </btn>
