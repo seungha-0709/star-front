@@ -7,10 +7,16 @@
       <global-nav-bar></global-nav-bar>
       <btn-link-store></btn-link-store>
       <div class="service-box">
-        <btn-service v-bind:margin-right="20" v-bind:on-click="onClickEvent1">
+        <btn-service
+          v-bind:margin-right="20 + 'px'"
+          v-bind:on-click="onClickEvent1"
+        >
           <search-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
         </btn-service>
-        <btn-service v-bind:margin-right="20" v-bind:on-click="onClickEvent2">
+        <btn-service
+          v-bind:margin-right="20 + 'px'"
+          v-bind:on-click="onClickEvent2"
+        >
           <shopping-bag-icon
             size="14"
             class="icon-style"
