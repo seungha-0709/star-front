@@ -21,6 +21,7 @@
           <bell-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
         </btn-service>
       </div>
+      <!-- <btn-service> margin-right 에 px 붙이면 parsing error    -->
       <v-avatar size="32">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
       </v-avatar>
