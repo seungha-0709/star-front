@@ -23,7 +23,7 @@
 <script>
 import shopBestItem from "../../components/shopBest/shopBestItem.vue"
 import selectBox from "../../components/shopBest/selectBox.vue"
-import { shopBestList } from "../../assets/data/shopBestList.js"
+import { shopBestList } from "../../assets/data/shop/shopBestList.js"
 import { shopBestSelectBox } from "../../assets/data/selectCreteria.js"
 
 export default {

@@ -12,40 +12,40 @@
   </div>
 </template>
 <script>
-  // 좌측 사이드바 메뉴 컴포넌트
-  import sidebarMenu from "../common/sidebarMenu.vue"
-  // 사이드바 메뉴 하단 로그아웃 상태 컴포넌트
-  import statusLog from "../common/statusLog.vue"
-  // 사이드바 메뉴 서브타이틀 데이터
-  import { myPageMenu, myShoppingMenu } from "../../assets/data/sidebar"
-  // 사이드바 메뉴 타이틀 아이콘
-  import { UserIcon, ShoppingBagIcon } from "vue-feather-icons"
+// 좌측 사이드바 메뉴 컴포넌트
+import sidebarMenu from "../common/sidebarMenu.vue"
+// 사이드바 메뉴 하단 로그아웃 상태 컴포넌트
+import statusLog from "../common/statusLog.vue"
+// 사이드바 메뉴 서브타이틀 데이터
+import { myPageMenu, myShoppingMenu } from "../../assets/data/mypage/sidebar.js"
+// 사이드바 메뉴 타이틀 아이콘
+import { UserIcon, ShoppingBagIcon } from "vue-feather-icons"
 
-  export default {
-    data() {
-      return {
-        myPageMenu,
-        myShoppingMenu
-      }
-    },
-    components: {
-      "sidebar-menu": sidebarMenu,
-      "status-log": statusLog,
-      UserIcon,
-      ShoppingBagIcon
+export default {
+  data() {
+    return {
+      myPageMenu,
+      myShoppingMenu
     }
+  },
+  components: {
+    "sidebar-menu": sidebarMenu,
+    "status-log": statusLog,
+    UserIcon,
+    ShoppingBagIcon
   }
+}
 </script>
 <style scoped>
-  .my-page {
-    display: flex;
-    margin: 32px auto 0;
-    text-align: center;
-  }
-  .my-page .left-menu {
-    display: block;
-  }
-  .my-page .notification {
-    display: block;
-  }
+.my-page {
+  display: flex;
+  margin: 32px auto 0;
+  text-align: center;
+}
+.my-page .left-menu {
+  display: block;
+}
+.my-page .notification {
+  display: block;
+}
 </style>

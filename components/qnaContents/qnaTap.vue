@@ -24,7 +24,7 @@
 </template>
 
 <script>
-import { qnaList } from "../../assets/data/qnaList.js"
+import { qnaList } from "../../assets/data/qna/qnaList.js"
 
 export default {
   props: ["tabType"],

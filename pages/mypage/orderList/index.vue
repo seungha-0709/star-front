@@ -75,8 +75,8 @@ import modalQna from "../../../components/modal/modalQna.vue"
 import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
 import basicBoardCast from "../../../components/common/basicBoardCast.vue"
 import orderList from "../../../components/orderList/orderList.vue"
-import { paymentInfo } from "../../../components/orderList/payment.js"
-import { myOrderListInfo } from "../../../assets/data/myPageBoard.js"
+import { paymentInfo } from "../../../assets/data/shop/payment.js"
+import { myOrderListInfo } from "../../../assets/data/mypage/myPageBoard.js"
 
 export default {
   data() {

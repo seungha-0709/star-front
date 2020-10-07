@@ -19,7 +19,7 @@ import basicBoardCast from "../../../components/common/basicBoardCast.vue"
 import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
 // 알림 list data
 import { notificationLists } from "../../../components/myPage/notificationLists.js"
-import { myNoticeInfo } from "../../../assets/data/myPageBoard.js"
+import { myNoticeInfo } from "../../../assets/data/mypage/myPageBoard.js"
 
 export default {
   data() {
