@@ -7,7 +7,12 @@
     class="user-card"
   >
     <div class="type-img">
-      <slot />
+      <img
+        :src="img.src"
+        :alt="img.alt"
+        :width="img.width"
+        :height="img.height"
+      />
     </div>
     <div class="type-name">{{ type }}</div>
     <p
@@ -36,7 +41,21 @@
         default: "#ffffff"
       },
       width: {
-        default: "161px"
+        default: 161
+      },
+      img: {
+        src: {
+          default: ""
+        },
+        alt: {
+          defalut: ""
+        },
+        width: {
+          default: "120px"
+        },
+        height: {
+          default: "120px"
+        }
       }
     }
   }

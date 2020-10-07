@@ -130,7 +130,7 @@
   import modal from "../../components/modal/modal.vue"
   import modalQna from "../../components/modal/modalQna.vue"
   import qnaTab from "../../components/qnaContents/qnaTap.vue"
-  import { qnaCategory } from "../../components/qnaContents/qnaCategory.js"
+  import { qnaCategory } from "../../assets/data/qna/qnaCategory.js"
   import {
     HeadphonesIcon,
     MapPinIcon,

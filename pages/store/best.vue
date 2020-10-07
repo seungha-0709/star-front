@@ -5,7 +5,7 @@
       <div class="shop-best-item-top">
         <span class="shop-best-item-sub-title">{{ `${total}개의 강의` }}</span>
         <div class="select-box-position">
-          <selectBox @listAlign="onAlignChange" :sortList="selectCreteria" />
+          <selectBox @listAlign="onAlignChange" :sortList="shopBestSelectBox" />
         </div>
       </div>
       <div class="shop-best-item-wrap">
@@ -21,22 +21,17 @@
 </template>
 
 <script>
-import { shopBestList } from "../../components/shopBest/shopBestList.js"
 import shopBestItem from "../../components/shopBest/shopBestItem.vue"
 import selectBox from "../../components/shopBest/selectBox.vue"
+import { shopBestList } from "../../assets/data/shop/shopBestList.js"
+import { shopBestSelectBox } from "../../assets/data/selectCreteria.js"
 
 export default {
   data() {
     return {
       shopBestList,
       total: 9,
-      selectCreteria: [
-        /* 셀렉트 박스에 들어가는 옵션항목 */
-        { title: "최신순", sort: "latest_at" },
-        { title: "가격 낮은 순", sort: "low_price" },
-        { title: "가격 높은 순", sort: "high_price" },
-        { title: "좋아요 많은 순", sort: "high_like" }
-      ]
+      shopBestSelectBox
     }
   },
   computed: {
