@@ -11,23 +11,42 @@
           v-bind:margin-right="'20px'"
           v-bind:on-click="onClickEvent1"
         >
-          <search-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
+          <template v-slot:iconButton>
+            <div>
+              <search-icon
+                size="14"
+                class="icon-style"
+                v-bind:stroke-width="2.5"
+              />
+            </div>
+          </template>
         </btn-service>
         <btn-service
           v-bind:margin-right="'20px'"
           v-bind:on-click="onClickEvent2"
         >
-          <shopping-bag-icon
-            size="14"
-            class="icon-style"
-            v-bind:stroke-width="2.5"
-          />
+          <template v-slot:iconButton>
+            <div>
+              <shopping-bag-icon
+                size="14"
+                class="icon-style"
+                v-bind:stroke-width="2.5"
+              />
+            </div>
+          </template>
         </btn-service>
         <btn-service v-bind:on-click="onClickEvent3">
-          <bell-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
+          <template v-slot:iconButton>
+            <div>
+              <bell-icon
+                size="14"
+                class="icon-style"
+                v-bind:stroke-width="2.5"
+              />
+            </div>
+          </template>
         </btn-service>
       </div>
-      <!-- <btn-service> margin-right 에 px 붙이면 parsing error    -->
       <v-avatar size="32">
         <img src="https://cdn.vuetifyjs.com/images/john.jpg" alt="John" />
       </v-avatar>
