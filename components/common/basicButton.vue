@@ -4,12 +4,12 @@
     :style="{
       color,
       backgroundColor,
-      fontSize: fontSize + 'px',
+      fontSize: fontSize,
       fontWeight,
       border,
-      borderRadius: borderRadius + 'px',
-      width: width + 'px',
-      height: height + 'px'
+      borderRadius: borderRadius,
+      width: width,
+      height: height
     }"
     @click="$emit('event')"
   >
@@ -27,7 +27,7 @@
         default: "#fff"
       },
       fontSize: {
-        default: 16
+        default: "16px"
       },
       fontWeight: {
         default: 700
@@ -39,13 +39,13 @@
         default: ""
       },
       borderRadius: {
-        default: 26
+        default: "26px"
       },
       width: {
-        default: 240
+        default: "240px"
       },
       height: {
-        default: 52
+        default: "52px"
       }
     },
     computed: {

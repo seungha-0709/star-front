@@ -103,7 +103,7 @@
     <div class="btn-wrap">
       <basic-button
         text="화면프린트"
-        width="240"
+        width="240px"
         color="#212121"
         borderColor="#dfdfdf"
         backgroundColor="#fff"

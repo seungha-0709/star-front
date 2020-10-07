@@ -2,7 +2,7 @@
   <button
     type="button"
     class="btn-service"
-    v-bind:style="{ marginRight: marginRight ? marginRight + 'px' : 0 }"
+    v-bind:style="{ marginRight: marginRight ? marginRight : 0 }"
     v-on:click="onClick"
   >
     <slot></slot>
