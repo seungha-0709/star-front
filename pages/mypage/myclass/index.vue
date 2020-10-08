@@ -41,9 +41,7 @@
       @close="modalOnOff('coupon')"
     >
       <template v-slot:modalPage>
-        <div>
-          <modal-register-coupon />
-        </div>
+        <modal-register-coupon />
       </template>
     </modal>
   </div>

@@ -12,13 +12,11 @@
           v-bind:on-click="onClickEvent1"
         >
           <template v-slot:iconButton>
-            <div>
-              <search-icon
-                size="14"
-                class="icon-style"
-                v-bind:stroke-width="2.5"
-              />
-            </div>
+            <search-icon
+              size="14"
+              class="icon-style"
+              v-bind:stroke-width="2.5"
+            />
           </template>
         </btn-service>
         <btn-service
@@ -26,24 +24,16 @@
           v-bind:on-click="onClickEvent2"
         >
           <template v-slot:iconButton>
-            <div>
-              <shopping-bag-icon
-                size="14"
-                class="icon-style"
-                v-bind:stroke-width="2.5"
-              />
-            </div>
+            <shopping-bag-icon
+              size="14"
+              class="icon-style"
+              v-bind:stroke-width="2.5"
+            />
           </template>
         </btn-service>
         <btn-service v-bind:on-click="onClickEvent3">
           <template v-slot:iconButton>
-            <div>
-              <bell-icon
-                size="14"
-                class="icon-style"
-                v-bind:stroke-width="2.5"
-              />
-            </div>
+            <bell-icon size="14" class="icon-style" v-bind:stroke-width="2.5" />
           </template>
         </btn-service>
       </div>

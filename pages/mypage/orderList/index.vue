@@ -29,13 +29,9 @@
       @close="modalOnOff('order')"
     >
       <template v-slot:modalPage>
-        <div>
-          <modal-order
-            :paymentData="
-              paymentInfo.data.find((data) => data.id === modalIndex)
-            "
-          />
-        </div>
+        <modal-order
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
       </template>
     </modal>
 
@@ -45,13 +41,9 @@
       @close="modalOnOff('receipt')"
     >
       <template v-slot:modalPage>
-        <div>
-          <modal-receipt
-            :paymentData="
-              paymentInfo.data.find((data) => data.id === modalIndex)
-            "
-          />
-        </div>
+        <modal-receipt
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
       </template>
     </modal>
 
@@ -61,13 +53,9 @@
       @close="modalOnOff('cancel')"
     >
       <template v-slot:modalPage>
-        <div>
-          <modal-cancel
-            :paymentData="
-              paymentInfo.data.find((data) => data.id === modalIndex)
-            "
-          />
-        </div>
+        <modal-cancel
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
       </template>
     </modal>
 
@@ -77,13 +65,9 @@
       @close="modalOnOff('qna')"
     >
       <template v-slot:modalPage>
-        <div>
-          <modal-qna
-            :paymentData="
-              paymentInfo.data.find((data) => data.id === modalIndex)
-            "
-          />
-        </div>
+        <modal-qna
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
       </template>
     </modal>
   </div>

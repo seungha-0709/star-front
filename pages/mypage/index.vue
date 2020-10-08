@@ -3,16 +3,12 @@
     <div class="left-menu">
       <sidebar-menu title="마이페이지" :menu="myPageMenu">
         <template v-slot:iconButton>
-          <div>
-            <user-icon size="24" color="#dfdfdf" />
-          </div>
+          <user-icon size="24" color="#dfdfdf" />
         </template>
       </sidebar-menu>
       <sidebar-menu title="나의 쇼핑" :menu="myShoppingMenu">
         <template v-slot:iconButton>
-          <div>
-            <shopping-bag-icon size="24" color="#dfdfdf" />
-          </div>
+          <shopping-bag-icon size="24" color="#dfdfdf" />
         </template>
       </sidebar-menu>
       <status-log />

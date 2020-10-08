@@ -6,9 +6,7 @@
       @close="modalOnOff('qna')"
     >
       <template v-slot:modalPage>
-        <div>
-          <modal-qna />
-        </div>
+        <modal-qna />
       </template>
     </modal>
     <div class="cs-center-wrap">
