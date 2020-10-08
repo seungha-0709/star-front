@@ -13,7 +13,7 @@
         height: height
       }"
     >
-      <slot></slot>
+      <slot name="customButton" />
     </div>
   </div>
 </template>

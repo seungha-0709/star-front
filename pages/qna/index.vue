@@ -5,7 +5,9 @@
       v-if="modalTypeOnOff.qna.onoff"
       @close="modalOnOff('qna')"
     >
-      <modal-qna />
+      <template v-slot:modalPage>
+        <modal-qna />
+      </template>
     </modal>
     <div class="cs-center-wrap">
       <div class="cs-service">

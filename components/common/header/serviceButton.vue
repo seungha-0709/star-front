@@ -5,7 +5,7 @@
     v-bind:style="{ marginRight: marginRight ? marginRight : 0 }"
     v-on:click="onClick"
   >
-    <slot></slot>
+    <slot name="iconButton" />
   </button>
 </template>
 
