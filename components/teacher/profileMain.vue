@@ -8,7 +8,13 @@
             <div>
               <span class="score">9.5</span><span class="total-score">/10</span>
             </div>
-            <div class="star-score">별별별별별</div>
+            <div class="star-score">
+              <star-icon size="1.5x" class="star-icon"></star-icon>
+              <star-icon size="1.5x" class="star-icon"></star-icon>
+              <star-icon size="1.5x" class="star-icon"></star-icon>
+              <star-icon size="1.5x" class="star-icon"></star-icon>
+              <star-icon size="1.5x" class="star-icon"></star-icon>
+            </div>
           </div>
         </div>
       </div>
@@ -46,10 +52,12 @@
 <script>
   import reviewLive from "./reviewLive.vue"
   import basicButton from "../common/basicButton.vue"
+  import { StarIcon } from "vue-feather-icons"
   export default {
     components: {
       reviewLive,
-      basicButton
+      basicButton,
+      StarIcon
     }
   }
 </script>
@@ -77,6 +85,15 @@
     font-weight: normal;
     color: #666;
   }
+  .star-score {
+    margin-left: 8px;
+    margin-bottom: 8px;
+  }
+  .star-icon {
+    border: 0;
+    fill: currentColor;
+    color: #ffc13e;
+  }
   header > div {
     display: flex;
     justify-content: space-between;
@@ -85,7 +102,7 @@
   }
   .number-score {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
   }
   .score {
     font-size: 40px;
