@@ -42,4 +42,12 @@
   .join-user-cards .join-user-card {
     margin-right: 24px;
   }
+  /* 반응형 구현 */
+  @media screen and (max-width: 1199px) {
+    .join-user-cards {
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+  }
 </style>
