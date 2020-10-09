@@ -1,12 +1,12 @@
 <template>
   <div class="profile-side-bar">
     <ul>
-      <li><home-icon size="1x" class="home icon" />홈</li>
-      <li><star-icon size="1x" class="star icon" />청정리뷰 보기</li>
+      <li><span><home-icon size="1x" class="home icon" /></span>홈</li>
+      <li><span><star-icon size="1x" class="star icon" /></span>청정리뷰 보기</li>
       <li>강사리뷰</li>
       <li>환승후기</li>
-      <li><check-circle-icon size="1x" class="check icon" />합격후기</li>
-      <li><message-circle-icon size="1x" class="message icon" />Q&A</li>
+      <li><span><check-circle-icon size="1x" class="check icon" /></span>합격후기</li>
+      <li><span><message-circle-icon size="1x" class="message icon" /></span>Q&A</li>
     </ul>
   </div>
 </template>
@@ -65,16 +65,25 @@ import { HomeIcon, StarIcon, CheckCircleIcon, MessageCircleIcon } from 'vue-feat
     margin-left: 8px;
     margin-right: 12px;
   }
-  .icon {
+  li > span {
+    display: inline-block;
     width: 26px;
     height: 26px;
     border-radius: 13px;
     background: rgba(193, 193, 193, 0.2);
-    color: #c1c1c1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-right: 12px;
+
+  }
+  .icon {
+    color: #c1c1c1;
   }
   li:hover .icon {
-    background: rgba(93, 126, 233, 0.2);
     color: #5d7ee9;
+  }
+  li:hover span {
+    background: rgba(93, 126, 233, 0.2)
   }
 </style>
