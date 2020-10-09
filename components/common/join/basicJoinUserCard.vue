@@ -21,7 +21,7 @@
       </div>
       <chevron-right-icon
         size="24"
-        color="#ffffff"
+        color="rgba(255,255,255,0.5)"
         class="chevron-icon mobile-on"
       />
     </div>
@@ -143,7 +143,6 @@
     .user-card .chevron-icon {
       display: inline-block;
       vertical-align: middle;
-      opacity: 50%;
     }
     .user-card .mobile-off {
       display: none;
