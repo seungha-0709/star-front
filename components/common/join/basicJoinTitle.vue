@@ -1,10 +1,12 @@
 <template>
   <div class="basic-join">
-    <div class="logo">
-      <img src="/img/logo/logo_square_gray.png" alt="별별선생 로고" />
+    <div class="mobile-logo">
+      <div class="logo">
+        <img src="/img/logo/logo_square_gray.png" alt="별별선생 로고" />
+      </div>
     </div>
     <div class="join-title">
-      <span class="starteacher">{{ title }} </span>
+      <span class="starteacher mobile-off">{{ title }} </span>
       <span class="subtitle">{{ subtitle }}</span>
     </div>
     <p class="description">{{ description }}</p>
@@ -52,5 +54,42 @@
     font-size: 20px;
     color: #666666;
     padding-top: 17px;
+  }
+  /* 반응형 구현 */
+  @media screen and (max-width: 1199px) {
+    .basic-join .mobile-off {
+      display: none;
+    }
+    .basic-join .mobile-logo {
+      width: 100%;
+      height: 56px;
+      padding: 16px;
+      background-color: #ffffff;
+      border: solid 1px #dfdfdf;
+      text-align: left;
+    }
+    .basic-join .logo img {
+      width: 24px;
+      height: 24px;
+      margin-bottom: 0px;
+    }
+    .basic-join .join-title {
+      height: 32px;
+    }
+    .basic-join .subtitle {
+      position: relative;
+      font-size: 18px;
+      font-weight: bold;
+      color: #212121;
+      top: -64px;
+    }
+    .basic-join .description {
+      padding-top: 0;
+      margin: 0 auto;
+      width: 203px;
+      height: 46px;
+      font-size: 16px;
+      color: #212121;
+    }
   }
 </style>
