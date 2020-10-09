@@ -14,7 +14,7 @@
       <p>이미 계정이 있으신가요?</p>
       <button>로그인</button>
     </div>
-    <copy-right />
+    <copy-right class="copyright" />
   </div>
 </template>
 <script>
@@ -54,5 +54,32 @@
   }
   .join-user-page .sign-in button {
     color: #3f60cc;
+  }
+  /* 반응형 구현 */
+  @media screen and (max-width: 1199px) {
+    .join-user-page {
+      margin: 0 auto;
+      height: 100%;
+      justify-content: center;
+    }
+    .join-user-page .join-user-title {
+      margin-top: 0px;
+    }
+    .join-user-page .join-user-group {
+      margin-top: 0px;
+    }
+    .join-user-page .sign-in {
+      display: flex;
+      font-size: 16px;
+      font-weight: normal;
+      margin: 146px 0;
+    }
+    .join-user-page .sign-in p {
+      color: #666666;
+      margin-right: 8px;
+    }
+    .join-user-page .copyright {
+      display: none;
+    }
   }
 </style>
