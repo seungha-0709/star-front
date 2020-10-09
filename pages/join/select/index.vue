@@ -66,13 +66,17 @@
       margin-top: 0px;
     }
     .join-select-page .join-select-group {
-      margin-top: 32px;
+      margin-top: 0px;
     }
     .join-select-page .sign-in {
       display: flex;
       font-size: 16px;
       font-weight: normal;
       margin: 146px 0;
+    }
+    .join-select-page .sign-in p {
+      color: #666666;
+      margin-right: 8px;
     }
     .join-select-page .copyright {
       display: none;
