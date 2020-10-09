@@ -21,6 +21,19 @@
         <pentagon-graph />
         <circle-graph />
       </section>
+      <section>
+        <review-keyword />
+      </section>
+      <section>
+        <review-content />
+      </section>
+      <section>
+        <banner />
+      </section>
+      <section>
+        <review-list />
+        <teacher-in-press />
+      </section>
     </main>
   </div>
 </template>
@@ -34,6 +47,11 @@
   import barGraph from "../../components/teacher/barGraph.vue"
   import pentagonGraph from "../../components/teacher/pentagonGraph.vue"
   import circleGraph from "../../components/teacher/circleGraph.vue"
+  import reviewKeyword from "../../components/teacher/reviewKeyword.vue"
+  import reviewContent from "../../components/teacher/reviewContent.vue"
+  import banner from "../../components/teacher/banner.vue"
+  import reviewList from "../../components/teacher/reviewList.vue"
+  import teacherInPress from "../../components/teacher/teacherInPress.vue"
 
   export default {
     components: {
@@ -44,7 +62,12 @@
       reviewAmount,
       barGraph,
       pentagonGraph,
-      circleGraph
+      circleGraph,
+      reviewKeyword,
+      reviewContent,
+      banner,
+      reviewList,
+      teacherInPress
     }
   }
 </script>
