@@ -9,7 +9,9 @@
       <span class="starteacher mobile-off">{{ title }} </span>
       <span class="subtitle">{{ subtitle }}</span>
     </div>
-    <p class="description">{{ description }}</p>
+    <div class="mobile-description">
+      <p class="description">{{ description }}</p>
+    </div>
   </div>
 </template>
 <script>
@@ -50,7 +52,6 @@
     color: #212121;
   }
   .basic-join .description {
-    height: 54px;
     font-size: 20px;
     color: #666666;
     padding-top: 17px;
@@ -74,7 +75,7 @@
       margin-bottom: 0px;
     }
     .basic-join .join-title {
-      height: 32px;
+      height: 0px;
     }
     .basic-join .subtitle {
       position: relative;
@@ -83,11 +84,15 @@
       color: #212121;
       top: -64px;
     }
+    .basic-join .mobile-description {
+      display: flex;
+      height: 110px;
+      align-items: center;
+    }
     .basic-join .description {
       padding-top: 0;
       margin: 0 auto;
       width: 203px;
-      height: 46px;
       font-size: 16px;
       color: #212121;
     }
