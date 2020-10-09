@@ -1,5 +1,5 @@
 <template>
-  <div class="review-amount">
+  <div class="teacher-in-press">
     <header>
         <h1>언론 속의 선생님</h1>
         <img src="/img/teacher/rectangle@3x.png" alt="언론 속의 선생님" />
@@ -27,7 +27,7 @@ import { pressArticle } from "../../assets/data/teacher/temporaryTeacher.js"
 </script>
 
 <style scoped>
-  .review-amount {
+  .teacher-in-press {
     width: 458px;
     background: #fff;
     border: 1px solid #dfdfdf;
