@@ -19,8 +19,8 @@
         v-for="(content, index) in reviewLiveData"
         :key="index"
       >
-        {{ content.title }}
-        {{ content.tag }}
+        <span class="title">{{ content.title }}</span>
+        <span class="tag">{{ content.tag }}</span>
       </div>
     </main>
   </div>
@@ -73,5 +73,16 @@
     border-radius: 4px;
     padding: 12px;
     box-sizing: border-box;
+  }
+  .title {
+    font-size: 16px;
+    color: #212121;
+    display: inline-block;
+  }
+  .tag {
+    margin-top: 4px;
+    font-size: 13px;
+    color: #5e3fcc;
+    display: block;
   }
 </style>
