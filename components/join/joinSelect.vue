@@ -14,27 +14,35 @@
   </div>
 </template>
 <script>
-import basicJoinSelectCard from "../common/join/basicJoinSelectCard.vue"
-import { joinSelectCardInfo } from "../../assets/data/join/joinUser.js"
+  import basicJoinSelectCard from "../common/join/basicJoinSelectCard.vue"
+  import { joinSelectCardInfo } from "../../assets/data/join/joinUser.js"
 
-export default {
-  data() {
-    return {
-      joinSelectCardInfo
+  export default {
+    data() {
+      return {
+        joinSelectCardInfo
+      }
+    },
+    components: {
+      "basic-join-select-card": basicJoinSelectCard
     }
-  },
-  components: {
-    "basic-join-select-card": basicJoinSelectCard
   }
-}
 </script>
 <style scoped>
-.join-select-cards {
-  display: flex;
-  justify-content: center;
-  text-align: center;
-}
-.join-select-cards .join-select-card {
-  margin-right: 24px;
-}
+  .join-select-cards {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+  .join-select-cards .join-select-card {
+    margin-right: 24px;
+  }
+  /* 반응형 구현 */
+  @media screen and (max-width: 1199px) {
+    .join-select-cards {
+      display: block;
+      justify-content: center;
+      text-align: center;
+    }
+  }
 </style>
