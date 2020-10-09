@@ -2,7 +2,7 @@
   <div class="total-evaluation">
     <header>
       <h1>종합평가</h1>
-      <span>??????? ???명의 강사 중</span>
+      <span>??????? <strong>???</strong>/명의 강사 중</span>
     </header>
     <main>
       <div>
@@ -42,6 +42,15 @@
     color: #212121;
     font-weight: bold;
     display: inline-block;
+    margin-right: 8px;
+  }
+  header > span {
+    color: #666;
+    font-size: 14px;
+  }
+  header strong {
+    color: #3f60cc;
+    font-weight: bold;
   }
   main {
     width: 394px;
@@ -74,5 +83,9 @@
     text-align: center;
     display: block;
     margin-top: 8px;
+  }
+  main > div:first-child > span:nth-of-type(2) {
+    color: #3f60cc;
+  
   }
 </style>
