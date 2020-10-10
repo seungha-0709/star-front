@@ -6,7 +6,7 @@
       </div>
     </div>
     <div class="join-title">
-      <span class="starteacher mobile-off">{{ title }} </span>
+      <span class="main-title mobile-off">{{ title }} </span>
       <span class="subtitle">{{ subtitle }}</span>
     </div>
     <div class="mobile-description">
@@ -44,7 +44,7 @@
     height: 59px;
     font-size: 40px;
   }
-  .basic-join .starteacher {
+  .basic-join .main-title {
     color: #3f60cc;
     font-weight: bold;
   }
