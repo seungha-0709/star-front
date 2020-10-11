@@ -1,5 +1,5 @@
 <template>
-  <div class="join-user-page">
+  <div class="join-user-page" :class="$mq">
     <div class="join-user-title">
       <basic-join-title
         title="별별선생"
@@ -56,30 +56,28 @@
     color: #3f60cc;
   }
   /* 반응형 구현 */
-  @media screen and (max-width: 1199px) {
-    .join-user-page {
-      margin: 0 auto;
-      height: 100%;
-      justify-content: center;
-    }
-    .join-user-page .join-user-title {
-      margin-top: 0px;
-    }
-    .join-user-page .join-user-group {
-      margin-top: 0px;
-    }
-    .join-user-page .sign-in {
-      display: flex;
-      font-size: 16px;
-      font-weight: normal;
-      margin: 146px 0;
-    }
-    .join-user-page .sign-in p {
-      color: #666666;
-      margin-right: 8px;
-    }
-    .join-user-page .copyright {
-      display: none;
-    }
+  .join-user-page.mobile {
+    margin: 0 auto;
+    height: 100%;
+    justify-content: center;
+  }
+  .join-user-page.mobile .join-user-title {
+    margin-top: 0px;
+  }
+  .join-user-page.mobile .join-user-group {
+    margin-top: 0px;
+  }
+  .join-user-page.mobile .sign-in {
+    display: flex;
+    font-size: 16px;
+    font-weight: normal;
+    margin: 146px 0;
+  }
+  .join-user-page.mobile .sign-in p {
+    color: #666666;
+    margin-right: 8px;
+  }
+  .join-user-page.mobile .copyright {
+    display: none;
   }
 </style>
