@@ -1,10 +1,11 @@
 <template>
   <div
     class="select-card"
+    :class="$mq"
     @mouseenter="handleCardOnOff"
     @mouseleave="handleCardOnOff"
   >
-    <div class="type-img mobile-off">
+    <div class="type-img">
       <img
         :src="img.src"
         :alt="img.alt"
@@ -12,18 +13,14 @@
         :height="img.height"
       />
     </div>
-    <div class="mobile-type-box">
+    <div class="type-box">
       <div class="type-name">{{ type }}</div>
-      <chevron-right-icon
-        size="24"
-        color="#8f8f8f"
-        class="chevron-icon mobile-on"
-      />
+      <chevron-right-icon size="24" color="#8f8f8f" class="chevron-icon" />
     </div>
-    <p class="description mobile-off">{{ description }}</p>
+    <p class="description">{{ description }}</p>
 
     <basic-button
-      class="join-select-card-button mobile-off"
+      class="select-button"
       text="선택하기"
       width="140px"
       borderRadius="31px"
@@ -107,6 +104,9 @@
     color: #212121;
     margin: 42px 0 8px;
   }
+  .select-card .chevron-icon {
+    display: none;
+  }
   .select-card .description {
     width: 234px;
     height: 60px;
@@ -120,36 +120,40 @@
   }
 
   /* 반응형 구현 */
-  @media screen and (max-width: 1199px) {
-    .select-card {
-      width: 100%;
-      height: 62px;
-      margin: 0 16px 4px;
-      padding: 18px 16px 17px;
-      border: solid 1px #dfdfdf;
-    }
-    .select-card:hover {
-      width: 100%;
-      height: 62px;
-      margin-bottom: 4px;
-      padding: 18px 16px 17px;
-      border: solid 1px #dfdfdf;
-      box-shadow: none;
-    }
-    .select-card .mobile-type-box {
-      display: flex;
-      justify-content: space-between;
-    }
-    .select-card .type-name {
-      font-size: 18px;
-      font-weight: normal;
-      margin: 0;
-    }
-    .select-card .chevron-icon {
-      display: inline-block;
-    }
-    .select-card .mobile-off {
-      display: none;
-    }
+  .select-card.mobile {
+    width: 100%;
+    height: 62px;
+    margin: 0 16px 4px;
+    padding: 18px 16px 17px;
+    border: solid 1px #dfdfdf;
+  }
+  .select-card.mobile:hover {
+    width: 100%;
+    height: 62px;
+    margin-bottom: 4px;
+    padding: 18px 16px 17px;
+    border: solid 1px #dfdfdf;
+    box-shadow: none;
+  }
+  .select-card.mobile .type-img {
+    display: none;
+  }
+  .select-card.mobile .type-box {
+    display: flex;
+    justify-content: space-between;
+  }
+  .select-card.mobile .type-name {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+  }
+  .select-card.mobile .chevron-icon {
+    display: inline-block;
+  }
+  .select-card.mobile .description {
+    display: none;
+  }
+  .select-card.mobile .select-button {
+    display: none;
   }
 </style>
