@@ -1,5 +1,5 @@
 <template>
-  <div class="join-user-cards">
+  <div class="join-user-cards" :class="$mq">
     <div
       class="join-user-card"
       v-for="(item, index) in joinUserCardInfo"
@@ -43,11 +43,9 @@
     margin-right: 24px;
   }
   /* 반응형 구현 */
-  @media screen and (max-width: 1199px) {
-    .join-user-cards {
-      display: block;
-      justify-content: center;
-      text-align: center;
-    }
+  .join-user-cards.mobile {
+    display: block;
+    justify-content: center;
+    text-align: center;
   }
 </style>
