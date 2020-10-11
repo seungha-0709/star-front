@@ -1,5 +1,5 @@
 <template>
-  <div class="join-select-cards">
+  <div class="join-select-cards" :class="$mq">
     <div
       class="join-select-card"
       v-for="(item, index) in joinSelectCardInfo"
@@ -38,11 +38,9 @@
     margin-right: 24px;
   }
   /* 반응형 구현 */
-  @media screen and (max-width: 1199px) {
-    .join-select-cards {
-      display: block;
-      justify-content: center;
-      text-align: center;
-    }
+  .join-select-cards.mobile {
+    display: block;
+    justify-content: center;
+    text-align: center;
   }
 </style>
