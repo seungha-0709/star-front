@@ -1,15 +1,15 @@
 <template>
-  <div class="basic-join">
-    <div class="mobile-logo">
+  <div class="basic-join" :class="$mq">
+    <div class="logo-wrap">
       <div class="logo">
         <img src="/img/logo/logo_square_gray.png" alt="별별선생 로고" />
       </div>
     </div>
     <div class="join-title">
-      <span class="main-title mobile-off">{{ title }} </span>
+      <span class="main-title">{{ title }} </span>
       <span class="subtitle">{{ subtitle }}</span>
     </div>
-    <div class="mobile-description">
+    <div class="description-wrap">
       <p class="description">{{ description }}</p>
     </div>
   </div>
@@ -57,44 +57,45 @@
     padding-top: 17px;
   }
   /* 반응형 구현 */
-  @media screen and (max-width: 1199px) {
-    .basic-join .mobile-off {
-      display: none;
-    }
-    .basic-join .mobile-logo {
-      width: 100%;
-      height: 56px;
-      padding: 16px;
-      background-color: #ffffff;
-      border: solid 1px #dfdfdf;
-      text-align: left;
-    }
-    .basic-join .logo img {
-      width: 24px;
-      height: 24px;
-      margin-bottom: 0px;
-    }
-    .basic-join .join-title {
-      height: 0px;
-    }
-    .basic-join .subtitle {
-      position: relative;
-      font-size: 18px;
-      font-weight: bold;
-      color: #212121;
-      top: -64px;
-    }
-    .basic-join .mobile-description {
-      display: flex;
-      height: 110px;
-      align-items: center;
-    }
-    .basic-join .description {
-      padding-top: 0;
-      margin: 0 auto;
-      width: 203px;
-      font-size: 16px;
-      color: #212121;
-    }
+  .basic-join.mobile .mobile-off {
+    display: none;
+  }
+  .basic-join.mobile .logo-wrap {
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    background-color: #ffffff;
+    border: solid 1px #dfdfdf;
+    text-align: left;
+  }
+  .basic-join.mobile .logo img {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0px;
+  }
+  .basic-join.mobile .join-title {
+    height: 0px;
+  }
+  .basic-join.mobile .main-title {
+    display: none;
+  }
+  .basic-join.mobile .subtitle {
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    color: #212121;
+    top: -64px;
+  }
+  .basic-join.mobile .description-wrap {
+    display: flex;
+    height: 110px;
+    align-items: center;
+  }
+  .basic-join.mobile .description {
+    padding-top: 0;
+    margin: 0 auto;
+    width: 203px;
+    font-size: 16px;
+    color: #212121;
   }
 </style>
