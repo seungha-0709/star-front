@@ -5,9 +5,10 @@
       color
     }"
     class="user-card"
+    :class="$mq"
   >
-    <div class="mobile-type-wrap">
-      <div class="mobile-type-box">
+    <div class="type-wrap">
+      <div class="type-box">
         <div class="type-img">
           <img
             :src="img.src"
@@ -22,14 +23,14 @@
       <chevron-right-icon
         size="24"
         color="rgba(255,255,255,0.5)"
-        class="chevron-icon mobile-on"
+        class="chevron-icon"
       />
     </div>
     <p
       :style="{
         width: width
       }"
-      class="description mobile-off"
+      class="description"
     >
       {{ description }}
     </p>
@@ -100,52 +101,49 @@
     font-size: 14px;
     margin: 0 auto 48px;
   }
-  .user-card .mobile-on {
+  .user-card.desktop .chevron-icon {
     display: none;
   }
-
   /* 반응형 구현 */
-  @media screen and (max-width: 1199px) {
-    .user-card {
-      width: 100%;
-      height: 62px;
-      margin: 0 16px 4px;
-      padding: 15px 16px 15px;
-    }
-    .user-card:hover {
-      width: 100%;
-      height: 62px;
-      margin: 0 16px 4px;
-      padding: 15px 16px 15px;
-      box-shadow: none;
-    }
-    .user-card .type-img img {
-      width: 32px;
-      height: 32px;
-      margin-right: 8px;
-      text-align: center;
-      vertical-align: middle;
-    }
-    .user-card .mobile-type-wrap {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .user-card .mobile-type-box {
-      display: flex;
-      align-items: center;
-    }
-    .user-card .type-name {
-      font-size: 18px;
-      font-weight: normal;
-      margin: 0;
-    }
-    .user-card .chevron-icon {
-      display: inline-block;
-      vertical-align: middle;
-    }
-    .user-card .mobile-off {
-      display: none;
-    }
+  .user-card.mobile {
+    width: 100%;
+    height: 62px;
+    margin: 0 16px 4px;
+    padding: 15px 16px 15px;
+  }
+  .user-card.mobile:hover {
+    width: 100%;
+    height: 62px;
+    margin: 0 16px 4px;
+    padding: 15px 16px 15px;
+    box-shadow: none;
+  }
+  .user-card.mobile .type-wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .user-card.mobile .type-box {
+    display: flex;
+    align-items: center;
+  }
+  .user-card.mobile .type-img img {
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .user-card.mobile .type-name {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+  }
+  .user-card.mobile .chevron-icon {
+    display: inline-block;
+    vertical-align: middle;
+  }
+  .user-card.mobile .description {
+    display: none;
   }
 </style>
