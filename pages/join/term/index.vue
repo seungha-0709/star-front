@@ -8,6 +8,7 @@
       />
     </div>
     <div class="join-term-group">
+      <join-term-all />
       <join-term />
     </div>
     <div class="alert">
@@ -16,12 +17,18 @@
         제한될 수 있습니다.
       </p>
     </div>
-    <basic-button text="동의하기" borderRadius="31px" />
+    <basic-button
+      text="동의하기"
+      borderRadius="31px"
+      background-color="#3f60cc"
+      fontWeight="normal"
+    />
     <copy-right />
   </div>
 </template>
 <script>
   import basicJoinTitle from "../../../components/common/join/basicJoinTitle.vue"
+  import joinTermAll from "../../../components/common/join/basicJoinTermAll.vue"
   import joinTerm from "../../../components/join/joinTerm.vue"
   import basicButton from "../../../components/common/basicButton.vue"
   import copyright from "../../../components/common/copyright"
@@ -30,6 +37,7 @@
     layout: "contentOnly",
     components: {
       "basic-join-title": basicJoinTitle,
+      "join-term-all": joinTermAll,
       "join-term": joinTerm,
       "basic-button": basicButton,
       "copy-right": copyright
@@ -43,6 +51,9 @@
   }
   .join-term-page .join-term-title {
     margin-top: 85px;
+  }
+  .join-term-page .join-term-group {
+    margin-top: 40px;
   }
   .join-term-page .alert p {
     width: 521px;

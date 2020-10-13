@@ -27,4 +27,8 @@
     }
   }
 </script>
-<style scoped></style>
+<style scoped>
+  .join-term-boxes {
+    width: 600px;
+  }
+</style>
