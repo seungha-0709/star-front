@@ -1,6 +1,8 @@
 <template>
   <div class="join-term-boxes">
-    <div class="join-term-all"></div>
+    <div class="join-term-all">
+      <basic-join-term-all />
+    </div>
     <div
       class="join-term-box"
       v-for="(item, index) in joinTermInfo"
@@ -22,13 +24,14 @@
       }
     },
     components: {
-      "basic-term-all": basicJoinTermAll,
-      "basic-term-box": basicJoinTermBox
+      "basic-join-term-all": basicJoinTermAll,
+      "basic-join-term-box": basicJoinTermBox
     }
   }
 </script>
 <style scoped>
   .join-term-boxes {
     width: 600px;
+    margin: 0 auto;
   }
 </style>
