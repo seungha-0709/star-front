@@ -40,21 +40,22 @@
       v-if="modalTypeOnOff.coupon.onoff"
       @close="modalOnOff('coupon')"
     >
-      <modal-register-coupon />
+      <template v-slot:modalPage>
+        <modal-register-coupon />
+      </template>
     </modal>
   </div>
 </template>
 
 <script>
-  //   import { mapState } from "vuex"
   import { mapState, mapMutations } from "vuex"
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   import basicBoardCast from "../../../components/common/basicBoardCast.vue"
   import basicButton from "../../../components/common/basicButton.vue"
   import modal from "../../../components/modal/modal.vue"
   import modalRegisterCoupon from "../../../components/modal/modalRegisterCoupon.vue"
-  import { myClassList } from "../../../components/myClass/myClassList.js"
-  import { myClassInfo } from "../../../components/myPageBoard.js"
+  import { myClassList } from "../../../assets/data/mypage/myClassList.js"
+  import { myClassInfo } from "../../../assets/data/mypage/myPageBoard.js"
 
   export default {
     data() {

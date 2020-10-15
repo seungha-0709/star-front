@@ -1,7 +1,8 @@
 export const cartLists = [
   {
     id: 96,
-    image: "http://placeimg.com/146/108/animals",
+    img:
+      "https://cdn.pixabay.com/photo/2015/05/31/11/32/work-791218_960_720.jpg",
     title:
       "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는 영역입니다.",
     amount: 1,
@@ -11,7 +12,8 @@ export const cartLists = [
   },
   {
     id: 227,
-    image: "http://placeimg.com/146/108/animals",
+    img:
+      "https://cdn.pixabay.com/photo/2017/04/19/13/07/coffee-2242231_960_720.jpg",
     title:
       "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는 영역입니다.",
     amount: 1,

@@ -33,111 +33,111 @@
 </template>
 
 <script>
-  import { ChevronDownIcon } from "vue-feather-icons"
-  import tab from "../../components/policyTab.vue"
-  import menuModal from "../../components/modal/menuModal.vue"
-  import { tabData } from "../../components/modal/menuModal.js"
+import { ChevronDownIcon } from "vue-feather-icons"
+import tab from "../../components/policyTab.vue"
+import menuModal from "../../components/modal/menuModal.vue"
+import { tabData } from "../../assets/data/menuModal.js"
 
-  export default {
-    data() {
-      return {
-        isMenuOnoff: false,
-        activeType: `${this.$route.query.tab || "service"}`,
-        tabData
-      }
+export default {
+  data() {
+    return {
+      isMenuOnoff: false,
+      activeType: `${this.$route.query.tab || "service"}`,
+      tabData
+    }
+  },
+  components: {
+    tab,
+    menuModal,
+    ChevronDownIcon
+  },
+  methods: {
+    onTypeChange(type) {
+      this.activeType = type
+      this.$router.push({
+        query: Object.assign({ ...this.$route.query }, { tab: `${type}` })
+      })
     },
-    components: {
-      tab,
-      menuModal,
-      ChevronDownIcon
-    },
-    methods: {
-      onTypeChange(type) {
-        this.activeType = type
-        this.$router.push({
-          query: Object.assign({ ...this.$route.query }, { tab: `${type}` })
-        })
-      },
-      onMenuOnOff() {
-        this.isMenuOnoff = !this.isMenuOnoff
-      }
+    onMenuOnOff() {
+      this.isMenuOnoff = !this.isMenuOnoff
     }
   }
+}
 </script>
 
 <style scoped>
-  .tab-menu {
-    display: flex;
-    width: 1200px;
-  }
-  .tab-menu > li {
-    width: 100%;
-    height: 62px;
-    line-height: 62px;
-    background-color: #eeeff4;
-    color: #666;
-    font-size: 16px;
-    text-align: center;
-    cursor: pointer;
-    border-width: 1px 0 0 0;
-    border-style: solid;
-    border-color: #dfdfdf;
-  }
-  .tab-menu > li:first-child {
-    border-width: 1px 0 0 1px;
-  }
-  .tab-menu > li:last-child {
-    border-width: 1px 1px 0 0;
-  }
-  .tab-menu > li.active {
-    background-color: #fff;
-    color: #3f60cc;
-    font-weight: 700;
-    cursor: pointer;
-  }
+.tab-menu {
+  display: flex;
+  width: 1200px;
+}
+.tab-menu > li {
+  width: 100%;
+  height: 62px;
+  line-height: 62px;
+  background-color: #eeeff4;
+  color: #666;
+  font-size: 16px;
+  text-align: center;
+  cursor: pointer;
+  border-width: 1px 0 0 0;
+  border-style: solid;
+  border-color: #dfdfdf;
+}
+.tab-menu > li:first-child {
+  border-width: 1px 0 0 1px;
+}
+.tab-menu > li:last-child {
+  border-width: 1px 1px 0 0;
+}
+.tab-menu > li.active {
+  background-color: #fff;
+  color: #3f60cc;
+  font-weight: 700;
+  cursor: pointer;
+}
 
-  .policy {
-    margin-top: 80px;
-    width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
-    background-color: #ffffff;
-  }
-  .policy-content {
-    padding: 28px 32px;
-    text-align: left;
-    border-width: 0 1px 1px 1px;
-    border-style: solid;
-    border-color: #dfdfdf;
-  }
-  .tab-menu-mobile {
-    background-color: rgb(251, 251, 251);
-    border: 1px solid #dfdfdf;
-    width: 100%;
-    height: 42px;
-    align-items: center;
-    padding: 0 16px;
-    font-size: 12px;
-    color: #212121;
+.policy {
+  margin-top: 80px;
+  width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #ffffff;
+}
+.policy-content {
+  padding: 28px 32px;
+  text-align: left;
+  border-width: 0 1px 1px 1px;
+  border-style: solid;
+  border-color: #dfdfdf;
+}
+.tab-menu-mobile {
+  background-color: rgb(251, 251, 251);
+  border: 1px solid #dfdfdf;
+  width: 100%;
+  height: 42px;
+  align-items: center;
+  padding: 0 16px;
+  font-size: 12px;
+  color: #212121;
+  display: none;
+}
+.down-icon {
+  color: #666;
+}
+@media (max-width: 1199px) {
+  .tab-menu-wrap {
     display: none;
   }
-  .down-icon {
-    color: #666;
+  .tab-menu-mobile {
+    display: flex;
   }
-  @media (max-width: 1199px) {
-    .tab-menu-wrap {
-      display: none;
-    }
-    .tab-menu-mobile {
-      display: flex;
-    }
-    .policy {
-      width: 100%;
-      margin-top: 8px;
-    }
-    .policy-content {
-      margin-top: 8px;
-      border-width: 1px;
-    }
+  .policy {
+    width: 100%;
+    margin-top: 8px;
   }
+  .policy-content {
+    margin-top: 8px;
+    border-width: 1px;
+  }
+}
 </style>

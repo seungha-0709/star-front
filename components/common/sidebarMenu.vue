@@ -2,7 +2,7 @@
   <div class="sidebar-menu">
     <div class="rectangle">
       <div class="title">
-        <slot />
+        <slot name="iconButton" />
         <h4 class="menu-title">{{ title }}</h4>
       </div>
       <ul class="menu-list">

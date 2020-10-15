@@ -10,11 +10,11 @@
       <basic-button
         v-if="defaultTableSet.removeAllBtn"
         text="모두삭제"
-        width="84"
-        height="42"
+        width="84px"
+        height="42px"
         color="#212121"
-        fontSize="14"
-        borderRadius="4"
+        fontSize="14px"
+        borderRadius="4px"
         backgroundColor="#ffffff"
         borderColor="#dfdfdf"
         fontWeight="400"
@@ -28,7 +28,7 @@
             <th
               v-for="(item, index) in defaultTableSet.tableHeaderTitle"
               :key="index"
-              :style="{ width: defaultTableSet.tableColumnWidth[index] + 'px' }"
+              :style="{ width: defaultTableSet.tableColumnWidth[index] }"
             >
               {{ item }}
             </th>

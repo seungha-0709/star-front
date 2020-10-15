@@ -1,5 +1,5 @@
 <template>
-  <v-footer class="white footer" height="196">
+  <v-footer class="white footer" height="196px">
     <div class="content">
       <div class="logo-sns-box">
         <div class="logo">

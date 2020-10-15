@@ -15,7 +15,7 @@ export const modalInfoCancel = {
   footerBtn: true, // 푸터에 버튼 존재여부
   bottomBtn: [
     {
-      width: 180,
+      width: "180px",
       color: "#212121",
       borderColor: "#dfdfdf",
       backgroundColor: "#fff",
@@ -23,7 +23,7 @@ export const modalInfoCancel = {
       style: "normalWhite"
     },
     {
-      width: 180,
+      width: "180px",
       color: "#fff",
       backgroundColor: "#1673e6",
       title: "접수하기",
@@ -58,7 +58,7 @@ export const modalInfoQna = {
   footerBtn: true,
   bottomBtn: [
     {
-      width: 240,
+      width: "240px",
       color: "#fff",
       backgroundColor: "#1673e6",
       title: "문의하기",
@@ -93,7 +93,7 @@ export const modalInfoCoupon = {
   footerBtn: true,
   bottomBtn: [
     {
-      width: 240,
+      width: "240px",
       color: "#fff",
       backgroundColor: "#1673e6",
       title: "등록하기",

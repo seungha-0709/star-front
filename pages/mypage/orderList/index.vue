@@ -28,9 +28,11 @@
       v-if="modalTypeOnOff.order.onoff"
       @close="modalOnOff('order')"
     >
-      <modal-order
-        :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
-      />
+      <template v-slot:modalPage>
+        <modal-order
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
+      </template>
     </modal>
 
     <modal
@@ -38,9 +40,11 @@
       v-if="modalTypeOnOff.receipt.onoff"
       @close="modalOnOff('receipt')"
     >
-      <modal-receipt
-        :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
-      />
+      <template v-slot:modalPage>
+        <modal-receipt
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
+      </template>
     </modal>
 
     <modal
@@ -48,9 +52,11 @@
       v-if="modalTypeOnOff.cancel.onoff"
       @close="modalOnOff('cancel')"
     >
-      <modal-cancel
-        :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
-      />
+      <template v-slot:modalPage>
+        <modal-cancel
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
+      </template>
     </modal>
 
     <modal
@@ -58,9 +64,11 @@
       v-if="modalTypeOnOff.qna.onoff"
       @close="modalOnOff('qna')"
     >
-      <modal-qna
-        :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
-      />
+      <template v-slot:modalPage>
+        <modal-qna
+          :paymentData="paymentInfo.data.find((data) => data.id === modalIndex)"
+        />
+      </template>
     </modal>
   </div>
 </template>
@@ -75,8 +83,8 @@
   import sidebarTemporal from "../../../components/myPage/sidebarTemporal.vue"
   import basicBoardCast from "../../../components/common/basicBoardCast.vue"
   import orderList from "../../../components/orderList/orderList.vue"
-  import { paymentInfo } from "../../../components/orderList/payment.js"
-  import { myOrderListInfo } from "../../../components/myPageBoard.js"
+  import { paymentInfo } from "../../../assets/data/shop/payment.js"
+  import { myOrderListInfo } from "../../../assets/data/mypage/myPageBoard.js"
 
   export default {
     data() {
