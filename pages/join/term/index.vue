@@ -55,9 +55,10 @@
     margin-top: 40px;
   }
   .join-term-page .alert {
+    width: 600px;
     font-size: 14px;
     color: #ff3366;
-    margin-top: 16px;
+    margin: 16px auto 0;
   }
   .join-term-page .alert p {
     text-align: left;
