@@ -26,7 +26,7 @@ module.exports = {
       }
     ]
   },
-  plugins: ["~/plugins/vuetify.js"],
+  plugins: ["~/plugins/vuetify.js", "~/plugins/vueMq.js"],
   css: ["~/assets/style/app.styl", "~/assets/style/reset.css"],
   /* Customize the progress bar color */
   loading: { color: "#3B8070" },
