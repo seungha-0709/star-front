@@ -1,19 +1,27 @@
 <template>
   <div class="profile-side-bar">
     <ul>
-      <li><span><home-icon size="1x" class="home icon" /></span>홈</li>
-      <li><span><star-icon size="1x" class="star icon" /></span>청정리뷰 보기</li>
-      <li>강사리뷰</li>
-      <li>환승후기</li>
-      <li><span><check-circle-icon size="1x" class="check icon" /></span>합격후기</li>
-      <li><span><message-circle-icon size="1x" class="message icon" /></span>Q&A</li>
+      <li v-for="(item, index) in menuData" :key="index">
+        <span v-if="item.type === 'home'" ><home-icon size="1x" class="home icon" /></span> 
+        <span v-if="item.type === 'cleanreview'"><star-icon size="1x" class="star icon" /></span>
+        <span v-if="item.type === 'pass'"><check-circle-icon size="1x" class="check icon" /></span>
+        <span v-if="item.type === 'qna'"><message-circle-icon size="1x" class="message icon" /></span>
+        {{ item.title }}
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
 import { HomeIcon, StarIcon, CheckCircleIcon, MessageCircleIcon } from 'vue-feather-icons'
+import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
+
   export default {
+    data() {
+     return {
+      menuData       
+     } 
+    },
     components: {
       HomeIcon,
       StarIcon,
