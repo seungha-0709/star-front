@@ -3,7 +3,9 @@ export default {
     jwt: null
   }),
 
-  getters: {},
+  getters: {
+    GE_ISSUE_TOKEN: (state) => state.jwt
+  },
 
   mutations: {
     MU_ISSUE_TOKEN(state, payload) {
