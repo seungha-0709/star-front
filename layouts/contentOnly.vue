@@ -9,19 +9,27 @@
 </template>
 
 <script>
-export default {
-  data() {
-    return {}
-  },
-  components: {}
-}
+  import { mapActions } from "vuex"
+
+  export default {
+    data() {
+      return {}
+    },
+    components: {},
+    methods: {
+      ...mapActions(["AC_ISSUE_TOKEN"])
+    },
+    mounted() {
+      this.AC_ISSUE_TOKEN()
+    }
+  }
 </script>
 
 <style scoped>
-.v-app-wrap {
-  height: 100%;
-}
-.v-container-wrap {
-  height: 100%;
-}
+  .v-app-wrap {
+    height: 100%;
+  }
+  .v-container-wrap {
+    height: 100%;
+  }
 </style>
