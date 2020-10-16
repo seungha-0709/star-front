@@ -18,7 +18,7 @@
       </section>
       <section>
         <bar-graph />
-        <pentagon-graph />
+        <radar-graph />
         <circle-graph />
       </section>
       <section>
@@ -45,7 +45,7 @@
   import totalEvaluation from "../../components/teacher/totalEvaluation.vue"
   import reviewAmount from "../../components/teacher/reviewAmount.vue"
   import barGraph from "../../components/teacher/barGraph.vue"
-  import pentagonGraph from "../../components/teacher/pentagonGraph.vue"
+  import radarGraph from "../../components/teacher/radarGraph.vue"
   import circleGraph from "../../components/teacher/circleGraph.vue"
   import reviewKeyword from "../../components/teacher/reviewKeyword.vue"
   import reviewContent from "../../components/teacher/reviewContent.vue"
@@ -61,7 +61,7 @@
       totalEvaluation,
       reviewAmount,
       barGraph,
-      pentagonGraph,
+      radarGraph,
       circleGraph,
       reviewKeyword,
       reviewContent,
