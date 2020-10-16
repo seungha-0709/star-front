@@ -2,7 +2,7 @@
   <div class="bar-graph">
     <header></header>
     <main>
-      <bar-graph-chart :chartData="datacollection" :options="options" />
+      <bar-graph-chart :chartData="dataCollection" :options="options" />
     </main>
   </div>
 </template>
@@ -19,7 +19,7 @@ export default {
   },
   data() {
       return {
-        datacollection: {},
+        dataCollection: {},
         options: {
           responsive: true,
           maintainAspectRatio: true,
@@ -49,20 +49,21 @@ export default {
     },
     methods: {
       fillData() {
-        this.datacollection = {
+        this.dataCollection = {
           labels: ['긍정', '보통', '부정'],
           datasets: [
             {
               label: '긍정',
               backgroundColor: ['rgba(63, 96, 204, 0.5)', 'rgba(24, 173, 222, 0.4)', 'rgba(255, 51, 102, 0.5)'],
+              borderWidth: 1,
               borderColor: ['#3f60cc', '#18adde', '#ff3366'],
               data: [80, 40, 30]
             }
           ]
         }
       }
-      }
     }
+  }
 </script>
 
 <style scoped>
