@@ -19,7 +19,7 @@
       <section>
         <bar-graph />
         <radar-graph />
-        <circle-graph />
+        <doughnut-graph />
       </section>
       <section>
         <review-keyword />
@@ -46,7 +46,7 @@
   import reviewAmount from "../../components/teacher/reviewAmount.vue"
   import barGraph from "../../components/teacher/barGraph.vue"
   import radarGraph from "../../components/teacher/radarGraph.vue"
-  import circleGraph from "../../components/teacher/circleGraph.vue"
+  import doughnutGraph from "../../components/teacher/doughnutGraph.vue"
   import reviewKeyword from "../../components/teacher/reviewKeyword.vue"
   import reviewContent from "../../components/teacher/reviewContent.vue"
   import banner from "../../components/teacher/banner.vue"
@@ -62,7 +62,7 @@
       reviewAmount,
       barGraph,
       radarGraph,
-      circleGraph,
+      doughnutGraph,
       reviewKeyword,
       reviewContent,
       banner,
