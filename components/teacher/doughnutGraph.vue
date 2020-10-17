@@ -1,6 +1,6 @@
 <template>
   <div class="doughnut-graph">
-    <header></header>
+    <header><h1>수강 유형별 분포</h1></header>
     <main>
       <div class="graph">
         <doughnut-graph-chart :chartData="dataCollection" :options="options" />
@@ -30,6 +30,7 @@ export default {
               display: false
               }]
           },
+          cutoutPercentage: 30,
           legend: {
             display: false
           },
@@ -66,6 +67,12 @@ export default {
 </script>
 
 <style scoped>
+  h1 {
+    font-size: 20px;
+    color: #212121;
+    font-weight: bold;
+    margin-bottom: 20px;
+  }
   .doughnut-graph {
     width: 303px;
     height: 337px;

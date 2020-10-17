@@ -1,6 +1,6 @@
 <template>
   <div class="bar-graph">
-    <header></header>
+    <header><h1>리뷰 분포</h1></header>
     <main>
       <bar-graph-chart :chartData="dataCollection" :options="options" />
     </main>
@@ -67,6 +67,12 @@ export default {
 </script>
 
 <style scoped>
+  h1 {
+    font-size: 20px;
+    color: #212121;
+    font-weight: bold;
+    margin-bottom: 13px;
+  }
   .bar-graph {
     width: 303px;
     height: 337px;

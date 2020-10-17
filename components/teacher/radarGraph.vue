@@ -1,6 +1,6 @@
 <template>
   <div class="radar-graph">
-    <header></header>
+    <header><h1>세부 항목</h1></header>
     <main>
       <div class="graph">
         <radar-graph-chart :chartData="dataCollection" :options="options" />
@@ -26,13 +26,19 @@ export default {
           responsive: true,
           maintainAspectRatio: true,
           scales: {
-            angleLines: {
-              display: false
-            },
             ticks: {
-              suggestedMin: 0,
-              suggestedMax: 100
+              display: false,
+              min: 0,
+              max: 100,
+              stepSize: 20
             },
+            // angleLines: {
+            //   display: false
+            // },
+            // ticks: {
+            //   suggestedMin: 0,
+            //   suggestedMax: 100
+            // },
             xAxes: [{
               display: false
             }],
@@ -82,6 +88,12 @@ export default {
   }
 </script>
 <style scoped>
+  h1 {
+    font-size: 20px;
+    color: #212121;
+    font-weight: bold;
+    margin-bottom: 13px;
+  }
   .radar-graph {
     width: 303px;
     height: 337px;
@@ -91,7 +103,7 @@ export default {
     box-sizing: border-box;
   }
   .graph {
-    width: 200px;
+    width: 220px;
     margin-left: auto;
     margin-right: auto;
   }
