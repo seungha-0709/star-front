@@ -4,22 +4,19 @@
     <main>
       <div class="graph">
         <radar-graph-chart :chartData="dataCollection" :options="options" />
-      </div>    
+      </div>
     </main>
   </div>
 </template>
 
-
-
-
 <script>
-import radarGraphChart from './radarGraphChart.vue'
+  import radarGraphChart from "./radarGraphChart.vue"
 
-export default {
-  components: {
-    radarGraphChart
-  },
-  data() {
+  export default {
+    components: {
+      radarGraphChart
+    },
+    data() {
       return {
         dataCollection: {},
         options: {
@@ -39,48 +36,51 @@ export default {
             //   suggestedMin: 0,
             //   suggestedMax: 100
             // },
-            xAxes: [{
-              display: false
-            }],
-            yAxes: [{
-              display: false
-            }]
+            xAxes: [
+              {
+                display: false
+              }
+            ],
+            yAxes: [
+              {
+                display: false
+              }
+            ]
           },
           legend: {
             display: false
           },
           tooltips: {
             callbacks: {
-              label: function(tooltipItem) {
+              label: (tooltipItem) => {
                 return tooltipItem.yLabel
-               }
+              }
             }
           }
         }
       }
-  },
+    },
     mounted() {
       this.fillData()
     },
     methods: {
       fillData() {
         this.dataCollection = {
-          labels: ['강의몰입도', '유머', '질의응답', '이해도', '암기법'],
+          labels: ["강의몰입도", "유머", "질의응답", "이해도", "암기법"],
           datasets: [
             {
-              backgroundColor: ['rgba(93, 126, 233, 0.3)'],
+              backgroundColor: ["rgba(93, 126, 233, 0.3)"],
               borderWidth: 1,
-              borderColor: ['#3f60cc'],
+              borderColor: ["#3f60cc"],
               data: [43, 40, 55, 44, 51]
             },
             {
-              backgroundColor: ['rgba(255, 51, 102, 0.2)'],
+              backgroundColor: ["rgba(255, 51, 102, 0.2)"],
               borderWidth: 1,
               borderDash: [5],
-              borderColor: ['#ff3366'],
+              borderColor: ["#ff3366"],
               data: [50, 50, 50, 50, 50]
             }
-
           ]
         }
       }
