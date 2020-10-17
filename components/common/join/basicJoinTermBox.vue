@@ -12,7 +12,7 @@
       </div>
     </div>
     <div class="term-context">
-      <p>{{ context }}</p>
+      <p v-html="context"></p>
     </div>
   </div>
 </template>
@@ -58,6 +58,7 @@
     display: none;
   }
   .term-boxes .term-context {
+    overflow: scroll;
     height: 110px;
     padding: 20px 20px 0px;
     background-color: #ffffff;
