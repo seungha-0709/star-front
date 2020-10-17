@@ -6,14 +6,35 @@
         <div class="title-score">
           <div class="number-score">
             <div>
-              <span class="score">9.5</span><span class="total-score">/10</span>
+              <span class="score">{{ score.starScore }}</span
+              ><span class="total-score">{{ `/${score.total}` }}</span>
             </div>
             <div class="star-score">
-              <star-icon size="1.5x" class="star-icon"></star-icon>
-              <star-icon size="1.5x" class="star-icon"></star-icon>
-              <star-icon size="1.5x" class="star-icon"></star-icon>
-              <star-icon size="1.5x" class="star-icon"></star-icon>
-              <star-icon size="1.5x" class="star-icon"></star-icon>
+              <star-icon
+                class="star-icon"
+                size="1.5x"
+                :class="{ active: score.starScore >= 2 }"
+              />
+              <star-icon
+                class="star-icon"
+                size="1.5x"
+                :class="{ active: score.starScore >= 4 }"
+              />
+              <star-icon
+                class="star-icon"
+                size="1.5x"
+                :class="{ active: score.starScore >= 6 }"
+              />
+              <star-icon
+                class="star-icon"
+                size="1.5x"
+                :class="{ active: score.starScore >= 8 }"
+              />
+              <star-icon
+                class="star-icon"
+                size="1.5x"
+                :class="{ active: score.starScore >= 10 }"
+              />
             </div>
           </div>
         </div>
@@ -54,6 +75,14 @@
   import basicButton from "../common/basicButton.vue"
   import { StarIcon } from "vue-feather-icons"
   export default {
+    data() {
+      return {
+        score: {
+          total: 10,
+          starScore: 9.5
+        }
+      }
+    },
     components: {
       reviewLive,
       basicButton,
@@ -90,6 +119,11 @@
     margin-bottom: 8px;
   }
   .star-icon {
+    border: 0;
+    fill: currentColor;
+    color: #ececec;
+  }
+  .star-icon.active {
     border: 0;
     fill: currentColor;
     color: #ffc13e;
