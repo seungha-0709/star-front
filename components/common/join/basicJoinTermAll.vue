@@ -2,21 +2,16 @@
   <div class="term-all">
     <div class="all-agreement">
       <p>전체 약관 동의</p>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" />
-          <check-button />
-        </label>
-      </div>
+      <label class="checkbox">
+        <input type="checkbox" />
+        <div class="checkbox-icon" />
+      </label>
     </div>
   </div>
 </template>
 <script>
-  import checkButton from "../../common/checkButton.vue"
   export default {
-    components: {
-      "check-button": checkButton
-    }
+    components: {}
   }
 </script>
 <style scoped>
@@ -37,7 +32,22 @@
     color: #212121;
     text-align: left;
   }
-  .term-all .all-agreement label input[type="checkbox"] {
+  .term-all .all-agreement .checkbox {
+    cursor: pointer;
+  }
+  .term-all .all-agreement input[type="checkbox"] {
     display: none;
+  }
+  .term-all .all-agreement .checkbox-icon {
+    background-image: url("/img/button/check-01-off@3x.png");
+    background-size: cover;
+    width: 28px;
+    height: 28px;
+  }
+  .term-all .all-agreement input[type="checkbox"]:checked + .checkbox-icon {
+    background-image: url("/img/button/check-01-on@3x.png");
+    background-size: cover;
+    width: 28px;
+    height: 28px;
   }
 </style>

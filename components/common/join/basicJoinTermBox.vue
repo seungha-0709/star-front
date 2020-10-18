@@ -3,12 +3,10 @@
     <div class="term-box">
       <div class="agreement">
         <p>{{ title }}</p>
-        <div class="checkbox">
-          <label>
-            <input type="checkbox" />
-            <check-button />
-          </label>
-        </div>
+        <label class="checkbox">
+          <input type="checkbox" />
+          <div class="checkbox-icon" />
+        </label>
       </div>
     </div>
     <div class="term-context">
@@ -17,7 +15,6 @@
   </div>
 </template>
 <script>
-  import checkButton from "../../common/checkButton.vue"
   export default {
     props: {
       title: {
@@ -27,9 +24,7 @@
         default: ""
       }
     },
-    components: {
-      "check-button": checkButton
-    }
+    components: {}
   }
 </script>
 <style scoped>
@@ -44,18 +39,33 @@
     border-bottom: solid 1px #ececec;
     background-color: #ffffff;
   }
-  .term-box .agreement {
+  .term-boxes .agreement {
     display: flex;
     justify-content: space-between;
     vertical-align: middle;
   }
-  .term-box .agreement p {
+  .term-boxes .agreement p {
     font-size: 18px;
     color: #212121;
     text-align: left;
   }
-  .term-box .agreement label input[type="checkbox"] {
+  .term-boxes .agreement .checkbox {
+    cursor: pointer;
+  }
+  .term-boxes .agreement input[type="checkbox"] {
     display: none;
+  }
+  .term-boxes .agreement .checkbox-icon {
+    background-image: url("/img/button/check-01-off@3x.png");
+    background-size: cover;
+    width: 28px;
+    height: 28px;
+  }
+  .term-boxes .agreement input[type="checkbox"]:checked + .checkbox-icon {
+    background-image: url("/img/button/check-01-on@3x.png");
+    background-size: cover;
+    width: 28px;
+    height: 28px;
   }
   .term-boxes .term-context {
     overflow: scroll;
