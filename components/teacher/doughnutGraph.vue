@@ -29,17 +29,17 @@
               }
             ]
           },
-          cutoutPercentage: 30,
-          legend: {
-            display: false
-          },
-          tooltips: {
-            callbacks: {
-              label: (tooltipItem) => {
-                return tooltipItem.yLabel
-              }
-            }
-          }
+          cutoutPercentage: 30
+          // legend: {
+          //   display: false
+          // },
+          // tooltips: {
+          //   callbacks: {
+          //     label: (tooltipItem) => {
+          //       return tooltipItem.yLabel
+          //     }
+          //   }
+          // }
         }
       }
     },
@@ -49,7 +49,7 @@
     methods: {
       fillData() {
         this.dataCollection = {
-          labels: ["긍정", "보통", "부정"],
+          labels: ["실강", "인강", "둘다"],
           datasets: [
             {
               label: "긍정",
