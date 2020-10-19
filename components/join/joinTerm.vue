@@ -1,14 +1,18 @@
 <template>
   <div class="join-term-boxes">
     <div class="join-term-all">
-      <basic-join-term-all />
+      <basic-join-term-all :term-all-agree="termAllAgree" />
     </div>
     <div
       class="join-term-box"
       v-for="(item, index) in joinTermInfo"
       :key="index"
     >
-      <basic-join-term-box :title="item.title" :context="item.context" />
+      <basic-join-term-box
+        :term-all-agree="termAllAgree"
+        :title="item.title"
+        :context="item.context"
+      />
     </div>
   </div>
 </template>
@@ -18,6 +22,7 @@
   import { joinTermInfo } from "../../assets/data/join/joinTerm.js"
 
   export default {
+    props: ["term-all-agree"],
     data() {
       return {
         joinTermInfo

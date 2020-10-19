@@ -3,16 +3,31 @@
     <div class="all-agreement">
       <p>전체 약관 동의</p>
       <label class="checkbox">
-        <input type="checkbox" />
+        <input
+          type="checkbox"
+          :value="termAllAgree"
+          v-on:click="agreeAllTerm"
+        />
         <div class="checkbox-icon" />
       </label>
     </div>
   </div>
 </template>
 <script>
-  export default {
-    components: {}
+    export default {
+      props: ["term-all-agree"],
+      data() {
+        return {
+          termAllAgree: false
+        }
+      },
+      components: {},
+      methods: {
+  agreeAllTerm() {
+    if ()
   }
+      }
+    }
 </script>
 <style scoped>
   .term-all {

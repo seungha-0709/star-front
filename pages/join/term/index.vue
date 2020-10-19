@@ -8,9 +8,9 @@
       />
     </div>
     <div class="join-term-group">
-      <join-term />
+      <join-term :term-all-agree="termAllAgree" />
     </div>
-    <div class="alert">
+    <div v-if="termAllAgree == false" class="alert">
       <p>
         미동의 시 별별선생이 제공하는 다양한 학원/강사진의 학습 정보 전달이
         제한될 수 있습니다.
@@ -35,6 +35,11 @@
 
   export default {
     layout: "contentOnly",
+    data() {
+      return {
+        termAllAgree: false
+      }
+    },
     components: {
       "basic-join-title": basicJoinTitle,
       "join-term": joinTerm,
