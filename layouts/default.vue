@@ -12,7 +12,7 @@
 </template>
 
 <script>
-  import { mapActions } from "vuex"
+  import { mapGetters, mapActions } from "vuex"
 
   import headerVue from "../components/common/header/index.vue"
   import footerVue from "../components/common/footer.vue"
@@ -27,10 +27,15 @@
       "footer-component": footerVue,
       "go-top-component": goTopVue
     },
+    computed: {
+      ...mapGetters({
+        storeIssueToken: "GE_ISSUE_TOKEN"
+      })
+    },
     methods: {
       ...mapActions(["AC_ISSUE_TOKEN"])
     },
-    mounted() {
+    created() {
       this.AC_ISSUE_TOKEN()
     }
   }
