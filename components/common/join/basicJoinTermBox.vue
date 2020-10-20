@@ -3,10 +3,11 @@
     <div class="term-box">
       <div class="agreement">
         <p>{{ title }}</p>
-        <label class="checkbox">
-          <input type="checkbox" />
-          <div class="checkbox-icon" />
-        </label>
+        <div
+          class="checkbox-icon"
+          :class="{ check: termAgree }"
+          @click="$emit('check')"
+        />
       </div>
     </div>
     <div class="term-context">
@@ -17,6 +18,9 @@
 <script>
   export default {
     props: {
+      "term-agree": {
+        default: false
+      },
       title: {
         default: ""
       },
@@ -49,19 +53,14 @@
     color: #212121;
     text-align: left;
   }
-  .term-boxes .agreement .checkbox {
-    cursor: pointer;
-  }
-  .term-boxes .agreement input[type="checkbox"] {
-    display: none;
-  }
   .term-boxes .agreement .checkbox-icon {
+    cursor: pointer;
     background-image: url("/img/button/check-01-off@3x.png");
     background-size: cover;
     width: 28px;
     height: 28px;
   }
-  .term-boxes .agreement input[type="checkbox"]:checked + .checkbox-icon {
+  .term-boxes .agreement .checkbox-icon.check {
     background-image: url("/img/button/check-01-on@3x.png");
     background-size: cover;
     width: 28px;
