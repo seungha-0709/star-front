@@ -1,3 +1,5 @@
+import Cookies from "js-cookie"
+
 export default {
   state: () => ({
     token: null
@@ -10,10 +12,12 @@ export default {
   mutations: {
     MU_ISSUE_TOKEN(state, payload) {
       state.token = payload
-      // 요청받은 token값을 localStorage에 "token" 으로 저장
-      if (process.browser) {
-        localStorage.setItem("token", payload.token)
-      }
+      const date = new Date()
+      const minutes = 30
+      Cookies.set("token", payload.token, {
+        path: "/",
+        expires: date.getTime() + minutes * 60 * 1000
+      })
     }
   },
 
