@@ -2,32 +2,26 @@
   <div class="term-all">
     <div class="all-agreement">
       <p>전체 약관 동의</p>
-      <label class="checkbox">
-        <input
-          type="checkbox"
-          :value="termAllAgree"
-          v-on:click="agreeAllTerm"
-        />
-        <div class="checkbox-icon" />
-      </label>
+      <div
+        class="checkbox-icon"
+        :class="{ check: computedCheckAll }"
+        @click="$emit('check-all')"
+      />
     </div>
   </div>
 </template>
 <script>
-    export default {
-      props: ["term-all-agree"],
-      data() {
-        return {
-          termAllAgree: false
-        }
-      },
-      components: {},
-      methods: {
-  agreeAllTerm() {
-    if ()
-  }
+  export default {
+    props: ["term-all-agree"],
+    data() {
+      return {}
+    },
+    computed: {
+      computedCheckAll() {
+        return this.termAllAgree.every((item) => item === true)
       }
     }
+  }
 </script>
 <style scoped>
   .term-all {
@@ -47,19 +41,14 @@
     color: #212121;
     text-align: left;
   }
-  .term-all .all-agreement .checkbox {
-    cursor: pointer;
-  }
-  .term-all .all-agreement input[type="checkbox"] {
-    display: none;
-  }
   .term-all .all-agreement .checkbox-icon {
+    cursor: pointer;
     background-image: url("/img/button/check-01-off@3x.png");
     background-size: cover;
     width: 28px;
     height: 28px;
   }
-  .term-all .all-agreement input[type="checkbox"]:checked + .checkbox-icon {
+  .term-all .all-agreement .checkbox-icon.check {
     background-image: url("/img/button/check-01-on@3x.png");
     background-size: cover;
     width: 28px;
