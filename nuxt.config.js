@@ -30,7 +30,12 @@ module.exports = {
   axios: {
     baseURL: process.env.API_URL || "http://localhost:5000/v1"
   },
-  plugins: ["~/plugins/vuetify.js", "~/plugins/vueMq.js", "~/plugins/axios.js"],
+  plugins: [
+    "~/plugins/vuetify.js",
+    "~/plugins/vueMq.js",
+    "~/plugins/axios.js",
+    "~/plugins/persistedState.js"
+  ],
   css: ["~/assets/style/app.styl", "~/assets/style/reset.css"],
   /* Customize the progress bar color */
   loading: { color: "#3B8070" },
