@@ -8,14 +8,9 @@
       />
     </div>
     <div class="join-term-group">
-      <join-term :term-all-agree="termAllAgree" />
+      <join-term />
     </div>
-    <div v-if="termAllAgree == false" class="alert">
-      <p>
-        미동의 시 별별선생이 제공하는 다양한 학원/강사진의 학습 정보 전달이
-        제한될 수 있습니다.
-      </p>
-    </div>
+
     <div class="button">
       <basic-button
         text="동의하기"
@@ -36,9 +31,7 @@
   export default {
     layout: "contentOnly",
     data() {
-      return {
-        termAllAgree: false
-      }
+      return {}
     },
     components: {
       "basic-join-title": basicJoinTitle,
@@ -58,15 +51,6 @@
   }
   .join-term-page .join-term-group {
     margin-top: 40px;
-  }
-  .join-term-page .alert {
-    width: 600px;
-    font-size: 14px;
-    color: #ff3366;
-    margin: 16px auto 0;
-  }
-  .join-term-page .alert p {
-    text-align: left;
   }
   .join-term-page .button {
     text-align: center;
