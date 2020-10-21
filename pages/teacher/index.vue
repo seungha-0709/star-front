@@ -1,5 +1,8 @@
 <template>
-  <div>
+  <div class="background">
+    <div class="right-banner-position">
+      <right-banner />
+    </div>
     <header>
       <top-banner />
       <teacher-top />
@@ -46,6 +49,7 @@
 
 <script>
   import topBanner from "../../components/teacher/topBanner.vue"
+  import rightBanner from "../../components/teacher/rightBanner.vue"
   import teacherTop from "../../components/teacher/teacherTop.vue"
   import profileSide from "../../components/teacher/profileSide.vue"
   import profileSidebar from "../../components/teacher/profileSidebar.vue"
@@ -64,6 +68,7 @@
   export default {
     components: {
       topBanner,
+      rightBanner,
       teacherTop,
       profileSidebar,
       profileSide,
@@ -83,10 +88,18 @@
 </script>
 
 <style scoped>
+  .background {
+    position: relative;
+  }
   .teacher-wrap {
     display: flex;
     justify-content: center;
     align-items: flex-start;
+  }
+  .right-banner-position {
+    position: absolute;
+    top: 175px;
+    left: 1576px;
   }
   main {
     width: 924px;
