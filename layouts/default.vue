@@ -13,6 +13,7 @@
 
 <script>
   import { mapGetters, mapActions } from "vuex"
+  import Cookies from "js-cookie"
 
   import headerVue from "../components/common/header/index.vue"
   import footerVue from "../components/common/footer.vue"
@@ -36,7 +37,9 @@
       ...mapActions(["AC_ISSUE_TOKEN"])
     },
     created() {
-      this.AC_ISSUE_TOKEN()
+      if (!Cookies.get("token")) {
+        this.AC_ISSUE_TOKEN()
+      }
     }
   }
 </script>
