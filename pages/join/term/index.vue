@@ -19,7 +19,7 @@
         fontWeight="normal"
       />
     </div>
-    <copy-right />
+    <copy-right class="copyright" />
   </div>
 </template>
 <script>
@@ -55,5 +55,8 @@
   .join-term-page .button {
     text-align: center;
     margin: 32px 0 96px;
+  }
+  .join-term-page .copyright {
+    margin-bottom: 105px;
   }
 </style>
