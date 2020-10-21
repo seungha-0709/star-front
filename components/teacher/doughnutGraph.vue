@@ -29,10 +29,15 @@
               }
             ]
           },
-          cutoutPercentage: 30
-          // legend: {
-          //   display: false
-          // },
+          cutoutPercentage: 30,
+          legend: {
+            position: "bottom",
+            align: "left",
+            labels: {
+              boxWidth: 26,
+              fontColor: "#666666"
+            }
+          }
           // tooltips: {
           //   callbacks: {
           //     label: (tooltipItem) => {

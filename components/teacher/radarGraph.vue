@@ -46,10 +46,14 @@
                 display: false
               }
             ]
+          },
+          legend: {
+            position: "bottom",
+            labels: {
+              boxWidth: 14,
+              fontColor: "#666666"
+            }
           }
-          // legend: {
-          //   display: false
-          // },
           // tooltips: {
           //   callbacks: {
           //     label: (tooltipItem) => {
