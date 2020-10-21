@@ -1,44 +1,52 @@
 <template>
-  <div class="teacher-wrap">
-    <aside>
-      <section>
-        <profile-side />
-      </section>
-      <section>
-        <profile-sidebar />
-      </section>
-    </aside>
-    <main>
-      <section>
-        <profile-main />
-      </section>
-      <section>
-        <total-evaluation />
-        <review-amount />
-      </section>
-      <section>
-        <bar-graph />
-        <radar-graph />
-        <doughnut-graph />
-      </section>
-      <section>
-        <review-keyword />
-      </section>
-      <section>
-        <review-content />
-      </section>
-      <section>
-        <banner />
-      </section>
-      <section>
-        <review-list />
-        <teacher-in-press />
-      </section>
-    </main>
+  <div>
+    <header>
+      <top-banner />
+      <teacher-top />
+    </header>
+    <div class="teacher-wrap">
+      <aside>
+        <section>
+          <profile-side />
+        </section>
+        <section>
+          <profile-sidebar />
+        </section>
+      </aside>
+      <main>
+        <section>
+          <profile-main />
+        </section>
+        <section>
+          <total-evaluation />
+          <review-amount />
+        </section>
+        <section>
+          <bar-graph />
+          <radar-graph />
+          <doughnut-graph />
+        </section>
+        <section>
+          <review-keyword />
+        </section>
+        <section>
+          <review-content />
+        </section>
+        <section>
+          <banner />
+        </section>
+        <section>
+          <review-list />
+          <teacher-in-press />
+        </section>
+      </main>
+    </div>
   </div>
 </template>
 
 <script>
+  import topBanner from "../../components/teacher/topBanner.vue"
+  import teacherTop from "../../components/teacher/teacherTop.vue"
   import profileSide from "../../components/teacher/profileSide.vue"
   import profileSidebar from "../../components/teacher/profileSidebar.vue"
   import profileMain from "../../components/teacher/profileMain.vue"
@@ -55,6 +63,8 @@
 
   export default {
     components: {
+      topBanner,
+      teacherTop,
       profileSidebar,
       profileSide,
       profileMain,
