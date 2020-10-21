@@ -11,12 +11,17 @@
       <join-term />
     </div>
 
-    <div class="button">
+    <div
+      @mouseenter="handleCardOnOff"
+      @mouseleave="handleCardOnOff"
+      class="button"
+    >
       <basic-button
         text="동의하기"
         borderRadius="31px"
         background-color="#3f60cc"
         fontWeight="normal"
+        :backgroundColor="buttonHoverColor"
       />
     </div>
     <copy-right class="copyright" />
@@ -31,13 +36,25 @@
   export default {
     layout: "contentOnly",
     data() {
-      return {}
+      return {
+        hoverState: false
+      }
     },
     components: {
       "basic-join-title": basicJoinTitle,
       "join-term": joinTerm,
       "basic-button": basicButton,
       "copy-right": copyright
+    },
+    computed: {
+      buttonHoverColor() {
+        return this.hoverState ? "#2c428d" : "#3f60cc"
+      }
+    },
+    methods: {
+      handleCardOnOff() {
+        return (this.hoverState = !this.hoverState)
+      }
     }
   }
 </script>
