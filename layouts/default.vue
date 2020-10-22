@@ -37,9 +37,7 @@
       ...mapActions(["AC_ISSUE_TOKEN"])
     },
     created() {
-      if (!Cookies.get("token")) {
-        this.AC_ISSUE_TOKEN()
-      }
+      this.AC_ISSUE_TOKEN()
     }
   }
 </script>

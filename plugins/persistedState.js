@@ -3,14 +3,13 @@ import * as Cookies from "js-cookie"
 
 export default ({ store }) => {
   createPersistedState({
-    key: "vuex",
+    paths: ["tokenStore"],
     storage: {
       getItem: (key) => Cookies.get(key),
       setItem: (key, value) => {
-        const date = new Date()
         const minutes = 30
         Cookies.set(key, value, {
-          expires: date.getTime() + minutes * 60 * 1000,
+          expires: new Date(Date.now() + minutes * 60 * 1000),
           secure: false
         })
       },

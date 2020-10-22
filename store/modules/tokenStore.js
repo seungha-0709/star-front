@@ -12,16 +12,14 @@ export default {
   mutations: {
     MU_ISSUE_TOKEN(state, payload) {
       state.token = payload
-      const date = new Date()
+
       const minutes = 30
-      date.setTime(date.getTime() + minutes * 60 * 1000)
       Cookies.set("token", payload.token, {
         path: "/",
-        expires: date
+        expires: new Date(Date.now() + minutes * 60 * 1000)
       })
     }
   },
-
   actions: {
     AC_ISSUE_TOKEN({ commit }) {
       return this.$axios.get(`/auth/jwt/token`).then((res) => {
