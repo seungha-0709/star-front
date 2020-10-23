@@ -1,4 +1,4 @@
-export const gnbManu = [
+export const gnbMenu = [
   {
     title: "공무원",
     sub: [

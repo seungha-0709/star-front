@@ -30,12 +30,12 @@
 </template>
 
 <script>
-  import { gnbManu } from "./headerData"
+  import { gnbMenu } from "./headerData"
 
   export default {
     data() {
       return {
-        menuData: gnbManu,
+        menuData: gnbMenu,
         showSubMenu: false,
         setMenuCode: null,
         setMenuWidth: 0
