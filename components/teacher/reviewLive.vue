@@ -19,8 +19,25 @@
         v-for="(content, index) in reviewLiveBest"
         :key="index"
       >
-        <span class="title">{{ content.title }}</span>
-        <span class="tag">{{ content.tag }}</span>
+        <div>
+          <span class="title">{{ content.title }}</span>
+          <span class="tag">{{ content.tag }}</span>
+        </div>
+        <img
+          src="/img/teacher/icon-emotion-01-off@2x.png"
+          alt="bad"
+          v-if="content.goodbad === 'bad'"
+        />
+        <img
+          src="/img/teacher/icon-emotion-04-off@2x.png"
+          alt="good"
+          v-if="content.goodbad === 'good'"
+        />
+        <img
+          src="/img/teacher/icon-emotion-05-off@2x.png"
+          alt="terrible"
+          v-if="content.goodbad === 'terrible'"
+        />
       </div>
       <div class="line"></div>
       <div
@@ -28,8 +45,25 @@
         v-for="(content, index) in reviewLiveNormal"
         :key="index"
       >
-        <span class="title">{{ content.title }}</span>
-        <span class="tag">{{ content.tag }}</span>
+        <div>
+          <span class="title">{{ content.title }}</span>
+          <span class="tag">{{ content.tag }}</span>
+        </div>
+        <img
+          src="/img/teacher/icon-emotion-01-off@2x.png"
+          alt="bad"
+          v-if="content.goodbad === 'bad'"
+        />
+        <img
+          src="/img/teacher/icon-emotion-04-off@2x.png"
+          alt="good"
+          v-if="content.goodbad === 'good'"
+        />
+        <img
+          src="/img/teacher/icon-emotion-05-off@2x.png"
+          alt="terrible"
+          v-if="content.goodbad === 'terrible'"
+        />
       </div>
     </main>
   </div>
@@ -106,5 +140,15 @@
     border-bottom: 1px solid #dfdfdf;
     width: 100%;
     margin: 12px 0;
+  }
+  .review {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .review img {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
   }
 </style>
