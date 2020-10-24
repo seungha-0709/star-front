@@ -48,6 +48,11 @@
             src="/img/teacher/default_teacher01_01@2x.png"
             alt="오로라 선생님"
           />
+          <img
+            class="ranking-first"
+            src="/img/teacher/mark-02-ranking-01@2x.png"
+            alt="랭킹 1등"
+          />
         </div>
         <div class="button-wrap">
           <basic-button
@@ -175,9 +180,17 @@
   .picture {
     display: flex;
     align-items: flex-end;
+    position: relative;
   }
   .picture img {
     width: 280px;
     height: 280px;
+  }
+  .picture .ranking-first {
+    width: 64px;
+    height: 64px;
+    position: absolute;
+    top: 16px;
+    right: 12px;
   }
 </style>

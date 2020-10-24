@@ -2,10 +2,18 @@
   <div class="profile-side-bar">
     <ul>
       <li v-for="(item, index) in menuData" :key="index">
-        <span v-if="item.type === 'home'" ><home-icon size="1x" class="home icon" /></span> 
-        <span v-if="item.type === 'cleanreview'"><star-icon size="1x" class="star icon" /></span>
-        <span v-if="item.type === 'pass'"><check-circle-icon size="1x" class="check icon" /></span>
-        <span v-if="item.type === 'qna'"><message-circle-icon size="1x" class="message icon" /></span>
+        <span v-if="item.type === 'home'"
+          ><home-icon size="1x" class="home icon"
+        /></span>
+        <span v-if="item.type === 'cleanreview'"
+          ><star-icon size="1x" class="star icon"
+        /></span>
+        <span v-if="item.type === 'pass'"
+          ><check-circle-icon size="1x" class="check icon"
+        /></span>
+        <span v-if="item.type === 'qna'"
+          ><message-circle-icon size="1x" class="message icon"
+        /></span>
         {{ item.title }}
       </li>
     </ul>
@@ -13,14 +21,19 @@
 </template>
 
 <script>
-import { HomeIcon, StarIcon, CheckCircleIcon, MessageCircleIcon } from 'vue-feather-icons'
-import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
+  import {
+    HomeIcon,
+    StarIcon,
+    CheckCircleIcon,
+    MessageCircleIcon
+  } from "vue-feather-icons"
+  import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
 
   export default {
     data() {
-     return {
-      menuData       
-     } 
+      return {
+        menuData
+      }
     },
     components: {
       HomeIcon,
@@ -28,7 +41,6 @@ import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
       CheckCircleIcon,
       MessageCircleIcon
     }
-
   }
 </script>
 
@@ -47,7 +59,7 @@ import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
     height: 52px;
     display: flex;
     align-items: center;
-    background: #fff;;
+    background: #fff;
   }
   li:hover {
     color: #3f60cc;
@@ -55,17 +67,20 @@ import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
   li:nth-child(1) {
     border-bottom: 1px solid #dfdfdf;
   }
-  li:nth-child(5),li:nth-child(6) {
+  li:nth-child(5),
+  li:nth-child(6) {
     border-top: 1px solid #dfdfdf;
   }
-  li:nth-child(3),li:nth-child(4) {
+  li:nth-child(3),
+  li:nth-child(4) {
     height: 42px;
   }
   li:nth-child(4) {
     margin-bottom: 5px;
   }
-  li:nth-child(3)::before,li:nth-child(4)::before {
-    content:'   ';
+  li:nth-child(3)::before,
+  li:nth-child(4)::before {
+    content: "   ";
     width: 10px;
     height: 10px;
     border-left: 1px solid #c1c1c1;
@@ -83,7 +98,6 @@ import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
     justify-content: center;
     align-items: center;
     margin-right: 12px;
-
   }
   .icon {
     color: #c1c1c1;
@@ -92,6 +106,6 @@ import { menuData } from "../../assets/data/teacher/teacherSideMenu.js"
     color: #5d7ee9;
   }
   li:hover span {
-    background: rgba(93, 126, 233, 0.2)
+    background: rgba(93, 126, 233, 0.2);
   }
 </style>

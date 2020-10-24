@@ -6,6 +6,11 @@
           src="/img/teacher/default_teacher01_01@2x.png"
           alt="오로라 선생님"
         />
+        <img
+          class="ranking-first"
+          src="/img/teacher/mark-02-ranking-01@2x.png"
+          alt="랭킹 1등"
+        />
       </div>
     </section>
     <section>
@@ -64,5 +69,15 @@
     width: 184px;
     height: 184px;
     border-radius: 92px;
+  }
+  .teacher-photo {
+    position: relative;
+  }
+  .teacher-photo .ranking-first {
+    position: absolute;
+    top: 132px;
+    left: 133px;
+    width: 50px;
+    height: 50px;
   }
 </style>
