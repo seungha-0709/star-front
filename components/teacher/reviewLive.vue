@@ -16,7 +16,16 @@
     <main>
       <div
         class="review"
-        v-for="(content, index) in reviewLiveData"
+        v-for="(content, index) in reviewLiveBest"
+        :key="index"
+      >
+        <span class="title">{{ content.title }}</span>
+        <span class="tag">{{ content.tag }}</span>
+      </div>
+      <div class="line"></div>
+      <div
+        class="review"
+        v-for="(content, index) in reviewLiveNormal"
         :key="index"
       >
         <span class="title">{{ content.title }}</span>
@@ -33,6 +42,14 @@
     data() {
       return {
         reviewLiveData
+      }
+    },
+    computed: {
+      reviewLiveBest() {
+        return reviewLiveData.filter((review) => review.tagid === "best")
+      },
+      reviewLiveNormal() {
+        return reviewLiveData.filter((review) => review.tagid === "normal")
       }
     },
     components: {
@@ -84,5 +101,10 @@
     font-size: 13px;
     color: #5e3fcc;
     display: block;
+  }
+  .line {
+    border-bottom: 1px solid #dfdfdf;
+    width: 100%;
+    margin: 12px 0;
   }
 </style>
