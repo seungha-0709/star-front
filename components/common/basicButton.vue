@@ -30,14 +30,26 @@
       text: {
         default: ""
       },
-      color: {
+      Color: {
         default: "#fff"
+      },
+      hoverColor: {
+        default: ""
+      },
+      BackgroundColor: {
+        default: ""
+      },
+      hoverBackgroundColor: {
+        default: ""
       },
       fontSize: {
         default: "16px"
       },
-      fontWeight: {
+      FontWeight: {
         default: 700
+      },
+      hoverFontWeight: {
+        default: ""
       },
       borderColor: {
         default: ""
@@ -50,12 +62,6 @@
       },
       height: {
         default: "52px"
-      },
-      hoverBackgroundColor: {
-        default: ""
-      },
-      mainBackgroundColor: {
-        default: ""
       }
     },
     computed: {
@@ -65,23 +71,23 @@
       backgroundColor() {
         return this.hoverState
           ? this.hoverBackgroundColor === ""
-            ? this.mainBackgroundColor
+            ? this.BackgroundColor
             : this.hoverBackgroundColor
-          : this.mainBackgroundColor
-
-        // return this.hoverState
-        //   ? this.hoverBackgroundColor
-        //   : this.mainBackgroundColor
-        // hoverState 가 true ? hoverBackgroundColor : mainBackgroundColor
-        // hoverBackgroundColor 가 존재 ? hoverBackgroundColor : hoverBackgroundColor == mainBackgroundColor
-
-        // if (this.hoverState && this.hoverBackgroundColor) {
-        //   return `${this.hoverBackgroundColor}`
-        // } else if (this.hoverState && this.hoverBackgroundColor === "") {
-        //   return `${this.mainBackgroundColor}`
-        // } else if (!this.hoverState) {
-        //   return `${this.mainBackgroundColor}`
-        // }
+          : this.BackgroundColor
+      },
+      color() {
+        return this.hoverState
+          ? this.hoverColor === ""
+            ? this.Color
+            : this.hoverColor
+          : this.Color
+      },
+      fontWeight() {
+        return this.hoverState
+          ? this.hoverFontWeight === ""
+            ? this.FontWeight
+            : this.hoverFontWeight
+          : this.FontWeight
       }
     },
     methods: {
@@ -97,4 +103,4 @@
 </script>
 
 <style scoped></style>
-color, fontWeight, background-color, borderColor
+color, borderColor
