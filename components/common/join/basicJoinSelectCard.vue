@@ -87,6 +87,7 @@
     padding: 48px 24px 24px;
     text-align: center;
     font-weight: normal;
+    cursor: pointer;
   }
   .select-card:hover {
     width: 282px;
@@ -126,6 +127,7 @@
     margin: 0 16px 4px;
     padding: 18px 16px 17px;
     border: solid 1px #dfdfdf;
+    cursor: pointer;
   }
   .select-card.mobile:hover {
     width: 100%;

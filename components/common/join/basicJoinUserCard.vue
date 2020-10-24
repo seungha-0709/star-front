@@ -83,6 +83,7 @@
     padding: 47px 0px 48px;
     text-align: center;
     font-weight: normal;
+    cursor: pointer;
   }
   .user-card:hover {
     width: 282px;
@@ -110,6 +111,7 @@
     height: 62px;
     margin: 0 16px 4px;
     padding: 15px 16px 15px;
+    cursor: pointer;
   }
   .user-card.mobile:hover {
     width: 100%;
