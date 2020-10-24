@@ -16,7 +16,7 @@ export const reviewLiveData = [
   {
     title: "리뷰 한줄 제목 333",
     tag: "#best환승리뷰",
-    tadig: "best",
+    tagid: "best",
     reply: 999,
     goodbad: "terrible"
   },
