@@ -1,48 +1,52 @@
 <template>
   <div class="background">
-    <div class="right-banner-position">
-      <right-banner />
-    </div>
-    <header>
-      <top-banner />
-      <teacher-top />
-    </header>
-    <div class="teacher-wrap">
-      <aside>
-        <section>
-          <profile-side />
-        </section>
-        <section>
-          <profile-sidebar />
-        </section>
-      </aside>
-      <main>
-        <section>
-          <profile-main />
-        </section>
-        <section>
-          <total-evaluation />
-          <review-amount />
-        </section>
-        <section>
-          <bar-graph />
-          <radar-graph />
-          <doughnut-graph />
-        </section>
-        <section>
-          <review-keyword />
-        </section>
-        <section>
-          <review-content />
-        </section>
-        <section>
-          <banner />
-        </section>
-        <section>
-          <review-list />
-          <teacher-in-press />
-        </section>
-      </main>
+    <top-banner />
+    <div class="total-wrap">
+      <div>
+        <header>
+          <teacher-top />
+        </header>
+        <div class="teacher-wrap">
+          <aside>
+            <section>
+              <profile-side />
+            </section>
+            <section>
+              <profile-sidebar />
+            </section>
+          </aside>
+          <main>
+            <section>
+              <profile-main />
+            </section>
+            <section>
+              <total-evaluation />
+              <review-amount />
+            </section>
+            <section>
+              <bar-graph />
+              <radar-graph />
+              <doughnut-graph />
+            </section>
+            <section>
+              <review-keyword />
+            </section>
+            <section>
+              <review-content />
+            </section>
+            <section>
+              <banner />
+            </section>
+            <section>
+              <review-list />
+              <teacher-in-press />
+            </section>
+          </main>
+        </div>
+      </div>
+      <div class="right-banner-position">
+        <right-banner />
+      </div>
     </div>
   </div>
 </template>
@@ -88,18 +92,18 @@
 </script>
 
 <style scoped>
-  .background {
-    position: relative;
+  .total-wrap {
+    width: 1200px;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
   .teacher-wrap {
     display: flex;
     justify-content: center;
     align-items: flex-start;
-  }
-  .right-banner-position {
-    position: absolute;
-    top: 175px;
-    left: 1576px;
   }
   main {
     width: 924px;
@@ -113,5 +117,8 @@
   }
   aside {
     margin-right: 16px;
+  }
+  .right-banner-position {
+    margin-left: 16px;
   }
 </style>
