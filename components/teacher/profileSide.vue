@@ -1,14 +1,21 @@
 <template>
   <div class="profile-side">
     <section>
-      <div class="teacher-photo"></div>
+      <div class="teacher-photo">
+        <img
+          src="/img/teacher/default_teacher01_01@2x.png"
+          alt="오로라 선생님"
+        />
+      </div>
     </section>
     <section>
       <h1>오로라</h1>
       <div class="logo"></div>
-      <h2>현)YBM어학원 강남센터<br />
-          연세대학교 Toeic 강의<br />
-          다수 유명어학원 강의</h2>
+      <h2>
+        현)YBM어학원 강남센터<br />
+        연세대학교 Toeic 강의<br />
+        다수 유명어학원 강의
+      </h2>
     </section>
   </div>
 </template>
@@ -52,5 +59,10 @@
     height: 41px;
     display: block;
     background: #c1c1c1;
+  }
+  .teacher-photo img {
+    width: 184px;
+    height: 184px;
+    border-radius: 92px;
   }
 </style>

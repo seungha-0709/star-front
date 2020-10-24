@@ -43,7 +43,12 @@
     </header>
     <main>
       <div class="main-side">
-        <div class="picture"></div>
+        <div class="picture">
+          <img
+            src="/img/teacher/default_teacher01_01@2x.png"
+            alt="오로라 선생님"
+          />
+        </div>
         <div class="button-wrap">
           <basic-button
             width="280px"
@@ -166,5 +171,13 @@
     display: flex;
     flex-wrap: wrap;
     align-content: space-between;
+  }
+  .picture {
+    display: flex;
+    align-items: flex-end;
+  }
+  .picture img {
+    width: 280px;
+    height: 280px;
   }
 </style>
