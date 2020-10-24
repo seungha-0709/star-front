@@ -11,6 +11,8 @@
       width: width,
       height: height
     }"
+    @mouseover="isMouseOver(true)"
+    @mouseout="isMouseOver(false)"
     @click="$emit('event')"
   >
     {{ text }}
@@ -19,6 +21,11 @@
 
 <script>
   export default {
+    data() {
+      return {
+        hoverState: false
+      }
+    },
     props: {
       text: {
         default: ""
@@ -32,9 +39,6 @@
       fontWeight: {
         default: 700
       },
-      backgroundColor: {
-        default: "#1673e6"
-      },
       borderColor: {
         default: ""
       },
@@ -46,14 +50,51 @@
       },
       height: {
         default: "52px"
+      },
+      hoverBackgroundColor: {
+        default: ""
+      },
+      mainBackgroundColor: {
+        default: ""
       }
     },
     computed: {
       border() {
         return this.borderColor ? `1px solid ${this.borderColor}` : 0
+      },
+      backgroundColor() {
+        return this.hoverState
+          ? this.hoverBackgroundColor === ""
+            ? this.mainBackgroundColor
+            : this.hoverBackgroundColor
+          : this.mainBackgroundColor
+
+        // return this.hoverState
+        //   ? this.hoverBackgroundColor
+        //   : this.mainBackgroundColor
+        // hoverState 가 true ? hoverBackgroundColor : mainBackgroundColor
+        // hoverBackgroundColor 가 존재 ? hoverBackgroundColor : hoverBackgroundColor == mainBackgroundColor
+
+        // if (this.hoverState && this.hoverBackgroundColor) {
+        //   return `${this.hoverBackgroundColor}`
+        // } else if (this.hoverState && this.hoverBackgroundColor === "") {
+        //   return `${this.mainBackgroundColor}`
+        // } else if (!this.hoverState) {
+        //   return `${this.mainBackgroundColor}`
+        // }
+      }
+    },
+    methods: {
+      isMouseOver(state) {
+        if (state === true) {
+          this.hoverState = true
+        } else {
+          this.hoverState = false
+        }
       }
     }
   }
 </script>
 
 <style scoped></style>
+color, fontWeight, background-color, borderColor
