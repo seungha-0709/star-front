@@ -1,7 +1,7 @@
 <template>
   <div class="term-all">
     <div class="all-agreement">
-      <p>전체 약관 동의</p>
+      <p :class="{ active: computedCheckAll }">전체 약관 동의</p>
       <div
         class="checkbox-icon"
         :class="{ check: computedCheckAll }"
@@ -40,6 +40,10 @@
     font-size: 18px;
     color: #212121;
     text-align: left;
+  }
+  .term-all .all-agreement p.active {
+    font-weight: bold;
+    color: #3f60cc;
   }
   .term-all .all-agreement .checkbox-icon {
     cursor: pointer;
