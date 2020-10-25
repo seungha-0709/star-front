@@ -80,7 +80,6 @@
         this.countSecond = true
       },
       confirmVerification() {
-        // eslint-disable-next-line eqeqeq
         return this.inputCode === this.verificationCode
           ? alert("인증이 완료되었습니다.")
           : alert("인증번호를 다시 확인해주세요.")
