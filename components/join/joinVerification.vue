@@ -36,7 +36,7 @@
         v-model="inputCode"
       />
       <div class="verification-time">
-        <p v-if="countSecond">03:21</p>
+        <p v-if="countSecond">{{ countDown }}</p>
       </div>
       <basic-button
         class="button"
@@ -66,7 +66,8 @@
         name: "",
         phoneNumber: "",
         inputCode: "",
-        countSecond: false
+        countSecond: false,
+        countDown: 180
       }
     },
     components: {
@@ -74,17 +75,23 @@
       "basic-button": basicButton
     },
     methods: {
-      // eslint-disable-next-line space-before-function-paren
-      sendVerification: function (event) {
+      sendVerification() {
         alert("인증번호는 " + this.verificationCode + "입니다.")
         this.countSecond = true
       },
-      // eslint-disable-next-line space-before-function-paren
-      confirmVerification: function (event) {
+      confirmVerification() {
         // eslint-disable-next-line eqeqeq
         return this.inputCode === this.verificationCode
           ? alert("인증이 완료되었습니다.")
           : alert("인증번호를 다시 확인해주세요.")
+      }
+    },
+    watch: {
+      countDownTimer() {
+        setTimeout(() => {
+          this.countDown -= 1
+          this.countDownTimer()
+        }, 1000)
       }
     }
   }
