@@ -50,9 +50,7 @@
 
   export default {
     layout: "contentOnly",
-    data() {
-      return {}
-    },
+
     components: {
       "basic-join-title": basicJoinTitle,
       "join-verification": joinVerification,
