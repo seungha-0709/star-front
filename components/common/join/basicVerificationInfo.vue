@@ -5,7 +5,7 @@
     </div>
     <input
       :style="{
-        width: width
+        width
       }"
       :type="type"
       :placeholder="placeholder"
