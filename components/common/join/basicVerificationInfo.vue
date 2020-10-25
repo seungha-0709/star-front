@@ -9,12 +9,13 @@
       }"
       :type="type"
       :placeholder="placeholder"
+      :value="value"
+      @input="typeText"
     />
   </div>
 </template>
 <script>
   export default {
-    data() {},
     props: {
       name: {
         default: ""
@@ -27,6 +28,12 @@
       },
       placeholder: {
         default: ""
+      },
+      value: {}
+    },
+    methods: {
+      typeText($event) {
+        this.$emit("input", $event.target.value)
       }
     }
   }
@@ -45,7 +52,6 @@
     height: 52px;
     font-size: 16px;
     border-bottom: 1px solid #dfdfdf;
-
     padding: 14px 0 14px;
   }
   .verification-info input::placeholder {
