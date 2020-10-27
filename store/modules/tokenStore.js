@@ -13,11 +13,8 @@ export default {
     MU_ISSUE_TOKEN(state, payload) {
       state.token = payload
 
-      const minutes = 30
-      Cookies.set("token", payload.token, {
-        path: "/",
-        expires: new Date(Date.now() + minutes * 60 * 1000)
-      })
+      Cookies.set("token", payload.token)
+      Cookies.set("csrf", payload.decoded_token.csrf)
     }
   },
   actions: {
