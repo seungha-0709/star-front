@@ -24,7 +24,7 @@
     </div>
     <p
       :style="{
-        width: width
+        width
       }"
       class="description"
     >
