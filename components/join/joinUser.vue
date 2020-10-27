@@ -40,14 +40,10 @@
     justify-content: center;
     text-align: center;
   }
-  .join-user-cards .join-user-card:not(:last-child) {
+  .join-user-cards.desktop .join-user-card:not(:last-child) {
     margin-right: 24px;
   }
   .join-user-cards.mobile {
     display: block;
-  }
-  .join-user-cards.mobile .join-user-card:not(:last-child),
-  .join-user-cards.mobile .join-user-card:last-child {
-    margin-right: 0;
   }
 </style>

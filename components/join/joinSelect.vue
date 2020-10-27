@@ -35,14 +35,10 @@
     justify-content: center;
     text-align: center;
   }
-  .join-select-cards .join-select-card:not(:last-child) {
+  .join-select-cards.desktop .join-select-card:not(:last-child) {
     margin-right: 24px;
   }
   .join-select-cards.mobile {
     display: block;
-  }
-  .join-select-cards.mobile .join-select-card:not(:last-child),
-  .join-select-cards.mobile .join-select-card:last-child {
-    margin-right: 0;
   }
 </style>
