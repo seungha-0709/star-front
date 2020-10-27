@@ -64,7 +64,7 @@
     margin-top: 0px;
   }
   .join-select-page.mobile .join-select-group {
-    margin-top: 0px;
+    margin: 0 16px;
   }
   .join-select-page.mobile .sign-in {
     display: flex;
