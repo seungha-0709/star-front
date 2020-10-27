@@ -11,10 +11,10 @@
       <div class="type-box">
         <div class="type-img">
           <img
-            :src="img.src"
-            :alt="img.alt"
-            :width="img.width"
-            :height="img.height"
+            :src="image.src"
+            :alt="image.alt"
+            :width="image.width"
+            :height="image.height"
           />
         </div>
 
@@ -56,7 +56,7 @@
       width: {
         default: 161
       },
-      img: {
+      image: {
         src: {
           default: ""
         },
@@ -86,11 +86,6 @@
     cursor: pointer;
   }
   .user-card:hover {
-    width: 282px;
-    height: 320px;
-    padding: 47px 0px 48px;
-    text-align: center;
-    font-weight: normal;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
   .user-card .type-name {
@@ -105,7 +100,6 @@
   .user-card.desktop .chevron-icon {
     display: none;
   }
-  /* 반응형 구현 */
   .user-card.mobile {
     width: 100%;
     height: 62px;
@@ -114,10 +108,6 @@
     cursor: pointer;
   }
   .user-card.mobile:hover {
-    width: 100%;
-    height: 62px;
-    margin: 0 16px 4px;
-    padding: 15px 16px 15px;
     box-shadow: none;
   }
   .user-card.mobile .type-wrap {

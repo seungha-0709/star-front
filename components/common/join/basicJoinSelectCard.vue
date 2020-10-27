@@ -7,10 +7,10 @@
   >
     <div class="type-img">
       <img
-        :src="img.src"
-        :alt="img.alt"
-        :width="img.width"
-        :height="img.height"
+        :src="image.src"
+        :alt="image.alt"
+        :width="image.width"
+        :height="image.height"
       />
     </div>
     <div class="type-box">
@@ -47,7 +47,7 @@
       description: {
         default: ""
       },
-      img: {
+      image: {
         src: {
           default: ""
         },
@@ -90,13 +90,6 @@
     cursor: pointer;
   }
   .select-card:hover {
-    width: 282px;
-    height: 372px;
-    border: solid 1px #ececec;
-    background-color: #ffffff;
-    padding: 48px 24px 24px;
-    text-align: center;
-    font-weight: normal;
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
   .select-card .type-name {
@@ -119,8 +112,6 @@
   .select-card .mobile-on {
     display: none;
   }
-
-  /* 반응형 구현 */
   .select-card.mobile {
     width: 100%;
     height: 62px;
@@ -130,11 +121,6 @@
     cursor: pointer;
   }
   .select-card.mobile:hover {
-    width: 100%;
-    height: 62px;
-    margin-bottom: 4px;
-    padding: 18px 16px 17px;
-    border: solid 1px #dfdfdf;
     box-shadow: none;
   }
   .select-card.mobile .type-img {

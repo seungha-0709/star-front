@@ -8,7 +8,7 @@
       <basic-join-select-card
         :type="item.type"
         :description="item.description"
-        :img="item.img"
+        :image="item.image"
       />
     </div>
   </div>

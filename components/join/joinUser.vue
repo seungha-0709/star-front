@@ -12,7 +12,7 @@
         :height="item.height"
         :backgroundColor="item.backgroundColor"
         :color="item.color"
-        :img="item.img"
+        :image="item.image"
       >
       </basic-join-user-card>
     </div>
