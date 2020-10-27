@@ -14,7 +14,7 @@
   </div>
 </template>
 <script>
-  import basicJoinSelectCard from "../common/join/basicJoinSelectCard.vue"
+  import basicJoinSelectCard from "./basicJoinSelectCard"
   import { joinSelectCardInfo } from "../../assets/data/join/joinUser.js"
 
   export default {

@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-  import basicJoinUserCard from "../common/join/basicJoinUserCard.vue"
+  import basicJoinUserCard from "./basicJoinUserCard"
   import { joinUserCardInfo } from "../../assets/data/join/joinUser.js"
 
   export default {

@@ -31,7 +31,7 @@
   </div>
 </template>
 <script>
-  import basicButton from "../basicButton.vue"
+  import basicButton from "../common/basicButton.vue"
   import { ChevronRightIcon } from "vue-feather-icons"
 
   export default {
