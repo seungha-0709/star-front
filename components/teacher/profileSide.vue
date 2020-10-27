@@ -15,10 +15,10 @@
     </section>
     <section>
       <h1>오로라</h1>
-      <div class="logo"></div>
+      <a class="logo-image" href=""><div class="logo"></div></a>
       <h2>
-        현)YBM어학원 강남센터<br />
-        연세대학교 Toeic 강의<br />
+        <a href="">현)YBM어학원 강남센터</a><br />
+        <a href="">연세대학교 Toeic 강의</a><br />
         다수 유명어학원 강의
       </h2>
     </section>
@@ -79,5 +79,12 @@
     left: 133px;
     width: 50px;
     height: 50px;
+  }
+  a.logo-image {
+    text-decoration: none;
+  }
+  h2 a {
+    text-decoration: none;
+    color: #666;
   }
 </style>
