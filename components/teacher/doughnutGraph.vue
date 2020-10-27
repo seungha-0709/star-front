@@ -38,17 +38,10 @@
               fontColor: "#666666"
             }
           }
-          // tooltips: {
-          //   callbacks: {
-          //     label: (tooltipItem) => {
-          //       return tooltipItem.yLabel
-          //     }
-          //   }
-          // }
         }
       }
     },
-    mounted() {
+    created() {
       this.fillData()
     },
     methods: {

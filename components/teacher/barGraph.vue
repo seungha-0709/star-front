@@ -44,7 +44,7 @@
         }
       }
     },
-    mounted() {
+    created() {
       this.fillData()
     },
     methods: {

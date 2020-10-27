@@ -29,13 +29,6 @@
               max: 100,
               stepSize: 20
             },
-            // angleLines: {
-            //   display: false
-            // },
-            // ticks: {
-            //   suggestedMin: 0,
-            //   suggestedMax: 100
-            // },
             xAxes: [
               {
                 display: false
@@ -54,17 +47,10 @@
               fontColor: "#666666"
             }
           }
-          // tooltips: {
-          //   callbacks: {
-          //     label: (tooltipItem) => {
-          //       return tooltipItem.yLabel
-          //     }
-          //   }
-          // }
         }
       }
     },
-    mounted() {
+    created() {
       this.fillData()
     },
     methods: {
