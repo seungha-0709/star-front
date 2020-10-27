@@ -3,40 +3,35 @@ export const reviewLiveData =
     best: [
       {
         title: "리뷰 한줄 제목 111",
-        tag: "#best환승리뷰",
-        tagid: "best",
+        tagId: "best",
         reply: 999,
-        goodbad: "bad"
+        goodbad: "good"
       },
       {
         title: "리뷰 한줄 제목 222",
-        tag: "#best환승리뷰",
-        tagid: "best",
+        tagId: "best",
         reply: 999,
         goodbad: "good"
       },
       {
         title: "리뷰 한줄 제목 333",
-        tag: "#best환승리뷰",
-        tagid: "best",
+        tagId: "best",
         reply: 999,
-        goodbad: "terrible"
+        goodbad: "good"
       }
     ],
     normal: [
       {
         title: "리뷰 한줄 제목 444",
-        tag: "#일반리뷰",
-        tagid: "normal",
+        tagId: "normal",
         reply: 999,
         goodbad: "terrible"
       },
       {
         title: "리뷰 한줄 제목 555",
-        tag: "#일반리뷰",
-        tagid: "normal",
+        tagId: "normal",
         reply: 999,
-        goodbad: "good"
+        goodbad: "bad"
       }
     ]
   }

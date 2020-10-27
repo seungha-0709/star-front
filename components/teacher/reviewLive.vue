@@ -21,17 +21,19 @@
       >
         <div>
           <span class="title">{{ content.title }}</span>
-          <span class="tag">{{ content.tag }}</span>
+          <span class="tag">{{
+            content.tagId === "best" && "#best환승리뷰"
+          }}</span>
         </div>
         <img
           src="/img/teacher/icon-emotion-01-off@2x.png"
-          alt="bad"
-          v-if="content.goodbad === 'bad'"
+          alt="good"
+          v-if="content.goodbad === 'good'"
         />
         <img
           src="/img/teacher/icon-emotion-04-off@2x.png"
-          alt="good"
-          v-if="content.goodbad === 'good'"
+          alt="bad"
+          v-if="content.goodbad === 'bad'"
         />
         <img
           src="/img/teacher/icon-emotion-05-off@2x.png"
@@ -47,17 +49,17 @@
       >
         <div>
           <span class="title">{{ content.title }}</span>
-          <span class="tag">{{ content.tag }}</span>
+          <span class="tag">{{ content.tagId !== "best" && "#일반리뷰" }}</span>
         </div>
         <img
           src="/img/teacher/icon-emotion-01-off@2x.png"
-          alt="bad"
-          v-if="content.goodbad === 'bad'"
+          alt="good"
+          v-if="content.goodbad === 'good'"
         />
         <img
           src="/img/teacher/icon-emotion-04-off@2x.png"
-          alt="good"
-          v-if="content.goodbad === 'good'"
+          alt="bad"
+          v-if="content.goodbad === 'bad'"
         />
         <img
           src="/img/teacher/icon-emotion-05-off@2x.png"
