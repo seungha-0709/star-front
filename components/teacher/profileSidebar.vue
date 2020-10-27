@@ -2,16 +2,16 @@
   <div class="profile-side-bar">
     <ul>
       <li v-for="(item, index) in menuData" :key="index">
-        <span v-if="item.type === 'home'"
+        <span v-if="item.iconType === 'home'"
           ><home-icon size="1x" class="home icon"
         /></span>
-        <span v-if="item.type === 'cleanreview'"
+        <span v-if="item.iconType === 'cleanReview'"
           ><star-icon size="1x" class="star icon"
         /></span>
-        <span v-if="item.type === 'pass'"
+        <span v-if="item.iconType === 'pass'"
           ><check-circle-icon size="1x" class="check icon"
         /></span>
-        <span v-if="item.type === 'qna'"
+        <span v-if="item.iconType === 'qna'"
           ><message-circle-icon size="1x" class="message icon"
         /></span>
         {{ item.title }}

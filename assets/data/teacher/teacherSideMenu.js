@@ -1,26 +1,26 @@
 export const menuData = [
     {
-      type: "home",
+      iconType: "home",
       title: "홈"
     },
     {
-      type: "cleanreview",
+      iconType: "cleanReview",
       title: "청정리뷰 보기"
     },
     {
-      type: "review",
+      iconType: "review",
       title: "강사리뷰"
     },
     {
-      type: "transfer",
+      iconType: "transfer",
       title: "환승후기"
     },
     {
-      type: "pass",
+      iconType: "pass",
       title: "합격후기"
     },
     {
-      type: "qna",
+      iconType: "qna",
       title: "Q&A"
     }
   ]
