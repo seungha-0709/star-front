@@ -6,8 +6,8 @@
         <div class="title-score">
           <div class="number-score">
             <div>
-              <span class="score">{{ score.starScore }}</span
-              ><span class="total-score">{{ `/${score.total}` }}</span>
+              <span class="score">{{ score.starScore }}</span>
+              <span class="total-score">{{ `/${score.total}` }}</span>
             </div>
             <div class="star-score">
               <star-icon
