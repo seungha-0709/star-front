@@ -16,7 +16,7 @@
     <main>
       <div
         class="review"
-        v-for="(content, index) in reviewLiveBest"
+        v-for="(content, index) in reviewLiveData.best"
         :key="index"
       >
         <div>
@@ -42,7 +42,7 @@
       <div class="line"></div>
       <div
         class="review"
-        v-for="(content, index) in reviewLiveNormal"
+        v-for="(content, index) in reviewLiveData.normal"
         :key="index"
       >
         <div>
@@ -76,14 +76,6 @@
     data() {
       return {
         reviewLiveData
-      }
-    },
-    computed: {
-      reviewLiveBest() {
-        return reviewLiveData.filter((review) => review.tagid === "best")
-      },
-      reviewLiveNormal() {
-        return reviewLiveData.filter((review) => review.tagid === "normal")
       }
     },
     components: {
