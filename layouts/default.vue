@@ -13,7 +13,6 @@
 
 <script>
   import { mapGetters, mapActions } from "vuex"
-  import Cookies from "js-cookie"
 
   import headerVue from "../components/common/header/index.vue"
   import footerVue from "../components/common/footer.vue"
@@ -38,6 +37,14 @@
     },
     created() {
       this.AC_ISSUE_TOKEN()
+    },
+    mounted() {
+      // ip|page_url|uuid
+      // fetch("https://api.ipify.org").then((ip) => {
+      //   this.clientIp = ip
+      // })
+      // console.log(window.location.href)
+      // console.log(this.storeIssueToken.decoded_token.uuid)
     }
   }
 </script>
