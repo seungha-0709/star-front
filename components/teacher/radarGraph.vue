@@ -1,6 +1,8 @@
 <template>
   <div class="radar-graph">
-    <header><h1>세부 항목</h1></header>
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
     <main>
       <div class="graph">
         <radar-graph-chart :chartData="dataCollection" :options="options" />
@@ -13,6 +15,7 @@
   import radarGraphChart from "./radarGraphChart.vue"
 
   export default {
+    props: ["title"],
     components: {
       radarGraphChart
     },

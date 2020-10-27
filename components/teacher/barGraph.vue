@@ -1,6 +1,8 @@
 <template>
   <div class="bar-graph">
-    <header><h1>리뷰 분포</h1></header>
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
     <main>
       <bar-graph-chart :chartData="dataCollection" :options="options" />
     </main>
@@ -11,6 +13,7 @@
   import barGraphChart from "./barGraphChart.vue"
 
   export default {
+    props: ["title"],
     components: {
       barGraphChart
     },

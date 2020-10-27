@@ -24,9 +24,9 @@
               <review-amount />
             </section>
             <section>
-              <bar-graph />
-              <radar-graph />
-              <doughnut-graph />
+              <bar-graph :title="titleData[0]" />
+              <radar-graph :title="titleData[1]" />
+              <doughnut-graph :title="titleData[2]" />
             </section>
             <section>
               <review-keyword />
@@ -70,6 +70,11 @@
   import teacherInPress from "../../components/teacher/teacherInPress.vue"
 
   export default {
+    data() {
+      return {
+        titleData: ["리뷰 분포", "세부 항목", "수강 유형별 분포"]
+      }
+    },
     components: {
       topBanner,
       rightBanner,

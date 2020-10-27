@@ -1,6 +1,8 @@
 <template>
   <div class="doughnut-graph">
-    <header><h1>수강 유형별 분포</h1></header>
+    <header>
+      <h1>{{ title }}</h1>
+    </header>
     <main>
       <div class="graph">
         <doughnut-graph-chart :chartData="dataCollection" :options="options" />
@@ -13,6 +15,7 @@
   import doughnutGraphChart from "./doughnutGraphChart.vue"
 
   export default {
+    props: ["title"],
     components: {
       doughnutGraphChart
     },
