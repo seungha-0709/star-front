@@ -55,7 +55,6 @@
   .join-user-page .sign-in button {
     color: #3f60cc;
   }
-  /* 반응형 구현 */
   .join-user-page.mobile {
     margin: 0 auto;
     height: 100%;

@@ -42,7 +42,6 @@
   .join-user-cards .join-user-card {
     margin-right: 24px;
   }
-  /* 반응형 구현 */
   .join-user-cards.mobile {
     display: block;
     justify-content: center;

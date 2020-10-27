@@ -37,7 +37,6 @@
   .join-select-cards .join-select-card {
     margin-right: 24px;
   }
-  /* 반응형 구현 */
   .join-select-cards.mobile {
     display: block;
     justify-content: center;
