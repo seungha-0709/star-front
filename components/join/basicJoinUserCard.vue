@@ -85,10 +85,6 @@
   .user-card:hover {
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
-  .user-card a {
-    text-decoration: none;
-    color: none;
-  }
   .user-card .type-box .type-name {
     font-size: 20px;
     font-weight: bold;
