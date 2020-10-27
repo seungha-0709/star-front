@@ -12,6 +12,7 @@
         :height="item.height"
         :backgroundColor="item.backgroundColor"
         :color="item.color"
+        :link="item.link"
         :image="item.image"
       >
       </basic-join-user-card>
@@ -39,12 +40,14 @@
     justify-content: center;
     text-align: center;
   }
-  .join-user-cards .join-user-card {
+  .join-user-cards .join-user-card:not(:last-child) {
     margin-right: 24px;
   }
   .join-user-cards.mobile {
     display: block;
-    justify-content: center;
-    text-align: center;
+  }
+  .join-user-cards.mobile .join-user-card:not(:last-child),
+  .join-user-cards.mobile .join-user-card:last-child {
+    margin-right: 0;
   }
 </style>

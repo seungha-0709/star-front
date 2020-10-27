@@ -8,6 +8,7 @@
       <basic-join-select-card
         :type="item.type"
         :description="item.description"
+        :link="item.link"
         :image="item.image"
       />
     </div>
@@ -34,12 +35,14 @@
     justify-content: center;
     text-align: center;
   }
-  .join-select-cards .join-select-card {
+  .join-select-cards .join-select-card:not(:last-child) {
     margin-right: 24px;
   }
   .join-select-cards.mobile {
     display: block;
-    justify-content: center;
-    text-align: center;
+  }
+  .join-select-cards.mobile .join-select-card:not(:last-child),
+  .join-select-cards.mobile .join-select-card:last-child {
+    margin-right: 0;
   }
 </style>
