@@ -1,10 +1,5 @@
 <template>
-  <div
-    class="select-card"
-    :class="$mq"
-    @mouseenter="handleCardOnOff"
-    @mouseleave="handleCardOnOff"
-  >
+  <div class="select-card" :class="$mq">
     <div class="type-img">
       <img
         :src="image.src"
@@ -15,7 +10,7 @@
     </div>
     <div class="type-box">
       <div class="type-name">{{ type }}</div>
-      <chevron-right-icon size="24" color="#8f8f8f" class="chevron-icon" />
+      <chevron-right-icon class="chevron-right-icon" />
     </div>
     <p class="description">{{ description }}</p>
 
@@ -26,7 +21,7 @@
       borderRadius="31px"
       fontWeight="400"
       fontSize="16px"
-      :backgroundColor="buttonHoverColor"
+      background-color="#3f60cc"
     />
   </div>
 </template>
@@ -35,15 +30,11 @@
   import { ChevronRightIcon } from "vue-feather-icons"
 
   export default {
-    data() {
-      return {
-        hoverState: false
-      }
-    },
     props: {
       type: {
         default: ""
       },
+      link: {},
       description: {
         default: ""
       },
@@ -62,19 +53,9 @@
         }
       }
     },
-    computed: {
-      buttonHoverColor() {
-        return this.hoverState ? "#2c428d" : "#3f60cc"
-      }
-    },
     components: {
       "basic-button": basicButton,
       ChevronRightIcon
-    },
-    methods: {
-      handleCardOnOff() {
-        return (this.hoverState = !this.hoverState)
-      }
     }
   }
 </script>
@@ -98,7 +79,7 @@
     color: #212121;
     margin: 42px 0 8px;
   }
-  .select-card .chevron-icon {
+  .select-card .type-box .chevron-right-icon {
     display: none;
   }
   .select-card .description {
@@ -109,16 +90,12 @@
     color: #666666;
     margin-bottom: 24px;
   }
-  .select-card .mobile-on {
-    display: none;
-  }
   .select-card.mobile {
     width: 100%;
     height: 62px;
-    margin: 0 16px 4px;
+    margin-bottom: 4px;
     padding: 18px 16px 17px;
     border: solid 1px #dfdfdf;
-    cursor: pointer;
   }
   .select-card.mobile:hover {
     box-shadow: none;
@@ -130,12 +107,13 @@
     display: flex;
     justify-content: space-between;
   }
-  .select-card.mobile .type-name {
+  .select-card.mobile .type-box .type-name {
     font-size: 18px;
     font-weight: normal;
     margin: 0;
   }
-  .select-card.mobile .chevron-icon {
+  .select-card.mobile .type-box .chevron-right-icon {
+    color: #8f8f8f;
     display: inline-block;
   }
   .select-card.mobile .description {
