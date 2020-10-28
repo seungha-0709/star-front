@@ -4,12 +4,12 @@
     :style="{
       color,
       backgroundColor,
-      fontSize: fontSize,
+      fontSize,
       fontWeight,
       border,
-      borderRadius: borderRadius,
-      width: width,
-      height: height
+      borderRadius,
+      width,
+      height
     }"
     @mouseover="isMouseOver(true)"
     @mouseout="isMouseOver(false)"
@@ -51,7 +51,10 @@
       hoverFontWeight: {
         default: ""
       },
-      borderColor: {
+      BorderColor: {
+        default: ""
+      },
+      hoverBorderColor: {
         default: ""
       },
       borderRadius: {
@@ -65,9 +68,6 @@
       }
     },
     computed: {
-      border() {
-        return this.borderColor ? `1px solid ${this.borderColor}` : 0
-      },
       backgroundColor() {
         return this.hoverState
           ? this.hoverBackgroundColor === ""
@@ -88,6 +88,16 @@
             ? this.FontWeight
             : this.hoverFontWeight
           : this.FontWeight
+      },
+      border() {
+        return this.BorderColor ? `1px solid ${this.BorderColor}` : 0
+      },
+      borderColor() {
+        return this.hoverState
+          ? this.hoverBorderColor === ""
+            ? this.BorderColor
+            : this.hoverborderColor
+          : this.BorderColor
       }
     },
     methods: {
@@ -103,4 +113,4 @@
 </script>
 
 <style scoped></style>
-color, borderColor
+borderColor
