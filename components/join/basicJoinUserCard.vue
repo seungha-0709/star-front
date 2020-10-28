@@ -20,7 +20,10 @@
 
         <div class="type-name">{{ type }}</div>
       </div>
-      <chevron-right-icon class="chevron-icon" />
+      <chevron-right-icon
+        color="rgba(255, 255, 255, 0.5)"
+        class="chevron-icon"
+      />
     </div>
     <p
       :style="{
@@ -128,7 +131,6 @@
     margin: 0;
   }
   .user-card.mobile .type-wrap .type-box .chevron-icon {
-    color: rgba(255, 255, 255, 0.5);
     display: inline-block;
     vertical-align: middle;
   }
