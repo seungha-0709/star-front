@@ -5,7 +5,7 @@
       v-for="(item, index) in joinUserCardInfo"
       :key="index"
     >
-      <basic-join-user-card
+      <join-user-card
         :type="item.type"
         :description="item.description"
         :width="item.width"
@@ -13,14 +13,14 @@
         :backgroundColor="item.backgroundColor"
         :color="item.color"
         :link="item.link"
-        :image="item.image"
+        :imageInfo="item.imageInfo"
       >
-      </basic-join-user-card>
+      </join-user-card>
     </div>
   </div>
 </template>
 <script>
-  import basicJoinUserCard from "./basicJoinUserCard"
+  import joinUserCard from "./joinUserCard"
   import { joinUserCardInfo } from "../../assets/data/join/joinUser.js"
 
   export default {
@@ -30,7 +30,7 @@
       }
     },
     components: {
-      "basic-join-user-card": basicJoinUserCard
+      "join-user-card": joinUserCard
     }
   }
 </script>

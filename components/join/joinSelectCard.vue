@@ -2,10 +2,10 @@
   <div class="select-card" :class="$mq">
     <div class="type-img">
       <img
-        :src="image.src"
-        :alt="image.alt"
-        :width="image.width"
-        :height="image.height"
+        :src="imageInfo.src"
+        :alt="imageInfo.alt"
+        :width="imageInfo.width"
+        :height="imageInfo.height"
       />
     </div>
     <div class="type-box">
@@ -38,7 +38,7 @@
       description: {
         default: ""
       },
-      image: {
+      imageInfo: {
         src: {
           default: ""
         },

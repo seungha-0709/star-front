@@ -11,10 +11,10 @@
       <div class="type-box">
         <div class="type-img">
           <img
-            :src="image.src"
-            :alt="image.alt"
-            :width="image.width"
-            :height="image.height"
+            :src="imageInfo.src"
+            :alt="imageInfo.alt"
+            :width="imageInfo.width"
+            :height="imageInfo.height"
           />
         </div>
 
@@ -56,7 +56,7 @@
       width: {
         default: "161px"
       },
-      image: {
+      imageInfo: {
         src: {
           default: ""
         },

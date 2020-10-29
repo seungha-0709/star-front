@@ -5,17 +5,17 @@
       v-for="(item, index) in joinSelectCardInfo"
       :key="index"
     >
-      <basic-join-select-card
+      <join-select-card
         :type="item.type"
         :description="item.description"
         :link="item.link"
-        :image="item.image"
+        :imageInfo="item.imageInfo"
       />
     </div>
   </div>
 </template>
 <script>
-  import basicJoinSelectCard from "./basicJoinSelectCard"
+  import joinSelectCard from "./joinSelectCard"
   import { joinSelectCardInfo } from "../../assets/data/join/joinUser.js"
 
   export default {
@@ -25,7 +25,7 @@
       }
     },
     components: {
-      "basic-join-select-card": basicJoinSelectCard
+      "join-select-card": joinSelectCard
     }
   }
 </script>
