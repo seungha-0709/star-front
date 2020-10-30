@@ -63,7 +63,7 @@
           </li>
         </ul>
       </div>
-      <div v-if="activeTab === 'passreview'">
+      <div v-if="activeTab === 'passReview'">
         <ul>
           <li>
             <span>오로라</span>
