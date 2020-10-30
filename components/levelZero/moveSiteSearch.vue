@@ -8,7 +8,12 @@
       </button>
     </div>
     <ul class="move-site-list">
-      <li v-for="(item, index) in menuData" :key="index">
+      <li
+        v-for="(item, index) in menuData"
+        :key="index"
+        @mouseenter="handleSiteOn(index)"
+        @mouseleave="handleSiteOff"
+      >
         <nuxt-link :to="item.sub[0].route">
           <div class="circle">
             <img :src="`/img/lv0/${levelIcon(index)}`" alt="" />
@@ -16,10 +21,19 @@
           <span class="site-name">{{ item.title }}</span>
         </nuxt-link>
       </li>
-      <li class="star-store">
+      <li
+        class="star-store"
+        @mouseenter="handleSiteOn(9)"
+        @mouseleave="handleSiteOff"
+      >
         <nuxt-link :to="'/'">
           <div class="circle">
-            <img src="/img/logo/logo_square_white.png" alt="" />
+            <img
+              :src="`/img/logo/logo_square_${
+                hoverIndex === 9 ? 'white' : 'blue'
+              }.png`"
+              alt=""
+            />
           </div>
           <span class="site-name">별별스토어</span>
         </nuxt-link>
@@ -35,7 +49,8 @@
   export default {
     data() {
       return {
-        menuData: gnbMenu
+        menuData: gnbMenu,
+        hoverIndex: null
       }
     },
     components: {
@@ -46,27 +61,53 @@
         return (index) => {
           switch (this.menuData[index].title) {
             case "공무원":
-              return "icon_gong.png"
+              return this.hoverIndex === index
+                ? "icon_gong_on.png"
+                : "icon_gong.png"
             case "영어":
-              return "icon_english.png"
+              return this.hoverIndex === index
+                ? "icon_english_on.png"
+                : "icon_english.png"
             case "유치원":
-              return "icon_kindergarten.png"
+              return this.hoverIndex === index
+                ? "icon_kindergarten_on.png"
+                : "icon_kindergarten.png"
             case "수능/내신":
-              return "icon_csat.png"
+              return this.hoverIndex === index
+                ? "icon_csat_on.png"
+                : "icon_csat.png"
             case "취업/자격증":
-              return "icon_certificate.png"
+              return this.hoverIndex === index
+                ? "icon_certificate_on.png"
+                : "icon_certificate.png"
             case "외국어":
-              return "icon_language.png"
+              return this.hoverIndex === index
+                ? "icon_language_on.png"
+                : "icon_language.png"
             case "대학원/편입":
-              return "icon_university.png"
+              return this.hoverIndex === index
+                ? "icon_university_on.png"
+                : "icon_university.png"
             case "임용/기타고시":
-              return "icon_appointment.png"
+              return this.hoverIndex === index
+                ? "icon_appointment_on.png"
+                : "icon_appointment.png"
             case "교수":
-              return "icon_professor.png"
+              return this.hoverIndex === index
+                ? "icon_professor_on.png"
+                : "icon_professor.png"
             default:
               return null
           }
         }
+      }
+    },
+    methods: {
+      handleSiteOn(index) {
+        return (this.hoverIndex = index)
+      },
+      handleSiteOff() {
+        return (this.hoverIndex = null)
       }
     }
   }
@@ -106,7 +147,8 @@
     display: flex;
     justify-content: space-between;
   }
-  .move-site-search-box .move-site-list li {
+  .move-site-search-box .move-site-list li:hover .circle {
+    background-color: #1673e6;
   }
   .move-site-search-box .move-site-list li a {
     text-decoration: none;
@@ -121,9 +163,6 @@
     border-radius: 50%;
     background-color: #f6f8fc;
     margin-bottom: 8px;
-  }
-  .move-site-search-box .move-site-list li.star-store .circle {
-    background-color: #1673e6;
   }
   .move-site-search-box .move-site-list li .circle img {
     width: 24px;
@@ -141,7 +180,7 @@
   .move-site-search-box .move-site-list li .site-name {
     font-size: 14px;
   }
-  .move-site-search-box .move-site-list li.star-store .site-name {
+  .move-site-search-box .move-site-list li:hover .site-name {
     font-weight: 700;
   }
 </style>
