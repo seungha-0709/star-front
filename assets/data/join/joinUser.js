@@ -1,7 +1,7 @@
 export const joinUserCardInfo = [
   {
     name: "email",
-    type: "이메일로 회원가입",
+    userType: "이메일로 회원가입",
     description: "사용하는 이메일로 가입하기!",
     width: "107px",
     link: "",
@@ -14,7 +14,7 @@ export const joinUserCardInfo = [
   },
   {
     name: "naver",
-    type: "네이버 간편회원가입",
+    userType: "네이버 간편회원가입",
     description: "사용하는 네이버 계정으로 가입하기!",
     backgroundColor: "#3ec728",
     width: "148px",
@@ -28,7 +28,7 @@ export const joinUserCardInfo = [
   },
   {
     name: "kakao",
-    type: "카카오톡 간편회원가입",
+    userType: "카카오톡 간편회원가입",
     description: "사용하는 카카오톡 계정으로 가입하기!",
     backgroundColor: "#fee202",
     color: "#423630",
@@ -42,7 +42,7 @@ export const joinUserCardInfo = [
   },
   {
     name: "facebook",
-    type: "페이스북 간편회원가입",
+    userType: "페이스북 간편회원가입",
     description: "사용하는 페이스북 계정으로 가입하기!",
     backgroundColor: "#3a5998",
     link: "",

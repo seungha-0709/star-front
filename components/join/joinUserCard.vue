@@ -7,9 +7,9 @@
     class="user-card"
     :class="$mq"
   >
-    <div class="type-wrap">
-      <div class="type-box">
-        <div class="type-img">
+    <div class="user-wrap">
+      <div class="user-box">
+        <div class="user-img">
           <img
             :src="imageInfo.src"
             :alt="imageInfo.alt"
@@ -18,7 +18,7 @@
           />
         </div>
 
-        <div class="type-name">{{ type }}</div>
+        <div class="user-name">{{ userType }}</div>
       </div>
       <chevron-right-icon
         color="rgba(255, 255, 255, 0.5)"
@@ -40,10 +40,10 @@
 
   export default {
     props: {
-      type: {
+      userType: {
         default: ""
       },
-      link: {},
+      userLink: {},
       description: {
         default: ""
       },
@@ -88,7 +88,7 @@
   .user-card:hover {
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
-  .user-card .type-box .type-name {
+  .user-card .user-box .user-name {
     font-size: 20px;
     font-weight: bold;
     margin: 28px 0 8px;
@@ -97,7 +97,7 @@
     font-size: 14px;
     margin: 0 auto 48px;
   }
-  .user-card.desktop .type-wrap .chevron-icon {
+  .user-card.desktop .user-wrap .chevron-icon {
     display: none;
   }
   .user-card.mobile {
@@ -109,28 +109,28 @@
   .user-card.mobile:hover {
     box-shadow: none;
   }
-  .user-card.mobile .type-wrap {
+  .user-card.mobile .user-wrap {
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .user-card.mobile .type-wrap .type-box {
+  .user-card.mobile .user-wrap .user-box {
     display: flex;
     align-items: center;
   }
-  .user-card.mobile .type-wrap .type-box .type-img img {
+  .user-card.mobile .user-wrap .user-box .user-img img {
     width: 32px;
     height: 32px;
     margin-right: 8px;
     text-align: center;
     vertical-align: middle;
   }
-  .user-card.mobile .type-wrap .type-box .type-name {
+  .user-card.mobile .user-wrap .user-box .user-name {
     font-size: 18px;
     font-weight: normal;
     margin: 0;
   }
-  .user-card.mobile .type-wrap .type-box .chevron-icon {
+  .user-card.mobile .user-wrap .user-box .chevron-icon {
     display: inline-block;
     vertical-align: middle;
   }
