@@ -10,6 +10,7 @@
     height: 140px;
     background: url(/img/teacher/banner_top01@2x.png);
     background-size: cover;
+    background-position: center;
     margin-bottom: 32px;
   }
 </style>
