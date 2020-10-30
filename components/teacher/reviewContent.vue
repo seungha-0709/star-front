@@ -105,15 +105,15 @@
         <article>
           <h2>{{ transferReview.title }}</h2>
           <div>
-            <span>선생님을 왜 바꾸셨나요?</span>
+            <span class="transfer-title">선생님을 왜 바꾸셨나요?</span>
             {{ transferReview.reason }}
           </div>
           <div>
-            <span>before</span>
+            <span class="transfer-title-before">before</span>
             {{ transferReview.before }}
           </div>
           <div>
-            <span>after</span>
+            <span class="transfer-title-after">after</span>
             {{ transferReview.after }}
           </div>
         </article>
@@ -435,11 +435,52 @@
     color: #212121;
     margin-top: 16px;
   }
-  #transfer > article span {
+  #transfer > article span.transfer-title {
     display: block;
     margin-top: 10px;
     margin-bottom: 10px;
+    background: #c1c1c1;
+    color: #fff;
+    font-weight: bold;
+    width: 155px;
+    border-radius: 16px;
+    font-size: 12px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
+  #transfer > article span.transfer-title-before {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #c1c1c1;
+    color: #fff;
+    font-weight: bold;
+    width: 72px;
+    border-radius: 16px;
+    font-size: 12px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #transfer > article span.transfer-title-after {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background: #5d7ee9;
+    color: #fff;
+    font-weight: bold;
+    width: 72px;
+    border-radius: 16px;
+    font-size: 12px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
   #transfer > article > div {
     /* 한 줄 자르기 */
     font-size: 15px;
