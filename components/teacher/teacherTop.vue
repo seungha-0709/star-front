@@ -7,32 +7,26 @@
           선생님의 <br />
           다른 강의 보기
         </div>
-        <div class="left-button-position">
-          <basic-button
-            width="105px"
-            height="42px"
-            borderRadius="4px"
-            backgroundColor="#5d7ee9"
-            fontSize="14px"
-            :text="level[0].title"
-          />
-        </div>
-        <div class="right-button-position">
-          <basic-button
-            width="105px"
-            height="42px"
-            borderRadius="4px"
-            backgroundColor="#fff"
-            borderColor="#dfdfdf"
-            color="#212121"
-            fontSize="14px"
-            fontWeight="normal"
-            :text="level[1].title"
-          />
+        <div class="button-wrap">
+          <div v-for="(subject, index) in subjects" :key="index">
+            <div class="button-position">
+              <basic-button
+                width="105px"
+                height="42px"
+                borderRadius="4px"
+                fontSize="14px"
+                :borderColor="index === 0 ? '#5d7ee9' : '#dfdfdf'"
+                :backgroundColor="index === 0 ? '#5d7ee9' : '#ffffff'"
+                :color="index === 0 ? '#ffffff' : '#666666'"
+                :fontWeight="index === 0 ? 'bold' : 'normal'"
+                :text="subject.title"
+              />
+            </div>
+          </div>
         </div>
       </div>
       <div class="top-right">
-        <div class="window-icon">
+        <div class="window-icon" @click="$emit('popup')">
           <img
             src="/img/teacher/combined-shape.png"
             alt="강의 과목 전체 보기"
@@ -62,12 +56,15 @@
   export default {
     data() {
       return {
-        level: [
+        subjects: [
           {
             title: "Toeic RC"
           },
           {
             title: "Toeic LC"
+          },
+          {
+            title: "OPIc"
           }
         ]
       }
@@ -92,6 +89,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    position: relative;
   }
   .top-left {
     display: flex;
@@ -105,9 +103,12 @@
     line-height: 18px;
     letter-spacing: -0.6px;
   }
-  .left-button-position {
+  .button-wrap {
     margin-left: 48px;
-    margin-right: 12px;
+    display: flex;
+  }
+  .button-position {
+    margin: 0 6px;
   }
   .top-right {
     display: flex;

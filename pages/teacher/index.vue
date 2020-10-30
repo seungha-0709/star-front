@@ -4,7 +4,7 @@
     <div class="total-wrap">
       <div>
         <header>
-          <teacher-top />
+          <teacher-top @popup="onSubjectPopUp" />
         </header>
         <div class="teacher-wrap">
           <aside>
@@ -48,6 +48,29 @@
         <right-banner />
       </div>
     </div>
+    <div class="pop-up-subject" v-if="isSubjectPopUp">
+      <div class="popup-header">
+        <h2>강의 전체보기</h2>
+        <x-icon size="1.5x" class="x-icon" @click="onSubjectPopUp"></x-icon>
+      </div>
+      <div class="button-wrap">
+        <div v-for="(subject, index) in subjects" :key="index">
+          <div class="button-position">
+            <basic-button
+              width="105px"
+              height="42px"
+              borderRadius="4px"
+              fontSize="14px"
+              :borderColor="index === 0 ? '#5d7ee9' : '#dfdfdf'"
+              :backgroundColor="index === 0 ? '#5d7ee9' : '#ffffff'"
+              :color="index === 0 ? '#ffffff' : '#666666'"
+              :fontWeight="index === 0 ? 'bold' : 'normal'"
+              :text="subject.title"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -68,11 +91,28 @@
   import banner from "../../components/teacher/banner.vue"
   import reviewList from "../../components/teacher/reviewList.vue"
   import teacherInPress from "../../components/teacher/teacherInPress.vue"
+  import basicButton from "../../components/common/basicButton.vue"
+  import { XIcon } from "vue-feather-icons"
 
   export default {
     data() {
       return {
-        titleData: ["리뷰 분포", "세부 항목", "수강 유형별 분포"]
+        titleData: ["리뷰 분포", "세부 항목", "수강 유형별 분포"],
+        isSubjectPopUp: false,
+        subjects: [
+          {
+            title: "Toeic RC"
+          },
+          {
+            title: "Toeic LC"
+          },
+          {
+            title: "OPIc"
+          },
+          {
+            title: "Toeic Speaking"
+          }
+        ]
       }
     },
     components: {
@@ -91,7 +131,14 @@
       reviewContent,
       banner,
       reviewList,
-      teacherInPress
+      teacherInPress,
+      basicButton,
+      XIcon
+    },
+    methods: {
+      onSubjectPopUp() {
+        this.isSubjectPopUp = !this.isSubjectPopUp
+      }
     }
   }
 </script>
@@ -104,6 +151,7 @@
     margin-right: auto;
     justify-content: flex-start;
     align-items: flex-start;
+    position: relative;
   }
   .teacher-wrap {
     display: flex;
@@ -125,5 +173,32 @@
   }
   .right-banner-position {
     margin-left: 16px;
+  }
+  .pop-up-subject {
+    width: 864px;
+    background: #fff;
+    position: absolute;
+    z-index: 10;
+    top: 230px;
+    left: 250px;
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
+    padding: 24px;
+  }
+  .pop-up-subject h2 {
+    font-size: 18px;
+    color: #212121;
+    font-weight: bold;
+    margin-bottom: 12px;
+  }
+  .popup-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  .button-wrap {
+    display: flex;
+  }
+  .button-position {
+    margin-right: 12px;
   }
 </style>
