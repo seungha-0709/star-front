@@ -1,6 +1,6 @@
 <template>
   <div class="select-card" :class="$mq">
-    <div class="type-img">
+    <div class="select-img">
       <img
         :src="imageInfo.src"
         :alt="imageInfo.alt"
@@ -8,8 +8,8 @@
         :height="imageInfo.height"
       />
     </div>
-    <div class="type-box">
-      <div class="type-name">{{ type }}</div>
+    <div class="select-box">
+      <div class="select-name">{{ selectType }}</div>
       <chevron-right-icon class="chevron-right-icon" />
     </div>
     <p class="description">{{ description }}</p>
@@ -31,7 +31,7 @@
 
   export default {
     props: {
-      type: {
+      selectType: {
         default: ""
       },
       link: {},
@@ -73,13 +73,13 @@
   .select-card:hover {
     box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2);
   }
-  .select-card .type-name {
+  .select-card .select-name {
     font-size: 20px;
     font-weight: bold;
     color: #212121;
     margin: 42px 0 8px;
   }
-  .select-card .type-box .chevron-right-icon {
+  .select-card .select-box .chevron-right-icon {
     display: none;
   }
   .select-card .description {
@@ -100,19 +100,19 @@
   .select-card.mobile:hover {
     box-shadow: none;
   }
-  .select-card.mobile .type-img {
+  .select-card.mobile .select-img {
     display: none;
   }
-  .select-card.mobile .type-box {
+  .select-card.mobile .select-box {
     display: flex;
     justify-content: space-between;
   }
-  .select-card.mobile .type-box .type-name {
+  .select-card.mobile .select-box .select-name {
     font-size: 18px;
     font-weight: normal;
     margin: 0;
   }
-  .select-card.mobile .type-box .chevron-right-icon {
+  .select-card.mobile .select-box .chevron-right-icon {
     color: #8f8f8f;
     display: inline-block;
   }

@@ -6,7 +6,7 @@
       :key="index"
     >
       <join-user-card
-        :type="item.type"
+        :userType="item.userType"
         :description="item.description"
         :width="item.width"
         :height="item.height"

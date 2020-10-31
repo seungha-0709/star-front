@@ -6,7 +6,7 @@
       :key="index"
     >
       <join-select-card
-        :type="item.type"
+        :selectType="item.selectType"
         :description="item.description"
         :link="item.link"
         :imageInfo="item.imageInfo"
