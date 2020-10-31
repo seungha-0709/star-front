@@ -16,6 +16,7 @@
     "@storybook/addon-knobs": "^6.0.12",
     "babel-preset-vue": "^2.0.2",
     "core-js": "^3.6.5",
+    "date-fns": "^2.16.1",
     "nuxt": "^2.2.0",
     "vue-feather-icons": "^5.1.0",
     "vue-mq": "^1.0.1",
