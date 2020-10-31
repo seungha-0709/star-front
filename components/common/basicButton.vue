@@ -37,7 +37,7 @@
         default: ""
       },
       BackgroundColor: {
-        default: ""
+        default: "#3f60cc"
       },
       hoverBackgroundColor: {
         default: ""
