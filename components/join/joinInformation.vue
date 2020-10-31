@@ -1,7 +1,7 @@
 <template>
   <div class="join-information">
     <div class="join-email">
-      <basic-verification-info
+      <join-verification-info
         name="아이디 (이메일 주소)"
         width="367px"
         type="email"
@@ -17,13 +17,12 @@
         borderColor="#dfdfdf"
         borderRadius="0px"
         color="#212121"
-        @event="doucleCheckEmail"
       />
     </div>
   </div>
 </template>
 <script>
-  import basicVerificationInfo from "../../components/common/join/basicVerificationInfo.vue"
+  import joinVerificationInfo from "./joinVerificationInfo"
   import basicButton from "../../components/common/basicButton.vue"
   export default {
     data() {
@@ -35,7 +34,7 @@
       }
     },
     components: {
-      "basic-verification-info": basicVerificationInfo,
+      "join-verification-info": joinVerificationInfo,
       "basic-button": basicButton
     },
     methods: {
@@ -43,4 +42,21 @@
     }
   }
 </script>
-<style scoped></style>
+<style scoped>
+  .join-infomation {
+    margin: 0 auto;
+    padding: 40px;
+    width: 600px;
+    height: 548px;
+    border: solid 1px #ececec;
+    background-color: #ffffff;
+    text-align: center;
+    vertical-align: middle;
+  }
+  .join-infomation .join-email {
+    display: flex;
+  }
+  .join-infomation .join-email .button {
+    margin: 21px 0 0 16px;
+  }
+</style>
