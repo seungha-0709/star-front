@@ -1,15 +1,13 @@
 <template>
   <div class="join-verification">
-    <div class="join-name">
-      <basic-verification-info
-        name="이름"
-        type="text"
-        placeholder="인증을 위하여 본인의 실명을 입력해 주세요."
-        v-model="name"
-      />
-    </div>
+    <join-verification-info
+      name="이름"
+      type="text"
+      placeholder="인증을 위하여 본인의 실명을 입력해 주세요."
+      v-model="name"
+    />
     <div class="join-contact">
-      <basic-verification-info
+      <join-verification-info
         name="휴대전화"
         width="367px"
         type="tel"
@@ -29,7 +27,7 @@
       />
     </div>
     <div class="verification-confirm">
-      <basic-verification-info
+      <join-verification-info
         width="367px"
         type="tel"
         placeholder="받으신 인증번호를 입력해 주세요."
@@ -56,7 +54,7 @@
   </div>
 </template>
 <script>
-  import basicVerificationInfo from "../../components/common/join/basicVerificationInfo.vue"
+  import joinVerificationInfo from "./joinVerificationInfo"
   import basicButton from "../../components/common/basicButton.vue"
 
   export default {
@@ -71,7 +69,7 @@
       }
     },
     components: {
-      "basic-verification-info": basicVerificationInfo,
+      "join-verification-info": joinVerificationInfo,
       "basic-button": basicButton
     },
     methods: {
