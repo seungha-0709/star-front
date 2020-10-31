@@ -1,50 +1,58 @@
 <template>
   <div class="join-path">
-    <div v-if="(joinPath = 4)" class="join-verification-page">
-      <div class="join-verification-title">
+    <div v-if="(this.joinPath = 4)" class="join-verification-page">
+      <div>
         <basic-join-title
           title="회원가입"
           subtitle="본인인증"
           description="별별선생에 가입하시고"
         />
-        <div class="join-title">
-          <p class="number">164,807</p>
+        <div class="join-verification-title">
+          <p class="title-number">164,807</p>
           <p>명 강사/학원 등에 대한 정보를 확인하세요.</p>
         </div>
       </div>
-      <div class="join-verification-group">
+      <div class="join-verification">
         <join-verification />
       </div>
-
-      <div class="banner">
-        <img src="/img/banner/invalid-name@2x.png" alt="배너이미지" />
-      </div>
-      <div class="button">
-        <basic-button
-          class="back-button"
-          text="이전"
-          width="160px"
-          height="51px"
-          borderRadius="31px"
-          background-color="rgba(0,0,0,0)"
-          fontWeight="normal"
-          color="#212121"
-          borderColor="#dfdfdf"
-        />
-        <basic-button
-          text="다음"
-          width="160px"
-          height="51px"
-          borderRadius="31px"
-          backgroundColor="#3f60cc"
-          fontWeight="normal"
-        />
+    </div>
+    <div v-if="(this.joinPath = 5)" class="join-information-page">
+      <basic-join-title
+        class="join-information-title"
+        title="회원가입"
+        subtitle="기본정보"
+        description="별별선생에서 활동하실 아이디와 비밀번호, 닉네임 등의
+      기본정보를 생성합니다."
+      />
+      <div class="join-information">
+        <join-information />
       </div>
     </div>
-    <div v-if="(joinPath = 5)" class="join-information-page">
-      <join-information />
+    <div class="banner">
+      <img src="/img/banner/invalid-name@2x.png" alt="배너이미지" />
     </div>
-    <copy-right class="copyright" />
+    <div class="button">
+      <basic-button
+        class="back-button"
+        text="이전"
+        width="160px"
+        height="51px"
+        borderRadius="31px"
+        background-color="rgba(0,0,0,0)"
+        fontWeight="normal"
+        color="#212121"
+        borderColor="#dfdfdf"
+      />
+      <basic-button
+        text="다음"
+        width="160px"
+        height="51px"
+        borderRadius="31px"
+        backgroundColor="#3f60cc"
+        fontWeight="normal"
+      />
+    </div>
+    <copy-right />
   </div>
 </template>
 <script>
@@ -58,7 +66,7 @@
     layout: "contentOnly",
     data() {
       return {
-        joinpath: 4
+        joinPath: 4
       }
     },
     components: {
@@ -75,39 +83,40 @@
     margin: 0 auto;
     height: 100%;
     text-align: center;
+    padding: 85px 0 90px;
   }
-  .join-verification-page .join-verification-title {
-    margin-top: 85px;
-  }
-  .join-verification-title .join-title {
+  .join-path .join-verification-page .join-verification-title {
     display: flex;
     font-size: 20px;
     color: #666666;
     justify-content: center;
     margin-top: -8px;
   }
-  .join-verification-page .banner {
-    margin-top: 16px;
-  }
-  .join-verification-page .banner img {
-    width: 600px;
-    height: 120px;
-  }
-  .join-verification-page .button .back-button {
-    margin-right: 16px;
-  }
-  .join-verification-title .number {
+
+  .join-path .join-verification-page .title-number {
     font-weight: bold;
     color: #5e3fcc;
   }
-  .join-verification-page .join-verification-group {
+  .join-path .join-verification-page .join-verification,
+  .join-path .join-verification-page .join-information {
     margin-top: 40px;
   }
-  .join-verification-page .button {
+  .join-path .join-information-page .join-information-title {
+    width: 350px;
+  }
+
+  .join-path .banner {
+    margin-top: 16px;
+  }
+  .join-path .banner img {
+    width: 600px;
+    height: 120px;
+  }
+  .join-path .button {
     text-align: center;
     margin: 32px 0 96px;
   }
-  .join-verification-page .copyright {
-    margin-bottom: 88px;
+  .join-path .button:first-child {
+    margin-right: 16px;
   }
 </style>
