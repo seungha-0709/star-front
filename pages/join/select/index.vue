@@ -10,10 +10,10 @@
     <div class="join-select-group">
       <join-select />
     </div>
-    <div class="sign-in">
+    <a href="/login" class="sign-in">
       <p>이미 계정이 있으신가요?</p>
       <button>로그인</button>
-    </div>
+    </a>
     <copy-right class="copyright" />
   </div>
 </template>
@@ -42,6 +42,7 @@
     margin-top: 53px;
   }
   .join-select-page .sign-in {
+    text-decoration: none;
     display: flex;
     justify-content: center;
     font-size: 16px;
