@@ -8,7 +8,7 @@
       hoverColor="ff3366"
       width="400px"
       height="500px"
-      BorderColor="ff3366"
+      borderColor="#462c8d"
     />
   </div>
 </template>

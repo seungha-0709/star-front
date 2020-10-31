@@ -51,10 +51,7 @@
       hoverFontWeight: {
         default: ""
       },
-      BorderColor: {
-        default: ""
-      },
-      hoverBorderColor: {
+      borderColor: {
         default: ""
       },
       borderRadius: {
@@ -90,14 +87,7 @@
           : this.FontWeight
       },
       border() {
-        return this.BorderColor ? `1px solid ${this.BorderColor}` : 0
-      },
-      borderColor() {
-        return this.hoverState
-          ? this.hoverBorderColor === ""
-            ? this.BorderColor
-            : this.hoverborderColor
-          : this.BorderColor
+        return this.borderColor ? `1px solid ${this.borderColor}` : 0
       }
     },
     methods: {
