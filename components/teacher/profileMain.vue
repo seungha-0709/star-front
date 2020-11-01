@@ -10,31 +10,22 @@
               <span class="total-score">{{ `/${score.total}` }}</span>
             </div>
             <div class="star-score">
-              <star-icon
-                class="star-icon"
-                size="1.5x"
-                :class="{ active: score.starScore >= 2 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1.5x"
-                :class="{ active: score.starScore >= 4 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1.5x"
-                :class="{ active: score.starScore >= 6 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1.5x"
-                :class="{ active: score.starScore >= 8 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1.5x"
-                :class="{ active: score.starScore >= 10 }"
-              />
+              <div class="star-bg">
+                <star-icon
+                  class="star-icon"
+                  size="1.5x"
+                  v-for="(star, index) in 5"
+                  :key="index"
+                />
+                <div class="star-active">
+                  <star-icon
+                    class="star-icon active"
+                    size="1.5x"
+                    v-for="(star, index) in starArray"
+                    :key="index"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -90,8 +81,12 @@
         score: {
           total: 10,
           starScore: 9.5
-        }
+        },
+        starArray: []
       }
+    },
+    created() {
+      for (let i = 1; i <= this.score.starScore / 2; i++) this.starArray.push(i)
     },
     components: {
       reviewLive,
@@ -192,5 +187,13 @@
     position: absolute;
     top: 16px;
     right: 12px;
+  }
+  .star-bg {
+    position: relative;
+  }
+  .star-active {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 </style>
