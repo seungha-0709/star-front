@@ -42,31 +42,24 @@
           <div class="content-bottom">
             <div class="star-score">
               <span class="score">{{ review.star.toFixed(1) }} </span>
-              <star-icon
-                class="star-icon"
-                size="1x"
-                :class="{ active: review.star >= 2 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1x"
-                :class="{ active: review.star >= 4 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1x"
-                :class="{ active: review.star >= 6 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1x"
-                :class="{ active: review.star >= 8 }"
-              />
-              <star-icon
-                class="star-icon"
-                size="1x"
-                :class="{ active: review.star >= 10 }"
-              />
+              <div class="star-score">
+                <div class="star-bg">
+                  <star-icon
+                    class="star-icon"
+                    size="1x"
+                    v-for="(star, index) in 5"
+                    :key="index"
+                  />
+                  <div class="star-active">
+                    <star-icon
+                      class="star-icon active"
+                      size="1x"
+                      v-for="(star, index) in (Math.floor(review.star / 2))"
+                      :key="index"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="button-wrap">좋아요, 답글</div>
           </div>
@@ -147,6 +140,7 @@
           }
         ],
         activeTab: "review",
+        starArray: [],
         reviews,
         transferReview
       }
@@ -337,6 +331,18 @@
   span.score {
     font-size: 28px;
     font-weight: bold;
+  }
+  .star-score {
+    display: inline-block;
+  }
+  .star-bg {
+    position: relative;
+    display: inline-block;
+  }
+  .star-active {
+    position: absolute;
+    top: 0;
+    left: 0;
   }
 
   /* 환승후기 */
