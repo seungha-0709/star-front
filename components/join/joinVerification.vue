@@ -26,7 +26,7 @@
         @event="sendVerification"
       />
     </div>
-    <div class="verification-confirm">
+    <div class="join-confirm">
       <join-verification-info
         width="367px"
         type="tel"
@@ -111,10 +111,10 @@
   .join-verification .join-contact .button {
     margin: 21px 0 0 16px;
   }
-  .join-verification .verification-confirm {
+  .join-verification .join-confirm {
     display: flex;
   }
-  .join-verification .verification-confirm .button {
+  .join-verification .join-confirm .button {
     margin-left: 16px;
   }
   .join-verification .verification-time {
