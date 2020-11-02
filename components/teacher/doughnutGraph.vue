@@ -46,7 +46,6 @@
     },
     created() {
       this.fillData()
-      console.log(this.graphData)
     },
     methods: {
       fillData() {

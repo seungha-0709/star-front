@@ -187,9 +187,6 @@
       onSubjectPopUp() {
         this.isSubjectPopUp = !this.isSubjectPopUp
       }
-    },
-    created() {
-      console.log(this.doughnutData)
     }
   }
 </script>
