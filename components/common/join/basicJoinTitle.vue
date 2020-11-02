@@ -48,7 +48,6 @@
     color: #212121;
   }
   .basic-join .description {
-    height: 54px;
     font-size: 20px;
     color: #666666;
     padding-top: 17px;
