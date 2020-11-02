@@ -15,7 +15,7 @@
   import radarGraphChart from "./radarGraphChart.vue"
 
   export default {
-    props: ["title"],
+    props: ["title", "graphData"],
     components: {
       radarGraphChart
     },
@@ -58,26 +58,7 @@
     },
     methods: {
       fillData() {
-        this.dataCollection = {
-          labels: ["강의몰입도", "유머", "질의응답", "이해도", "암기법"],
-          datasets: [
-            {
-              label: "오로라",
-              backgroundColor: ["rgba(93, 126, 233, 0.3)"],
-              borderWidth: 1,
-              borderColor: ["#3f60cc"],
-              data: [43, 40, 55, 44, 51]
-            },
-            {
-              label: "과목평균",
-              backgroundColor: ["rgba(255, 51, 102, 0.2)"],
-              borderWidth: 1,
-              borderDash: [5],
-              borderColor: ["#ff3366"],
-              data: [50, 50, 50, 50, 50]
-            }
-          ]
-        }
+        this.dataCollection = this.graphData
       }
     }
   }

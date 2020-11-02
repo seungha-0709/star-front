@@ -13,7 +13,7 @@
   import barGraphChart from "./barGraphChart.vue"
 
   export default {
-    props: ["title"],
+    props: ["title", "graphData"],
     components: {
       barGraphChart
     },
@@ -52,22 +52,7 @@
     },
     methods: {
       fillData() {
-        this.dataCollection = {
-          labels: ["긍정", "보통", "부정"],
-          datasets: [
-            {
-              label: "긍정",
-              backgroundColor: [
-                "rgba(63, 96, 204, 0.5)",
-                "rgba(24, 173, 222, 0.4)",
-                "rgba(255, 51, 102, 0.5)"
-              ],
-              borderWidth: 1,
-              borderColor: ["#3f60cc", "#18adde", "#ff3366"],
-              data: [80, 40, 30]
-            }
-          ]
-        }
+        this.dataCollection = this.graphData
       }
     }
   }

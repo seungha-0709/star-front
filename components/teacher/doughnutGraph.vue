@@ -15,7 +15,7 @@
   import doughnutGraphChart from "./doughnutGraphChart.vue"
 
   export default {
-    props: ["title"],
+    props: ["title", "graphData"],
     components: {
       doughnutGraphChart
     },
@@ -46,21 +46,11 @@
     },
     created() {
       this.fillData()
+      console.log(this.graphData)
     },
     methods: {
       fillData() {
-        this.dataCollection = {
-          labels: ["실강", "인강", "둘다"],
-          datasets: [
-            {
-              label: "긍정",
-              backgroundColor: ["#5e3fcc", "#ff3366", "#18adde"],
-              borderWidth: 1,
-              borderColor: ["#ffffff"],
-              data: [80, 40, 30]
-            }
-          ]
-        }
+        this.dataCollection = this.graphData
       }
     }
   }
