@@ -1,16 +1,14 @@
 <template>
   <div class="join-path">
     <div v-if="(this.joinPath = 4)" class="join-verification-page">
-      <div>
-        <basic-join-title
-          title="회원가입"
-          subtitle="본인인증"
-          description="별별선생에 가입하시고"
-        />
-        <div class="join-verification-title">
-          <p class="title-number">164,807</p>
-          <p>명 강사/학원 등에 대한 정보를 확인하세요.</p>
-        </div>
+      <basic-join-title
+        title="회원가입"
+        subtitle="본인인증"
+        description="별별선생에 가입하시고"
+      />
+      <div class="join-verification-title">
+        <p class="title-number">164,807</p>
+        <p>명 강사/학원 등에 대한 정보를 확인하세요.</p>
       </div>
       <div class="join-verification">
         <join-verification />
@@ -28,6 +26,7 @@
         <join-information />
       </div>
     </div>
+
     <div class="banner">
       <img src="/img/banner/invalid-name@2x.png" alt="배너이미지" />
     </div>
@@ -98,13 +97,13 @@
     color: #5e3fcc;
   }
   .join-path .join-verification-page .join-verification,
-  .join-path .join-verification-page .join-information {
+  .join-path .join-information-page .join-information {
     margin-top: 40px;
   }
   .join-path .join-information-page .join-information-title {
     width: 350px;
+    margin: 0 auto;
   }
-
   .join-path .banner {
     margin-top: 16px;
   }
