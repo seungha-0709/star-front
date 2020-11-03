@@ -98,7 +98,7 @@
     margin: 0 auto;
     padding: 40px;
     width: 600px;
-    height: 392px;
+    height: 372px;
     border: solid 1px #ececec;
     background-color: #ffffff;
     text-align: center;

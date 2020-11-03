@@ -17,6 +17,7 @@
         borderColor="#dfdfdf"
         borderRadius="0px"
         color="#212121"
+        @event="doubleCheckEmail"
       />
     </div>
     <div class="join-password">
@@ -49,12 +50,36 @@
         borderColor="#dfdfdf"
         borderRadius="0px"
         color="#212121"
+        @event="doubleCheckEmail"
       />
     </div>
     <div class="join-birth">
       <div class="birth-year">
         <p>출생년도 선택</p>
         <chevron-down-icon class="year-drop" />
+      </div>
+      <div class="birth-gender">
+        <basic-button
+          class="button"
+          text="남성"
+          width="100px"
+          background-color="#ffffff"
+          fontWeight="400"
+          borderColor="#dfdfdf"
+          color="#666666"
+          borderRadius="0px"
+          @event="selectGender"
+        />
+        <basic-button
+          text="여성"
+          width="100px"
+          background-color="#ffffff"
+          fontWeight="400"
+          borderColor="#dfdfdf"
+          color="#666666"
+          borderRadius="0px"
+          @event="selectGender"
+        />
       </div>
     </div>
   </div>
@@ -78,7 +103,8 @@
       ChevronDownIcon
     },
     methods: {
-      doubleCheckEmail() {}
+      doubleCheckEmail() {},
+      selectGender() {}
     }
   }
 </script>
@@ -87,7 +113,7 @@
     margin: 0 auto;
     padding: 40px;
     width: 600px;
-    height: 548px;
+    height: 528px;
     border: solid 1px #ececec;
     background-color: #ffffff;
     text-align: center;
@@ -114,14 +140,18 @@
   }
   .join-information .join-birth .birth-year {
     width: 137px;
-    padding-bottom: 14px;
+    margin-top: 14px;
     border-bottom: solid 1px #dfdfdf;
     font-size: 16px;
     display: flex;
     justify-content: space-between;
+    text-align: center;
   }
   .join-information .join-birth .birth-year .year-drop {
     display: block;
     color: #8f8f8f;
+  }
+  .join-information .join-birth .birth-gender .button {
+    margin-right: -5px;
   }
 </style>
