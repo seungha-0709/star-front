@@ -1,20 +1,18 @@
 import Cookies from "js-cookie"
-import { encryptByCrypto } from "../utils/index.js"
 
 export default ({ $axios, redirect, req }) => {
-  if (process.server) {
-    console.log(req.headers["x-forwarded-for"] || req.connection.remoteAddress)
-  }
+  const isServer = process.server ? 'server' : 'client'
   const getTokenByCookies = Cookies.get("token")
   const getCsrfTokenByCookies = Cookies.get("csrf")
-  // ip|page_url|uuid
-  const healthPath = encryptByCrypto("")
+  const ip = process.server ? req.headers['x-forwarded-for'] || req.connection.remoteAddress || req.socket.remoteAddress || (req.connection.socket ? req.connection.socket.remoteAddress : null) : null
 
   // default header setting
+  $axios.setHeader("health", isServer)
   $axios.setHeader("x-access-token", getTokenByCookies)
   $axios.setHeader("csrf-token", getCsrfTokenByCookies)
-  $axios.setHeader("health-path", healthPath)
-
+  $axios.setHeader("x-forwarded-for", ip)
+  $axios.setHeader("Pragma", 'no-cache')
+  
   $axios.onRequest((config) => {
     try {
       // axios call 했을때 해당 메서드가 아닐때 error 처리

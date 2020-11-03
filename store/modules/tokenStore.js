@@ -11,8 +11,8 @@ export default {
 
   mutations: {
     MU_ISSUE_TOKEN(state, payload) {
-      state.token = payload
-
+      state.token = payload.token
+      
       Cookies.set("token", payload.token)
       Cookies.set("csrf", payload.decoded_token.csrf)
     }
