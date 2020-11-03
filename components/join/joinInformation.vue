@@ -51,11 +51,18 @@
         color="#212121"
       />
     </div>
+    <div class="join-birth">
+      <div class="birth-year">
+        <p>출생년도 선택</p>
+        <chevron-down-icon class="year-drop" />
+      </div>
+    </div>
   </div>
 </template>
 <script>
   import joinVerificationInfo from "./joinVerificationInfo"
   import basicButton from "../../components/common/basicButton.vue"
+  import { ChevronDownIcon } from "vue-feather-icons"
   export default {
     data() {
       return {
@@ -67,7 +74,8 @@
     },
     components: {
       "join-verification-info": joinVerificationInfo,
-      "basic-button": basicButton
+      "basic-button": basicButton,
+      ChevronDownIcon
     },
     methods: {
       doubleCheckEmail() {}
@@ -98,5 +106,22 @@
   .join-information .join-nickname {
     display: flex;
     margin-top: 32px;
+  }
+  .join-information .join-birth {
+    margin-top: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .join-information .join-birth .birth-year {
+    width: 137px;
+    padding-bottom: 14px;
+    border-bottom: solid 1px #dfdfdf;
+    font-size: 16px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .join-information .join-birth .birth-year .year-drop {
+    display: block;
+    color: #8f8f8f;
   }
 </style>
