@@ -4,7 +4,9 @@
     <section class="top">
       <article>
         <soccer-field />
-        <board-wrap title="별별수다" width="720px" height="297px" />
+        <board-wrap title="별별수다" width="720px" height="297px">
+          <chat-board />
+        </board-wrap>
         <board-wrap title="별별정보" width="720px" height="297px" />
       </article>
       <article>
@@ -34,6 +36,7 @@
   import topBanner from "../../components/teacherMain/topBanner.vue"
   import soccerField from "../../components/teacherMain/soccerField.vue"
   import boardWrap from "../../components/teacherMain/boardWrap.vue"
+  import chatBoard from "../../components/teacherMain/chatBoard.vue"
   import nowReview from "../../components/teacherMain/nowReview.vue"
   import ranking from "../../components/teacherMain/ranking.vue"
   import middleBanner from "../../components/teacherMain/middleBanner.vue"
@@ -46,6 +49,7 @@
       topBanner,
       soccerField,
       boardWrap,
+      chatBoard,
       nowReview,
       ranking,
       middleBanner,
