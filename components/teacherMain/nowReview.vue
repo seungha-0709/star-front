@@ -1,18 +1,26 @@
 <template>
   <div class="background">
-    <div class="tab">
+    <header class="tab">
       <tab-button
-        @tab-click="isTabActive(0)"
-        :tabState="tabState[0]"
+        @tab-click="isTabActive"
+        :tabState="firstTabState"
         :tabStyles="tabStyle[0]"
       />
       <tab-button
-        @tab-click="isTabActive(1)"
-        :tabState="tabState[1]"
+        @tab-click="isTabActive"
+        :tabState="secondTabState"
         :tabStyles="tabStyle[1]"
       />
-    </div>
-    <likes number="123" />
+    </header>
+    <main>
+      <section v-if="firstTabState === true">
+        강사리뷰
+      </section>
+      <section v-if="secondTabState === true">
+        환승후기
+        <likes number="123" />
+      </section>
+    </main>
   </div>
 </template>
 
@@ -35,7 +43,8 @@
             height: "62px"
           }
         ],
-        tabState: [false, false]
+        firstTabState: true,
+        secondTabState: false
       }
     },
     components: {
@@ -43,10 +52,14 @@
       likes
     },
     methods: {
-      isTabActive(index) {
-        for (let i = 0; i < this.tabState.length; i++) this.tabState[i] = false
-        this.tabState[index] = true
-        console.log(this.tabState[index])
+      isTabActive() {
+        // for (let i = 0; i < this.tabState.length; i++) this.tabState[i] = false
+        this.firstTabState = !this.firstTabState
+        this.secondTabState = !this.secondTabState
+        // console.log(this.tabState[index])
+      },
+      isSecondTabActive() {
+        this.secondTabState = !this.secondTabState
       }
     }
   }
