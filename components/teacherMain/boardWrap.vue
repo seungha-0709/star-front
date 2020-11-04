@@ -38,12 +38,12 @@
     background: #fff;
     margin-top: 8px;
     margin-bottom: 8px;
-    padding: 32px;
     box-sizing: border-box;
   }
   header {
     display: flex;
     justify-content: space-between;
+    margin: 32px 32px 8px 32px;
   }
   header h2 {
     font-size: 20px;
