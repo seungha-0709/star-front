@@ -2,40 +2,18 @@
   <div>
     <div
       class="tab-button"
-      :style="{
-        width: width,
-        height: height
-      }"
       @click="$emit('tab-click')"
+      :style="{ width: tabStyles.width, height: tabStyles.height }"
+      :class="{ active: tabState === true }"
     >
-      {{ title }}
+      {{ tabStyles.title }}
     </div>
   </div>
 </template>
 
 <script>
   export default {
-    props: {
-      title: {
-        default: ""
-      },
-      width: {
-        default: ""
-      },
-      height: {
-        default: ""
-      }
-    }
-    // data() {
-    //   return {
-    //     tabActive: false
-    //   }
-    // }
-    // methods: {
-    //   tabClick() {
-    //     this.tabActive = !this.tabActive
-    //   }
-    // }
+    props: ["tabState", "tabStyles"]
   }
 </script>
 <style scoped>

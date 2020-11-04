@@ -3,22 +3,18 @@
     <div class="tab">
       <tab-button
         @tab-click="isTabActive(0)"
-        :tabState="tabState"
-        title="종합순위"
-        width="157px"
-        height="62px"
+        :tabState="tabState[0]"
+        :tabStyles="tabStyle[0]"
       />
       <tab-button
         @tab-click="isTabActive(1)"
-        title="활동순위"
-        width="157px"
-        height="62px"
+        :tabState="tabState[1]"
+        :tabStyles="tabStyle[1]"
       />
       <tab-button
         @tab-click="isTabActive(2)"
-        title="주요학원"
-        width="156px"
-        height="62px"
+        :tabState="tabState[2]"
+        :tabStyles="tabStyle[2]"
       />
     </div>
   </div>
@@ -29,7 +25,24 @@
   export default {
     data() {
       return {
-        tabState: true
+        tabStyle: [
+          {
+            title: "종합순위",
+            width: "157px",
+            height: "62px"
+          },
+          {
+            title: "활동순위",
+            width: "157px",
+            height: "62px"
+          },
+          {
+            title: "주요학원",
+            width: "156px",
+            height: "62px"
+          }
+        ],
+        tabState: [false, false, false]
       }
     },
     components: {
@@ -37,12 +50,10 @@
     },
     methods: {
       isTabActive(index) {
-        const tabStates = document.getElementsByClassName("tab-button")
-        for (let i = 0; i < tabStates.length; i++)
-          tabStates[i].classList.remove("active")
-        document
-          .getElementsByClassName("tab-button")
-          [index].classList.add("active")
+        for (let i = 0; i < this.tabState.length; i++) this.tabState[i] = false
+        this.tabState[index] = true
+        console.log(this.tabState[index])
+        console.log(this.tabState)
       }
     }
   }
