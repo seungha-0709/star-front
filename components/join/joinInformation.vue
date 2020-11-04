@@ -68,7 +68,8 @@
           borderColor="#dfdfdf"
           color="#666666"
           borderRadius="0px"
-          @event="selectGender"
+          @event="selectGender(male)"
+          :class="{}"
         />
         <basic-button
           text="여성"
@@ -78,7 +79,8 @@
           borderColor="#dfdfdf"
           color="#666666"
           borderRadius="0px"
-          @event="selectGender"
+          @event="selectGender(female)"
+          :class="{}"
         />
       </div>
     </div>
@@ -94,7 +96,8 @@
         email: "",
         password: "",
         passwordCheck: "",
-        nickname: ""
+        nickname: "",
+        gender: "male"
       }
     },
     components: {
@@ -104,7 +107,13 @@
     },
     methods: {
       doubleCheckEmail() {},
-      selectGender() {}
+      selectGender(gender) {
+        if (gender === "male") {
+          //
+        } else if (gender === "female") {
+          //
+        }
+      }
     }
   }
 </script>
