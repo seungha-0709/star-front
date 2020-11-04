@@ -7,7 +7,9 @@
         <board-wrap title="별별수다" width="720px" height="297px">
           <chat-board />
         </board-wrap>
-        <board-wrap title="별별정보" width="720px" height="297px" />
+        <board-wrap title="별별정보" width="720px" height="297px">
+          <info-board />
+        </board-wrap>
       </article>
       <article>
         <now-review />
@@ -37,6 +39,7 @@
   import soccerField from "../../components/teacherMain/soccerField.vue"
   import boardWrap from "../../components/teacherMain/boardWrap.vue"
   import chatBoard from "../../components/teacherMain/chatBoard.vue"
+  import infoBoard from "../../components/teacherMain/infoBoard.vue"
   import nowReview from "../../components/teacherMain/nowReview.vue"
   import ranking from "../../components/teacherMain/ranking.vue"
   import middleBanner from "../../components/teacherMain/middleBanner.vue"
@@ -50,6 +53,7 @@
       soccerField,
       boardWrap,
       chatBoard,
+      infoBoard,
       nowReview,
       ranking,
       middleBanner,
