@@ -56,11 +56,30 @@
     <div class="join-birth">
       <div class="birth-year">
         <p>출생년도 선택</p>
-        <chevron-down-icon class="year-drop" />
+        <chevron-down-icon id="year" class="year-drop" />
+        <!-- <datalist id="year">
+          <option value="1900" />
+          <option value="1901" />
+        </datalist> -->
       </div>
       <div class="birth-gender">
-        <basic-button
-          class="button"
+        <button
+          :click="selectGenter(male)"
+          :class="{ active: (this.selectedGender = male) }"
+          class="male"
+        >
+          남성
+        </button>
+        <button
+          :click="selectGenter(female)"
+          :class="{ active: (this.selectedGender = female) }"
+          class="female"
+        >
+          여성
+        </button>
+        <!-- <basic-button
+          class="select-male"
+          :class="{ active: (this.selectedGender = male) }"
           text="남성"
           width="100px"
           background-color="#ffffff"
@@ -69,9 +88,10 @@
           color="#666666"
           borderRadius="0px"
           @event="selectGender(male)"
-          :class="{}"
         />
         <basic-button
+          class="select-female"
+          :class="{ active: (this.selectedGender = female) }"
           text="여성"
           width="100px"
           background-color="#ffffff"
@@ -80,8 +100,7 @@
           color="#666666"
           borderRadius="0px"
           @event="selectGender(female)"
-          :class="{}"
-        />
+        /> -->
       </div>
     </div>
   </div>
@@ -97,7 +116,7 @@
         password: "",
         passwordCheck: "",
         nickname: "",
-        gender: "male"
+        selectedGender: "male"
       }
     },
     components: {
@@ -109,9 +128,9 @@
       doubleCheckEmail() {},
       selectGender(gender) {
         if (gender === "male") {
-          //
-        } else if (gender === "female") {
-          //
+          this.selectedGender = "male"
+        } else {
+          this.selectedGender = "female"
         }
       }
     }
@@ -158,9 +177,28 @@
   }
   .join-information .join-birth .birth-year .year-drop {
     display: block;
+    cursor: pointer;
     color: #8f8f8f;
   }
-  .join-information .join-birth .birth-gender .button {
+  .join-information .join-birth .birth-gender .select-male {
     margin-right: -5px;
+  }
+  .join-information .join-birth .birth-gender .select-male.active,
+  .join-information .join-birth .birth-gender .select-female.active {
+    color: #3f60cc;
+    border-color: #3f60cc;
+  }
+  .male,
+  .female {
+    width: 100px;
+    height: 52px;
+    background-color: #ffffff;
+    border: 1px solid #dfdfdf;
+    color: #666666;
+  }
+  .male.active,
+  .female.active {
+    color: #3f60cc;
+    border: 1px solid #3f60cc;
   }
 </style>
