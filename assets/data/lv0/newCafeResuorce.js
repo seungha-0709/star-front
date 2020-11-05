@@ -9,7 +9,7 @@ export const newCafeResource = {
       level_name: "lv1 명",
       nickname: "작성자명",
       tutor_name: "선생님명",
-      create_at: new Date(),
+      created_at: new Date(),
       title:
         "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는 영역입니다.",
       content:
@@ -23,7 +23,7 @@ export const newCafeResource = {
       level_name: "lv1 명",
       nickname: "작성자명",
       tutor_name: "선생님명",
-      create_at: new Date(),
+      created_at: new Date(),
       title:
         "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는 영역입니다.",
       content:
@@ -37,7 +37,7 @@ export const newCafeResource = {
       level_name: "lv1 명",
       nickname: "작성자명",
       tutor_name: "선생님명",
-      create_at: new Date(),
+      created_at: new Date(),
       title:
         "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는 영역입니다.",
       content:
@@ -51,7 +51,7 @@ export const newCafeResource = {
       level_name: "lv1 명",
       nickname: "작성자명",
       tutor_name: "선생님명",
-      create_at: new Date(),
+      created_at: new Date(),
       title:
         "상품명이 노출되는 영역. 상품명이 노출되는 영역. 상품명이 노출되는 영역입니다.",
       content:

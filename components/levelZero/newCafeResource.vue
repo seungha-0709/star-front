@@ -11,13 +11,13 @@
               <span>{{ resource.level_name }}</span>
               <span>{{ resource.tutor_name }}</span>
             </div>
-            <h3 :class="latestCompare(resource.create_at) ? 'latest' : ''">
+            <h3 :class="latestCompare(resource.created_at) ? 'latest' : ''">
               {{ resource.title }}
             </h3>
             <div class="resource-info">
               <span>{{ resource.nickname }}</span>
               <span class="vertical-bar" />
-              <span>{{ format(resource.create_at, "yyyy-M-dd") }}</span>
+              <span>{{ format(resource.created_at, "yyyy-M-dd") }}</span>
             </div>
             <p>{{ resource.content }}</p>
           </div>
