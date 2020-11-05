@@ -25,7 +25,9 @@
         <teacher-in-press />
       </article>
       <article>
-        <board-wrap title="별별질문" width="596px" height="779px" />
+        <board-wrap title="별별질문" width="596px" height="779px">
+          <now-question />
+        </board-wrap>
       </article>
     </section>
     <section class="calendar">

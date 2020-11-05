@@ -1,13 +1,42 @@
 <template>
-  <div class="background"></div>
+  <div class="now-qna-background">
+    <div
+      class="qna-article-content"
+      v-for="(item, index) in nowQnaList"
+      :key="index"
+    >
+      <now-question-content :nowQnaContents="item" />
+    </div>
+  </div>
 </template>
 
+<script>
+  import nowQuestionContent from "./nowQuestionContent.vue"
+  import { nowQnaList } from "../../assets/data/teacherMain/nowQuestionList.js"
+  export default {
+    data() {
+      return {
+        nowQnaList
+      }
+    },
+    components: {
+      nowQuestionContent
+    }
+  }
+</script>
+
 <style scoped>
-  .background {
-    width: 596px;
-    height: 779px;
-    border: 1px solid #dfdfdf;
-    background: #fff;
-    margin: 0px 0px 8px 4px;
+  .now-qna-background {
+    width: auto;
+    height: 690px;
+    background: #eeeff4;
+    margin-top: 8px;
+    margin-bottom: 0;
+    border: 0;
+    overflow-y: scroll;
+  }
+  .qna-article-content {
+    padding: 24px;
+    box-sizing: border-box;
   }
 </style>
