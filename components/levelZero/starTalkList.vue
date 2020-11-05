@@ -83,7 +83,6 @@
     margin-right: 20px;
   }
   .star-talk-box .star-talk-list li {
-    padding: 24px 0;
     border-bottom: 1px solid #dfdfdf;
   }
   .star-talk-box .star-talk-list li > a {
@@ -91,6 +90,7 @@
     align-items: center;
     text-decoration: none;
     color: #212121;
+    padding: 24px 0;
   }
   .star-talk-box .star-talk-list li > a:hover h3 {
     text-decoration: underline;

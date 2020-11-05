@@ -2,7 +2,7 @@
   <div class="move-site-search-box">
     <h2>어떤 선생님, 학원, 시험을 찾으세요?</h2>
     <div class="search-box">
-      <input type="text" placeholder="검색어 입력 영역입니다." />
+      <input type="text" placeholder="검색어 입력 영역입니다." title="검색" />
       <button type="button">
         <search-icon size="32" class="search-icon"></search-icon>
       </button>

@@ -24,58 +24,12 @@
 </template>
 
 <script>
+  import { reviewLiveList } from "../../assets/data/lv0/reviewLiveList.js"
+
   export default {
     data() {
       return {
-        reviewLiveList: {
-          total: 20,
-          page: 1,
-          data: [
-            {
-              title: "정말 너무너무 별로네요. 차라리 기출만 보는게 더 나을듯~~",
-              profile: "",
-              tags: [
-                "#강사리뷰",
-                "#학원리뷰",
-                "#해커스",
-                "#니콜황",
-                "#공단기",
-                "#말줄임 테스트"
-              ],
-              comment: 34
-            },
-            {
-              title: "정말 너무너무 별로네요. 차라리 기출만 보는게 더 나을듯~",
-              profile: "",
-              tags: ["#강사리뷰", "#해커스", "#니콜황", "#공단기"],
-              comment: 34
-            },
-            {
-              title: "정말 너무너무 별로네요. 차라리 기출만 보는게 더 나을듯~",
-              profile: "",
-              tags: ["#강사리뷰", "#해커스", "#니콜황", "#공단기"],
-              comment: 34
-            },
-            {
-              title: "정말 너무너무 별로네요. 차라리 기출만 보는게 더 나을듯~",
-              profile: "",
-              tags: ["#강사리뷰", "#해커스", "#니콜황", "#공단기"],
-              comment: 34
-            },
-            {
-              title: "정말 너무너무 별로네요. 차라리 기출만 보는게 더 나을듯~",
-              profile: "",
-              tags: ["#강사리뷰", "#해커스", "#니콜황", "#공단기"],
-              comment: 34
-            },
-            {
-              title: "정말 너무너무 별로네요. 차라리 기출만 보는게 더 나을듯~",
-              profile: "",
-              tags: ["#강사리뷰", "#해커스", "#니콜황", "#공단기"],
-              comment: 34
-            }
-          ]
-        }
+        reviewLiveList
       }
     }
   }
@@ -91,6 +45,7 @@
     border-radius: 8px;
     box-shadow: 0 2px 20px 0 rgba(0, 0, 0, 0.1);
     background-color: #fff;
+    overflow: hidden;
   }
   .review-live-box::after {
     content: "";
