@@ -37,14 +37,6 @@
     },
     created() {
       this.AC_ISSUE_TOKEN()
-    },
-    mounted() {
-      // ip|page_url|uuid
-      // fetch("https://api.ipify.org").then((ip) => {
-      //   this.clientIp = ip
-      // })
-      // console.log(window.location.href)
-      // console.log(this.storeIssueToken.decoded_token.uuid)
     }
   }
 </script>
