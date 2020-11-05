@@ -6,6 +6,9 @@
       <best-class-list></best-class-list>
       <new-cafe-resource></new-cafe-resource>
     </div>
+    <div class="flex-layout">
+      <star-talk-list></star-talk-list>
+    </div>
   </v-layout>
 </template>
 
@@ -14,13 +17,15 @@
   import moveSiteSearch from "../components/levelZero/moveSiteSearch.vue"
   import bestClassList from "../components/levelZero/bestClassList.vue"
   import newCafeResource from "../components/levelZero/newCafeResource.vue"
+  import starTalkList from "../components/levelZero/starTalkList.vue"
 
   export default {
     components: {
       "banner-slide": bannerSlide,
       "move-site-search": moveSiteSearch,
       "best-class-list": bestClassList,
-      "new-cafe-resource": newCafeResource
+      "new-cafe-resource": newCafeResource,
+      "star-talk-list": starTalkList
     }
   }
 </script>
