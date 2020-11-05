@@ -3,25 +3,39 @@
     <div class="tab">
       <tab-button
         @tab-click="isTabActive(0)"
-        :tabState="tabState[0]"
+        :tabState="firstTabState"
         :tabStyles="tabStyle[0]"
       />
       <tab-button
         @tab-click="isTabActive(1)"
-        :tabState="tabState[1]"
+        :tabState="secondTabState"
         :tabStyles="tabStyle[1]"
       />
       <tab-button
         @tab-click="isTabActive(2)"
-        :tabState="tabState[2]"
+        :tabState="thirdTabState"
         :tabStyles="tabStyle[2]"
       />
     </div>
+    <section class="ranking-slide-tab">
+      <ranking-slide-menu />
+    </section>
+    <section v-if="firstTabState === true">
+      <div v-for="(item, index) in totalRankingList" :key="index">
+        <ranking-content :rankingInfo="item" />
+      </div>
+    </section>
+    <section v-if="secondTabState === true">랭킹2</section>
+    <section v-if="thirdTabState === true">랭킹3</section>
   </div>
 </template>
 
 <script>
   import tabButton from "./tabButton.vue"
+  import rankingContent from "./rankingContent.vue"
+  import rankingSlideMenu from "./rankingSlideMenu.vue"
+  import { totalRankingList } from "../../assets/data/teacherMain/ranking.js"
+
   export default {
     data() {
       return {
@@ -42,18 +56,36 @@
             height: "62px"
           }
         ],
-        tabState: [false, false, false]
+        firstTabState: true,
+        secondTabState: false,
+        thirdTabState: false,
+        totalRankingList
       }
     },
     components: {
-      tabButton
+      tabButton,
+      rankingContent,
+      rankingSlideMenu
     },
     methods: {
       isTabActive(index) {
-        for (let i = 0; i < this.tabState.length; i++) this.tabState[i] = false
-        this.tabState[index] = true
-        console.log(this.tabState[index])
-        console.log(this.tabState)
+        if (index === 0) {
+          this.firstTabState = true
+          this.secondTabState = false
+          this.thirdTabState = false
+        }
+
+        if (index === 1) {
+          this.firstTabState = false
+          this.secondTabState = true
+          this.thirdTabState = false
+        }
+
+        if (index === 2) {
+          this.firstTabState = false
+          this.secondTabState = false
+          this.thirdTabState = true
+        }
       }
     }
   }
@@ -69,5 +101,8 @@
   }
   .tab {
     display: flex;
+  }
+  .ranking-slide-tab {
+    height: 42px;
   }
 </style>
