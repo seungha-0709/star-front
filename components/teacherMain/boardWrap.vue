@@ -1,5 +1,5 @@
 <template>
-  <div class="background" :style="{ width: width, height: height }">
+  <div class="background" :style="{ width, height }">
     <header>
       <h2>{{ title }}</h2>
       <span><plus-icon size="2x" class="plus-icon" /></span>
@@ -43,7 +43,7 @@
   header {
     display: flex;
     justify-content: space-between;
-    margin: 32px 32px 8px 32px;
+    margin: 32px 32px 16px 32px;
   }
   header h2 {
     font-size: 20px;
